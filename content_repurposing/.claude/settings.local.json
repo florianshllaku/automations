@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(/c/Windows/py scraper.py)",
+      "Bash(python -m pytest test_scraper.py -v)",
+      "Bash(python3 -m pytest test_scraper.py -v)",
+      "Bash(py -m pytest test_scraper.py -v)",
+      "Bash(py -m pip install pytest -q)",
+      "Bash(python debug_telegram.py)",
+      "Bash(python3 debug_telegram.py)",
+      "Bash(where py:*)",
+      "Bash(py --version)",
+      "Bash(py debug_telegram.py)",
+      "Bash(py debug_scraper.py)",
+      "Read(//c/Users/brryli/AppData/Local/Programs/Python//**)",
+      "Read(//c/Users/brryli/anaconda3/**)",
+      "Read(//c/Users/brryli/miniconda3/**)",
+      "Bash(\"/c/Users/brryli/AppData/Local/Programs/Python/Python312/python.exe\" -m pip install fal-client --quiet)",
+      "Bash(\"/c/Users/brryli/AppData/Local/Programs/Python/Python312/python.exe\" -c \"import fal_client; print\\('fal_client ok'\\)\")",
+      "Bash(\"/c/Users/brryli/AppData/Local/Programs/Python/Python312/python.exe\" -c \"import requests; print\\('requests', requests.__version__\\)\")",
+      "Bash(python test_image_telegram.py)",
+      "Bash(python3 test_image_telegram.py)",
+      "Bash(py test_image_telegram.py)",
+      "Bash(py -c \"import PIL; print\\(''pillow ok''\\)\")",
+      "Bash(py test_video.py)",
+      "Bash(py -c \":*)"
+    ]
+  }
+}

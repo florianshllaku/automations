@@ -1,0 +1,1780 @@
+2026-04-02 12:15:29 [INFO] ============================================================
+2026-04-02 12:15:29 [INFO] ============================================================
+2026-04-02 12:15:29 [INFO] RUN STARTED — log: run_2026-04-02_12-15-29.log
+2026-04-02 12:15:29 [INFO] RUN STARTED — log: run_2026-04-02_12-15-29.log
+2026-04-02 12:15:29 [INFO] ============================================================
+2026-04-02 12:15:29 [INFO] ============================================================
+2026-04-02 12:15:30 [INFO] Scraping https://www.rundown.ai/articles?category=AI
+2026-04-02 12:15:30 [INFO] Scraping https://www.rundown.ai/articles?category=AI
+Loading https://www.rundown.ai/articles?category=AI ...
+  Page 1: 8 articles.
+2026-04-02 12:15:45 [INFO] Page 1: 8 articles found
+2026-04-02 12:15:45 [INFO] Page 1: 8 articles found
+  Reached checkpoint at page 1. Stopping.
+2026-04-02 12:15:45 [INFO] Reached checkpoint at page 1 — stopping scrape
+2026-04-02 12:15:45 [INFO] Reached checkpoint at page 1 — stopping scrape
+2026-04-02 12:15:45 [INFO] 3 new article(s) found
+2026-04-02 12:15:45 [INFO] 3 new article(s) found
+[
+  {
+    "title": "Dorsey makes the AI case against managers",
+    "url": "https://www.rundown.ai/articles/dorsey-makes-the-ai-case-against-managers",
+    "date": null,
+    "id": 1018
+  },
+  {
+    "title": "OpenAI’s new $122B funding, 'superapp'",
+    "url": "https://www.rundown.ai/articles/openai-new-122b-funding-superapp",
+    "date": null,
+    "id": 1019
+  },
+  {
+    "title": "OpenAI's $1B Disney blindside",
+    "url": "https://www.rundown.ai/articles/openai-1b-disney-blindside",
+    "date": null,
+    "id": 1020
+  }
+]
+  Sending notification for: Dorsey makes the AI case against managers
+2026-04-02 12:15:45 [INFO] Telegram notification sent: Dorsey makes the AI case against managers
+2026-04-02 12:15:45 [INFO] Telegram notification sent: Dorsey makes the AI case against managers
+2026-04-02 12:15:45 [DEBUG] [DEBUG] send_approval_message — title: Dorsey makes the AI case against managers, url: https://www.rundown.ai/articles/dorsey-makes-the-ai-case-against-managers
+2026-04-02 12:15:45 [DEBUG] [DEBUG] send_approval_message — title: Dorsey makes the AI case against managers, url: https://www.rundown.ai/articles/dorsey-makes-the-ai-case-against-managers
+2026-04-02 12:15:47 [DEBUG] [DEBUG] Approval message sent — message_id: 235
+2026-04-02 12:15:47 [DEBUG] [DEBUG] Approval message sent — message_id: 235
+  Waiting 5 seconds before next notification ...
+  Sending notification for: OpenAI’s new $122B funding, 'superapp'
+2026-04-02 12:15:52 [INFO] Telegram notification sent: OpenAI’s new $122B funding, 'superapp'
+2026-04-02 12:15:52 [INFO] Telegram notification sent: OpenAI’s new $122B funding, 'superapp'
+2026-04-02 12:15:52 [DEBUG] [DEBUG] send_approval_message — title: OpenAI’s new $122B funding, 'superapp', url: https://www.rundown.ai/articles/openai-new-122b-funding-superapp
+2026-04-02 12:15:52 [DEBUG] [DEBUG] send_approval_message — title: OpenAI’s new $122B funding, 'superapp', url: https://www.rundown.ai/articles/openai-new-122b-funding-superapp
+2026-04-02 12:15:53 [DEBUG] [DEBUG] Approval message sent — message_id: 236
+2026-04-02 12:15:53 [DEBUG] [DEBUG] Approval message sent — message_id: 236
+  Waiting 5 seconds before next notification ...
+  Sending notification for: OpenAI's $1B Disney blindside
+2026-04-02 12:15:58 [INFO] Telegram notification sent: OpenAI's $1B Disney blindside
+2026-04-02 12:15:58 [INFO] Telegram notification sent: OpenAI's $1B Disney blindside
+2026-04-02 12:15:58 [DEBUG] [DEBUG] send_approval_message — title: OpenAI's $1B Disney blindside, url: https://www.rundown.ai/articles/openai-1b-disney-blindside
+2026-04-02 12:15:58 [DEBUG] [DEBUG] send_approval_message — title: OpenAI's $1B Disney blindside, url: https://www.rundown.ai/articles/openai-1b-disney-blindside
+2026-04-02 12:15:59 [DEBUG] [DEBUG] Approval message sent — message_id: 237
+2026-04-02 12:15:59 [DEBUG] [DEBUG] Approval message sent — message_id: 237
+2026-04-02 12:15:59 [INFO] All 3 notification(s) sent — waiting for responses
+2026-04-02 12:15:59 [INFO] All 3 notification(s) sent — waiting for responses
+
+All 3 notification(s) sent. Waiting for your responses ...
+  Waiting for response on: Dorsey makes the AI case against managers
+2026-04-02 12:15:59 [INFO] Waiting for user response: Dorsey makes the AI case against managers
+2026-04-02 12:15:59 [INFO] Waiting for user response: Dorsey makes the AI case against managers
+2026-04-02 12:15:59 [DEBUG] [DEBUG] _wait_for_approval — polling for message_id: 235
+2026-04-02 12:15:59 [DEBUG] [DEBUG] _wait_for_approval — polling for message_id: 235
+2026-04-02 12:16:00 [DEBUG] [DEBUG] Flushed stale updates — starting offset: 873337443
+2026-04-02 12:16:00 [DEBUG] [DEBUG] Flushed stale updates — starting offset: 873337443
+2026-04-02 12:16:12 [DEBUG] [DEBUG] Poll #2 — 1 update(s) received
+2026-04-02 12:16:12 [DEBUG] [DEBUG] Poll #2 — 1 update(s) received
+2026-04-02 12:16:12 [DEBUG] [DEBUG] Update id=873337443 — has callback_query: True
+2026-04-02 12:16:12 [DEBUG] [DEBUG] Update id=873337443 — has callback_query: True
+2026-04-02 12:16:14 [DEBUG] [DEBUG] Poll #3 — 1 update(s) received
+2026-04-02 12:16:14 [DEBUG] [DEBUG] Poll #3 — 1 update(s) received
+2026-04-02 12:16:14 [DEBUG] [DEBUG] Update id=873337444 — has callback_query: True
+2026-04-02 12:16:14 [DEBUG] [DEBUG] Update id=873337444 — has callback_query: True
+2026-04-02 12:16:14 [DEBUG] [DEBUG] Callback matched message_id=235 — choice: yes
+2026-04-02 12:16:14 [DEBUG] [DEBUG] Callback matched message_id=235 — choice: yes
+2026-04-02 12:16:14 [INFO] User tapped YES on message_id=235
+2026-04-02 12:16:14 [INFO] User tapped YES on message_id=235
+2026-04-02 12:16:14 [DEBUG] [DEBUG] Approval flow complete — returning True
+2026-04-02 12:16:14 [DEBUG] [DEBUG] Approval flow complete — returning True
+2026-04-02 12:16:14 [INFO] User approved: Dorsey makes the AI case against managers
+2026-04-02 12:16:14 [INFO] User approved: Dorsey makes the AI case against managers
+User approved — generating content: Dorsey makes the AI case against managers
+2026-04-02 12:16:14 [INFO] Fetching article: https://www.rundown.ai/articles/dorsey-makes-the-ai-case-against-managers
+2026-04-02 12:16:14 [INFO] Fetching article: https://www.rundown.ai/articles/dorsey-makes-the-ai-case-against-managers
+  Fetching article content: https://www.rundown.ai/articles/dorsey-makes-the-ai-case-against-managers
+2026-04-02 12:16:16 [INFO] Article fetched (10074 chars): https://www.rundown.ai/articles/dorsey-makes-the-ai-case-against-managers
+2026-04-02 12:16:16 [INFO] Article fetched (10074 chars): https://www.rundown.ai/articles/dorsey-makes-the-ai-case-against-managers
+  Downloading image ...
+2026-04-02 12:16:16 [INFO] Image downloaded: article_images\dorsey-makes-the-ai-case-against-managers.png
+2026-04-02 12:16:16 [INFO] Image downloaded: article_images\dorsey-makes-the-ai-case-against-managers.png
+2026-04-02 12:16:16 [INFO] Calling Claude (research)
+2026-04-02 12:16:16 [INFO] Calling Claude (research)
+  Calling Claude for research ...
+2026-04-02 12:16:22 [INFO] Claude research complete — topic: Block CEO Jack Dorsey argues AI can replace middle management, framing the company's recent 40% workforce cut as the start of a major workplace restructure for the AI era
+2026-04-02 12:16:22 [INFO] Claude research complete — topic: Block CEO Jack Dorsey argues AI can replace middle management, framing the company's recent 40% workforce cut as the start of a major workplace restructure for the AI era
+2026-04-02 12:16:22 [INFO] Calling Claude (reel script)
+2026-04-02 12:16:22 [INFO] Calling Claude (reel script)
+  Generating reel script ...
+2026-04-02 12:16:36 [INFO] Reel script complete — title: Your Boss Might Be an AI Soon, runtime: ~42 seconds
+2026-04-02 12:16:36 [INFO] Reel script complete — title: Your Boss Might Be an AI Soon, runtime: ~42 seconds
+2026-04-02 12:16:36 [DEBUG] [DEBUG] send_message — chars: 1004, preview: 🎙 <b>SCRIPT</b>
+
+A billionaire CEO just fired over four thousand employees and r
+2026-04-02 12:16:36 [DEBUG] [DEBUG] send_message — chars: 1004, preview: 🎙 <b>SCRIPT</b>
+
+A billionaire CEO just fired over four thousand employees and r
+2026-04-02 12:16:37 [DEBUG] [DEBUG] send_message — delivered
+2026-04-02 12:16:37 [DEBUG] [DEBUG] send_message — delivered
+2026-04-02 12:16:37 [INFO] Script sent to Telegram
+2026-04-02 12:16:37 [INFO] Script sent to Telegram
+2026-04-02 12:16:37 [DEBUG] [DEBUG] ElevenLabs TTS — voice_id: YgrS0YQVeTTwGJKRYx5E, model: eleven_multilingual_v2, chars: 987
+2026-04-02 12:16:37 [DEBUG] [DEBUG] ElevenLabs TTS — voice_id: YgrS0YQVeTTwGJKRYx5E, model: eleven_multilingual_v2, chars: 987
+2026-04-02 12:16:37 [DEBUG] [DEBUG] Script preview: A billionaire CEO just fired over four thousand employees and replaced their managers with AI. And he says this is just ...
+2026-04-02 12:16:37 [DEBUG] [DEBUG] Script preview: A billionaire CEO just fired over four thousand employees and replaced their managers with AI. And he says this is just ...
+2026-04-02 12:16:37 [INFO] ElevenLabs TTS call started — voice_id=YgrS0YQVeTTwGJKRYx5E, chars=987
+2026-04-02 12:16:37 [INFO] ElevenLabs TTS call started — voice_id=YgrS0YQVeTTwGJKRYx5E, chars=987
+2026-04-02 12:16:37 [DEBUG] [DEBUG] ElevenLabs response received — writing chunks to audio.mp3
+2026-04-02 12:16:37 [DEBUG] [DEBUG] ElevenLabs response received — writing chunks to audio.mp3
+2026-04-02 12:16:48 [DEBUG] [DEBUG] Audio written — 946 chunks, 945 KB, path: audio.mp3
+2026-04-02 12:16:48 [DEBUG] [DEBUG] Audio written — 946 chunks, 945 KB, path: audio.mp3
+2026-04-02 12:16:48 [INFO] ElevenLabs TTS complete — saved to audio.mp3 (945 KB)
+2026-04-02 12:16:48 [INFO] ElevenLabs TTS complete — saved to audio.mp3 (945 KB)
+2026-04-02 12:16:48 [INFO] Sending audio to Telegram — file: audio.mp3, size: 945 KB, title: Your Boss Might Be an AI Soon
+2026-04-02 12:16:48 [INFO] Sending audio to Telegram — file: audio.mp3, size: 945 KB, title: Your Boss Might Be an AI Soon
+2026-04-02 12:16:48 [DEBUG] [DEBUG] audio file exists: True
+2026-04-02 12:16:48 [DEBUG] [DEBUG] audio file exists: True
+2026-04-02 12:16:50 [INFO] Audio sent to Telegram — audio.mp3
+2026-04-02 12:16:50 [INFO] Audio sent to Telegram — audio.mp3
+2026-04-02 12:16:50 [INFO] Generating visual prompts — style: Algorithmic
+2026-04-02 12:16:50 [INFO] Generating visual prompts — style: Algorithmic
+  Generating visual prompts (Algorithmic) ...
+2026-04-02 12:16:50 [INFO] Calling Claude (visual prompts)
+2026-04-02 12:16:50 [INFO] Calling Claude (visual prompts)
+  Generating visual prompts ...
+2026-04-02 12:17:34 [INFO] Visual prompts complete — 5 frames generated
+2026-04-02 12:17:34 [INFO] Visual prompts complete — 5 frames generated
+2026-04-02 12:17:34 [INFO] Visual prompts ready — Algorithmic: 5 frames
+2026-04-02 12:17:34 [INFO] Visual prompts ready — Algorithmic: 5 frames
+2026-04-02 12:17:34 [INFO] Generating images from fal.ai — style: Algorithmic
+2026-04-02 12:17:34 [INFO] Generating images from fal.ai — style: Algorithmic
+2026-04-02 12:17:34 [INFO] Starting image generation — 5 frames, article: 'Dorsey makes the AI case against managers', style: 'algorithmic'
+2026-04-02 12:17:34 [INFO] Starting image generation — 5 frames, article: 'Dorsey makes the AI case against managers', style: 'algorithmic'
+2026-04-02 12:17:34 [DEBUG] [DEBUG] Visuals to generate: ['HOOK', 'CONTEXT', 'TWIST', 'VISION', 'CTA']
+2026-04-02 12:17:34 [DEBUG] [DEBUG] Visuals to generate: ['HOOK', 'CONTEXT', 'TWIST', 'VISION', 'CTA']
+2026-04-02 12:17:34 [DEBUG] [DEBUG] Submitting image 1/5 — label: HOOK, stem: algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook
+2026-04-02 12:17:34 [DEBUG] [DEBUG] Submitting image 1/5 — label: HOOK, stem: algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook
+2026-04-02 12:17:34 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook, model: fal-ai/nano-banana-pro, prompt chars: 1326
+2026-04-02 12:17:34 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook, model: fal-ai/nano-banana-pro, prompt chars: 1326
+2026-04-02 12:17:34 [DEBUG] [DEBUG] Prompt preview: A large organized grid of simplified geometric human figure icons arranged in precise rows and columns against a deep da...
+2026-04-02 12:17:34 [DEBUG] [DEBUG] Prompt preview: A large organized grid of simplified geometric human figure icons arranged in precise rows and columns against a deep da...
+2026-04-02 12:17:34 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 12:17:34 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 12:17:35 [INFO] fal.ai job submitted — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook
+2026-04-02 12:17:35 [INFO] fal.ai job submitted — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook
+2026-04-02 12:17:35 [DEBUG] [DEBUG] Handler request_id: 019d4db2-c687-7533-93a3-3d20414d233a
+2026-04-02 12:17:35 [DEBUG] [DEBUG] Handler request_id: 019d4db2-c687-7533-93a3-3d20414d233a
+2026-04-02 12:17:35 [DEBUG] [DEBUG] Submit 1 OK — handler acquired
+2026-04-02 12:17:35 [DEBUG] [DEBUG] Submit 1 OK — handler acquired
+2026-04-02 12:17:35 [DEBUG] [DEBUG] Sleeping 5s before next submission (2/5)
+2026-04-02 12:17:35 [DEBUG] [DEBUG] Sleeping 5s before next submission (2/5)
+2026-04-02 12:17:40 [DEBUG] [DEBUG] Submitting image 2/5 — label: CONTEXT, stem: algorithmic_dorsey_makes_the_ai_case_against_manager_02_context
+2026-04-02 12:17:40 [DEBUG] [DEBUG] Submitting image 2/5 — label: CONTEXT, stem: algorithmic_dorsey_makes_the_ai_case_against_manager_02_context
+2026-04-02 12:17:40 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_02_context, model: fal-ai/nano-banana-pro, prompt chars: 1341
+2026-04-02 12:17:40 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_02_context, model: fal-ai/nano-banana-pro, prompt chars: 1341
+2026-04-02 12:17:40 [DEBUG] [DEBUG] Prompt preview: A single simplified geometric human silhouette standing at the center of the frame facing a massive abstract switchboard...
+2026-04-02 12:17:40 [DEBUG] [DEBUG] Prompt preview: A single simplified geometric human silhouette standing at the center of the frame facing a massive abstract switchboard...
+2026-04-02 12:17:40 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 12:17:40 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 12:17:40 [INFO] fal.ai job submitted — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_02_context
+2026-04-02 12:17:40 [INFO] fal.ai job submitted — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_02_context
+2026-04-02 12:17:40 [DEBUG] [DEBUG] Handler request_id: 019d4db2-dbe0-7981-8e07-7f9a4a4ff317
+2026-04-02 12:17:40 [DEBUG] [DEBUG] Handler request_id: 019d4db2-dbe0-7981-8e07-7f9a4a4ff317
+2026-04-02 12:17:40 [DEBUG] [DEBUG] Submit 2 OK — handler acquired
+2026-04-02 12:17:40 [DEBUG] [DEBUG] Submit 2 OK — handler acquired
+2026-04-02 12:17:40 [DEBUG] [DEBUG] Sleeping 5s before next submission (3/5)
+2026-04-02 12:17:40 [DEBUG] [DEBUG] Sleeping 5s before next submission (3/5)
+2026-04-02 12:17:45 [DEBUG] [DEBUG] Submitting image 3/5 — label: TWIST, stem: algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist
+2026-04-02 12:17:45 [DEBUG] [DEBUG] Submitting image 3/5 — label: TWIST, stem: algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist
+2026-04-02 12:17:45 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist, model: fal-ai/nano-banana-pro, prompt chars: 1465
+2026-04-02 12:17:45 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist, model: fal-ai/nano-banana-pro, prompt chars: 1465
+2026-04-02 12:17:45 [DEBUG] [DEBUG] Prompt preview: A vertical organizational hierarchy depicted as a clean geometric diagram. At the top, a single node. At the bottom, a w...
+2026-04-02 12:17:45 [DEBUG] [DEBUG] Prompt preview: A vertical organizational hierarchy depicted as a clean geometric diagram. At the top, a single node. At the bottom, a w...
+2026-04-02 12:17:45 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 12:17:45 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 12:17:46 [INFO] fal.ai job submitted — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist
+2026-04-02 12:17:46 [INFO] fal.ai job submitted — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist
+2026-04-02 12:17:46 [DEBUG] [DEBUG] Handler request_id: 019d4db2-f142-70f3-8d40-eac05a434ecc
+2026-04-02 12:17:46 [DEBUG] [DEBUG] Handler request_id: 019d4db2-f142-70f3-8d40-eac05a434ecc
+2026-04-02 12:17:46 [DEBUG] [DEBUG] Submit 3 OK — handler acquired
+2026-04-02 12:17:46 [DEBUG] [DEBUG] Submit 3 OK — handler acquired
+2026-04-02 12:17:46 [DEBUG] [DEBUG] Sleeping 5s before next submission (4/5)
+2026-04-02 12:17:46 [DEBUG] [DEBUG] Sleeping 5s before next submission (4/5)
+2026-04-02 12:17:51 [DEBUG] [DEBUG] Submitting image 4/5 — label: VISION, stem: algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision
+2026-04-02 12:17:51 [DEBUG] [DEBUG] Submitting image 4/5 — label: VISION, stem: algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision
+2026-04-02 12:17:51 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision, model: fal-ai/nano-banana-pro, prompt chars: 1603
+2026-04-02 12:17:51 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision, model: fal-ai/nano-banana-pro, prompt chars: 1603
+2026-04-02 12:17:51 [DEBUG] [DEBUG] Prompt preview: Three distinct vertical columns arranged symmetrically across the frame, each containing rows of simplified geometric hu...
+2026-04-02 12:17:51 [DEBUG] [DEBUG] Prompt preview: Three distinct vertical columns arranged symmetrically across the frame, each containing rows of simplified geometric hu...
+2026-04-02 12:17:51 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 12:17:51 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 12:17:51 [INFO] fal.ai job submitted — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision
+2026-04-02 12:17:51 [INFO] fal.ai job submitted — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision
+2026-04-02 12:17:51 [DEBUG] [DEBUG] Handler request_id: 019d4db3-058c-7510-8121-afa9cfec6a9a
+2026-04-02 12:17:51 [DEBUG] [DEBUG] Handler request_id: 019d4db3-058c-7510-8121-afa9cfec6a9a
+2026-04-02 12:17:51 [DEBUG] [DEBUG] Submit 4 OK — handler acquired
+2026-04-02 12:17:51 [DEBUG] [DEBUG] Submit 4 OK — handler acquired
+2026-04-02 12:17:51 [DEBUG] [DEBUG] Sleeping 5s before next submission (5/5)
+2026-04-02 12:17:51 [DEBUG] [DEBUG] Sleeping 5s before next submission (5/5)
+2026-04-02 12:17:56 [DEBUG] [DEBUG] Submitting image 5/5 — label: CTA, stem: algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta
+2026-04-02 12:17:56 [DEBUG] [DEBUG] Submitting image 5/5 — label: CTA, stem: algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta
+2026-04-02 12:17:56 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta, model: fal-ai/nano-banana-pro, prompt chars: 1544
+2026-04-02 12:17:56 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta, model: fal-ai/nano-banana-pro, prompt chars: 1544
+2026-04-02 12:17:56 [DEBUG] [DEBUG] Prompt preview: A massive grid of dozens of identical simplified geometric building icons arranged in precise rows stretching toward a v...
+2026-04-02 12:17:56 [DEBUG] [DEBUG] Prompt preview: A massive grid of dozens of identical simplified geometric building icons arranged in precise rows stretching toward a v...
+2026-04-02 12:17:56 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 12:17:56 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 12:17:56 [INFO] fal.ai job submitted — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta
+2026-04-02 12:17:56 [INFO] fal.ai job submitted — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta
+2026-04-02 12:17:56 [DEBUG] [DEBUG] Handler request_id: 019d4db3-19bf-7ef1-8786-d86e51e17ccf
+2026-04-02 12:17:56 [DEBUG] [DEBUG] Handler request_id: 019d4db3-19bf-7ef1-8786-d86e51e17ccf
+2026-04-02 12:17:56 [DEBUG] [DEBUG] Submit 5 OK — handler acquired
+2026-04-02 12:17:56 [DEBUG] [DEBUG] Submit 5 OK — handler acquired
+2026-04-02 12:17:56 [INFO] All 5 jobs submitted — now collecting results
+2026-04-02 12:17:56 [INFO] All 5 jobs submitted — now collecting results
+2026-04-02 12:17:56 [DEBUG] [DEBUG] Collecting image 1/5 — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook
+2026-04-02 12:17:56 [DEBUG] [DEBUG] Collecting image 1/5 — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook
+2026-04-02 12:17:56 [DEBUG] [DEBUG] Collecting result for: algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook (blocking until ready)
+2026-04-02 12:17:56 [DEBUG] [DEBUG] Collecting result for: algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook (blocking until ready)
+2026-04-02 12:19:02 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-02 12:19:02 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-02 12:19:02 [DEBUG] [DEBUG] Images in result: 1
+2026-04-02 12:19:02 [DEBUG] [DEBUG] Images in result: 1
+2026-04-02 12:19:02 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94a039/CKvfhIJcgWHNS18B-2k_y_k2nXzWIU.jpg', 'content_type': 'image/jpeg', 'file_name': 'CKvfhIJcgWHNS18B-2k_y_k2nXzWIU.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-02 12:19:02 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94a039/CKvfhIJcgWHNS18B-2k_y_k2nXzWIU.jpg', 'content_type': 'image/jpeg', 'file_name': 'CKvfhIJcgWHNS18B-2k_y_k2nXzWIU.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-02 12:19:02 [INFO] fal.ai image ready — algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94a039/CKvfhIJcgWHNS18B-2k_y_k2nXzWIU.jpg
+2026-04-02 12:19:02 [INFO] fal.ai image ready — algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94a039/CKvfhIJcgWHNS18B-2k_y_k2nXzWIU.jpg
+2026-04-02 12:19:02 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook.jpg
+2026-04-02 12:19:02 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook.jpg
+2026-04-02 12:19:05 [DEBUG] [DEBUG] Downloaded 2487 KB
+2026-04-02 12:19:05 [DEBUG] [DEBUG] Downloaded 2487 KB
+2026-04-02 12:19:05 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-02 12:19:05 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-02 12:19:05 [DEBUG] [DEBUG] Final saved: 2487 KB at generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook.jpg
+2026-04-02 12:19:05 [DEBUG] [DEBUG] Final saved: 2487 KB at generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook.jpg
+2026-04-02 12:19:05 [INFO] Image saved locally: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook.jpg (2487 KB)
+2026-04-02 12:19:05 [INFO] Image saved locally: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook.jpg (2487 KB)
+2026-04-02 12:19:05 [DEBUG] [DEBUG] Collect 1 result — url: https://v3b.fal.media/files/b/0a94a039/CKvfhIJcgWHNS18B-2k_y_k2nXzWIU.jpg, path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook.jpg
+2026-04-02 12:19:05 [DEBUG] [DEBUG] Collect 1 result — url: https://v3b.fal.media/files/b/0a94a039/CKvfhIJcgWHNS18B-2k_y_k2nXzWIU.jpg, path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook.jpg
+2026-04-02 12:19:05 [DEBUG] [DEBUG] Collecting image 2/5 — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_02_context
+2026-04-02 12:19:05 [DEBUG] [DEBUG] Collecting image 2/5 — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_02_context
+2026-04-02 12:19:05 [DEBUG] [DEBUG] Collecting result for: algorithmic_dorsey_makes_the_ai_case_against_manager_02_context (blocking until ready)
+2026-04-02 12:19:05 [DEBUG] [DEBUG] Collecting result for: algorithmic_dorsey_makes_the_ai_case_against_manager_02_context (blocking until ready)
+2026-04-02 12:19:05 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-02 12:19:05 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-02 12:19:05 [DEBUG] [DEBUG] Images in result: 1
+2026-04-02 12:19:05 [DEBUG] [DEBUG] Images in result: 1
+2026-04-02 12:19:05 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94a03a/iDKBKtMn9T2lsD_kdIZdI_6YaQ9X9x.jpg', 'content_type': 'image/jpeg', 'file_name': 'iDKBKtMn9T2lsD_kdIZdI_6YaQ9X9x.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-02 12:19:05 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94a03a/iDKBKtMn9T2lsD_kdIZdI_6YaQ9X9x.jpg', 'content_type': 'image/jpeg', 'file_name': 'iDKBKtMn9T2lsD_kdIZdI_6YaQ9X9x.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-02 12:19:05 [INFO] fal.ai image ready — algorithmic_dorsey_makes_the_ai_case_against_manager_02_context | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94a03a/iDKBKtMn9T2lsD_kdIZdI_6YaQ9X9x.jpg
+2026-04-02 12:19:05 [INFO] fal.ai image ready — algorithmic_dorsey_makes_the_ai_case_against_manager_02_context | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94a03a/iDKBKtMn9T2lsD_kdIZdI_6YaQ9X9x.jpg
+2026-04-02 12:19:05 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_02_context.jpg
+2026-04-02 12:19:05 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_02_context.jpg
+2026-04-02 12:19:08 [DEBUG] [DEBUG] Downloaded 2074 KB
+2026-04-02 12:19:08 [DEBUG] [DEBUG] Downloaded 2074 KB
+2026-04-02 12:19:08 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-02 12:19:08 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-02 12:19:08 [DEBUG] [DEBUG] Final saved: 2074 KB at generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_02_context.jpg
+2026-04-02 12:19:08 [DEBUG] [DEBUG] Final saved: 2074 KB at generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_02_context.jpg
+2026-04-02 12:19:08 [INFO] Image saved locally: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_02_context.jpg (2074 KB)
+2026-04-02 12:19:08 [INFO] Image saved locally: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_02_context.jpg (2074 KB)
+2026-04-02 12:19:08 [DEBUG] [DEBUG] Collect 2 result — url: https://v3b.fal.media/files/b/0a94a03a/iDKBKtMn9T2lsD_kdIZdI_6YaQ9X9x.jpg, path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_02_context.jpg
+2026-04-02 12:19:08 [DEBUG] [DEBUG] Collect 2 result — url: https://v3b.fal.media/files/b/0a94a03a/iDKBKtMn9T2lsD_kdIZdI_6YaQ9X9x.jpg, path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_02_context.jpg
+2026-04-02 12:19:08 [DEBUG] [DEBUG] Collecting image 3/5 — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist
+2026-04-02 12:19:08 [DEBUG] [DEBUG] Collecting image 3/5 — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist
+2026-04-02 12:19:08 [DEBUG] [DEBUG] Collecting result for: algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist (blocking until ready)
+2026-04-02 12:19:08 [DEBUG] [DEBUG] Collecting result for: algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist (blocking until ready)
+2026-04-02 12:19:09 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-02 12:19:09 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-02 12:19:09 [DEBUG] [DEBUG] Images in result: 1
+2026-04-02 12:19:09 [DEBUG] [DEBUG] Images in result: 1
+2026-04-02 12:19:09 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94a03a/UwoCvxD9GjMIwkHM7pQCr_PaMJC9dw.jpg', 'content_type': 'image/jpeg', 'file_name': 'UwoCvxD9GjMIwkHM7pQCr_PaMJC9dw.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-02 12:19:09 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94a03a/UwoCvxD9GjMIwkHM7pQCr_PaMJC9dw.jpg', 'content_type': 'image/jpeg', 'file_name': 'UwoCvxD9GjMIwkHM7pQCr_PaMJC9dw.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-02 12:19:09 [INFO] fal.ai image ready — algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94a03a/UwoCvxD9GjMIwkHM7pQCr_PaMJC9dw.jpg
+2026-04-02 12:19:09 [INFO] fal.ai image ready — algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94a03a/UwoCvxD9GjMIwkHM7pQCr_PaMJC9dw.jpg
+2026-04-02 12:19:09 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist.jpg
+2026-04-02 12:19:09 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist.jpg
+2026-04-02 12:19:12 [DEBUG] [DEBUG] Downloaded 2344 KB
+2026-04-02 12:19:12 [DEBUG] [DEBUG] Downloaded 2344 KB
+2026-04-02 12:19:12 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-02 12:19:12 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-02 12:19:12 [DEBUG] [DEBUG] Final saved: 2344 KB at generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist.jpg
+2026-04-02 12:19:12 [DEBUG] [DEBUG] Final saved: 2344 KB at generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist.jpg
+2026-04-02 12:19:12 [INFO] Image saved locally: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist.jpg (2344 KB)
+2026-04-02 12:19:12 [INFO] Image saved locally: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist.jpg (2344 KB)
+2026-04-02 12:19:12 [DEBUG] [DEBUG] Collect 3 result — url: https://v3b.fal.media/files/b/0a94a03a/UwoCvxD9GjMIwkHM7pQCr_PaMJC9dw.jpg, path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist.jpg
+2026-04-02 12:19:12 [DEBUG] [DEBUG] Collect 3 result — url: https://v3b.fal.media/files/b/0a94a03a/UwoCvxD9GjMIwkHM7pQCr_PaMJC9dw.jpg, path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist.jpg
+2026-04-02 12:19:12 [DEBUG] [DEBUG] Collecting image 4/5 — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision
+2026-04-02 12:19:12 [DEBUG] [DEBUG] Collecting image 4/5 — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision
+2026-04-02 12:19:12 [DEBUG] [DEBUG] Collecting result for: algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision (blocking until ready)
+2026-04-02 12:19:12 [DEBUG] [DEBUG] Collecting result for: algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision (blocking until ready)
+2026-04-02 12:19:12 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-02 12:19:12 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-02 12:19:12 [DEBUG] [DEBUG] Images in result: 1
+2026-04-02 12:19:12 [DEBUG] [DEBUG] Images in result: 1
+2026-04-02 12:19:12 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94a03b/Gar4PhLFXLfMfbLd0su-N_ZSCxYbTm.jpg', 'content_type': 'image/jpeg', 'file_name': 'Gar4PhLFXLfMfbLd0su-N_ZSCxYbTm.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-02 12:19:12 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94a03b/Gar4PhLFXLfMfbLd0su-N_ZSCxYbTm.jpg', 'content_type': 'image/jpeg', 'file_name': 'Gar4PhLFXLfMfbLd0su-N_ZSCxYbTm.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-02 12:19:12 [INFO] fal.ai image ready — algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94a03b/Gar4PhLFXLfMfbLd0su-N_ZSCxYbTm.jpg
+2026-04-02 12:19:12 [INFO] fal.ai image ready — algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94a03b/Gar4PhLFXLfMfbLd0su-N_ZSCxYbTm.jpg
+2026-04-02 12:19:12 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision.jpg
+2026-04-02 12:19:12 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision.jpg
+2026-04-02 12:19:16 [DEBUG] [DEBUG] Downloaded 2713 KB
+2026-04-02 12:19:16 [DEBUG] [DEBUG] Downloaded 2713 KB
+2026-04-02 12:19:16 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-02 12:19:16 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-02 12:19:16 [DEBUG] [DEBUG] Final saved: 2713 KB at generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision.jpg
+2026-04-02 12:19:16 [DEBUG] [DEBUG] Final saved: 2713 KB at generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision.jpg
+2026-04-02 12:19:16 [INFO] Image saved locally: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision.jpg (2713 KB)
+2026-04-02 12:19:16 [INFO] Image saved locally: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision.jpg (2713 KB)
+2026-04-02 12:19:16 [DEBUG] [DEBUG] Collect 4 result — url: https://v3b.fal.media/files/b/0a94a03b/Gar4PhLFXLfMfbLd0su-N_ZSCxYbTm.jpg, path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision.jpg
+2026-04-02 12:19:16 [DEBUG] [DEBUG] Collect 4 result — url: https://v3b.fal.media/files/b/0a94a03b/Gar4PhLFXLfMfbLd0su-N_ZSCxYbTm.jpg, path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision.jpg
+2026-04-02 12:19:16 [DEBUG] [DEBUG] Collecting image 5/5 — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta
+2026-04-02 12:19:16 [DEBUG] [DEBUG] Collecting image 5/5 — stem: algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta
+2026-04-02 12:19:16 [DEBUG] [DEBUG] Collecting result for: algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta (blocking until ready)
+2026-04-02 12:19:16 [DEBUG] [DEBUG] Collecting result for: algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta (blocking until ready)
+2026-04-02 12:19:16 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-02 12:19:16 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-02 12:19:16 [DEBUG] [DEBUG] Images in result: 1
+2026-04-02 12:19:16 [DEBUG] [DEBUG] Images in result: 1
+2026-04-02 12:19:16 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94a03b/5OKHycfjGt0JykdzgH68L_TOqHdUXe.jpg', 'content_type': 'image/jpeg', 'file_name': '5OKHycfjGt0JykdzgH68L_TOqHdUXe.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-02 12:19:16 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94a03b/5OKHycfjGt0JykdzgH68L_TOqHdUXe.jpg', 'content_type': 'image/jpeg', 'file_name': '5OKHycfjGt0JykdzgH68L_TOqHdUXe.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-02 12:19:16 [INFO] fal.ai image ready — algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94a03b/5OKHycfjGt0JykdzgH68L_TOqHdUXe.jpg
+2026-04-02 12:19:16 [INFO] fal.ai image ready — algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94a03b/5OKHycfjGt0JykdzgH68L_TOqHdUXe.jpg
+2026-04-02 12:19:16 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta.jpg
+2026-04-02 12:19:16 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta.jpg
+2026-04-02 12:19:27 [DEBUG] [DEBUG] Downloaded 3041 KB
+2026-04-02 12:19:27 [DEBUG] [DEBUG] Downloaded 3041 KB
+2026-04-02 12:19:27 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-02 12:19:27 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-02 12:19:27 [DEBUG] [DEBUG] Final saved: 3041 KB at generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta.jpg
+2026-04-02 12:19:27 [DEBUG] [DEBUG] Final saved: 3041 KB at generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta.jpg
+2026-04-02 12:19:27 [INFO] Image saved locally: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta.jpg (3041 KB)
+2026-04-02 12:19:27 [INFO] Image saved locally: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta.jpg (3041 KB)
+2026-04-02 12:19:27 [DEBUG] [DEBUG] Collect 5 result — url: https://v3b.fal.media/files/b/0a94a03b/5OKHycfjGt0JykdzgH68L_TOqHdUXe.jpg, path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta.jpg
+2026-04-02 12:19:27 [DEBUG] [DEBUG] Collect 5 result — url: https://v3b.fal.media/files/b/0a94a03b/5OKHycfjGt0JykdzgH68L_TOqHdUXe.jpg, path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta.jpg
+2026-04-02 12:19:27 [INFO] Image generation complete — 5/5 succeeded
+2026-04-02 12:19:27 [INFO] Image generation complete — 5/5 succeeded
+2026-04-02 12:19:27 [DEBUG] [DEBUG] Final image summary:
+2026-04-02 12:19:27 [DEBUG] [DEBUG] Final image summary:
+2026-04-02 12:19:27 [DEBUG] [DEBUG]   [HOOK] url=https://v3b.fal.media/files/b/0a94a039/CKvfhIJcgWHNS18B-2k_y_k2nXzWIU.jpg | path=generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook.jpg
+2026-04-02 12:19:27 [DEBUG] [DEBUG]   [HOOK] url=https://v3b.fal.media/files/b/0a94a039/CKvfhIJcgWHNS18B-2k_y_k2nXzWIU.jpg | path=generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook.jpg
+2026-04-02 12:19:27 [DEBUG] [DEBUG]   [CONTEXT] url=https://v3b.fal.media/files/b/0a94a03a/iDKBKtMn9T2lsD_kdIZdI_6YaQ9X9x.jpg | path=generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_02_context.jpg
+2026-04-02 12:19:27 [DEBUG] [DEBUG]   [CONTEXT] url=https://v3b.fal.media/files/b/0a94a03a/iDKBKtMn9T2lsD_kdIZdI_6YaQ9X9x.jpg | path=generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_02_context.jpg
+2026-04-02 12:19:27 [DEBUG] [DEBUG]   [TWIST] url=https://v3b.fal.media/files/b/0a94a03a/UwoCvxD9GjMIwkHM7pQCr_PaMJC9dw.jpg | path=generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist.jpg
+2026-04-02 12:19:27 [DEBUG] [DEBUG]   [TWIST] url=https://v3b.fal.media/files/b/0a94a03a/UwoCvxD9GjMIwkHM7pQCr_PaMJC9dw.jpg | path=generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist.jpg
+2026-04-02 12:19:27 [DEBUG] [DEBUG]   [VISION] url=https://v3b.fal.media/files/b/0a94a03b/Gar4PhLFXLfMfbLd0su-N_ZSCxYbTm.jpg | path=generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision.jpg
+2026-04-02 12:19:27 [DEBUG] [DEBUG]   [VISION] url=https://v3b.fal.media/files/b/0a94a03b/Gar4PhLFXLfMfbLd0su-N_ZSCxYbTm.jpg | path=generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision.jpg
+2026-04-02 12:19:27 [DEBUG] [DEBUG]   [CTA] url=https://v3b.fal.media/files/b/0a94a03b/5OKHycfjGt0JykdzgH68L_TOqHdUXe.jpg | path=generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta.jpg
+2026-04-02 12:19:27 [DEBUG] [DEBUG]   [CTA] url=https://v3b.fal.media/files/b/0a94a03b/5OKHycfjGt0JykdzgH68L_TOqHdUXe.jpg | path=generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta.jpg
+2026-04-02 12:19:27 [INFO] --- Image collection summary (Algorithmic) ---
+2026-04-02 12:19:27 [INFO] --- Image collection summary (Algorithmic) ---
+2026-04-02 12:19:27 [INFO]   [HOOK] OK — 2487 KB at generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook.jpg
+2026-04-02 12:19:27 [INFO]   [HOOK] OK — 2487 KB at generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook.jpg
+2026-04-02 12:19:27 [INFO]   [CONTEXT] OK — 2074 KB at generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_02_context.jpg
+2026-04-02 12:19:27 [INFO]   [CONTEXT] OK — 2074 KB at generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_02_context.jpg
+2026-04-02 12:19:27 [INFO]   [TWIST] OK — 2344 KB at generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist.jpg
+2026-04-02 12:19:27 [INFO]   [TWIST] OK — 2344 KB at generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist.jpg
+2026-04-02 12:19:27 [INFO]   [VISION] OK — 2713 KB at generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision.jpg
+2026-04-02 12:19:27 [INFO]   [VISION] OK — 2713 KB at generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision.jpg
+2026-04-02 12:19:27 [INFO]   [CTA] OK — 3041 KB at generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta.jpg
+2026-04-02 12:19:27 [INFO]   [CTA] OK — 3041 KB at generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta.jpg
+2026-04-02 12:19:27 [INFO] --- End image collection summary (Algorithmic) ---
+2026-04-02 12:19:27 [INFO] --- End image collection summary (Algorithmic) ---
+2026-04-02 12:19:27 [INFO] Sending images to Telegram — style: Algorithmic
+2026-04-02 12:19:27 [INFO] Sending images to Telegram — style: Algorithmic
+2026-04-02 12:19:27 [DEBUG] [DEBUG] send_message — chars: 20, preview: 🎨 <b>Algorithmic</b>
+2026-04-02 12:19:27 [DEBUG] [DEBUG] send_message — chars: 20, preview: 🎨 <b>Algorithmic</b>
+2026-04-02 12:19:28 [DEBUG] [DEBUG] send_message — delivered
+2026-04-02 12:19:28 [DEBUG] [DEBUG] send_message — delivered
+2026-04-02 12:19:28 [INFO] Sending 5/5 generated image(s) to Telegram via file upload
+2026-04-02 12:19:28 [INFO] Sending 5/5 generated image(s) to Telegram via file upload
+2026-04-02 12:19:28 [DEBUG] [DEBUG] sendPhoto endpoint: https://api.telegram.org/bot8292239871:AAEKlwY9n1gKYidutZgeZxiRQBN_wKJuZsc/sendPhoto
+2026-04-02 12:19:28 [DEBUG] [DEBUG] sendPhoto endpoint: https://api.telegram.org/bot8292239871:AAEKlwY9n1gKYidutZgeZxiRQBN_wKJuZsc/sendPhoto
+2026-04-02 12:19:28 [DEBUG] [DEBUG] Image 1/5 — label: HOOK, url: https://v3b.fal.media/files/b/0a94a039/CKvfhIJcgWHNS18B-2k_y_k2nXzWIU.jpg, local_path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook.jpg
+2026-04-02 12:19:28 [DEBUG] [DEBUG] Image 1/5 — label: HOOK, url: https://v3b.fal.media/files/b/0a94a039/CKvfhIJcgWHNS18B-2k_y_k2nXzWIU.jpg, local_path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook.jpg
+2026-04-02 12:19:28 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook.jpg
+2026-04-02 12:19:28 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook.jpg
+2026-04-02 12:19:28 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook.jpg (2487 KB)
+2026-04-02 12:19:28 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook.jpg (2487 KB)
+2026-04-02 12:19:28 [DEBUG] [DEBUG] POSTing HOOK to Telegram sendPhoto ...
+2026-04-02 12:19:28 [DEBUG] [DEBUG] POSTing HOOK to Telegram sendPhoto ...
+2026-04-02 12:19:31 [DEBUG] [DEBUG] Telegram response status: 200 for HOOK
+2026-04-02 12:19:31 [DEBUG] [DEBUG] Telegram response status: 200 for HOOK
+2026-04-02 12:19:31 [INFO] Image sent to Telegram — HOOK (frame 1)
+2026-04-02 12:19:31 [INFO] Image sent to Telegram — HOOK (frame 1)
+2026-04-02 12:19:31 [DEBUG] [DEBUG] Image 2/5 — label: CONTEXT, url: https://v3b.fal.media/files/b/0a94a03a/iDKBKtMn9T2lsD_kdIZdI_6YaQ9X9x.jpg, local_path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_02_context.jpg
+2026-04-02 12:19:31 [DEBUG] [DEBUG] Image 2/5 — label: CONTEXT, url: https://v3b.fal.media/files/b/0a94a03a/iDKBKtMn9T2lsD_kdIZdI_6YaQ9X9x.jpg, local_path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_02_context.jpg
+2026-04-02 12:19:31 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_02_context.jpg
+2026-04-02 12:19:31 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_02_context.jpg
+2026-04-02 12:19:31 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_02_context.jpg (2074 KB)
+2026-04-02 12:19:31 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_02_context.jpg (2074 KB)
+2026-04-02 12:19:31 [DEBUG] [DEBUG] POSTing CONTEXT to Telegram sendPhoto ...
+2026-04-02 12:19:31 [DEBUG] [DEBUG] POSTing CONTEXT to Telegram sendPhoto ...
+2026-04-02 12:19:32 [DEBUG] [DEBUG] Telegram response status: 200 for CONTEXT
+2026-04-02 12:19:32 [DEBUG] [DEBUG] Telegram response status: 200 for CONTEXT
+2026-04-02 12:19:32 [INFO] Image sent to Telegram — CONTEXT (frame 2)
+2026-04-02 12:19:32 [INFO] Image sent to Telegram — CONTEXT (frame 2)
+2026-04-02 12:19:32 [DEBUG] [DEBUG] Image 3/5 — label: TWIST, url: https://v3b.fal.media/files/b/0a94a03a/UwoCvxD9GjMIwkHM7pQCr_PaMJC9dw.jpg, local_path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist.jpg
+2026-04-02 12:19:32 [DEBUG] [DEBUG] Image 3/5 — label: TWIST, url: https://v3b.fal.media/files/b/0a94a03a/UwoCvxD9GjMIwkHM7pQCr_PaMJC9dw.jpg, local_path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist.jpg
+2026-04-02 12:19:32 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist.jpg
+2026-04-02 12:19:32 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist.jpg
+2026-04-02 12:19:32 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist.jpg (2344 KB)
+2026-04-02 12:19:32 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist.jpg (2344 KB)
+2026-04-02 12:19:32 [DEBUG] [DEBUG] POSTing TWIST to Telegram sendPhoto ...
+2026-04-02 12:19:32 [DEBUG] [DEBUG] POSTing TWIST to Telegram sendPhoto ...
+2026-04-02 12:19:34 [DEBUG] [DEBUG] Telegram response status: 200 for TWIST
+2026-04-02 12:19:34 [DEBUG] [DEBUG] Telegram response status: 200 for TWIST
+2026-04-02 12:19:34 [INFO] Image sent to Telegram — TWIST (frame 3)
+2026-04-02 12:19:34 [INFO] Image sent to Telegram — TWIST (frame 3)
+2026-04-02 12:19:34 [DEBUG] [DEBUG] Image 4/5 — label: VISION, url: https://v3b.fal.media/files/b/0a94a03b/Gar4PhLFXLfMfbLd0su-N_ZSCxYbTm.jpg, local_path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision.jpg
+2026-04-02 12:19:34 [DEBUG] [DEBUG] Image 4/5 — label: VISION, url: https://v3b.fal.media/files/b/0a94a03b/Gar4PhLFXLfMfbLd0su-N_ZSCxYbTm.jpg, local_path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision.jpg
+2026-04-02 12:19:34 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision.jpg
+2026-04-02 12:19:34 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision.jpg
+2026-04-02 12:19:34 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision.jpg (2713 KB)
+2026-04-02 12:19:34 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision.jpg (2713 KB)
+2026-04-02 12:19:34 [DEBUG] [DEBUG] POSTing VISION to Telegram sendPhoto ...
+2026-04-02 12:19:34 [DEBUG] [DEBUG] POSTing VISION to Telegram sendPhoto ...
+2026-04-02 12:19:38 [DEBUG] [DEBUG] Telegram response status: 200 for VISION
+2026-04-02 12:19:38 [DEBUG] [DEBUG] Telegram response status: 200 for VISION
+2026-04-02 12:19:38 [INFO] Image sent to Telegram — VISION (frame 4)
+2026-04-02 12:19:38 [INFO] Image sent to Telegram — VISION (frame 4)
+2026-04-02 12:19:38 [DEBUG] [DEBUG] Image 5/5 — label: CTA, url: https://v3b.fal.media/files/b/0a94a03b/5OKHycfjGt0JykdzgH68L_TOqHdUXe.jpg, local_path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta.jpg
+2026-04-02 12:19:38 [DEBUG] [DEBUG] Image 5/5 — label: CTA, url: https://v3b.fal.media/files/b/0a94a03b/5OKHycfjGt0JykdzgH68L_TOqHdUXe.jpg, local_path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta.jpg
+2026-04-02 12:19:38 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta.jpg
+2026-04-02 12:19:38 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta.jpg
+2026-04-02 12:19:38 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta.jpg (3041 KB)
+2026-04-02 12:19:38 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta.jpg (3041 KB)
+2026-04-02 12:19:38 [DEBUG] [DEBUG] POSTing CTA to Telegram sendPhoto ...
+2026-04-02 12:19:38 [DEBUG] [DEBUG] POSTing CTA to Telegram sendPhoto ...
+2026-04-02 12:19:41 [DEBUG] [DEBUG] Telegram response status: 200 for CTA
+2026-04-02 12:19:41 [DEBUG] [DEBUG] Telegram response status: 200 for CTA
+2026-04-02 12:19:41 [INFO] Image sent to Telegram — CTA (frame 5)
+2026-04-02 12:19:41 [INFO] Image sent to Telegram — CTA (frame 5)
+2026-04-02 12:19:41 [INFO] All generated images dispatched to Telegram
+2026-04-02 12:19:41 [INFO] All generated images dispatched to Telegram
+2026-04-02 12:19:41 [INFO] Generating SRT file
+2026-04-02 12:19:41 [INFO] Generating SRT file
+2026-04-02 12:19:41 [DEBUG] [DEBUG] generate_srt (AssemblyAI) — title_slug: dorsey_makes_the_ai_case_against_manager, audio: audio.mp3
+2026-04-02 12:19:41 [DEBUG] [DEBUG] generate_srt (AssemblyAI) — title_slug: dorsey_makes_the_ai_case_against_manager, audio: audio.mp3
+2026-04-02 12:19:41 [DEBUG] Uploading audio to AssemblyAI...
+2026-04-02 12:19:41 [DEBUG] Uploading audio to AssemblyAI...
+2026-04-02 12:19:45 [DEBUG] [DEBUG] Uploaded — url: https://cdn.assemblyai.com/upload/52d66649ef9829ab4ddaff38b50cb0df2d8323b8e1218a0e507a7ba461b0759a/527164a9-ab13-487f-bbe8-0ce2ab3f3eb2
+2026-04-02 12:19:45 [DEBUG] [DEBUG] Uploaded — url: https://cdn.assemblyai.com/upload/52d66649ef9829ab4ddaff38b50cb0df2d8323b8e1218a0e507a7ba461b0759a/527164a9-ab13-487f-bbe8-0ce2ab3f3eb2
+2026-04-02 12:19:46 [DEBUG] [DEBUG] Transcription started — id: de258560-c31c-4166-9e37-daf86cde48d5
+2026-04-02 12:19:46 [DEBUG] [DEBUG] Transcription started — id: de258560-c31c-4166-9e37-daf86cde48d5
+2026-04-02 12:19:46 [DEBUG] [DEBUG] AssemblyAI status: processing
+2026-04-02 12:19:46 [DEBUG] [DEBUG] AssemblyAI status: processing
+2026-04-02 12:19:50 [DEBUG] [DEBUG] AssemblyAI status: completed
+2026-04-02 12:19:50 [DEBUG] [DEBUG] AssemblyAI status: completed
+2026-04-02 12:19:50 [DEBUG] [DEBUG] Words returned: 171
+2026-04-02 12:19:50 [DEBUG] [DEBUG] Words returned: 171
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 1: 00:00:00,080 --> 00:00:03,710 | A billionaire CEO just fired
+over 4,000 employees and replaced
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 1: 00:00:00,080 --> 00:00:03,710 | A billionaire CEO just fired
+over 4,000 employees and replaced
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 2: 00:00:03,759 --> 00:00:07,070 | their managers with AI. And
+he says this is just
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 2: 00:00:03,759 --> 00:00:07,070 | their managers with AI. And
+he says this is just
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 3: 00:00:07,120 --> 00:00:10,710 | the beginning. Jack Dorsey, the
+CEO of Block and co
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 3: 00:00:07,120 --> 00:00:10,710 | the beginning. Jack Dorsey, the
+CEO of Block and co
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 4: 00:00:10,759 --> 00:00:13,349 | founder of Twitter, cut more
+than 40% of his workforce
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 4: 00:00:10,759 --> 00:00:13,349 | founder of Twitter, cut more
+than 40% of his workforce
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 5: 00:00:13,400 --> 00:00:16,670 | in February. But he says
+this wasn't about the company
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 5: 00:00:13,400 --> 00:00:16,670 | in February. But he says
+this wasn't about the company
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 6: 00:00:16,719 --> 00:00:20,469 | struggling. It was a deliberate
+bet on artificial intelligence. His
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 6: 00:00:16,719 --> 00:00:20,469 | struggling. It was a deliberate
+bet on artificial intelligence. His
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 7: 00:00:20,519 --> 00:00:24,350 | argument is wild but simple.
+He says managers basically exist
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 7: 00:00:20,519 --> 00:00:24,350 | argument is wild but simple.
+He says managers basically exist
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 8: 00:00:24,399 --> 00:00:27,839 | to move information up and
+down a chain. And now
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 8: 00:00:24,399 --> 00:00:27,839 | to move information up and
+down a chain. And now
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 9: 00:00:27,890 --> 00:00:30,000 | AI can do that through
+a live world model of
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 9: 00:00:27,890 --> 00:00:30,000 | AI can do that through
+a live world model of
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 10: 00:00:30,050 --> 00:00:35,039 | the entire business. Every decision,
+every plan, every design already
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 10: 00:00:30,050 --> 00:00:35,039 | the entire business. Every decision,
+every plan, every design already
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 11: 00:00:35,090 --> 00:00:37,840 | lives as a digital record.
+So why do you need
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 11: 00:00:35,090 --> 00:00:37,840 | lives as a digital record.
+So why do you need
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 12: 00:00:37,890 --> 00:00:41,479 | a human middleman? Now every
+employee at Block falls into
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 12: 00:00:37,890 --> 00:00:41,479 | a human middleman? Now every
+employee at Block falls into
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 13: 00:00:41,530 --> 00:00:45,039 | one of three builders who
+make things, problem owners who
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 13: 00:00:41,530 --> 00:00:45,039 | one of three builders who
+make things, problem owners who
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 14: 00:00:45,090 --> 00:00:49,159 | drive outcomes and player coaches
+who develop talent. No traditional
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 14: 00:00:45,090 --> 00:00:49,159 | drive outcomes and player coaches
+who develop talent. No traditional
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 15: 00:00:49,210 --> 00:00:53,500 | managers. AI is the org
+chart. If this works, every
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 15: 00:00:49,210 --> 00:00:53,500 | managers. AI is the org
+chart. If this works, every
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 16: 00:00:53,549 --> 00:00:55,979 | company in the world is
+going to copy it. The
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 16: 00:00:53,549 --> 00:00:55,979 | company in the world is
+going to copy it. The
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 17: 00:00:56,030 --> 00:00:59,820 | question is, does your job
+survive that shift? Follow for
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 17: 00:00:56,030 --> 00:00:59,820 | question is, does your job
+survive that shift? Follow for
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 18: 00:00:59,869 --> 00:01:00,149 | 
+more.
+2026-04-02 12:19:50 [DEBUG] [DEBUG]   Entry 18: 00:00:59,869 --> 00:01:00,149 | 
+more.
+2026-04-02 12:19:50 [INFO] SRT saved: srt_files\dorsey_makes_the_ai_case_against_manager.srt (18 entries)
+2026-04-02 12:19:50 [INFO] SRT saved: srt_files\dorsey_makes_the_ai_case_against_manager.srt (18 entries)
+2026-04-02 12:19:50 [DEBUG] [DEBUG] SRT full content:
+1
+00:00:00,080 --> 00:00:03,710
+A billionaire CEO just fired
+over 4,000 employees and replaced
+
+2
+00:00:03,759 --> 00:00:07,070
+their managers with AI. And
+he says this is just
+
+3
+00:00:07,120 --> 00:00:10,710
+the beginning. Jack Dorsey, the
+CEO of Block and co
+
+4
+00:00:10,759 --> 00:00:13,349
+founder of Twitter, cut more
+than 40% of his workforce
+
+5
+00:00:13,400 --> 00:00:16,670
+in February. But he says
+this wasn't about the company
+
+6
+00:00:16,719 --> 00:00:20,469
+struggling. It was a deliberate
+bet on artificial intelligence. His
+
+7
+00:00:20,519 --> 00:00:24,350
+argument is wild but simple.
+He says managers basically exist
+
+8
+00:00:24,399 --> 00:00:27,839
+to move information up and
+down a chain. And now
+
+9
+00:00:27,890 --> 00:00:30,000
+AI can do that through
+a live world model of
+
+10
+00:00:30,050 --> 00:00:35,039
+the entire business. Every decision,
+every plan, every design already
+
+11
+00:00:35,090 --> 00:00:37,840
+lives as a digital record.
+So why do you need
+
+12
+00:00:37,890 --> 00:00:41,479
+a human middleman? Now every
+employee at Block falls into
+
+13
+00:00:41,530 --> 00:00:45,039
+one of three builders who
+make things, problem owners who
+
+14
+00:00:45,090 --> 00:00:49,159
+drive outcomes and player coaches
+who develop talent. No traditional
+
+15
+00:00:49,210 --> 00:00:53,500
+managers. AI is the org
+chart. If this works, every
+
+16
+00:00:53,549 --> 00:00:55,979
+company in the world is
+going to copy it. The
+
+17
+00:00:56,030 --> 00:00:59,820
+question is, does your job
+survive that shift? Follow for
+
+18
+00:00:59,869 --> 00:01:00,149
+
+more.
+2026-04-02 12:19:50 [DEBUG] [DEBUG] SRT full content:
+1
+00:00:00,080 --> 00:00:03,710
+A billionaire CEO just fired
+over 4,000 employees and replaced
+
+2
+00:00:03,759 --> 00:00:07,070
+their managers with AI. And
+he says this is just
+
+3
+00:00:07,120 --> 00:00:10,710
+the beginning. Jack Dorsey, the
+CEO of Block and co
+
+4
+00:00:10,759 --> 00:00:13,349
+founder of Twitter, cut more
+than 40% of his workforce
+
+5
+00:00:13,400 --> 00:00:16,670
+in February. But he says
+this wasn't about the company
+
+6
+00:00:16,719 --> 00:00:20,469
+struggling. It was a deliberate
+bet on artificial intelligence. His
+
+7
+00:00:20,519 --> 00:00:24,350
+argument is wild but simple.
+He says managers basically exist
+
+8
+00:00:24,399 --> 00:00:27,839
+to move information up and
+down a chain. And now
+
+9
+00:00:27,890 --> 00:00:30,000
+AI can do that through
+a live world model of
+
+10
+00:00:30,050 --> 00:00:35,039
+the entire business. Every decision,
+every plan, every design already
+
+11
+00:00:35,090 --> 00:00:37,840
+lives as a digital record.
+So why do you need
+
+12
+00:00:37,890 --> 00:00:41,479
+a human middleman? Now every
+employee at Block falls into
+
+13
+00:00:41,530 --> 00:00:45,039
+one of three builders who
+make things, problem owners who
+
+14
+00:00:45,090 --> 00:00:49,159
+drive outcomes and player coaches
+who develop talent. No traditional
+
+15
+00:00:49,210 --> 00:00:53,500
+managers. AI is the org
+chart. If this works, every
+
+16
+00:00:53,549 --> 00:00:55,979
+company in the world is
+going to copy it. The
+
+17
+00:00:56,030 --> 00:00:59,820
+question is, does your job
+survive that shift? Follow for
+
+18
+00:00:59,869 --> 00:01:00,149
+
+more.
+
+2026-04-02 12:19:50 [INFO] Sending SRT to Telegram: srt_files\dorsey_makes_the_ai_case_against_manager.srt
+2026-04-02 12:19:50 [INFO] Sending SRT to Telegram: srt_files\dorsey_makes_the_ai_case_against_manager.srt
+2026-04-02 12:19:50 [INFO] Sending document to Telegram: dorsey_makes_the_ai_case_against_manager.srt (1 KB)
+2026-04-02 12:19:50 [INFO] Sending document to Telegram: dorsey_makes_the_ai_case_against_manager.srt (1 KB)
+2026-04-02 12:19:50 [DEBUG] [DEBUG] Document path: srt_files\dorsey_makes_the_ai_case_against_manager.srt, exists: True
+2026-04-02 12:19:50 [DEBUG] [DEBUG] Document path: srt_files\dorsey_makes_the_ai_case_against_manager.srt, exists: True
+2026-04-02 12:19:52 [INFO] Document sent: dorsey_makes_the_ai_case_against_manager.srt
+2026-04-02 12:19:52 [INFO] Document sent: dorsey_makes_the_ai_case_against_manager.srt
+2026-04-02 12:19:52 [INFO] SRT sent to Telegram
+2026-04-02 12:19:52 [INFO] SRT sent to Telegram
+2026-04-02 12:19:52 [INFO] Generating video with ffmpeg
+2026-04-02 12:19:52 [INFO] Generating video with ffmpeg
+2026-04-02 12:19:52 [DEBUG] [DEBUG] generate_video — title_slug: dorsey_makes_the_ai_case_against_manager, visuals: 5, audio: audio.mp3, srt: srt_files\dorsey_makes_the_ai_case_against_manager.srt
+2026-04-02 12:19:52 [DEBUG] [DEBUG] generate_video — title_slug: dorsey_makes_the_ai_case_against_manager, visuals: 5, audio: audio.mp3, srt: srt_files\dorsey_makes_the_ai_case_against_manager.srt
+2026-04-02 12:19:52 [DEBUG] [DEBUG] Valid images: 5/5 (skipped 0 with missing path)
+2026-04-02 12:19:52 [DEBUG] [DEBUG] Valid images: 5/5 (skipped 0 with missing path)
+2026-04-02 12:19:52 [DEBUG] [DEBUG] ffprobe — getting duration of: audio.mp3
+2026-04-02 12:19:52 [DEBUG] [DEBUG] ffprobe — getting duration of: audio.mp3
+2026-04-02 12:19:52 [DEBUG] [DEBUG] ffprobe stdout: 60.464762
+2026-04-02 12:19:52 [DEBUG] [DEBUG] ffprobe stdout: 60.464762
+2026-04-02 12:19:52 [DEBUG] [DEBUG] Audio duration: 60.465s
+2026-04-02 12:19:52 [DEBUG] [DEBUG] Audio duration: 60.465s
+2026-04-02 12:19:52 [DEBUG] [DEBUG] Timing — audio: 60.465s, images: 5, per image: 12.093s
+2026-04-02 12:19:52 [DEBUG] [DEBUG] Timing — audio: 60.465s, images: 5, per image: 12.093s
+2026-04-02 12:19:52 [DEBUG] [DEBUG] Concat entry 1: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook.jpg @ 12.093s
+2026-04-02 12:19:52 [DEBUG] [DEBUG] Concat entry 1: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_dorsey_makes_the_ai_case_against_manager_01_hook.jpg @ 12.093s
+2026-04-02 12:19:52 [DEBUG] [DEBUG] Concat entry 2: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_dorsey_makes_the_ai_case_against_manager_02_context.jpg @ 12.093s
+2026-04-02 12:19:52 [DEBUG] [DEBUG] Concat entry 2: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_dorsey_makes_the_ai_case_against_manager_02_context.jpg @ 12.093s
+2026-04-02 12:19:52 [DEBUG] [DEBUG] Concat entry 3: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist.jpg @ 12.093s
+2026-04-02 12:19:52 [DEBUG] [DEBUG] Concat entry 3: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_dorsey_makes_the_ai_case_against_manager_03_twist.jpg @ 12.093s
+2026-04-02 12:19:52 [DEBUG] [DEBUG] Concat entry 4: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision.jpg @ 12.093s
+2026-04-02 12:19:52 [DEBUG] [DEBUG] Concat entry 4: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_dorsey_makes_the_ai_case_against_manager_04_vision.jpg @ 12.093s
+2026-04-02 12:19:52 [DEBUG] [DEBUG] Concat entry 5: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta.jpg @ 12.093s
+2026-04-02 12:19:52 [DEBUG] [DEBUG] Concat entry 5: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_dorsey_makes_the_ai_case_against_manager_05_cta.jpg @ 12.093s
+2026-04-02 12:19:52 [DEBUG] [DEBUG] Concat file written: C:\Users\brryli\AppData\Local\Temp\tmpfycyi4gg.txt
+2026-04-02 12:19:52 [DEBUG] [DEBUG] Concat file written: C:\Users\brryli\AppData\Local\Temp\tmpfycyi4gg.txt
+2026-04-02 12:19:52 [DEBUG] [DEBUG] SRT escaped path for filter: srt_files/dorsey_makes_the_ai_case_against_manager.srt
+2026-04-02 12:19:52 [DEBUG] [DEBUG] SRT escaped path for filter: srt_files/dorsey_makes_the_ai_case_against_manager.srt
+2026-04-02 12:19:52 [DEBUG] [DEBUG] ffmpeg command: ffmpeg -y -f concat -safe 0 -i C:\Users\brryli\AppData\Local\Temp\tmpfycyi4gg.txt -i audio.mp3 -map 0:v:0 -map 1:a:0 -vf fps=24,scale=1080:1920:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:(oh-ih)/2:black,subtitles='srt_files/dorsey_makes_the_ai_case_against_manager.srt':force_style='FontName=Inter Bold,Bold=1,FontSize=8,PrimaryColour=&H0000FFFF,Outline=0,Shadow=0,Alignment=2,MarginV=20,WrapStyle=2' -c:v libx264 -preset fast -crf 23 -c:a aac -b:a 192k -shortest output_videos\dorsey_makes_the_ai_case_against_manager.mp4
+2026-04-02 12:19:52 [DEBUG] [DEBUG] ffmpeg command: ffmpeg -y -f concat -safe 0 -i C:\Users\brryli\AppData\Local\Temp\tmpfycyi4gg.txt -i audio.mp3 -map 0:v:0 -map 1:a:0 -vf fps=24,scale=1080:1920:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:(oh-ih)/2:black,subtitles='srt_files/dorsey_makes_the_ai_case_against_manager.srt':force_style='FontName=Inter Bold,Bold=1,FontSize=8,PrimaryColour=&H0000FFFF,Outline=0,Shadow=0,Alignment=2,MarginV=20,WrapStyle=2' -c:v libx264 -preset fast -crf 23 -c:a aac -b:a 192k -shortest output_videos\dorsey_makes_the_ai_case_against_manager.mp4
+2026-04-02 12:19:52 [INFO] Running ffmpeg — output: output_videos\dorsey_makes_the_ai_case_against_manager.mp4
+2026-04-02 12:19:52 [INFO] Running ffmpeg — output: output_videos\dorsey_makes_the_ai_case_against_manager.mp4
+2026-04-02 12:20:17 [DEBUG] [DEBUG] ffmpeg return code: 0
+2026-04-02 12:20:17 [DEBUG] [DEBUG] ffmpeg return code: 0
+2026-04-02 12:20:17 [DEBUG] [DEBUG] ffmpeg stderr (last 1000 chars):
+840] mb P  I16..4:  0.1%  0.1%  0.2%  P16..4:  1.0%  0.1%  0.1%  0.0%  0.0%    skip:98.5%
+[libx264 @ 000001662c456840] mb B  I16..4:  0.0%  0.0%  0.0%  B16..8:  0.0%  0.0%  0.0%  direct: 0.0%  skip:99.9%  L0:46.7% L1:53.2% BI: 0.1%
+[libx264 @ 000001662c456840] 8x8 transform intra:33.0% inter:81.8%
+[libx264 @ 000001662c456840] coded y,uvDC,uvAC intra: 74.7% 86.4% 76.0% inter: 0.1% 0.1% 0.0%
+[libx264 @ 000001662c456840] i16 v,h,dc,p: 62% 29%  4%  5%
+[libx264 @ 000001662c456840] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 29% 19% 31%  4%  3%  3%  3%  4%  4%
+[libx264 @ 000001662c456840] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 48% 20%  8%  5%  4%  5%  3%  4%  3%
+[libx264 @ 000001662c456840] i8c dc,h,v,p: 43% 17% 34%  6%
+[libx264 @ 000001662c456840] Weighted P-Frames: Y:0.0% UV:0.0%
+[libx264 @ 000001662c456840] ref P L0: 91.6%  8.4%
+[libx264 @ 000001662c456840] ref B L0: 95.9%  4.1%
+[libx264 @ 000001662c456840] ref B L1: 93.5%  6.5%
+[libx264 @ 000001662c456840] kb/s:388.92
+[aac @ 000001662c489040] Qavg: 63138.660
+2026-04-02 12:20:17 [DEBUG] [DEBUG] ffmpeg stderr (last 1000 chars):
+840] mb P  I16..4:  0.1%  0.1%  0.2%  P16..4:  1.0%  0.1%  0.1%  0.0%  0.0%    skip:98.5%
+[libx264 @ 000001662c456840] mb B  I16..4:  0.0%  0.0%  0.0%  B16..8:  0.0%  0.0%  0.0%  direct: 0.0%  skip:99.9%  L0:46.7% L1:53.2% BI: 0.1%
+[libx264 @ 000001662c456840] 8x8 transform intra:33.0% inter:81.8%
+[libx264 @ 000001662c456840] coded y,uvDC,uvAC intra: 74.7% 86.4% 76.0% inter: 0.1% 0.1% 0.0%
+[libx264 @ 000001662c456840] i16 v,h,dc,p: 62% 29%  4%  5%
+[libx264 @ 000001662c456840] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 29% 19% 31%  4%  3%  3%  3%  4%  4%
+[libx264 @ 000001662c456840] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 48% 20%  8%  5%  4%  5%  3%  4%  3%
+[libx264 @ 000001662c456840] i8c dc,h,v,p: 43% 17% 34%  6%
+[libx264 @ 000001662c456840] Weighted P-Frames: Y:0.0% UV:0.0%
+[libx264 @ 000001662c456840] ref P L0: 91.6%  8.4%
+[libx264 @ 000001662c456840] ref B L0: 95.9%  4.1%
+[libx264 @ 000001662c456840] ref B L1: 93.5%  6.5%
+[libx264 @ 000001662c456840] kb/s:388.92
+[aac @ 000001662c489040] Qavg: 63138.660
+2026-04-02 12:20:17 [INFO] Video saved: output_videos\dorsey_makes_the_ai_case_against_manager.mp4 (4.1 MB)
+2026-04-02 12:20:17 [INFO] Video saved: output_videos\dorsey_makes_the_ai_case_against_manager.mp4 (4.1 MB)
+2026-04-02 12:20:17 [DEBUG] [DEBUG] Deleting concat temp file: C:\Users\brryli\AppData\Local\Temp\tmpfycyi4gg.txt
+2026-04-02 12:20:17 [DEBUG] [DEBUG] Deleting concat temp file: C:\Users\brryli\AppData\Local\Temp\tmpfycyi4gg.txt
+2026-04-02 12:20:17 [INFO] Video saved: output_videos\dorsey_makes_the_ai_case_against_manager.mp4
+2026-04-02 12:20:17 [INFO] Video saved: output_videos\dorsey_makes_the_ai_case_against_manager.mp4
+  Waiting for response on: OpenAI’s new $122B funding, 'superapp'
+2026-04-02 12:20:17 [INFO] Waiting for user response: OpenAI’s new $122B funding, 'superapp'
+2026-04-02 12:20:17 [INFO] Waiting for user response: OpenAI’s new $122B funding, 'superapp'
+2026-04-02 12:20:17 [DEBUG] [DEBUG] _wait_for_approval — polling for message_id: 236
+2026-04-02 12:20:17 [DEBUG] [DEBUG] _wait_for_approval — polling for message_id: 236
+2026-04-02 12:20:19 [DEBUG] [DEBUG] Flushed stale updates — starting offset: None
+2026-04-02 12:20:19 [DEBUG] [DEBUG] Flushed stale updates — starting offset: None
+Traceback (most recent call last):
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+return self._loop.run_until_complete(task)
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 687, in run_until_complete
+return future.result()
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\Desktop\automations\content_repurposing\telegram_bot.py", line 77, in _wait_for_approval
+# If this article's button was already tapped while waiting for another, use it immediately
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 4865, in get_updates
+await self._post(
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 704, in _post
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 733, in _do_post
+result = await request.post(
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+result = await self._request_wrapper(
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_baserequest.py", line 305, in _request_wrapper
+code, payload = await self.do_request(
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_httpxrequest.py", line 279, in do_request
+res = await self._client.request(
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 1574, in request
+return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 1661, in send
+response = await self._send_handling_auth(
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 1689, in _send_handling_auth
+response = await self._send_handling_redirects(
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 1726, in _send_handling_redirects
+response = await self._send_single_request(request)
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 1763, in _send_single_request
+response = await transport.handle_async_request(request)
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_transports\default.py", line 373, in handle_async_request
+resp = await self._pool.handle_async_request(req)
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\connection_pool.py", line 216, in handle_async_request
+raise exc from None
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\connection_pool.py", line 196, in handle_async_request
+response = await connection.handle_async_request(
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+return await self._connection.handle_async_request(request)
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\http11.py", line 143, in handle_async_request
+raise exc
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\http11.py", line 113, in handle_async_request
+) = await self._receive_response_headers(**kwargs)
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\http11.py", line 186, in _receive_response_headers
+event = await self._receive_event(timeout=timeout)
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\http11.py", line 224, in _receive_event
+data = await self._network_stream.read(
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_backends\anyio.py", line 35, in read
+return await self._stream.receive(max_bytes=max_bytes)
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\anyio\streams\tls.py", line 205, in receive
+data = await self._call_sslobject_method(self._ssl_object.read, max_bytes)
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\anyio\streams\tls.py", line 147, in _call_sslobject_method
+data = await self.transport_stream.receive()
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 1142, in receive
+await self._protocol.read_event.wait()
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\asyncio\locks.py", line 212, in wait
+await fut
+asyncio.exceptions
+.
+CancelledError
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "C:\Users\brryli\Desktop\automations\content_repurposing\scraper.py", line 380, in <module>
+main()
+  File "C:\Users\brryli\Desktop\automations\content_repurposing\scraper.py", line 252, in main
+approved = wait_for_approval(msg_id)
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\Desktop\automations\content_repurposing\telegram_bot.py", line 106, in wait_for_approval
+log(f"User tapped {'YES' if approved else 'NO'} on message_id={mid}")
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+return runner.run(main)
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 123, in run
+raise KeyboardInterrupt()
+KeyboardInterrupt

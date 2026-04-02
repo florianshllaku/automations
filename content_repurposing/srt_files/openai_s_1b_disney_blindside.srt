@@ -1,0 +1,79 @@
+1
+00:00:00,080 --> 00:00:03,390
+OpenAI blindsided Disney, one of
+the biggest companies on earth,
+
+2
+00:00:03,439 --> 00:00:05,870
+with less than one hour's
+notice before killing the product
+
+3
+00:00:05,919 --> 00:00:08,589
+they were actively building together.
+According to a Wall Street
+
+4
+00:00:08,640 --> 00:00:12,349
+Journal investigation, Sora was hemorrhaging
+roughly $1 million a day
+
+5
+00:00:12,400 --> 00:00:15,909
+in compute costs. Disney was
+already piloting an enterprise version
+
+6
+00:00:15,958 --> 00:00:18,390
+for marketing and VFX with
+a spring launch on the
+
+7
+00:00:18,440 --> 00:00:21,989
+calendar. So OpenAI pulled the
+plug and funneled all those
+
+8
+00:00:22,039 --> 00:00:25,120
+freed up chips into a
+secret internal model codenamed Spud,
+
+9
+00:00:25,690 --> 00:00:28,320
+built to go after coding
+and enterprise customers and directly
+
+10
+00:00:28,370 --> 00:00:32,329
+counter anthropic Sora 3 training
+was literally about to begin,
+
+11
+00:00:32,649 --> 00:00:37,520
+that potential billion dollar Disney
+partnership now effectively dormant. And
+
+12
+00:00:37,570 --> 00:00:41,119
+apparently that's how OpenAI handles
+its most important relationships. A
+
+13
+00:00:41,170 --> 00:00:43,689
+text less than an hour
+before the world finds out,
+
+14
+00:00:44,090 --> 00:00:46,729
+would you trust OpenAI as
+a business partner after this?
+
+15
+00:00:47,130 --> 00:00:49,799
+Let me know in the
+comments. Follow for more AI
+
+16
+00:00:49,850 --> 00:00:50,570
+deep
+dives.
