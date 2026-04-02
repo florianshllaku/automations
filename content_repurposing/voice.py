@@ -10,8 +10,11 @@ load_dotenv()
 _client = ElevenLabs(api_key=os.getenv("ELEVENLABS_API_KEY"))
 _VOICE_ID = os.getenv("ELEVENLABS_VOICE_ID", "")
 
+AUDIO_DIR = Path("audio_files")
+AUDIO_DIR.mkdir(exist_ok=True)
 
-def generate_audio(text: str, output_path: str | Path = "audio.mp3") -> str:
+
+def generate_audio(text: str, output_path: str | Path = "audio_files/audio.mp3") -> str:
     """
     Convert text to speech using ElevenLabs and save to output_path.
     Returns the output path as a string.

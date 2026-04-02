@@ -1,0 +1,485 @@
+2026-04-02 15:08:26 [INFO] ============================================================
+2026-04-02 15:08:26 [INFO] ============================================================
+2026-04-02 15:08:26 [INFO] RUN STARTED — log: run_2026-04-02_15-08-26.log
+2026-04-02 15:08:26 [INFO] RUN STARTED — log: run_2026-04-02_15-08-26.log
+2026-04-02 15:08:26 [INFO] ============================================================
+2026-04-02 15:08:26 [INFO] ============================================================
+2026-04-02 15:08:30 [INFO] Scraping https://www.rundown.ai/articles?category=AI
+2026-04-02 15:08:30 [INFO] Scraping https://www.rundown.ai/articles?category=AI
+Loading https://www.rundown.ai/articles?category=AI ...
+  Page 1: 8 articles.
+2026-04-02 15:08:48 [INFO] Page 1: 8 articles found
+2026-04-02 15:08:48 [INFO] Page 1: 8 articles found
+  Reached checkpoint at page 1. Stopping.
+2026-04-02 15:08:48 [INFO] Reached checkpoint at page 1 — stopping scrape
+2026-04-02 15:08:48 [INFO] Reached checkpoint at page 1 — stopping scrape
+2026-04-02 15:08:48 [INFO] 2 new article(s) found
+2026-04-02 15:08:48 [INFO] 2 new article(s) found
+[
+  {
+    "title": "Dorsey makes the AI case against managers",
+    "url": "https://www.rundown.ai/articles/dorsey-makes-the-ai-case-against-managers",
+    "date": null,
+    "id": 1021
+  },
+  {
+    "title": "OpenAI’s new $122B funding, 'superapp'",
+    "url": "https://www.rundown.ai/articles/openai-new-122b-funding-superapp",
+    "date": null,
+    "id": 1022
+  }
+]
+  Sending notification for: Dorsey makes the AI case against managers
+2026-04-02 15:08:48 [INFO] Telegram notification sent: Dorsey makes the AI case against managers
+2026-04-02 15:08:48 [INFO] Telegram notification sent: Dorsey makes the AI case against managers
+2026-04-02 15:08:48 [DEBUG] [DEBUG] send_approval_message — title: Dorsey makes the AI case against managers, url: https://www.rundown.ai/articles/dorsey-makes-the-ai-case-against-managers
+2026-04-02 15:08:48 [DEBUG] [DEBUG] send_approval_message — title: Dorsey makes the AI case against managers, url: https://www.rundown.ai/articles/dorsey-makes-the-ai-case-against-managers
+2026-04-02 15:08:49 [DEBUG] [DEBUG] Approval message sent — message_id: 272
+2026-04-02 15:08:49 [DEBUG] [DEBUG] Approval message sent — message_id: 272
+  Waiting 5 seconds before next notification ...
+  Sending notification for: OpenAI’s new $122B funding, 'superapp'
+2026-04-02 15:08:54 [INFO] Telegram notification sent: OpenAI’s new $122B funding, 'superapp'
+2026-04-02 15:08:54 [INFO] Telegram notification sent: OpenAI’s new $122B funding, 'superapp'
+2026-04-02 15:08:54 [DEBUG] [DEBUG] send_approval_message — title: OpenAI’s new $122B funding, 'superapp', url: https://www.rundown.ai/articles/openai-new-122b-funding-superapp
+2026-04-02 15:08:54 [DEBUG] [DEBUG] send_approval_message — title: OpenAI’s new $122B funding, 'superapp', url: https://www.rundown.ai/articles/openai-new-122b-funding-superapp
+2026-04-02 15:08:55 [DEBUG] [DEBUG] Approval message sent — message_id: 273
+2026-04-02 15:08:55 [DEBUG] [DEBUG] Approval message sent — message_id: 273
+2026-04-02 15:08:55 [INFO] All 2 notification(s) sent — waiting for responses
+2026-04-02 15:08:55 [INFO] All 2 notification(s) sent — waiting for responses
+
+All 2 notification(s) sent. Waiting for your responses ...
+2026-04-02 15:08:56 [DEBUG] [DEBUG] Initial flush — starting offset: 1
+2026-04-02 15:08:56 [DEBUG] [DEBUG] Initial flush — starting offset: 1
+2026-04-02 15:09:00 [DEBUG] [DEBUG] Poll #1 — 1 update(s)
+2026-04-02 15:09:00 [DEBUG] [DEBUG] Poll #1 — 1 update(s)
+2026-04-02 15:09:00 [INFO] User tapped YES on message_id=273
+2026-04-02 15:09:00 [INFO] User tapped YES on message_id=273
+2026-04-02 15:09:00 [INFO] User approved: OpenAI’s new $122B funding, 'superapp'
+2026-04-02 15:09:00 [INFO] User approved: OpenAI’s new $122B funding, 'superapp'
+User approved — generating content: OpenAI’s new $122B funding, 'superapp'
+2026-04-02 15:09:00 [INFO] Fetching article: https://www.rundown.ai/articles/openai-new-122b-funding-superapp
+2026-04-02 15:09:00 [INFO] Fetching article: https://www.rundown.ai/articles/openai-new-122b-funding-superapp
+  Fetching article content: https://www.rundown.ai/articles/openai-new-122b-funding-superapp
+2026-04-02 15:09:02 [INFO] Article fetched (9759 chars): https://www.rundown.ai/articles/openai-new-122b-funding-superapp
+2026-04-02 15:09:02 [INFO] Article fetched (9759 chars): https://www.rundown.ai/articles/openai-new-122b-funding-superapp
+  Downloading image ...
+2026-04-02 15:09:03 [INFO] Image downloaded: article_images\openai-new-122b-funding-superapp.png
+2026-04-02 15:09:03 [INFO] Image downloaded: article_images\openai-new-122b-funding-superapp.png
+2026-04-02 15:09:03 [INFO] Calling Claude (research)
+2026-04-02 15:09:03 [INFO] Calling Claude (research)
+  Calling Claude for research ...
+2026-04-02 15:09:09 [INFO] Claude research complete — topic: OpenAI closes a record-breaking $122 billion funding round at an $852 billion valuation and announces plans to merge its products into a unified 'AI superapp'
+2026-04-02 15:09:09 [INFO] Claude research complete — topic: OpenAI closes a record-breaking $122 billion funding round at an $852 billion valuation and announces plans to merge its products into a unified 'AI superapp'
+2026-04-02 15:09:09 [INFO] Calling Claude (reel script)
+2026-04-02 15:09:09 [INFO] Calling Claude (reel script)
+  Generating reel script ...
+2026-04-02 15:09:24 [INFO] Reel script complete — title: OpenAI Just Raised $122B… After Everything?, runtime: ~48 seconds
+2026-04-02 15:09:24 [INFO] Reel script complete — title: OpenAI Just Raised $122B… After Everything?, runtime: ~48 seconds
+2026-04-02 15:09:24 [DEBUG] [DEBUG] send_message — chars: 1204, preview: 🎙 <b>SCRIPT</b>
+
+Code red headlines. Sora shutdown. Pentagon scandal. Anthropic
+2026-04-02 15:09:24 [DEBUG] [DEBUG] send_message — chars: 1204, preview: 🎙 <b>SCRIPT</b>
+
+Code red headlines. Sora shutdown. Pentagon scandal. Anthropic
+2026-04-02 15:09:25 [DEBUG] [DEBUG] send_message — delivered
+2026-04-02 15:09:25 [DEBUG] [DEBUG] send_message — delivered
+2026-04-02 15:09:25 [INFO] Script sent to Telegram
+2026-04-02 15:09:25 [INFO] Script sent to Telegram
+2026-04-02 15:09:25 [DEBUG] [DEBUG] ElevenLabs TTS — voice_id: YgrS0YQVeTTwGJKRYx5E, model: eleven_multilingual_v2, chars: 1187
+2026-04-02 15:09:25 [DEBUG] [DEBUG] ElevenLabs TTS — voice_id: YgrS0YQVeTTwGJKRYx5E, model: eleven_multilingual_v2, chars: 1187
+2026-04-02 15:09:25 [DEBUG] [DEBUG] Script preview: Code red headlines. Sora shutdown. Pentagon scandal. Anthropic stealing enterprise clients left and right. Everyone was ...
+2026-04-02 15:09:25 [DEBUG] [DEBUG] Script preview: Code red headlines. Sora shutdown. Pentagon scandal. Anthropic stealing enterprise clients left and right. Everyone was ...
+2026-04-02 15:09:25 [INFO] ElevenLabs TTS call started — voice_id=YgrS0YQVeTTwGJKRYx5E, chars=1187
+2026-04-02 15:09:25 [INFO] ElevenLabs TTS call started — voice_id=YgrS0YQVeTTwGJKRYx5E, chars=1187
+2026-04-02 15:09:25 [DEBUG] [DEBUG] ElevenLabs response received — writing chunks to audio_files\openai_s_new_122b_funding_superapp.mp3
+2026-04-02 15:09:25 [DEBUG] [DEBUG] ElevenLabs response received — writing chunks to audio_files\openai_s_new_122b_funding_superapp.mp3
+2026-04-02 15:09:37 [DEBUG] [DEBUG] Audio written — 1150 chunks, 1149 KB, path: audio_files\openai_s_new_122b_funding_superapp.mp3
+2026-04-02 15:09:37 [DEBUG] [DEBUG] Audio written — 1150 chunks, 1149 KB, path: audio_files\openai_s_new_122b_funding_superapp.mp3
+2026-04-02 15:09:37 [INFO] ElevenLabs TTS complete — saved to audio_files\openai_s_new_122b_funding_superapp.mp3 (1149 KB)
+2026-04-02 15:09:37 [INFO] ElevenLabs TTS complete — saved to audio_files\openai_s_new_122b_funding_superapp.mp3 (1149 KB)
+2026-04-02 15:09:37 [INFO] Sending audio to Telegram — file: audio_files\openai_s_new_122b_funding_superapp.mp3, size: 1149 KB, title: OpenAI Just Raised $122B… After Everything?
+2026-04-02 15:09:37 [INFO] Sending audio to Telegram — file: audio_files\openai_s_new_122b_funding_superapp.mp3, size: 1149 KB, title: OpenAI Just Raised $122B… After Everything?
+2026-04-02 15:09:37 [DEBUG] [DEBUG] audio file exists: True
+2026-04-02 15:09:37 [DEBUG] [DEBUG] audio file exists: True
+2026-04-02 15:09:40 [INFO] Audio sent to Telegram — audio_files\openai_s_new_122b_funding_superapp.mp3
+2026-04-02 15:09:40 [INFO] Audio sent to Telegram — audio_files\openai_s_new_122b_funding_superapp.mp3
+2026-04-02 15:09:40 [INFO] Generating visual prompts — style: Algorithmic
+2026-04-02 15:09:40 [INFO] Generating visual prompts — style: Algorithmic
+  Generating visual prompts (Algorithmic) ...
+2026-04-02 15:09:40 [INFO] Calling Claude (visual prompts)
+2026-04-02 15:09:40 [INFO] Calling Claude (visual prompts)
+  Generating visual prompts ...
+2026-04-02 15:10:43 [ERROR] Visual prompts JSON parse failed (Unterminated string starting at: line 60 column 21 (char 16310)), retrying
+2026-04-02 15:10:43 [ERROR] Visual prompts JSON parse failed (Unterminated string starting at: line 60 column 21 (char 16310)), retrying
+  Visual prompts JSON parse failed (Unterminated string starting at: line 60 column 21 (char 16310)), retrying ...
+2026-04-02 15:11:39 [INFO] Visual prompts complete — 10 frames generated
+2026-04-02 15:11:39 [INFO] Visual prompts complete — 10 frames generated
+2026-04-02 15:11:39 [INFO] Visual prompts ready — Algorithmic: 10 frames
+2026-04-02 15:11:39 [INFO] Visual prompts ready — Algorithmic: 10 frames
+2026-04-02 15:11:39 [INFO] Generating images from fal.ai — style: Algorithmic
+2026-04-02 15:11:39 [INFO] Generating images from fal.ai — style: Algorithmic
+2026-04-02 15:11:39 [INFO] Starting image generation — 10 frames, article: 'OpenAI’s new $122B funding, 'superapp'', style: 'algorithmic'
+2026-04-02 15:11:39 [INFO] Starting image generation — 10 frames, article: 'OpenAI’s new $122B funding, 'superapp'', style: 'algorithmic'
+2026-04-02 15:11:39 [DEBUG] [DEBUG] Visuals to generate: ['HOOK', 'HOOK', 'CONTEXT', 'CONTEXT', 'TWIST', 'TWIST', 'VISION', 'VISION', 'CTA', 'CTA']
+2026-04-02 15:11:39 [DEBUG] [DEBUG] Visuals to generate: ['HOOK', 'HOOK', 'CONTEXT', 'CONTEXT', 'TWIST', 'TWIST', 'VISION', 'VISION', 'CTA', 'CTA']
+2026-04-02 15:11:39 [DEBUG] [DEBUG] Submitting image 1/10 — label: HOOK, stem: algorithmic_openai_s_new_122b_funding_superapp_01_hook
+2026-04-02 15:11:39 [DEBUG] [DEBUG] Submitting image 1/10 — label: HOOK, stem: algorithmic_openai_s_new_122b_funding_superapp_01_hook
+2026-04-02 15:11:39 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_01_hook, model: fal-ai/nano-banana-pro, prompt chars: 801
+2026-04-02 15:11:39 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_01_hook, model: fal-ai/nano-banana-pro, prompt chars: 801
+2026-04-02 15:11:39 [DEBUG] [DEBUG] Prompt preview: Algorithmic generative art composition of a dark geometric grid fracturing apart from the center, nodes disconnecting an...
+2026-04-02 15:11:39 [DEBUG] [DEBUG] Prompt preview: Algorithmic generative art composition of a dark geometric grid fracturing apart from the center, nodes disconnecting an...
+2026-04-02 15:11:39 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 15:11:39 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 15:11:40 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_01_hook
+2026-04-02 15:11:40 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_01_hook
+2026-04-02 15:11:40 [DEBUG] [DEBUG] Handler request_id: 019d4e52-2ee5-7fb0-adba-81ee10367e31
+2026-04-02 15:11:40 [DEBUG] [DEBUG] Handler request_id: 019d4e52-2ee5-7fb0-adba-81ee10367e31
+2026-04-02 15:11:40 [DEBUG] [DEBUG] Submit 1 OK — handler acquired
+2026-04-02 15:11:40 [DEBUG] [DEBUG] Submit 1 OK — handler acquired
+2026-04-02 15:11:40 [DEBUG] [DEBUG] Sleeping 5s before next submission (2/10)
+2026-04-02 15:11:40 [DEBUG] [DEBUG] Sleeping 5s before next submission (2/10)
+2026-04-02 15:11:45 [DEBUG] [DEBUG] Submitting image 2/10 — label: HOOK, stem: algorithmic_openai_s_new_122b_funding_superapp_02_hook
+2026-04-02 15:11:45 [DEBUG] [DEBUG] Submitting image 2/10 — label: HOOK, stem: algorithmic_openai_s_new_122b_funding_superapp_02_hook
+2026-04-02 15:11:45 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_02_hook, model: fal-ai/nano-banana-pro, prompt chars: 777
+2026-04-02 15:11:45 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_02_hook, model: fal-ai/nano-banana-pro, prompt chars: 777
+2026-04-02 15:11:45 [DEBUG] [DEBUG] Prompt preview: Algorithmic generative art composition of an enormous vertical bar chart made of stacked geometric golden blocks towerin...
+2026-04-02 15:11:45 [DEBUG] [DEBUG] Prompt preview: Algorithmic generative art composition of an enormous vertical bar chart made of stacked geometric golden blocks towerin...
+2026-04-02 15:11:45 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 15:11:45 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 15:11:45 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_02_hook
+2026-04-02 15:11:45 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_02_hook
+2026-04-02 15:11:45 [DEBUG] [DEBUG] Handler request_id: 019d4e52-431d-7600-819a-ccf4a578ce39
+2026-04-02 15:11:45 [DEBUG] [DEBUG] Handler request_id: 019d4e52-431d-7600-819a-ccf4a578ce39
+2026-04-02 15:11:45 [DEBUG] [DEBUG] Submit 2 OK — handler acquired
+2026-04-02 15:11:45 [DEBUG] [DEBUG] Submit 2 OK — handler acquired
+2026-04-02 15:11:45 [DEBUG] [DEBUG] Sleeping 5s before next submission (3/10)
+2026-04-02 15:11:45 [DEBUG] [DEBUG] Sleeping 5s before next submission (3/10)
+2026-04-02 15:11:50 [DEBUG] [DEBUG] Submitting image 3/10 — label: CONTEXT, stem: algorithmic_openai_s_new_122b_funding_superapp_03_context
+2026-04-02 15:11:50 [DEBUG] [DEBUG] Submitting image 3/10 — label: CONTEXT, stem: algorithmic_openai_s_new_122b_funding_superapp_03_context
+2026-04-02 15:11:50 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_03_context, model: fal-ai/nano-banana-pro, prompt chars: 782
+2026-04-02 15:11:50 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_03_context, model: fal-ai/nano-banana-pro, prompt chars: 782
+2026-04-02 15:11:50 [DEBUG] [DEBUG] Prompt preview: Algorithmic generative art composition showing three large geometric node clusters arranged symmetrically, each labeled ...
+2026-04-02 15:11:50 [DEBUG] [DEBUG] Prompt preview: Algorithmic generative art composition showing three large geometric node clusters arranged symmetrically, each labeled ...
+2026-04-02 15:11:50 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 15:11:50 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 15:11:51 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_03_context
+2026-04-02 15:11:51 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_03_context
+2026-04-02 15:11:51 [DEBUG] [DEBUG] Handler request_id: 019d4e52-574e-7b61-9c9f-5f4f5cc01571
+2026-04-02 15:11:51 [DEBUG] [DEBUG] Handler request_id: 019d4e52-574e-7b61-9c9f-5f4f5cc01571
+2026-04-02 15:11:51 [DEBUG] [DEBUG] Submit 3 OK — handler acquired
+2026-04-02 15:11:51 [DEBUG] [DEBUG] Submit 3 OK — handler acquired
+2026-04-02 15:11:51 [DEBUG] [DEBUG] Sleeping 5s before next submission (4/10)
+2026-04-02 15:11:51 [DEBUG] [DEBUG] Sleeping 5s before next submission (4/10)
+2026-04-02 15:11:56 [DEBUG] [DEBUG] Submitting image 4/10 — label: CONTEXT, stem: algorithmic_openai_s_new_122b_funding_superapp_04_context
+2026-04-02 15:11:56 [DEBUG] [DEBUG] Submitting image 4/10 — label: CONTEXT, stem: algorithmic_openai_s_new_122b_funding_superapp_04_context
+2026-04-02 15:11:56 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_04_context, model: fal-ai/nano-banana-pro, prompt chars: 742
+2026-04-02 15:11:56 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_04_context, model: fal-ai/nano-banana-pro, prompt chars: 742
+2026-04-02 15:11:56 [DEBUG] [DEBUG] Prompt preview: Algorithmic generative art composition of a simplified human figure silhouette wearing an oversized hoodie, the figure c...
+2026-04-02 15:11:56 [DEBUG] [DEBUG] Prompt preview: Algorithmic generative art composition of a simplified human figure silhouette wearing an oversized hoodie, the figure c...
+2026-04-02 15:11:56 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 15:11:56 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 15:11:56 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_04_context
+2026-04-02 15:11:56 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_04_context
+2026-04-02 15:11:56 [DEBUG] [DEBUG] Handler request_id: 019d4e52-6b7e-7cd1-830e-4a10c9b4db29
+2026-04-02 15:11:56 [DEBUG] [DEBUG] Handler request_id: 019d4e52-6b7e-7cd1-830e-4a10c9b4db29
+2026-04-02 15:11:56 [DEBUG] [DEBUG] Submit 4 OK — handler acquired
+2026-04-02 15:11:56 [DEBUG] [DEBUG] Submit 4 OK — handler acquired
+2026-04-02 15:11:56 [DEBUG] [DEBUG] Sleeping 5s before next submission (5/10)
+2026-04-02 15:11:56 [DEBUG] [DEBUG] Sleeping 5s before next submission (5/10)
+2026-04-02 15:12:01 [DEBUG] [DEBUG] Submitting image 5/10 — label: TWIST, stem: algorithmic_openai_s_new_122b_funding_superapp_05_twist
+2026-04-02 15:12:01 [DEBUG] [DEBUG] Submitting image 5/10 — label: TWIST, stem: algorithmic_openai_s_new_122b_funding_superapp_05_twist
+2026-04-02 15:12:01 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_05_twist, model: fal-ai/nano-banana-pro, prompt chars: 778
+2026-04-02 15:12:01 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_05_twist, model: fal-ai/nano-banana-pro, prompt chars: 778
+2026-04-02 15:12:01 [DEBUG] [DEBUG] Prompt preview: Algorithmic generative art composition of two side-by-side vertical columns made of stacking geometric unit blocks, the ...
+2026-04-02 15:12:01 [DEBUG] [DEBUG] Prompt preview: Algorithmic generative art composition of two side-by-side vertical columns made of stacking geometric unit blocks, the ...
+2026-04-02 15:12:01 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 15:12:01 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 15:12:01 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_05_twist
+2026-04-02 15:12:01 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_05_twist
+2026-04-02 15:12:01 [DEBUG] [DEBUG] Handler request_id: 019d4e52-7fac-7852-b75b-c5fd4d83b2ef
+2026-04-02 15:12:01 [DEBUG] [DEBUG] Handler request_id: 019d4e52-7fac-7852-b75b-c5fd4d83b2ef
+2026-04-02 15:12:01 [DEBUG] [DEBUG] Submit 5 OK — handler acquired
+2026-04-02 15:12:01 [DEBUG] [DEBUG] Submit 5 OK — handler acquired
+2026-04-02 15:12:01 [DEBUG] [DEBUG] Sleeping 5s before next submission (6/10)
+2026-04-02 15:12:01 [DEBUG] [DEBUG] Sleeping 5s before next submission (6/10)
+2026-04-02 15:12:06 [DEBUG] [DEBUG] Submitting image 6/10 — label: TWIST, stem: algorithmic_openai_s_new_122b_funding_superapp_06_twist
+2026-04-02 15:12:06 [DEBUG] [DEBUG] Submitting image 6/10 — label: TWIST, stem: algorithmic_openai_s_new_122b_funding_superapp_06_twist
+2026-04-02 15:12:06 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_06_twist, model: fal-ai/nano-banana-pro, prompt chars: 800
+2026-04-02 15:12:06 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_06_twist, model: fal-ai/nano-banana-pro, prompt chars: 800
+2026-04-02 15:12:06 [DEBUG] [DEBUG] Prompt preview: Algorithmic generative art composition with a massive bold '4X FASTER' rendered as giant high-contrast white geometric t...
+2026-04-02 15:12:06 [DEBUG] [DEBUG] Prompt preview: Algorithmic generative art composition with a massive bold '4X FASTER' rendered as giant high-contrast white geometric t...
+2026-04-02 15:12:06 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 15:12:06 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 15:12:06 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_06_twist
+2026-04-02 15:12:06 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_06_twist
+2026-04-02 15:12:06 [DEBUG] [DEBUG] Handler request_id: 019d4e52-93de-7b91-a16d-4aa5ab5e9f37
+2026-04-02 15:12:06 [DEBUG] [DEBUG] Handler request_id: 019d4e52-93de-7b91-a16d-4aa5ab5e9f37
+2026-04-02 15:12:06 [DEBUG] [DEBUG] Submit 6 OK — handler acquired
+2026-04-02 15:12:06 [DEBUG] [DEBUG] Submit 6 OK — handler acquired
+2026-04-02 15:12:06 [DEBUG] [DEBUG] Sleeping 5s before next submission (7/10)
+2026-04-02 15:12:06 [DEBUG] [DEBUG] Sleeping 5s before next submission (7/10)
+2026-04-02 15:12:11 [DEBUG] [DEBUG] Submitting image 7/10 — label: VISION, stem: algorithmic_openai_s_new_122b_funding_superapp_07_vision
+2026-04-02 15:12:11 [DEBUG] [DEBUG] Submitting image 7/10 — label: VISION, stem: algorithmic_openai_s_new_122b_funding_superapp_07_vision
+2026-04-02 15:12:11 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_07_vision, model: fal-ai/nano-banana-pro, prompt chars: 774
+2026-04-02 15:12:11 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_07_vision, model: fal-ai/nano-banana-pro, prompt chars: 774
+2026-04-02 15:12:11 [DEBUG] [DEBUG] Prompt preview: Algorithmic generative art composition showing multiple small geometric app icons — a chat bubble, a code bracket, a rob...
+2026-04-02 15:12:11 [DEBUG] [DEBUG] Prompt preview: Algorithmic generative art composition showing multiple small geometric app icons — a chat bubble, a code bracket, a rob...
+2026-04-02 15:12:11 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 15:12:11 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 15:12:11 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_07_vision
+2026-04-02 15:12:11 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_07_vision
+2026-04-02 15:12:11 [DEBUG] [DEBUG] Handler request_id: 019d4e52-a80e-7350-a33a-4aa8143ae294
+2026-04-02 15:12:11 [DEBUG] [DEBUG] Handler request_id: 019d4e52-a80e-7350-a33a-4aa8143ae294
+2026-04-02 15:12:11 [DEBUG] [DEBUG] Submit 7 OK — handler acquired
+2026-04-02 15:12:11 [DEBUG] [DEBUG] Submit 7 OK — handler acquired
+2026-04-02 15:12:11 [DEBUG] [DEBUG] Sleeping 5s before next submission (8/10)
+2026-04-02 15:12:11 [DEBUG] [DEBUG] Sleeping 5s before next submission (8/10)
+2026-04-02 15:12:16 [DEBUG] [DEBUG] Submitting image 8/10 — label: VISION, stem: algorithmic_openai_s_new_122b_funding_superapp_08_vision
+2026-04-02 15:12:16 [DEBUG] [DEBUG] Submitting image 8/10 — label: VISION, stem: algorithmic_openai_s_new_122b_funding_superapp_08_vision
+2026-04-02 15:12:16 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_08_vision, model: fal-ai/nano-banana-pro, prompt chars: 833
+2026-04-02 15:12:16 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_08_vision, model: fal-ai/nano-banana-pro, prompt chars: 833
+2026-04-02 15:12:16 [DEBUG] [DEBUG] Prompt preview: Algorithmic generative art composition of one massive monolithic rectangular tower at center, constructed from tightly p...
+2026-04-02 15:12:16 [DEBUG] [DEBUG] Prompt preview: Algorithmic generative art composition of one massive monolithic rectangular tower at center, constructed from tightly p...
+2026-04-02 15:12:16 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 15:12:16 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 15:12:16 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_08_vision
+2026-04-02 15:12:16 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_08_vision
+2026-04-02 15:12:16 [DEBUG] [DEBUG] Handler request_id: 019d4e52-bc43-78a2-bca7-2da580f8d0ab
+2026-04-02 15:12:16 [DEBUG] [DEBUG] Handler request_id: 019d4e52-bc43-78a2-bca7-2da580f8d0ab
+2026-04-02 15:12:16 [DEBUG] [DEBUG] Submit 8 OK — handler acquired
+2026-04-02 15:12:16 [DEBUG] [DEBUG] Submit 8 OK — handler acquired
+2026-04-02 15:12:16 [DEBUG] [DEBUG] Sleeping 5s before next submission (9/10)
+2026-04-02 15:12:16 [DEBUG] [DEBUG] Sleeping 5s before next submission (9/10)
+2026-04-02 15:12:21 [DEBUG] [DEBUG] Submitting image 9/10 — label: CTA, stem: algorithmic_openai_s_new_122b_funding_superapp_09_cta
+2026-04-02 15:12:21 [DEBUG] [DEBUG] Submitting image 9/10 — label: CTA, stem: algorithmic_openai_s_new_122b_funding_superapp_09_cta
+2026-04-02 15:12:21 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_09_cta, model: fal-ai/nano-banana-pro, prompt chars: 782
+2026-04-02 15:12:21 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_09_cta, model: fal-ai/nano-banana-pro, prompt chars: 782
+2026-04-02 15:12:21 [DEBUG] [DEBUG] Prompt preview: Algorithmic generative art composition of a stylized contract document rendered as a geometric grid of horizontal lines,...
+2026-04-02 15:12:21 [DEBUG] [DEBUG] Prompt preview: Algorithmic generative art composition of a stylized contract document rendered as a geometric grid of horizontal lines,...
+2026-04-02 15:12:21 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 15:12:21 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 15:12:22 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_09_cta
+2026-04-02 15:12:22 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_09_cta
+2026-04-02 15:12:22 [DEBUG] [DEBUG] Handler request_id: 019d4e52-d06f-7581-b498-efe143caa4de
+2026-04-02 15:12:22 [DEBUG] [DEBUG] Handler request_id: 019d4e52-d06f-7581-b498-efe143caa4de
+2026-04-02 15:12:22 [DEBUG] [DEBUG] Submit 9 OK — handler acquired
+2026-04-02 15:12:22 [DEBUG] [DEBUG] Submit 9 OK — handler acquired
+2026-04-02 15:12:22 [DEBUG] [DEBUG] Sleeping 5s before next submission (10/10)
+2026-04-02 15:12:22 [DEBUG] [DEBUG] Sleeping 5s before next submission (10/10)
+2026-04-02 15:12:27 [DEBUG] [DEBUG] Submitting image 10/10 — label: CTA, stem: algorithmic_openai_s_new_122b_funding_superapp_10_cta
+2026-04-02 15:12:27 [DEBUG] [DEBUG] Submitting image 10/10 — label: CTA, stem: algorithmic_openai_s_new_122b_funding_superapp_10_cta
+2026-04-02 15:12:27 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_10_cta, model: fal-ai/nano-banana-pro, prompt chars: 818
+2026-04-02 15:12:27 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_10_cta, model: fal-ai/nano-banana-pro, prompt chars: 818
+2026-04-02 15:12:27 [DEBUG] [DEBUG] Prompt preview: Algorithmic generative art composition split perfectly down the center into two halves. Left half features a geometric l...
+2026-04-02 15:12:27 [DEBUG] [DEBUG] Prompt preview: Algorithmic generative art composition split perfectly down the center into two halves. Left half features a geometric l...
+2026-04-02 15:12:27 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 15:12:27 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 15:12:27 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_10_cta
+2026-04-02 15:12:27 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_10_cta
+2026-04-02 15:12:27 [DEBUG] [DEBUG] Handler request_id: 019d4e52-e5d9-7410-9da1-20f21fb106a3
+2026-04-02 15:12:27 [DEBUG] [DEBUG] Handler request_id: 019d4e52-e5d9-7410-9da1-20f21fb106a3
+2026-04-02 15:12:27 [DEBUG] [DEBUG] Submit 10 OK — handler acquired
+2026-04-02 15:12:27 [DEBUG] [DEBUG] Submit 10 OK — handler acquired
+2026-04-02 15:12:27 [INFO] All 10 jobs submitted — now collecting results
+2026-04-02 15:12:27 [INFO] All 10 jobs submitted — now collecting results
+2026-04-02 15:12:27 [DEBUG] [DEBUG] Collecting image 1/10 — stem: algorithmic_openai_s_new_122b_funding_superapp_01_hook
+2026-04-02 15:12:27 [DEBUG] [DEBUG] Collecting image 1/10 — stem: algorithmic_openai_s_new_122b_funding_superapp_01_hook
+2026-04-02 15:12:27 [DEBUG] [DEBUG] Collecting result for: algorithmic_openai_s_new_122b_funding_superapp_01_hook (blocking until ready)
+2026-04-02 15:12:27 [DEBUG] [DEBUG] Collecting result for: algorithmic_openai_s_new_122b_funding_superapp_01_hook (blocking until ready)
+2026-04-02 15:12:48 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-02 15:12:48 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-02 15:12:48 [DEBUG] [DEBUG] Images in result: 1
+2026-04-02 15:12:48 [DEBUG] [DEBUG] Images in result: 1
+2026-04-02 15:12:48 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94a44e/tmRKN2NzcubdpUXX_rNLI_pG7FI2zc.jpg', 'content_type': 'image/jpeg', 'file_name': 'tmRKN2NzcubdpUXX_rNLI_pG7FI2zc.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-02 15:12:48 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94a44e/tmRKN2NzcubdpUXX_rNLI_pG7FI2zc.jpg', 'content_type': 'image/jpeg', 'file_name': 'tmRKN2NzcubdpUXX_rNLI_pG7FI2zc.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-02 15:12:48 [INFO] fal.ai image ready — algorithmic_openai_s_new_122b_funding_superapp_01_hook | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94a44e/tmRKN2NzcubdpUXX_rNLI_pG7FI2zc.jpg
+2026-04-02 15:12:48 [INFO] fal.ai image ready — algorithmic_openai_s_new_122b_funding_superapp_01_hook | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94a44e/tmRKN2NzcubdpUXX_rNLI_pG7FI2zc.jpg
+2026-04-02 15:12:48 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg
+2026-04-02 15:12:48 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg
+2026-04-02 15:12:51 [DEBUG] [DEBUG] Downloaded 2530 KB
+2026-04-02 15:12:51 [DEBUG] [DEBUG] Downloaded 2530 KB
+2026-04-02 15:12:51 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-02 15:12:51 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-02 15:12:51 [DEBUG] [DEBUG] Final saved: 2530 KB at generated_images\algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg
+2026-04-02 15:12:51 [DEBUG] [DEBUG] Final saved: 2530 KB at generated_images\algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg
+2026-04-02 15:12:51 [INFO] Image saved locally: generated_images\algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg (2530 KB)
+2026-04-02 15:12:51 [INFO] Image saved locally: generated_images\algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg (2530 KB)
+2026-04-02 15:12:51 [DEBUG] [DEBUG] Collect 1 result — url: https://v3b.fal.media/files/b/0a94a44e/tmRKN2NzcubdpUXX_rNLI_pG7FI2zc.jpg, path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg
+2026-04-02 15:12:51 [DEBUG] [DEBUG] Collect 1 result — url: https://v3b.fal.media/files/b/0a94a44e/tmRKN2NzcubdpUXX_rNLI_pG7FI2zc.jpg, path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg
+2026-04-02 15:12:51 [DEBUG] [DEBUG] Collecting image 2/10 — stem: algorithmic_openai_s_new_122b_funding_superapp_02_hook
+2026-04-02 15:12:51 [DEBUG] [DEBUG] Collecting image 2/10 — stem: algorithmic_openai_s_new_122b_funding_superapp_02_hook
+2026-04-02 15:12:51 [DEBUG] [DEBUG] Collecting result for: algorithmic_openai_s_new_122b_funding_superapp_02_hook (blocking until ready)
+2026-04-02 15:12:51 [DEBUG] [DEBUG] Collecting result for: algorithmic_openai_s_new_122b_funding_superapp_02_hook (blocking until ready)
+2026-04-02 15:12:55 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-02 15:12:55 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-02 15:12:55 [DEBUG] [DEBUG] Images in result: 1
+2026-04-02 15:12:55 [DEBUG] [DEBUG] Images in result: 1
+2026-04-02 15:12:55 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94a44e/qEi0PjGBUTs8U85R7oOQz_XFCTe3IE.jpg', 'content_type': 'image/jpeg', 'file_name': 'qEi0PjGBUTs8U85R7oOQz_XFCTe3IE.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-02 15:12:55 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94a44e/qEi0PjGBUTs8U85R7oOQz_XFCTe3IE.jpg', 'content_type': 'image/jpeg', 'file_name': 'qEi0PjGBUTs8U85R7oOQz_XFCTe3IE.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-02 15:12:55 [INFO] fal.ai image ready — algorithmic_openai_s_new_122b_funding_superapp_02_hook | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94a44e/qEi0PjGBUTs8U85R7oOQz_XFCTe3IE.jpg
+2026-04-02 15:12:55 [INFO] fal.ai image ready — algorithmic_openai_s_new_122b_funding_superapp_02_hook | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94a44e/qEi0PjGBUTs8U85R7oOQz_XFCTe3IE.jpg
+2026-04-02 15:12:55 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_openai_s_new_122b_funding_superapp_02_hook.jpg
+2026-04-02 15:12:55 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_openai_s_new_122b_funding_superapp_02_hook.jpg
+2026-04-02 15:13:00 [DEBUG] [DEBUG] Downloaded 2434 KB
+2026-04-02 15:13:00 [DEBUG] [DEBUG] Downloaded 2434 KB
+2026-04-02 15:13:00 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-02 15:13:00 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-02 15:13:00 [DEBUG] [DEBUG] Final saved: 2434 KB at generated_images\algorithmic_openai_s_new_122b_funding_superapp_02_hook.jpg
+2026-04-02 15:13:00 [DEBUG] [DEBUG] Final saved: 2434 KB at generated_images\algorithmic_openai_s_new_122b_funding_superapp_02_hook.jpg
+2026-04-02 15:13:00 [INFO] Image saved locally: generated_images\algorithmic_openai_s_new_122b_funding_superapp_02_hook.jpg (2434 KB)
+2026-04-02 15:13:00 [INFO] Image saved locally: generated_images\algorithmic_openai_s_new_122b_funding_superapp_02_hook.jpg (2434 KB)
+2026-04-02 15:13:00 [DEBUG] [DEBUG] Collect 2 result — url: https://v3b.fal.media/files/b/0a94a44e/qEi0PjGBUTs8U85R7oOQz_XFCTe3IE.jpg, path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_02_hook.jpg
+2026-04-02 15:13:00 [DEBUG] [DEBUG] Collect 2 result — url: https://v3b.fal.media/files/b/0a94a44e/qEi0PjGBUTs8U85R7oOQz_XFCTe3IE.jpg, path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_02_hook.jpg
+2026-04-02 15:13:00 [DEBUG] [DEBUG] Collecting image 3/10 — stem: algorithmic_openai_s_new_122b_funding_superapp_03_context
+2026-04-02 15:13:00 [DEBUG] [DEBUG] Collecting image 3/10 — stem: algorithmic_openai_s_new_122b_funding_superapp_03_context
+2026-04-02 15:13:00 [DEBUG] [DEBUG] Collecting result for: algorithmic_openai_s_new_122b_funding_superapp_03_context (blocking until ready)
+2026-04-02 15:13:00 [DEBUG] [DEBUG] Collecting result for: algorithmic_openai_s_new_122b_funding_superapp_03_context (blocking until ready)
+Traceback (most recent call last):
+  File "C:\Users\brryli\Desktop\automations\content_repurposing\scraper.py", line 384, in <module>
+main()
+  File "C:\Users\brryli\Desktop\automations\content_repurposing\scraper.py", line 321, in main
+style_visuals = generate_images_for_visuals(style_visuals, art.get("title", "article"), style_slug=style_key)
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\Desktop\automations\content_repurposing\image_gen.py", line 163, in generate_images_for_visuals
+v["image_url"], v["image_path"] = _collect_image(handler, stem)
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\Desktop\automations\content_repurposing\image_gen.py", line 55, in _collect_image
+result = handler.get()
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\fal_client\client.py", line 1404, in get
+for _ in self.iter_events(with_logs=False):
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\fal_client\client.py", line 1400, in iter_events
+time.sleep(interval)
+KeyboardInterrupt

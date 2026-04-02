@@ -181,7 +181,7 @@ def generate_video(visuals: list[dict], audio_path: str, srt_path: str, title_sl
     clamped = [max(6.0, min(10.0, d)) for d in raw]
     scale = audio_dur / sum(clamped)
     durations = [d * scale for d in clamped]
-    log(f"[DEBUG] Timing — audio: {audio_dur:.3f}s, images: {len(valid)}, durations: {[f'{d:.1f}s' for d in durations]}", "DEBUG")
+    log(f"[DEBUG] Timing — audio: {audio_dur:.3f}s, images: {len(valid)}, durations (6-10s clamped): {[f'{d:.1f}s' for d in durations]}", "DEBUG")
 
     # Write concat list
     with tempfile.NamedTemporaryFile(mode="w", suffix=".txt", delete=False, encoding="utf-8") as f:

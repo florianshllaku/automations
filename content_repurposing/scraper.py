@@ -9,7 +9,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 sys.stderr.reconfigure(encoding="utf-8")
 
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeout
-from telegram_bot import send_approval_message, wait_for_approval, send_message, send_audio, send_generated_images, send_document
+from telegram_bot import send_approval_message, wait_for_next, send_message, send_audio, send_generated_images, send_document
 from pipeline import research_article, generate_reel_script, generate_visual_prompts, VISUAL_STYLES
 from voice import generate_audio
 from image_gen import generate_images_for_visuals
@@ -244,16 +244,19 @@ def main():
     log(f"All {len(pending)} notification(s) sent — waiting for responses")
     print(f"\nAll {len(pending)} notification(s) sent. Waiting for your responses ...\n", file=sys.stderr)
 
-    # ── Phase 2: collect responses and generate content for approved articles ──
-    for art, msg_id in pending:
-        print(f"  Waiting for response on: {art['title']}", file=sys.stderr)
-        log(f"Waiting for user response: {art['title']}")
+    # ── Phase 2: process each YES immediately as it comes in ──
+    article_by_msg_id = {msg_id: art for art, msg_id in pending}
+    remaining_ids = set(article_by_msg_id.keys())
+
+    while remaining_ids:
         try:
-            approved = wait_for_approval(msg_id)
+            msg_id, approved = wait_for_next(remaining_ids)
         except Exception as e:
-            log(f"wait_for_approval failed for '{art['title']}': {type(e).__name__}: {e}", level="ERROR")
-            print(f"  [TELEGRAM ERROR] wait_for_approval failed: {type(e).__name__}: {e}", file=sys.stderr)
-            continue
+            log(f"wait_for_next failed: {type(e).__name__}: {e}", level="ERROR")
+            print(f"  [TELEGRAM ERROR] wait_for_next failed: {type(e).__name__}: {e}", file=sys.stderr)
+            break
+        remaining_ids.discard(msg_id)
+        art = article_by_msg_id[msg_id]
 
         if approved:
             log(f"User approved: {art['title']}")
@@ -290,7 +293,8 @@ def main():
 
                 # 2. Send the audio
                 try:
-                    audio_path = generate_audio(voiceover_text)
+                    title_slug_audio = re.sub(r"[^a-z0-9]+", "_", art.get("title", "article").lower())[:40].strip("_")
+                    audio_path = generate_audio(voiceover_text, output_path=f"audio_files/{title_slug_audio}.mp3")
                     send_audio(audio_path, title=reel.get("title", ""))
                 except Exception as e:
                     log(f"Audio generation or send failed: {type(e).__name__}: {e}", level="ERROR")

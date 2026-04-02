@@ -1,0 +1,744 @@
+2026-04-02 13:43:11 [INFO] ============================================================
+2026-04-02 13:43:11 [INFO] ============================================================
+2026-04-02 13:43:11 [INFO] RUN STARTED — log: run_2026-04-02_13-43-11.log
+2026-04-02 13:43:11 [INFO] RUN STARTED — log: run_2026-04-02_13-43-11.log
+2026-04-02 13:43:11 [INFO] ============================================================
+2026-04-02 13:43:11 [INFO] ============================================================
+2026-04-02 13:43:12 [INFO] Scraping https://www.rundown.ai/articles?category=AI
+2026-04-02 13:43:12 [INFO] Scraping https://www.rundown.ai/articles?category=AI
+Loading https://www.rundown.ai/articles?category=AI ...
+  Page 1: 8 articles.
+2026-04-02 13:43:16 [INFO] Page 1: 8 articles found
+2026-04-02 13:43:16 [INFO] Page 1: 8 articles found
+  Reached checkpoint at page 1. Stopping.
+2026-04-02 13:43:16 [INFO] Reached checkpoint at page 1 — stopping scrape
+2026-04-02 13:43:16 [INFO] Reached checkpoint at page 1 — stopping scrape
+2026-04-02 13:43:16 [INFO] 2 new article(s) found
+2026-04-02 13:43:16 [INFO] 2 new article(s) found
+[
+  {
+    "title": "Dorsey makes the AI case against managers",
+    "url": "https://www.rundown.ai/articles/dorsey-makes-the-ai-case-against-managers",
+    "date": null,
+    "id": 1021
+  },
+  {
+    "title": "OpenAI’s new $122B funding, 'superapp'",
+    "url": "https://www.rundown.ai/articles/openai-new-122b-funding-superapp",
+    "date": null,
+    "id": 1022
+  }
+]
+  Sending notification for: Dorsey makes the AI case against managers
+2026-04-02 13:43:16 [INFO] Telegram notification sent: Dorsey makes the AI case against managers
+2026-04-02 13:43:16 [INFO] Telegram notification sent: Dorsey makes the AI case against managers
+2026-04-02 13:43:16 [DEBUG] [DEBUG] send_approval_message — title: Dorsey makes the AI case against managers, url: https://www.rundown.ai/articles/dorsey-makes-the-ai-case-against-managers
+2026-04-02 13:43:16 [DEBUG] [DEBUG] send_approval_message — title: Dorsey makes the AI case against managers, url: https://www.rundown.ai/articles/dorsey-makes-the-ai-case-against-managers
+2026-04-02 13:43:17 [DEBUG] [DEBUG] Approval message sent — message_id: 260
+2026-04-02 13:43:17 [DEBUG] [DEBUG] Approval message sent — message_id: 260
+  Waiting 5 seconds before next notification ...
+  Sending notification for: OpenAI’s new $122B funding, 'superapp'
+2026-04-02 13:43:22 [INFO] Telegram notification sent: OpenAI’s new $122B funding, 'superapp'
+2026-04-02 13:43:22 [INFO] Telegram notification sent: OpenAI’s new $122B funding, 'superapp'
+2026-04-02 13:43:22 [DEBUG] [DEBUG] send_approval_message — title: OpenAI’s new $122B funding, 'superapp', url: https://www.rundown.ai/articles/openai-new-122b-funding-superapp
+2026-04-02 13:43:22 [DEBUG] [DEBUG] send_approval_message — title: OpenAI’s new $122B funding, 'superapp', url: https://www.rundown.ai/articles/openai-new-122b-funding-superapp
+2026-04-02 13:43:23 [DEBUG] [DEBUG] Approval message sent — message_id: 261
+2026-04-02 13:43:23 [DEBUG] [DEBUG] Approval message sent — message_id: 261
+2026-04-02 13:43:23 [INFO] All 2 notification(s) sent — waiting for responses
+2026-04-02 13:43:23 [INFO] All 2 notification(s) sent — waiting for responses
+
+All 2 notification(s) sent. Waiting for your responses ...
+2026-04-02 13:43:25 [DEBUG] [DEBUG] Initial flush — starting offset: 1
+2026-04-02 13:43:25 [DEBUG] [DEBUG] Initial flush — starting offset: 1
+2026-04-02 13:43:29 [DEBUG] [DEBUG] Poll #1 — 1 update(s)
+2026-04-02 13:43:29 [DEBUG] [DEBUG] Poll #1 — 1 update(s)
+2026-04-02 13:43:29 [INFO] User tapped YES on message_id=261
+2026-04-02 13:43:29 [INFO] User tapped YES on message_id=261
+2026-04-02 13:43:29 [INFO] User approved: OpenAI’s new $122B funding, 'superapp'
+2026-04-02 13:43:29 [INFO] User approved: OpenAI’s new $122B funding, 'superapp'
+User approved — generating content: OpenAI’s new $122B funding, 'superapp'
+2026-04-02 13:43:29 [INFO] Fetching article: https://www.rundown.ai/articles/openai-new-122b-funding-superapp
+2026-04-02 13:43:29 [INFO] Fetching article: https://www.rundown.ai/articles/openai-new-122b-funding-superapp
+  Fetching article content: https://www.rundown.ai/articles/openai-new-122b-funding-superapp
+2026-04-02 13:43:31 [INFO] Article fetched (9759 chars): https://www.rundown.ai/articles/openai-new-122b-funding-superapp
+2026-04-02 13:43:31 [INFO] Article fetched (9759 chars): https://www.rundown.ai/articles/openai-new-122b-funding-superapp
+  Downloading image ...
+2026-04-02 13:43:31 [INFO] Image downloaded: article_images\openai-new-122b-funding-superapp.png
+2026-04-02 13:43:31 [INFO] Image downloaded: article_images\openai-new-122b-funding-superapp.png
+2026-04-02 13:43:31 [INFO] Calling Claude (research)
+2026-04-02 13:43:31 [INFO] Calling Claude (research)
+  Calling Claude for research ...
+2026-04-02 13:43:38 [INFO] Claude research complete — topic: OpenAI closes a record-breaking $122 billion funding round at an $852 billion valuation and announces plans to build a unified AI 'superapp'
+2026-04-02 13:43:38 [INFO] Claude research complete — topic: OpenAI closes a record-breaking $122 billion funding round at an $852 billion valuation and announces plans to build a unified AI 'superapp'
+2026-04-02 13:43:38 [INFO] Calling Claude (reel script)
+2026-04-02 13:43:38 [INFO] Calling Claude (reel script)
+  Generating reel script ...
+2026-04-02 13:43:52 [INFO] Reel script complete — title: OpenAI Just Raised More Than Most Countries' GDP, runtime: ~42 seconds
+2026-04-02 13:43:52 [INFO] Reel script complete — title: OpenAI Just Raised More Than Most Countries' GDP, runtime: ~42 seconds
+2026-04-02 13:43:52 [DEBUG] [DEBUG] send_message — chars: 1025, preview: 🎙 <b>SCRIPT</b>
+
+Everyone said OpenAI was falling apart. Code reds, Sora shutdow
+2026-04-02 13:43:52 [DEBUG] [DEBUG] send_message — chars: 1025, preview: 🎙 <b>SCRIPT</b>
+
+Everyone said OpenAI was falling apart. Code reds, Sora shutdow
+2026-04-02 13:43:53 [DEBUG] [DEBUG] send_message — delivered
+2026-04-02 13:43:53 [DEBUG] [DEBUG] send_message — delivered
+2026-04-02 13:43:53 [INFO] Script sent to Telegram
+2026-04-02 13:43:53 [INFO] Script sent to Telegram
+2026-04-02 13:43:53 [DEBUG] [DEBUG] ElevenLabs TTS — voice_id: YgrS0YQVeTTwGJKRYx5E, model: eleven_multilingual_v2, chars: 1008
+2026-04-02 13:43:53 [DEBUG] [DEBUG] ElevenLabs TTS — voice_id: YgrS0YQVeTTwGJKRYx5E, model: eleven_multilingual_v2, chars: 1008
+2026-04-02 13:43:53 [DEBUG] [DEBUG] Script preview: Everyone said OpenAI was falling apart. Code reds, Sora shutdown, Anthropic stealing enterprise deals. So what did they ...
+2026-04-02 13:43:53 [DEBUG] [DEBUG] Script preview: Everyone said OpenAI was falling apart. Code reds, Sora shutdown, Anthropic stealing enterprise deals. So what did they ...
+2026-04-02 13:43:53 [INFO] ElevenLabs TTS call started — voice_id=YgrS0YQVeTTwGJKRYx5E, chars=1008
+2026-04-02 13:43:53 [INFO] ElevenLabs TTS call started — voice_id=YgrS0YQVeTTwGJKRYx5E, chars=1008
+2026-04-02 13:43:53 [DEBUG] [DEBUG] ElevenLabs response received — writing chunks to audio_files\openai_s_new_122b_funding_superapp.mp3
+2026-04-02 13:43:53 [DEBUG] [DEBUG] ElevenLabs response received — writing chunks to audio_files\openai_s_new_122b_funding_superapp.mp3
+2026-04-02 13:44:04 [DEBUG] [DEBUG] Audio written — 996 chunks, 995 KB, path: audio_files\openai_s_new_122b_funding_superapp.mp3
+2026-04-02 13:44:04 [DEBUG] [DEBUG] Audio written — 996 chunks, 995 KB, path: audio_files\openai_s_new_122b_funding_superapp.mp3
+2026-04-02 13:44:04 [INFO] ElevenLabs TTS complete — saved to audio_files\openai_s_new_122b_funding_superapp.mp3 (995 KB)
+2026-04-02 13:44:04 [INFO] ElevenLabs TTS complete — saved to audio_files\openai_s_new_122b_funding_superapp.mp3 (995 KB)
+2026-04-02 13:44:04 [INFO] Sending audio to Telegram — file: audio_files\openai_s_new_122b_funding_superapp.mp3, size: 995 KB, title: OpenAI Just Raised More Than Most Countries' GDP
+2026-04-02 13:44:04 [INFO] Sending audio to Telegram — file: audio_files\openai_s_new_122b_funding_superapp.mp3, size: 995 KB, title: OpenAI Just Raised More Than Most Countries' GDP
+2026-04-02 13:44:04 [DEBUG] [DEBUG] audio file exists: True
+2026-04-02 13:44:04 [DEBUG] [DEBUG] audio file exists: True
+2026-04-02 13:44:07 [INFO] Audio sent to Telegram — audio_files\openai_s_new_122b_funding_superapp.mp3
+2026-04-02 13:44:07 [INFO] Audio sent to Telegram — audio_files\openai_s_new_122b_funding_superapp.mp3
+2026-04-02 13:44:07 [INFO] Generating visual prompts — style: Algorithmic
+2026-04-02 13:44:07 [INFO] Generating visual prompts — style: Algorithmic
+  Generating visual prompts (Algorithmic) ...
+2026-04-02 13:44:07 [INFO] Calling Claude (visual prompts)
+2026-04-02 13:44:07 [INFO] Calling Claude (visual prompts)
+  Generating visual prompts ...
+2026-04-02 13:44:40 [INFO] Visual prompts complete — 5 frames generated
+2026-04-02 13:44:40 [INFO] Visual prompts complete — 5 frames generated
+2026-04-02 13:44:40 [INFO] Visual prompts ready — Algorithmic: 5 frames
+2026-04-02 13:44:40 [INFO] Visual prompts ready — Algorithmic: 5 frames
+2026-04-02 13:44:40 [INFO] Generating images from fal.ai — style: Algorithmic
+2026-04-02 13:44:40 [INFO] Generating images from fal.ai — style: Algorithmic
+2026-04-02 13:44:40 [INFO] Starting image generation — 5 frames, article: 'OpenAI’s new $122B funding, 'superapp'', style: 'algorithmic'
+2026-04-02 13:44:40 [INFO] Starting image generation — 5 frames, article: 'OpenAI’s new $122B funding, 'superapp'', style: 'algorithmic'
+2026-04-02 13:44:40 [DEBUG] [DEBUG] Visuals to generate: ['HOOK', 'CONTEXT', 'TWIST', 'VISION', 'CTA']
+2026-04-02 13:44:40 [DEBUG] [DEBUG] Visuals to generate: ['HOOK', 'CONTEXT', 'TWIST', 'VISION', 'CTA']
+2026-04-02 13:44:40 [DEBUG] [DEBUG] Submitting image 1/5 — label: HOOK, stem: algorithmic_openai_s_new_122b_funding_superapp_01_hook
+2026-04-02 13:44:40 [DEBUG] [DEBUG] Submitting image 1/5 — label: HOOK, stem: algorithmic_openai_s_new_122b_funding_superapp_01_hook
+2026-04-02 13:44:40 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_01_hook, model: fal-ai/nano-banana-pro, prompt chars: 1215
+2026-04-02 13:44:40 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_01_hook, model: fal-ai/nano-banana-pro, prompt chars: 1215
+2026-04-02 13:44:40 [DEBUG] [DEBUG] Prompt preview: A large geometric hexagonal structure in dark space appearing cracked and fractured with pieces floating apart, several ...
+2026-04-02 13:44:40 [DEBUG] [DEBUG] Prompt preview: A large geometric hexagonal structure in dark space appearing cracked and fractured with pieces floating apart, several ...
+2026-04-02 13:44:40 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 13:44:40 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 13:44:40 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_01_hook
+2026-04-02 13:44:40 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_01_hook
+2026-04-02 13:44:40 [DEBUG] [DEBUG] Handler request_id: 019d4e02-8528-7a82-acb6-af438027aff6
+2026-04-02 13:44:40 [DEBUG] [DEBUG] Handler request_id: 019d4e02-8528-7a82-acb6-af438027aff6
+2026-04-02 13:44:40 [DEBUG] [DEBUG] Submit 1 OK — handler acquired
+2026-04-02 13:44:40 [DEBUG] [DEBUG] Submit 1 OK — handler acquired
+2026-04-02 13:44:40 [DEBUG] [DEBUG] Sleeping 5s before next submission (2/5)
+2026-04-02 13:44:40 [DEBUG] [DEBUG] Sleeping 5s before next submission (2/5)
+2026-04-02 13:44:45 [DEBUG] [DEBUG] Submitting image 2/5 — label: CONTEXT, stem: algorithmic_openai_s_new_122b_funding_superapp_02_context
+2026-04-02 13:44:45 [DEBUG] [DEBUG] Submitting image 2/5 — label: CONTEXT, stem: algorithmic_openai_s_new_122b_funding_superapp_02_context
+2026-04-02 13:44:45 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_02_context, model: fal-ai/nano-banana-pro, prompt chars: 1321
+2026-04-02 13:44:45 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_02_context, model: fal-ai/nano-banana-pro, prompt chars: 1321
+2026-04-02 13:44:45 [DEBUG] [DEBUG] Prompt preview: An impossibly tall vertical column built from hundreds of perfectly stacked geometric coin-like circular nodes rising fr...
+2026-04-02 13:44:45 [DEBUG] [DEBUG] Prompt preview: An impossibly tall vertical column built from hundreds of perfectly stacked geometric coin-like circular nodes rising fr...
+2026-04-02 13:44:45 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 13:44:45 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 13:44:46 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_02_context
+2026-04-02 13:44:46 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_02_context
+2026-04-02 13:44:46 [DEBUG] [DEBUG] Handler request_id: 019d4e02-9a7e-7b93-8bbe-ca2f402eb2d9
+2026-04-02 13:44:46 [DEBUG] [DEBUG] Handler request_id: 019d4e02-9a7e-7b93-8bbe-ca2f402eb2d9
+2026-04-02 13:44:46 [DEBUG] [DEBUG] Submit 2 OK — handler acquired
+2026-04-02 13:44:46 [DEBUG] [DEBUG] Submit 2 OK — handler acquired
+2026-04-02 13:44:46 [DEBUG] [DEBUG] Sleeping 5s before next submission (3/5)
+2026-04-02 13:44:46 [DEBUG] [DEBUG] Sleeping 5s before next submission (3/5)
+2026-04-02 13:44:51 [DEBUG] [DEBUG] Submitting image 3/5 — label: TWIST, stem: algorithmic_openai_s_new_122b_funding_superapp_03_twist
+2026-04-02 13:44:51 [DEBUG] [DEBUG] Submitting image 3/5 — label: TWIST, stem: algorithmic_openai_s_new_122b_funding_superapp_03_twist
+2026-04-02 13:44:51 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_03_twist, model: fal-ai/nano-banana-pro, prompt chars: 1362
+2026-04-02 13:44:51 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_03_twist, model: fal-ai/nano-banana-pro, prompt chars: 1362
+2026-04-02 13:44:51 [DEBUG] [DEBUG] Prompt preview: A symmetrical split-screen composition divided by a thin vertical white line, left side showing scattered small circular...
+2026-04-02 13:44:51 [DEBUG] [DEBUG] Prompt preview: A symmetrical split-screen composition divided by a thin vertical white line, left side showing scattered small circular...
+2026-04-02 13:44:51 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 13:44:51 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 13:44:51 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_03_twist
+2026-04-02 13:44:51 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_03_twist
+2026-04-02 13:44:51 [DEBUG] [DEBUG] Handler request_id: 019d4e02-aeaf-7fe0-8b13-b55512832291
+2026-04-02 13:44:51 [DEBUG] [DEBUG] Handler request_id: 019d4e02-aeaf-7fe0-8b13-b55512832291
+2026-04-02 13:44:51 [DEBUG] [DEBUG] Submit 3 OK — handler acquired
+2026-04-02 13:44:51 [DEBUG] [DEBUG] Submit 3 OK — handler acquired
+2026-04-02 13:44:51 [DEBUG] [DEBUG] Sleeping 5s before next submission (4/5)
+2026-04-02 13:44:51 [DEBUG] [DEBUG] Sleeping 5s before next submission (4/5)
+2026-04-02 13:44:56 [DEBUG] [DEBUG] Submitting image 4/5 — label: VISION, stem: algorithmic_openai_s_new_122b_funding_superapp_04_vision
+2026-04-02 13:44:56 [DEBUG] [DEBUG] Submitting image 4/5 — label: VISION, stem: algorithmic_openai_s_new_122b_funding_superapp_04_vision
+2026-04-02 13:44:56 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_04_vision, model: fal-ai/nano-banana-pro, prompt chars: 1375
+2026-04-02 13:44:56 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_04_vision, model: fal-ai/nano-banana-pro, prompt chars: 1375
+2026-04-02 13:44:56 [DEBUG] [DEBUG] Prompt preview: Three distinct geometric module shapes — a chat bubble form, a code bracket form, and an agent gear form — all simplifie...
+2026-04-02 13:44:56 [DEBUG] [DEBUG] Prompt preview: Three distinct geometric module shapes — a chat bubble form, a code bracket form, and an agent gear form — all simplifie...
+2026-04-02 13:44:56 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 13:44:56 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 13:44:57 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_04_vision
+2026-04-02 13:44:57 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_04_vision
+2026-04-02 13:44:57 [DEBUG] [DEBUG] Handler request_id: 019d4e02-c407-7d61-98f5-4332f8e8584b
+2026-04-02 13:44:57 [DEBUG] [DEBUG] Handler request_id: 019d4e02-c407-7d61-98f5-4332f8e8584b
+2026-04-02 13:44:57 [DEBUG] [DEBUG] Submit 4 OK — handler acquired
+2026-04-02 13:44:57 [DEBUG] [DEBUG] Submit 4 OK — handler acquired
+2026-04-02 13:44:57 [DEBUG] [DEBUG] Sleeping 5s before next submission (5/5)
+2026-04-02 13:44:57 [DEBUG] [DEBUG] Sleeping 5s before next submission (5/5)
+2026-04-02 13:45:02 [DEBUG] [DEBUG] Submitting image 5/5 — label: CTA, stem: algorithmic_openai_s_new_122b_funding_superapp_05_cta
+2026-04-02 13:45:02 [DEBUG] [DEBUG] Submitting image 5/5 — label: CTA, stem: algorithmic_openai_s_new_122b_funding_superapp_05_cta
+2026-04-02 13:45:02 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_05_cta, model: fal-ai/nano-banana-pro, prompt chars: 1361
+2026-04-02 13:45:02 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_openai_s_new_122b_funding_superapp_05_cta, model: fal-ai/nano-banana-pro, prompt chars: 1361
+2026-04-02 13:45:02 [DEBUG] [DEBUG] Prompt preview: A large perfectly balanced geometric scale centered in frame, left side holding a dense heavy cluster of stacked value n...
+2026-04-02 13:45:02 [DEBUG] [DEBUG] Prompt preview: A large perfectly balanced geometric scale centered in frame, left side holding a dense heavy cluster of stacked value n...
+2026-04-02 13:45:02 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 13:45:02 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-02 13:45:02 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_05_cta
+2026-04-02 13:45:02 [INFO] fal.ai job submitted — stem: algorithmic_openai_s_new_122b_funding_superapp_05_cta
+2026-04-02 13:45:02 [DEBUG] [DEBUG] Handler request_id: 019d4e02-d961-7881-b37f-4aeed488ecf7
+2026-04-02 13:45:02 [DEBUG] [DEBUG] Handler request_id: 019d4e02-d961-7881-b37f-4aeed488ecf7
+2026-04-02 13:45:02 [DEBUG] [DEBUG] Submit 5 OK — handler acquired
+2026-04-02 13:45:02 [DEBUG] [DEBUG] Submit 5 OK — handler acquired
+2026-04-02 13:45:02 [INFO] All 5 jobs submitted — now collecting results
+2026-04-02 13:45:02 [INFO] All 5 jobs submitted — now collecting results
+2026-04-02 13:45:02 [DEBUG] [DEBUG] Collecting image 1/5 — stem: algorithmic_openai_s_new_122b_funding_superapp_01_hook
+2026-04-02 13:45:02 [DEBUG] [DEBUG] Collecting image 1/5 — stem: algorithmic_openai_s_new_122b_funding_superapp_01_hook
+2026-04-02 13:45:02 [DEBUG] [DEBUG] Collecting result for: algorithmic_openai_s_new_122b_funding_superapp_01_hook (blocking until ready)
+2026-04-02 13:45:02 [DEBUG] [DEBUG] Collecting result for: algorithmic_openai_s_new_122b_funding_superapp_01_hook (blocking until ready)
+2026-04-02 13:45:38 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-02 13:45:38 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-02 13:45:39 [DEBUG] [DEBUG] Images in result: 1
+2026-04-02 13:45:39 [DEBUG] [DEBUG] Images in result: 1
+2026-04-02 13:45:39 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94a244/xwispCM1OTi5MdIRZ9MVR_udHqTLNF.jpg', 'content_type': 'image/jpeg', 'file_name': 'xwispCM1OTi5MdIRZ9MVR_udHqTLNF.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-02 13:45:39 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94a244/xwispCM1OTi5MdIRZ9MVR_udHqTLNF.jpg', 'content_type': 'image/jpeg', 'file_name': 'xwispCM1OTi5MdIRZ9MVR_udHqTLNF.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-02 13:45:39 [INFO] fal.ai image ready — algorithmic_openai_s_new_122b_funding_superapp_01_hook | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94a244/xwispCM1OTi5MdIRZ9MVR_udHqTLNF.jpg
+2026-04-02 13:45:39 [INFO] fal.ai image ready — algorithmic_openai_s_new_122b_funding_superapp_01_hook | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94a244/xwispCM1OTi5MdIRZ9MVR_udHqTLNF.jpg
+2026-04-02 13:45:39 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg
+2026-04-02 13:45:39 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg
+2026-04-02 13:45:42 [DEBUG] [DEBUG] Downloaded 1874 KB
+2026-04-02 13:45:42 [DEBUG] [DEBUG] Downloaded 1874 KB
+2026-04-02 13:45:42 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-02 13:45:42 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-02 13:45:42 [DEBUG] [DEBUG] Final saved: 1874 KB at generated_images\algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg
+2026-04-02 13:45:42 [DEBUG] [DEBUG] Final saved: 1874 KB at generated_images\algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg
+2026-04-02 13:45:42 [INFO] Image saved locally: generated_images\algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg (1874 KB)
+2026-04-02 13:45:42 [INFO] Image saved locally: generated_images\algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg (1874 KB)
+2026-04-02 13:45:42 [DEBUG] [DEBUG] Collect 1 result — url: https://v3b.fal.media/files/b/0a94a244/xwispCM1OTi5MdIRZ9MVR_udHqTLNF.jpg, path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg
+2026-04-02 13:45:42 [DEBUG] [DEBUG] Collect 1 result — url: https://v3b.fal.media/files/b/0a94a244/xwispCM1OTi5MdIRZ9MVR_udHqTLNF.jpg, path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg
+2026-04-02 13:45:42 [DEBUG] [DEBUG] Collecting image 2/5 — stem: algorithmic_openai_s_new_122b_funding_superapp_02_context
+2026-04-02 13:45:42 [DEBUG] [DEBUG] Collecting image 2/5 — stem: algorithmic_openai_s_new_122b_funding_superapp_02_context
+2026-04-02 13:45:42 [DEBUG] [DEBUG] Collecting result for: algorithmic_openai_s_new_122b_funding_superapp_02_context (blocking until ready)
+2026-04-02 13:45:42 [DEBUG] [DEBUG] Collecting result for: algorithmic_openai_s_new_122b_funding_superapp_02_context (blocking until ready)
+2026-04-02 13:45:48 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-02 13:45:48 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-02 13:45:48 [DEBUG] [DEBUG] Images in result: 1
+2026-04-02 13:45:48 [DEBUG] [DEBUG] Images in result: 1
+2026-04-02 13:45:48 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94a244/u75PBRnRmwy3bw-YLVEL0_FjgIQUnn.jpg', 'content_type': 'image/jpeg', 'file_name': 'u75PBRnRmwy3bw-YLVEL0_FjgIQUnn.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-02 13:45:48 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94a244/u75PBRnRmwy3bw-YLVEL0_FjgIQUnn.jpg', 'content_type': 'image/jpeg', 'file_name': 'u75PBRnRmwy3bw-YLVEL0_FjgIQUnn.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-02 13:45:48 [INFO] fal.ai image ready — algorithmic_openai_s_new_122b_funding_superapp_02_context | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94a244/u75PBRnRmwy3bw-YLVEL0_FjgIQUnn.jpg
+2026-04-02 13:45:48 [INFO] fal.ai image ready — algorithmic_openai_s_new_122b_funding_superapp_02_context | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94a244/u75PBRnRmwy3bw-YLVEL0_FjgIQUnn.jpg
+2026-04-02 13:45:48 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_openai_s_new_122b_funding_superapp_02_context.jpg
+2026-04-02 13:45:48 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_openai_s_new_122b_funding_superapp_02_context.jpg
+2026-04-02 13:45:51 [DEBUG] [DEBUG] Downloaded 2908 KB
+2026-04-02 13:45:51 [DEBUG] [DEBUG] Downloaded 2908 KB
+2026-04-02 13:45:51 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-02 13:45:51 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-02 13:45:51 [DEBUG] [DEBUG] Final saved: 2908 KB at generated_images\algorithmic_openai_s_new_122b_funding_superapp_02_context.jpg
+2026-04-02 13:45:51 [DEBUG] [DEBUG] Final saved: 2908 KB at generated_images\algorithmic_openai_s_new_122b_funding_superapp_02_context.jpg
+2026-04-02 13:45:51 [INFO] Image saved locally: generated_images\algorithmic_openai_s_new_122b_funding_superapp_02_context.jpg (2908 KB)
+2026-04-02 13:45:51 [INFO] Image saved locally: generated_images\algorithmic_openai_s_new_122b_funding_superapp_02_context.jpg (2908 KB)
+2026-04-02 13:45:51 [DEBUG] [DEBUG] Collect 2 result — url: https://v3b.fal.media/files/b/0a94a244/u75PBRnRmwy3bw-YLVEL0_FjgIQUnn.jpg, path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_02_context.jpg
+2026-04-02 13:45:51 [DEBUG] [DEBUG] Collect 2 result — url: https://v3b.fal.media/files/b/0a94a244/u75PBRnRmwy3bw-YLVEL0_FjgIQUnn.jpg, path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_02_context.jpg
+2026-04-02 13:45:51 [DEBUG] [DEBUG] Collecting image 3/5 — stem: algorithmic_openai_s_new_122b_funding_superapp_03_twist
+2026-04-02 13:45:51 [DEBUG] [DEBUG] Collecting image 3/5 — stem: algorithmic_openai_s_new_122b_funding_superapp_03_twist
+2026-04-02 13:45:51 [DEBUG] [DEBUG] Collecting result for: algorithmic_openai_s_new_122b_funding_superapp_03_twist (blocking until ready)
+2026-04-02 13:45:51 [DEBUG] [DEBUG] Collecting result for: algorithmic_openai_s_new_122b_funding_superapp_03_twist (blocking until ready)
+2026-04-02 13:45:57 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-02 13:45:57 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-02 13:45:57 [DEBUG] [DEBUG] Images in result: 1
+2026-04-02 13:45:57 [DEBUG] [DEBUG] Images in result: 1
+2026-04-02 13:45:57 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94a245/PFjs_XDE0ZrRbrWCSMwGk_dVs3wcNJ.jpg', 'content_type': 'image/jpeg', 'file_name': 'PFjs_XDE0ZrRbrWCSMwGk_dVs3wcNJ.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-02 13:45:57 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94a245/PFjs_XDE0ZrRbrWCSMwGk_dVs3wcNJ.jpg', 'content_type': 'image/jpeg', 'file_name': 'PFjs_XDE0ZrRbrWCSMwGk_dVs3wcNJ.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-02 13:45:57 [INFO] fal.ai image ready — algorithmic_openai_s_new_122b_funding_superapp_03_twist | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94a245/PFjs_XDE0ZrRbrWCSMwGk_dVs3wcNJ.jpg
+2026-04-02 13:45:57 [INFO] fal.ai image ready — algorithmic_openai_s_new_122b_funding_superapp_03_twist | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94a245/PFjs_XDE0ZrRbrWCSMwGk_dVs3wcNJ.jpg
+2026-04-02 13:45:57 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_openai_s_new_122b_funding_superapp_03_twist.jpg
+2026-04-02 13:45:57 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_openai_s_new_122b_funding_superapp_03_twist.jpg
+2026-04-02 13:46:00 [DEBUG] [DEBUG] Downloaded 2528 KB
+2026-04-02 13:46:00 [DEBUG] [DEBUG] Downloaded 2528 KB
+2026-04-02 13:46:00 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-02 13:46:00 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-02 13:46:00 [DEBUG] [DEBUG] Final saved: 2528 KB at generated_images\algorithmic_openai_s_new_122b_funding_superapp_03_twist.jpg
+2026-04-02 13:46:00 [DEBUG] [DEBUG] Final saved: 2528 KB at generated_images\algorithmic_openai_s_new_122b_funding_superapp_03_twist.jpg
+2026-04-02 13:46:00 [INFO] Image saved locally: generated_images\algorithmic_openai_s_new_122b_funding_superapp_03_twist.jpg (2528 KB)
+2026-04-02 13:46:00 [INFO] Image saved locally: generated_images\algorithmic_openai_s_new_122b_funding_superapp_03_twist.jpg (2528 KB)
+2026-04-02 13:46:00 [DEBUG] [DEBUG] Collect 3 result — url: https://v3b.fal.media/files/b/0a94a245/PFjs_XDE0ZrRbrWCSMwGk_dVs3wcNJ.jpg, path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_03_twist.jpg
+2026-04-02 13:46:00 [DEBUG] [DEBUG] Collect 3 result — url: https://v3b.fal.media/files/b/0a94a245/PFjs_XDE0ZrRbrWCSMwGk_dVs3wcNJ.jpg, path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_03_twist.jpg
+2026-04-02 13:46:00 [DEBUG] [DEBUG] Collecting image 4/5 — stem: algorithmic_openai_s_new_122b_funding_superapp_04_vision
+2026-04-02 13:46:00 [DEBUG] [DEBUG] Collecting image 4/5 — stem: algorithmic_openai_s_new_122b_funding_superapp_04_vision
+2026-04-02 13:46:00 [DEBUG] [DEBUG] Collecting result for: algorithmic_openai_s_new_122b_funding_superapp_04_vision (blocking until ready)
+2026-04-02 13:46:00 [DEBUG] [DEBUG] Collecting result for: algorithmic_openai_s_new_122b_funding_superapp_04_vision (blocking until ready)
+2026-04-02 13:46:00 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-02 13:46:00 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-02 13:46:00 [DEBUG] [DEBUG] Images in result: 1
+2026-04-02 13:46:00 [DEBUG] [DEBUG] Images in result: 1
+2026-04-02 13:46:00 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94a245/esUEyL01IHbpTFNh5VyKj_NozyEoMM.jpg', 'content_type': 'image/jpeg', 'file_name': 'esUEyL01IHbpTFNh5VyKj_NozyEoMM.jpg', 'file_size': None, 'width': None, 'height': None}
+2026-04-02 13:46:00 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94a245/esUEyL01IHbpTFNh5VyKj_NozyEoMM.jpg', 'content_type': 'image/jpeg', 'file_name': 'esUEyL01IHbpTFNh5VyKj_NozyEoMM.jpg', 'file_size': None, 'width': None, 'height': None}
+2026-04-02 13:46:00 [INFO] fal.ai image ready — algorithmic_openai_s_new_122b_funding_superapp_04_vision | NonexNone | URL: https://v3b.fal.media/files/b/0a94a245/esUEyL01IHbpTFNh5VyKj_NozyEoMM.jpg
+2026-04-02 13:46:00 [INFO] fal.ai image ready — algorithmic_openai_s_new_122b_funding_superapp_04_vision | NonexNone | URL: https://v3b.fal.media/files/b/0a94a245/esUEyL01IHbpTFNh5VyKj_NozyEoMM.jpg
+2026-04-02 13:46:00 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_openai_s_new_122b_funding_superapp_04_vision.jpg
+2026-04-02 13:46:00 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_openai_s_new_122b_funding_superapp_04_vision.jpg
+2026-04-02 13:46:03 [DEBUG] [DEBUG] Downloaded 5161 KB
+2026-04-02 13:46:03 [DEBUG] [DEBUG] Downloaded 5161 KB
+2026-04-02 13:46:03 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-02 13:46:03 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-02 13:46:03 [DEBUG] [DEBUG] Final saved: 5161 KB at generated_images\algorithmic_openai_s_new_122b_funding_superapp_04_vision.jpg
+2026-04-02 13:46:03 [DEBUG] [DEBUG] Final saved: 5161 KB at generated_images\algorithmic_openai_s_new_122b_funding_superapp_04_vision.jpg
+2026-04-02 13:46:03 [INFO] Image saved locally: generated_images\algorithmic_openai_s_new_122b_funding_superapp_04_vision.jpg (5161 KB)
+2026-04-02 13:46:03 [INFO] Image saved locally: generated_images\algorithmic_openai_s_new_122b_funding_superapp_04_vision.jpg (5161 KB)
+2026-04-02 13:46:03 [DEBUG] [DEBUG] Collect 4 result — url: https://v3b.fal.media/files/b/0a94a245/esUEyL01IHbpTFNh5VyKj_NozyEoMM.jpg, path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_04_vision.jpg
+2026-04-02 13:46:03 [DEBUG] [DEBUG] Collect 4 result — url: https://v3b.fal.media/files/b/0a94a245/esUEyL01IHbpTFNh5VyKj_NozyEoMM.jpg, path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_04_vision.jpg
+2026-04-02 13:46:03 [DEBUG] [DEBUG] Collecting image 5/5 — stem: algorithmic_openai_s_new_122b_funding_superapp_05_cta
+2026-04-02 13:46:03 [DEBUG] [DEBUG] Collecting image 5/5 — stem: algorithmic_openai_s_new_122b_funding_superapp_05_cta
+2026-04-02 13:46:03 [DEBUG] [DEBUG] Collecting result for: algorithmic_openai_s_new_122b_funding_superapp_05_cta (blocking until ready)
+2026-04-02 13:46:03 [DEBUG] [DEBUG] Collecting result for: algorithmic_openai_s_new_122b_funding_superapp_05_cta (blocking until ready)
+2026-04-02 13:46:10 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-02 13:46:10 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-02 13:46:10 [DEBUG] [DEBUG] Images in result: 1
+2026-04-02 13:46:10 [DEBUG] [DEBUG] Images in result: 1
+2026-04-02 13:46:10 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94a246/1PyWtg4KG9GWJqXEn6h3X_vpaeNsiF.jpg', 'content_type': 'image/jpeg', 'file_name': '1PyWtg4KG9GWJqXEn6h3X_vpaeNsiF.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-02 13:46:10 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94a246/1PyWtg4KG9GWJqXEn6h3X_vpaeNsiF.jpg', 'content_type': 'image/jpeg', 'file_name': '1PyWtg4KG9GWJqXEn6h3X_vpaeNsiF.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-02 13:46:10 [INFO] fal.ai image ready — algorithmic_openai_s_new_122b_funding_superapp_05_cta | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94a246/1PyWtg4KG9GWJqXEn6h3X_vpaeNsiF.jpg
+2026-04-02 13:46:10 [INFO] fal.ai image ready — algorithmic_openai_s_new_122b_funding_superapp_05_cta | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94a246/1PyWtg4KG9GWJqXEn6h3X_vpaeNsiF.jpg
+2026-04-02 13:46:10 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_openai_s_new_122b_funding_superapp_05_cta.jpg
+2026-04-02 13:46:10 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_openai_s_new_122b_funding_superapp_05_cta.jpg
+2026-04-02 13:46:13 [DEBUG] [DEBUG] Downloaded 2672 KB
+2026-04-02 13:46:13 [DEBUG] [DEBUG] Downloaded 2672 KB
+2026-04-02 13:46:13 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-02 13:46:13 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-02 13:46:13 [DEBUG] [DEBUG] Final saved: 2672 KB at generated_images\algorithmic_openai_s_new_122b_funding_superapp_05_cta.jpg
+2026-04-02 13:46:13 [DEBUG] [DEBUG] Final saved: 2672 KB at generated_images\algorithmic_openai_s_new_122b_funding_superapp_05_cta.jpg
+2026-04-02 13:46:13 [INFO] Image saved locally: generated_images\algorithmic_openai_s_new_122b_funding_superapp_05_cta.jpg (2672 KB)
+2026-04-02 13:46:13 [INFO] Image saved locally: generated_images\algorithmic_openai_s_new_122b_funding_superapp_05_cta.jpg (2672 KB)
+2026-04-02 13:46:13 [DEBUG] [DEBUG] Collect 5 result — url: https://v3b.fal.media/files/b/0a94a246/1PyWtg4KG9GWJqXEn6h3X_vpaeNsiF.jpg, path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_05_cta.jpg
+2026-04-02 13:46:13 [DEBUG] [DEBUG] Collect 5 result — url: https://v3b.fal.media/files/b/0a94a246/1PyWtg4KG9GWJqXEn6h3X_vpaeNsiF.jpg, path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_05_cta.jpg
+2026-04-02 13:46:13 [INFO] Image generation complete — 5/5 succeeded
+2026-04-02 13:46:13 [INFO] Image generation complete — 5/5 succeeded
+2026-04-02 13:46:13 [DEBUG] [DEBUG] Final image summary:
+2026-04-02 13:46:13 [DEBUG] [DEBUG] Final image summary:
+2026-04-02 13:46:13 [DEBUG] [DEBUG]   [HOOK] url=https://v3b.fal.media/files/b/0a94a244/xwispCM1OTi5MdIRZ9MVR_udHqTLNF.jpg | path=generated_images\algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg
+2026-04-02 13:46:13 [DEBUG] [DEBUG]   [HOOK] url=https://v3b.fal.media/files/b/0a94a244/xwispCM1OTi5MdIRZ9MVR_udHqTLNF.jpg | path=generated_images\algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg
+2026-04-02 13:46:13 [DEBUG] [DEBUG]   [CONTEXT] url=https://v3b.fal.media/files/b/0a94a244/u75PBRnRmwy3bw-YLVEL0_FjgIQUnn.jpg | path=generated_images\algorithmic_openai_s_new_122b_funding_superapp_02_context.jpg
+2026-04-02 13:46:13 [DEBUG] [DEBUG]   [CONTEXT] url=https://v3b.fal.media/files/b/0a94a244/u75PBRnRmwy3bw-YLVEL0_FjgIQUnn.jpg | path=generated_images\algorithmic_openai_s_new_122b_funding_superapp_02_context.jpg
+2026-04-02 13:46:13 [DEBUG] [DEBUG]   [TWIST] url=https://v3b.fal.media/files/b/0a94a245/PFjs_XDE0ZrRbrWCSMwGk_dVs3wcNJ.jpg | path=generated_images\algorithmic_openai_s_new_122b_funding_superapp_03_twist.jpg
+2026-04-02 13:46:13 [DEBUG] [DEBUG]   [TWIST] url=https://v3b.fal.media/files/b/0a94a245/PFjs_XDE0ZrRbrWCSMwGk_dVs3wcNJ.jpg | path=generated_images\algorithmic_openai_s_new_122b_funding_superapp_03_twist.jpg
+2026-04-02 13:46:13 [DEBUG] [DEBUG]   [VISION] url=https://v3b.fal.media/files/b/0a94a245/esUEyL01IHbpTFNh5VyKj_NozyEoMM.jpg | path=generated_images\algorithmic_openai_s_new_122b_funding_superapp_04_vision.jpg
+2026-04-02 13:46:13 [DEBUG] [DEBUG]   [VISION] url=https://v3b.fal.media/files/b/0a94a245/esUEyL01IHbpTFNh5VyKj_NozyEoMM.jpg | path=generated_images\algorithmic_openai_s_new_122b_funding_superapp_04_vision.jpg
+2026-04-02 13:46:13 [DEBUG] [DEBUG]   [CTA] url=https://v3b.fal.media/files/b/0a94a246/1PyWtg4KG9GWJqXEn6h3X_vpaeNsiF.jpg | path=generated_images\algorithmic_openai_s_new_122b_funding_superapp_05_cta.jpg
+2026-04-02 13:46:13 [DEBUG] [DEBUG]   [CTA] url=https://v3b.fal.media/files/b/0a94a246/1PyWtg4KG9GWJqXEn6h3X_vpaeNsiF.jpg | path=generated_images\algorithmic_openai_s_new_122b_funding_superapp_05_cta.jpg
+2026-04-02 13:46:13 [INFO] --- Image collection summary (Algorithmic) ---
+2026-04-02 13:46:13 [INFO] --- Image collection summary (Algorithmic) ---
+2026-04-02 13:46:13 [INFO]   [HOOK] OK — 1874 KB at generated_images\algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg
+2026-04-02 13:46:13 [INFO]   [HOOK] OK — 1874 KB at generated_images\algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg
+2026-04-02 13:46:13 [INFO]   [CONTEXT] OK — 2908 KB at generated_images\algorithmic_openai_s_new_122b_funding_superapp_02_context.jpg
+2026-04-02 13:46:13 [INFO]   [CONTEXT] OK — 2908 KB at generated_images\algorithmic_openai_s_new_122b_funding_superapp_02_context.jpg
+2026-04-02 13:46:13 [INFO]   [TWIST] OK — 2528 KB at generated_images\algorithmic_openai_s_new_122b_funding_superapp_03_twist.jpg
+2026-04-02 13:46:13 [INFO]   [TWIST] OK — 2528 KB at generated_images\algorithmic_openai_s_new_122b_funding_superapp_03_twist.jpg
+2026-04-02 13:46:13 [INFO]   [VISION] OK — 5161 KB at generated_images\algorithmic_openai_s_new_122b_funding_superapp_04_vision.jpg
+2026-04-02 13:46:13 [INFO]   [VISION] OK — 5161 KB at generated_images\algorithmic_openai_s_new_122b_funding_superapp_04_vision.jpg
+2026-04-02 13:46:13 [INFO]   [CTA] OK — 2672 KB at generated_images\algorithmic_openai_s_new_122b_funding_superapp_05_cta.jpg
+2026-04-02 13:46:13 [INFO]   [CTA] OK — 2672 KB at generated_images\algorithmic_openai_s_new_122b_funding_superapp_05_cta.jpg
+2026-04-02 13:46:13 [INFO] --- End image collection summary (Algorithmic) ---
+2026-04-02 13:46:13 [INFO] --- End image collection summary (Algorithmic) ---
+2026-04-02 13:46:13 [INFO] Sending images to Telegram — style: Algorithmic
+2026-04-02 13:46:13 [INFO] Sending images to Telegram — style: Algorithmic
+2026-04-02 13:46:13 [DEBUG] [DEBUG] send_message — chars: 20, preview: 🎨 <b>Algorithmic</b>
+2026-04-02 13:46:13 [DEBUG] [DEBUG] send_message — chars: 20, preview: 🎨 <b>Algorithmic</b>
+2026-04-02 13:46:14 [DEBUG] [DEBUG] send_message — delivered
+2026-04-02 13:46:14 [DEBUG] [DEBUG] send_message — delivered
+2026-04-02 13:46:14 [INFO] Sending 5/5 generated image(s) to Telegram via file upload
+2026-04-02 13:46:14 [INFO] Sending 5/5 generated image(s) to Telegram via file upload
+2026-04-02 13:46:14 [DEBUG] [DEBUG] sendPhoto endpoint: https://api.telegram.org/bot8292239871:AAEKlwY9n1gKYidutZgeZxiRQBN_wKJuZsc/sendPhoto
+2026-04-02 13:46:14 [DEBUG] [DEBUG] sendPhoto endpoint: https://api.telegram.org/bot8292239871:AAEKlwY9n1gKYidutZgeZxiRQBN_wKJuZsc/sendPhoto
+2026-04-02 13:46:14 [DEBUG] [DEBUG] Image 1/5 — label: HOOK, url: https://v3b.fal.media/files/b/0a94a244/xwispCM1OTi5MdIRZ9MVR_udHqTLNF.jpg, local_path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg
+2026-04-02 13:46:14 [DEBUG] [DEBUG] Image 1/5 — label: HOOK, url: https://v3b.fal.media/files/b/0a94a244/xwispCM1OTi5MdIRZ9MVR_udHqTLNF.jpg, local_path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg
+2026-04-02 13:46:14 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg
+2026-04-02 13:46:14 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg
+2026-04-02 13:46:14 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg (1874 KB)
+2026-04-02 13:46:14 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg (1874 KB)
+2026-04-02 13:46:14 [DEBUG] [DEBUG] POSTing HOOK to Telegram sendPhoto ...
+2026-04-02 13:46:14 [DEBUG] [DEBUG] POSTing HOOK to Telegram sendPhoto ...
+2026-04-02 13:46:16 [DEBUG] [DEBUG] Telegram response status: 200 for HOOK
+2026-04-02 13:46:16 [DEBUG] [DEBUG] Telegram response status: 200 for HOOK
+2026-04-02 13:46:16 [INFO] Image sent to Telegram — HOOK (frame 1)
+2026-04-02 13:46:16 [INFO] Image sent to Telegram — HOOK (frame 1)
+2026-04-02 13:46:16 [DEBUG] [DEBUG] Image 2/5 — label: CONTEXT, url: https://v3b.fal.media/files/b/0a94a244/u75PBRnRmwy3bw-YLVEL0_FjgIQUnn.jpg, local_path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_02_context.jpg
+2026-04-02 13:46:16 [DEBUG] [DEBUG] Image 2/5 — label: CONTEXT, url: https://v3b.fal.media/files/b/0a94a244/u75PBRnRmwy3bw-YLVEL0_FjgIQUnn.jpg, local_path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_02_context.jpg
+2026-04-02 13:46:16 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_02_context.jpg
+2026-04-02 13:46:16 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_02_context.jpg
+2026-04-02 13:46:16 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_openai_s_new_122b_funding_superapp_02_context.jpg (2908 KB)
+2026-04-02 13:46:16 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_openai_s_new_122b_funding_superapp_02_context.jpg (2908 KB)
+2026-04-02 13:46:16 [DEBUG] [DEBUG] POSTing CONTEXT to Telegram sendPhoto ...
+2026-04-02 13:46:16 [DEBUG] [DEBUG] POSTing CONTEXT to Telegram sendPhoto ...
+2026-04-02 13:46:18 [DEBUG] [DEBUG] Telegram response status: 200 for CONTEXT
+2026-04-02 13:46:18 [DEBUG] [DEBUG] Telegram response status: 200 for CONTEXT
+2026-04-02 13:46:18 [INFO] Image sent to Telegram — CONTEXT (frame 2)
+2026-04-02 13:46:18 [INFO] Image sent to Telegram — CONTEXT (frame 2)
+2026-04-02 13:46:18 [DEBUG] [DEBUG] Image 3/5 — label: TWIST, url: https://v3b.fal.media/files/b/0a94a245/PFjs_XDE0ZrRbrWCSMwGk_dVs3wcNJ.jpg, local_path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_03_twist.jpg
+2026-04-02 13:46:18 [DEBUG] [DEBUG] Image 3/5 — label: TWIST, url: https://v3b.fal.media/files/b/0a94a245/PFjs_XDE0ZrRbrWCSMwGk_dVs3wcNJ.jpg, local_path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_03_twist.jpg
+2026-04-02 13:46:18 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_03_twist.jpg
+2026-04-02 13:46:18 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_03_twist.jpg
+2026-04-02 13:46:18 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_openai_s_new_122b_funding_superapp_03_twist.jpg (2528 KB)
+2026-04-02 13:46:18 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_openai_s_new_122b_funding_superapp_03_twist.jpg (2528 KB)
+2026-04-02 13:46:18 [DEBUG] [DEBUG] POSTing TWIST to Telegram sendPhoto ...
+2026-04-02 13:46:18 [DEBUG] [DEBUG] POSTing TWIST to Telegram sendPhoto ...
+2026-04-02 13:46:20 [DEBUG] [DEBUG] Telegram response status: 200 for TWIST
+2026-04-02 13:46:20 [DEBUG] [DEBUG] Telegram response status: 200 for TWIST
+2026-04-02 13:46:20 [INFO] Image sent to Telegram — TWIST (frame 3)
+2026-04-02 13:46:20 [INFO] Image sent to Telegram — TWIST (frame 3)
+2026-04-02 13:46:20 [DEBUG] [DEBUG] Image 4/5 — label: VISION, url: https://v3b.fal.media/files/b/0a94a245/esUEyL01IHbpTFNh5VyKj_NozyEoMM.jpg, local_path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_04_vision.jpg
+2026-04-02 13:46:20 [DEBUG] [DEBUG] Image 4/5 — label: VISION, url: https://v3b.fal.media/files/b/0a94a245/esUEyL01IHbpTFNh5VyKj_NozyEoMM.jpg, local_path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_04_vision.jpg
+2026-04-02 13:46:20 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_04_vision.jpg
+2026-04-02 13:46:20 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_04_vision.jpg
+2026-04-02 13:46:20 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_openai_s_new_122b_funding_superapp_04_vision.jpg (5161 KB)
+2026-04-02 13:46:20 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_openai_s_new_122b_funding_superapp_04_vision.jpg (5161 KB)
+2026-04-02 13:46:20 [DEBUG] [DEBUG] POSTing VISION to Telegram sendPhoto ...
+2026-04-02 13:46:20 [DEBUG] [DEBUG] POSTing VISION to Telegram sendPhoto ...
+2026-04-02 13:46:25 [DEBUG] [DEBUG] Telegram response status: 200 for VISION
+2026-04-02 13:46:25 [DEBUG] [DEBUG] Telegram response status: 200 for VISION
+2026-04-02 13:46:25 [INFO] Image sent to Telegram — VISION (frame 4)
+2026-04-02 13:46:25 [INFO] Image sent to Telegram — VISION (frame 4)
+2026-04-02 13:46:25 [DEBUG] [DEBUG] Image 5/5 — label: CTA, url: https://v3b.fal.media/files/b/0a94a246/1PyWtg4KG9GWJqXEn6h3X_vpaeNsiF.jpg, local_path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_05_cta.jpg
+2026-04-02 13:46:25 [DEBUG] [DEBUG] Image 5/5 — label: CTA, url: https://v3b.fal.media/files/b/0a94a246/1PyWtg4KG9GWJqXEn6h3X_vpaeNsiF.jpg, local_path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_05_cta.jpg
+2026-04-02 13:46:25 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_05_cta.jpg
+2026-04-02 13:46:25 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_openai_s_new_122b_funding_superapp_05_cta.jpg
+2026-04-02 13:46:25 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_openai_s_new_122b_funding_superapp_05_cta.jpg (2672 KB)
+2026-04-02 13:46:25 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_openai_s_new_122b_funding_superapp_05_cta.jpg (2672 KB)
+2026-04-02 13:46:25 [DEBUG] [DEBUG] POSTing CTA to Telegram sendPhoto ...
+2026-04-02 13:46:25 [DEBUG] [DEBUG] POSTing CTA to Telegram sendPhoto ...
+2026-04-02 13:46:28 [DEBUG] [DEBUG] Telegram response status: 200 for CTA
+2026-04-02 13:46:28 [DEBUG] [DEBUG] Telegram response status: 200 for CTA
+2026-04-02 13:46:28 [INFO] Image sent to Telegram — CTA (frame 5)
+2026-04-02 13:46:28 [INFO] Image sent to Telegram — CTA (frame 5)
+2026-04-02 13:46:28 [INFO] All generated images dispatched to Telegram
+2026-04-02 13:46:28 [INFO] All generated images dispatched to Telegram
+2026-04-02 13:46:28 [INFO] Generating SRT file
+2026-04-02 13:46:28 [INFO] Generating SRT file
+2026-04-02 13:46:28 [DEBUG] [DEBUG] generate_srt (AssemblyAI) — title_slug: openai_s_new_122b_funding_superapp, audio: audio_files\openai_s_new_122b_funding_superapp.mp3
+2026-04-02 13:46:28 [DEBUG] [DEBUG] generate_srt (AssemblyAI) — title_slug: openai_s_new_122b_funding_superapp, audio: audio_files\openai_s_new_122b_funding_superapp.mp3
+2026-04-02 13:46:28 [DEBUG] Uploading audio to AssemblyAI...
+2026-04-02 13:46:28 [DEBUG] Uploading audio to AssemblyAI...
+2026-04-02 13:46:32 [DEBUG] [DEBUG] Uploaded — url: https://cdn.assemblyai.com/upload/29914a9fb66da50583fedd3bca4c25b1a74812bd711f1c4960d3bf4d95bf33d3/55fda6e7-f141-4582-999e-7eb5b61df8e1
+2026-04-02 13:46:32 [DEBUG] [DEBUG] Uploaded — url: https://cdn.assemblyai.com/upload/29914a9fb66da50583fedd3bca4c25b1a74812bd711f1c4960d3bf4d95bf33d3/55fda6e7-f141-4582-999e-7eb5b61df8e1
+2026-04-02 13:46:33 [DEBUG] [DEBUG] Transcription started — id: 5d3ac83f-6225-4c8f-b8ce-ae5c4c06f555
+2026-04-02 13:46:33 [DEBUG] [DEBUG] Transcription started — id: 5d3ac83f-6225-4c8f-b8ce-ae5c4c06f555
+2026-04-02 13:46:33 [DEBUG] [DEBUG] AssemblyAI status: processing
+2026-04-02 13:46:33 [DEBUG] [DEBUG] AssemblyAI status: processing
+2026-04-02 13:46:37 [DEBUG] [DEBUG] AssemblyAI status: completed
+2026-04-02 13:46:37 [DEBUG] [DEBUG] AssemblyAI status: completed
+2026-04-02 13:46:37 [DEBUG] [DEBUG] Words returned: 155
+2026-04-02 13:46:37 [DEBUG] [DEBUG] Words returned: 155
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 1: 00:00:00,160 --> 00:00:05,070 | Everyone said OpenAI was falling
+apart. Code Reds Sora shutdown
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 1: 00:00:00,160 --> 00:00:05,070 | Everyone said OpenAI was falling
+apart. Code Reds Sora shutdown
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 2: 00:00:05,120 --> 00:00:09,269 | Anthropic stealing enterprise deals. So
+what did they do? They
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 2: 00:00:05,120 --> 00:00:09,269 | Anthropic stealing enterprise deals. So
+what did they do? They
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 3: 00:00:09,320 --> 00:00:13,589 | just closed a $122 billion
+fundraise, the largest single raise
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 3: 00:00:09,320 --> 00:00:13,589 | just closed a $122 billion
+fundraise, the largest single raise
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 4: 00:00:13,640 --> 00:00:19,710 | in venture capital history at
+an $852 billion valuation. Amazon,
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 4: 00:00:13,640 --> 00:00:19,710 | in venture capital history at
+an $852 billion valuation. Amazon,
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 5: 00:00:19,760 --> 00:00:23,839 | Nvidia and SoftBank put up
+110 billion of it alone.
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 5: 00:00:19,760 --> 00:00:23,839 | Nvidia and SoftBank put up
+110 billion of it alone.
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 6: 00:00:24,719 --> 00:00:27,870 | But here's the number no
+one's talking about. OpenAI is
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 6: 00:00:24,719 --> 00:00:27,870 | But here's the number no
+one's talking about. OpenAI is
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 7: 00:00:27,920 --> 00:00:30,030 | pulling in 2 billion a
+month in revenue, and over
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 7: 00:00:27,920 --> 00:00:30,030 | pulling in 2 billion a
+month in revenue, and over
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 8: 00:00:30,079 --> 00:00:34,109 | 40% of it is enterprise
+on track to match consumer
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 8: 00:00:30,079 --> 00:00:34,109 | 40% of it is enterprise
+on track to match consumer
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 9: 00:00:34,159 --> 00:00:37,509 | by year end. They didn't
+panic. They skated to where
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 9: 00:00:34,159 --> 00:00:37,509 | by year end. They didn't
+panic. They skated to where
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 10: 00:00:37,560 --> 00:00:41,509 | the money was heading. Now
+they're merging ChatGPT, Codex and
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 10: 00:00:37,560 --> 00:00:41,509 | the money was heading. Now
+they're merging ChatGPT, Codex and
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 11: 00:00:41,560 --> 00:00:46,109 | their agent tools into a
+single unified super AP. Sora's
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 11: 00:00:41,560 --> 00:00:46,109 | their agent tools into a
+single unified super AP. Sora's
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 12: 00:00:46,159 --> 00:00:49,469 | gone, the side quests are
+over. This is OpenAI going
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 12: 00:00:46,159 --> 00:00:49,469 | gone, the side quests are
+over. This is OpenAI going
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 13: 00:00:49,520 --> 00:00:53,359 | all in on becoming the
+operating system of a 852
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 13: 00:00:49,520 --> 00:00:53,359 | all in on becoming the
+operating system of a 852
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 14: 00:00:53,409 --> 00:00:57,399 | billion says the market believes
+them, but Amazon's deal reportedly
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 14: 00:00:53,409 --> 00:00:57,399 | billion says the market believes
+them, but Amazon's deal reportedly
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 15: 00:00:57,450 --> 00:01:01,649 | has an AGI clause that
+resets everything. Follow for more.
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 15: 00:00:57,450 --> 00:01:01,649 | has an AGI clause that
+resets everything. Follow for more.
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 16: 00:01:01,729 --> 00:01:03,329 | This story's
+far from over.
+2026-04-02 13:46:37 [DEBUG] [DEBUG]   Entry 16: 00:01:01,729 --> 00:01:03,329 | This story's
+far from over.
+2026-04-02 13:46:37 [INFO] SRT saved: srt_files\openai_s_new_122b_funding_superapp.srt (16 entries)
+2026-04-02 13:46:37 [INFO] SRT saved: srt_files\openai_s_new_122b_funding_superapp.srt (16 entries)
+2026-04-02 13:46:37 [DEBUG] [DEBUG] SRT full content:
+1
+00:00:00,160 --> 00:00:05,070
+Everyone said OpenAI was falling
+apart. Code Reds Sora shutdown
+
+2
+00:00:05,120 --> 00:00:09,269
+Anthropic stealing enterprise deals. So
+what did they do? They
+
+3
+00:00:09,320 --> 00:00:13,589
+just closed a $122 billion
+fundraise, the largest single raise
+
+4
+00:00:13,640 --> 00:00:19,710
+in venture capital history at
+an $852 billion valuation. Amazon,
+
+5
+00:00:19,760 --> 00:00:23,839
+Nvidia and SoftBank put up
+110 billion of it alone.
+
+6
+00:00:24,719 --> 00:00:27,870
+But here's the number no
+one's talking about. OpenAI is
+
+7
+00:00:27,920 --> 00:00:30,030
+pulling in 2 billion a
+month in revenue, and over
+
+8
+00:00:30,079 --> 00:00:34,109
+40% of it is enterprise
+on track to match consumer
+
+9
+00:00:34,159 --> 00:00:37,509
+by year end. They didn't
+panic. They skated to where
+
+10
+00:00:37,560 --> 00:00:41,509
+the money was heading. Now
+they're merging ChatGPT, Codex and
+
+11
+00:00:41,560 --> 00:00:46,109
+their agent tools into a
+single unified super AP. Sora's
+
+12
+00:00:46,159 --> 00:00:49,469
+gone, the side quests are
+over. This is OpenAI going
+
+13
+00:00:49,520 --> 00:00:53,359
+all in on becoming the
+operating system of a 852
+
+14
+00:00:53,409 --> 00:00:57,399
+billion says the market believes
+them, but Amazon's deal reportedly
+
+15
+00:00:57,450 --> 00:01:01,649
+has an AGI clause that
+resets everything. Follow for more.
+
+16
+00:01:01,729 --> 00:01:03,329
+This story's
+far from over.
+2026-04-02 13:46:37 [DEBUG] [DEBUG] SRT full content:
+1
+00:00:00,160 --> 00:00:05,070
+Everyone said OpenAI was falling
+apart. Code Reds Sora shutdown
+
+2
+00:00:05,120 --> 00:00:09,269
+Anthropic stealing enterprise deals. So
+what did they do? They
+
+3
+00:00:09,320 --> 00:00:13,589
+just closed a $122 billion
+fundraise, the largest single raise
+
+4
+00:00:13,640 --> 00:00:19,710
+in venture capital history at
+an $852 billion valuation. Amazon,
+
+5
+00:00:19,760 --> 00:00:23,839
+Nvidia and SoftBank put up
+110 billion of it alone.
+
+6
+00:00:24,719 --> 00:00:27,870
+But here's the number no
+one's talking about. OpenAI is
+
+7
+00:00:27,920 --> 00:00:30,030
+pulling in 2 billion a
+month in revenue, and over
+
+8
+00:00:30,079 --> 00:00:34,109
+40% of it is enterprise
+on track to match consumer
+
+9
+00:00:34,159 --> 00:00:37,509
+by year end. They didn't
+panic. They skated to where
+
+10
+00:00:37,560 --> 00:00:41,509
+the money was heading. Now
+they're merging ChatGPT, Codex and
+
+11
+00:00:41,560 --> 00:00:46,109
+their agent tools into a
+single unified super AP. Sora's
+
+12
+00:00:46,159 --> 00:00:49,469
+gone, the side quests are
+over. This is OpenAI going
+
+13
+00:00:49,520 --> 00:00:53,359
+all in on becoming the
+operating system of a 852
+
+14
+00:00:53,409 --> 00:00:57,399
+billion says the market believes
+them, but Amazon's deal reportedly
+
+15
+00:00:57,450 --> 00:01:01,649
+has an AGI clause that
+resets everything. Follow for more.
+
+16
+00:01:01,729 --> 00:01:03,329
+This story's
+far from over.
+
+2026-04-02 13:46:37 [INFO] Sending SRT to Telegram: srt_files\openai_s_new_122b_funding_superapp.srt
+2026-04-02 13:46:37 [INFO] Sending SRT to Telegram: srt_files\openai_s_new_122b_funding_superapp.srt
+2026-04-02 13:46:37 [INFO] Sending document to Telegram: openai_s_new_122b_funding_superapp.srt (1 KB)
+2026-04-02 13:46:37 [INFO] Sending document to Telegram: openai_s_new_122b_funding_superapp.srt (1 KB)
+2026-04-02 13:46:37 [DEBUG] [DEBUG] Document path: srt_files\openai_s_new_122b_funding_superapp.srt, exists: True
+2026-04-02 13:46:37 [DEBUG] [DEBUG] Document path: srt_files\openai_s_new_122b_funding_superapp.srt, exists: True
+2026-04-02 13:46:38 [INFO] Document sent: openai_s_new_122b_funding_superapp.srt
+2026-04-02 13:46:38 [INFO] Document sent: openai_s_new_122b_funding_superapp.srt
+2026-04-02 13:46:38 [INFO] SRT sent to Telegram
+2026-04-02 13:46:38 [INFO] SRT sent to Telegram
+2026-04-02 13:46:38 [INFO] Generating video with ffmpeg
+2026-04-02 13:46:38 [INFO] Generating video with ffmpeg
+2026-04-02 13:46:38 [DEBUG] [DEBUG] generate_video — title_slug: openai_s_new_122b_funding_superapp, visuals: 5, audio: audio_files\openai_s_new_122b_funding_superapp.mp3, srt: srt_files\openai_s_new_122b_funding_superapp.srt
+2026-04-02 13:46:38 [DEBUG] [DEBUG] generate_video — title_slug: openai_s_new_122b_funding_superapp, visuals: 5, audio: audio_files\openai_s_new_122b_funding_superapp.mp3, srt: srt_files\openai_s_new_122b_funding_superapp.srt
+2026-04-02 13:46:38 [DEBUG] [DEBUG] Valid images: 5/5 (skipped 0 with missing path)
+2026-04-02 13:46:38 [DEBUG] [DEBUG] Valid images: 5/5 (skipped 0 with missing path)
+2026-04-02 13:46:38 [DEBUG] [DEBUG] ffprobe — getting duration of: audio_files\openai_s_new_122b_funding_superapp.mp3
+2026-04-02 13:46:38 [DEBUG] [DEBUG] ffprobe — getting duration of: audio_files\openai_s_new_122b_funding_superapp.mp3
+2026-04-02 13:46:39 [DEBUG] [DEBUG] ffprobe stdout: 63.669116
+2026-04-02 13:46:39 [DEBUG] [DEBUG] ffprobe stdout: 63.669116
+2026-04-02 13:46:39 [DEBUG] [DEBUG] Audio duration: 63.669s
+2026-04-02 13:46:39 [DEBUG] [DEBUG] Audio duration: 63.669s
+2026-04-02 13:46:39 [DEBUG] [DEBUG] Timing — audio: 63.669s, images: 5, durations: ['10.2s', '13.4s', '13.4s', '13.4s', '13.4s']
+2026-04-02 13:46:39 [DEBUG] [DEBUG] Timing — audio: 63.669s, images: 5, durations: ['10.2s', '13.4s', '13.4s', '13.4s', '13.4s']
+2026-04-02 13:46:39 [DEBUG] [DEBUG] Concat entry 1: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg @ 10.175s
+2026-04-02 13:46:39 [DEBUG] [DEBUG] Concat entry 1: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_openai_s_new_122b_funding_superapp_01_hook.jpg @ 10.175s
+2026-04-02 13:46:39 [DEBUG] [DEBUG] Concat entry 2: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_openai_s_new_122b_funding_superapp_02_context.jpg @ 13.374s
+2026-04-02 13:46:39 [DEBUG] [DEBUG] Concat entry 2: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_openai_s_new_122b_funding_superapp_02_context.jpg @ 13.374s
+2026-04-02 13:46:39 [DEBUG] [DEBUG] Concat entry 3: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_openai_s_new_122b_funding_superapp_03_twist.jpg @ 13.374s
+2026-04-02 13:46:39 [DEBUG] [DEBUG] Concat entry 3: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_openai_s_new_122b_funding_superapp_03_twist.jpg @ 13.374s
+2026-04-02 13:46:39 [DEBUG] [DEBUG] Concat entry 4: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_openai_s_new_122b_funding_superapp_04_vision.jpg @ 13.374s
+2026-04-02 13:46:39 [DEBUG] [DEBUG] Concat entry 4: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_openai_s_new_122b_funding_superapp_04_vision.jpg @ 13.374s
+2026-04-02 13:46:39 [DEBUG] [DEBUG] Concat entry 5: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_openai_s_new_122b_funding_superapp_05_cta.jpg @ 13.374s
+2026-04-02 13:46:39 [DEBUG] [DEBUG] Concat entry 5: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_openai_s_new_122b_funding_superapp_05_cta.jpg @ 13.374s
+2026-04-02 13:46:39 [DEBUG] [DEBUG] Concat file written: C:\Users\brryli\AppData\Local\Temp\tmp7pqj8dpq.txt
+2026-04-02 13:46:39 [DEBUG] [DEBUG] Concat file written: C:\Users\brryli\AppData\Local\Temp\tmp7pqj8dpq.txt
+2026-04-02 13:46:39 [DEBUG] [DEBUG] SRT escaped path for filter: srt_files/openai_s_new_122b_funding_superapp.srt
+2026-04-02 13:46:39 [DEBUG] [DEBUG] SRT escaped path for filter: srt_files/openai_s_new_122b_funding_superapp.srt
+2026-04-02 13:46:39 [DEBUG] [DEBUG] ffmpeg command: ffmpeg -y -f concat -safe 0 -i C:\Users\brryli\AppData\Local\Temp\tmp7pqj8dpq.txt -i audio_files\openai_s_new_122b_funding_superapp.mp3 -map 0:v:0 -map 1:a:0 -vf fps=24,scale=1080:1920:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:(oh-ih)/2:black,subtitles='srt_files/openai_s_new_122b_funding_superapp.srt':force_style='FontName=Inter Bold,Bold=1,FontSize=8,PrimaryColour=&H0000FFFF,Outline=0,Shadow=0,Alignment=2,MarginV=20,WrapStyle=2' -c:v libx264 -preset fast -crf 23 -c:a aac -b:a 192k -shortest output_videos\openai_s_new_122b_funding_superapp.mp4
+2026-04-02 13:46:39 [DEBUG] [DEBUG] ffmpeg command: ffmpeg -y -f concat -safe 0 -i C:\Users\brryli\AppData\Local\Temp\tmp7pqj8dpq.txt -i audio_files\openai_s_new_122b_funding_superapp.mp3 -map 0:v:0 -map 1:a:0 -vf fps=24,scale=1080:1920:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:(oh-ih)/2:black,subtitles='srt_files/openai_s_new_122b_funding_superapp.srt':force_style='FontName=Inter Bold,Bold=1,FontSize=8,PrimaryColour=&H0000FFFF,Outline=0,Shadow=0,Alignment=2,MarginV=20,WrapStyle=2' -c:v libx264 -preset fast -crf 23 -c:a aac -b:a 192k -shortest output_videos\openai_s_new_122b_funding_superapp.mp4
+2026-04-02 13:46:39 [INFO] Running ffmpeg — output: output_videos\openai_s_new_122b_funding_superapp.mp4
+2026-04-02 13:46:39 [INFO] Running ffmpeg — output: output_videos\openai_s_new_122b_funding_superapp.mp4
+2026-04-02 13:46:51 [DEBUG] [DEBUG] ffmpeg return code: 0
+2026-04-02 13:46:51 [DEBUG] [DEBUG] ffmpeg return code: 0
+2026-04-02 13:46:51 [DEBUG] [DEBUG] ffmpeg stderr (last 1000 chars):
+140] mb P  I16..4:  0.2%  0.1%  0.1%  P16..4:  2.0%  0.1%  0.1%  0.0%  0.0%    skip:97.5%
+[libx264 @ 00000133c8946140] mb B  I16..4:  0.0%  0.0%  0.0%  B16..8:  0.0%  0.0%  0.0%  direct: 0.0%  skip:99.9%  L0:54.8% L1:44.5% BI: 0.7%
+[libx264 @ 00000133c8946140] 8x8 transform intra:27.3% inter:93.1%
+[libx264 @ 00000133c8946140] coded y,uvDC,uvAC intra: 70.9% 64.5% 51.1% inter: 0.2% 0.2% 0.0%
+[libx264 @ 00000133c8946140] i16 v,h,dc,p: 19% 76%  2%  3%
+[libx264 @ 00000133c8946140] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 29% 22% 30%  4%  3%  2%  3%  2%  4%
+[libx264 @ 00000133c8946140] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 35% 29%  7%  4%  4%  4%  8%  3%  6%
+[libx264 @ 00000133c8946140] i8c dc,h,v,p: 43% 36% 17%  3%
+[libx264 @ 00000133c8946140] Weighted P-Frames: Y:0.2% UV:0.2%
+[libx264 @ 00000133c8946140] ref P L0: 94.1%  5.9%
+[libx264 @ 00000133c8946140] ref B L0: 89.3% 10.7%
+[libx264 @ 00000133c8946140] ref B L1: 93.0%  7.0%
+[libx264 @ 00000133c8946140] kb/s:303.15
+[aac @ 00000133c8966240] Qavg: 63395.816
+2026-04-02 13:46:51 [DEBUG] [DEBUG] ffmpeg stderr (last 1000 chars):
+140] mb P  I16..4:  0.2%  0.1%  0.1%  P16..4:  2.0%  0.1%  0.1%  0.0%  0.0%    skip:97.5%
+[libx264 @ 00000133c8946140] mb B  I16..4:  0.0%  0.0%  0.0%  B16..8:  0.0%  0.0%  0.0%  direct: 0.0%  skip:99.9%  L0:54.8% L1:44.5% BI: 0.7%
+[libx264 @ 00000133c8946140] 8x8 transform intra:27.3% inter:93.1%
+[libx264 @ 00000133c8946140] coded y,uvDC,uvAC intra: 70.9% 64.5% 51.1% inter: 0.2% 0.2% 0.0%
+[libx264 @ 00000133c8946140] i16 v,h,dc,p: 19% 76%  2%  3%
+[libx264 @ 00000133c8946140] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 29% 22% 30%  4%  3%  2%  3%  2%  4%
+[libx264 @ 00000133c8946140] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 35% 29%  7%  4%  4%  4%  8%  3%  6%
+[libx264 @ 00000133c8946140] i8c dc,h,v,p: 43% 36% 17%  3%
+[libx264 @ 00000133c8946140] Weighted P-Frames: Y:0.2% UV:0.2%
+[libx264 @ 00000133c8946140] ref P L0: 94.1%  5.9%
+[libx264 @ 00000133c8946140] ref B L0: 89.3% 10.7%
+[libx264 @ 00000133c8946140] ref B L1: 93.0%  7.0%
+[libx264 @ 00000133c8946140] kb/s:303.15
+[aac @ 00000133c8966240] Qavg: 63395.816
+2026-04-02 13:46:51 [INFO] Video saved: output_videos\openai_s_new_122b_funding_superapp.mp4 (3.7 MB)
+2026-04-02 13:46:51 [INFO] Video saved: output_videos\openai_s_new_122b_funding_superapp.mp4 (3.7 MB)
+2026-04-02 13:46:51 [DEBUG] [DEBUG] Deleting concat temp file: C:\Users\brryli\AppData\Local\Temp\tmp7pqj8dpq.txt
+2026-04-02 13:46:51 [DEBUG] [DEBUG] Deleting concat temp file: C:\Users\brryli\AppData\Local\Temp\tmp7pqj8dpq.txt
+2026-04-02 13:46:51 [INFO] Video saved: output_videos\openai_s_new_122b_funding_superapp.mp4
+2026-04-02 13:46:51 [INFO] Video saved: output_videos\openai_s_new_122b_funding_superapp.mp4

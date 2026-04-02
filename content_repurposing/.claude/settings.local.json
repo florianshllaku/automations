@@ -23,7 +23,9 @@
       "Bash(py test_image_telegram.py)",
       "Bash(py -c \"import PIL; print\\(''pillow ok''\\)\")",
       "Bash(py test_video.py)",
-      "Bash(py -c \":*)"
+      "Bash(py -c \":*)",
+      "Read(//c/Users/brryli/Desktop/automations/**)",
+      "Bash(FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch --force --tree-filter 'if [ -f content_repurposing/.env.example ]; then printf \"\"TELEGRAM_TOKEN=your_telegram_bot_token_here\\\\nCHAT_ID=your_telegram_chat_id_here\\\\nANTHROPIC_API_KEY=your_anthropic_api_key_here\\\\nELEVENLABS_API_KEY=your_elevenlabs_api_key_here\\\\nELEVENLABS_VOICE_ID=your_elevenlabs_voice_id_here\\\\nFAL_KEY=your_fal_api_key_here\\\\nASSEMBLYAI_API_KEY=your_assemblyai_api_key_here\\\\n\"\" > content_repurposing/.env.example; fi' -- --all)"
     ]
   }
 }

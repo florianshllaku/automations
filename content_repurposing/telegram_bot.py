@@ -69,59 +69,70 @@ def send_approval_message(title: str, url: str) -> int:
     return msg_id
 
 
-async def _wait_for_approval(message_id: int) -> bool:
-    """Poll Telegram indefinitely for a button press on a specific message. Returns True for YES."""
-    global _telegram_offset, _buffered_responses
-    log(f"[DEBUG] _wait_for_approval — polling for message_id: {message_id}", "DEBUG")
+async def _flush_offset() -> None:
+    """Flush stale Telegram updates so we only see new button presses."""
+    global _telegram_offset
+    if _telegram_offset is not None:
+        return
+    async with Bot(TOKEN) as bot:
+        updates = await bot.get_updates(timeout=0)
+        if updates:
+            _telegram_offset = updates[-1].update_id + 1
+        else:
+            await bot.get_updates(offset=-1, timeout=0)
+            fresh = await bot.get_updates(timeout=0)
+            _telegram_offset = (fresh[-1].update_id + 1) if fresh else 1
+        log(f"[DEBUG] Initial flush — starting offset: {_telegram_offset}", "DEBUG")
 
-    # If this article's button was already tapped while waiting for another, use it immediately
-    if message_id in _buffered_responses:
-        result = _buffered_responses.pop(message_id)
-        log(f"[DEBUG] Found buffered response for message_id={message_id} — {result}", "DEBUG")
-        return result
+
+async def _wait_for_next(message_ids: set[int]) -> tuple[int, bool]:
+    """
+    Poll until ONE of the given message_ids gets a YES/NO tap.
+    Returns (message_id, approved). Any other taps are buffered.
+    """
+    global _telegram_offset, _buffered_responses
+
+    # Check buffer first
+    for mid in list(message_ids):
+        if mid in _buffered_responses:
+            result = _buffered_responses.pop(mid)
+            log(f"[DEBUG] Used buffered response for message_id={mid} — {result}", "DEBUG")
+            return mid, result
+
+    await _flush_offset()
 
     async with Bot(TOKEN) as bot:
-        # Only flush stale updates on the very first call
-        if _telegram_offset is None:
-            updates = await bot.get_updates(timeout=0)
-            _telegram_offset = (updates[-1].update_id + 1) if updates else 0
-            log(f"[DEBUG] Initial flush — starting offset: {_telegram_offset}", "DEBUG")
-
         poll_count = 0
         while True:
             updates = await bot.get_updates(offset=_telegram_offset, timeout=10)
             poll_count += 1
             if updates:
-                log(f"[DEBUG] Poll #{poll_count} — {len(updates)} update(s) received", "DEBUG")
+                log(f"[DEBUG] Poll #{poll_count} — {len(updates)} update(s)", "DEBUG")
             for update in updates:
                 _telegram_offset = update.update_id + 1
                 cq = update.callback_query
-                log(f"[DEBUG] Update id={update.update_id} — has callback_query: {cq is not None}", "DEBUG")
                 if not (cq and cq.message):
                     continue
                 mid = cq.message.message_id
-                choice = cq.data
-                approved = choice == "yes"
+                approved = cq.data == "yes"
                 label = "✅ YES — creating content!" if approved else "❌ NO — skipped."
                 log(f"User tapped {'YES' if approved else 'NO'} on message_id={mid}")
                 await bot.answer_callback_query(cq.id)
                 await bot.edit_message_reply_markup(chat_id=CHAT_ID, message_id=mid, reply_markup=None)
                 await bot.send_message(chat_id=CHAT_ID, text=label)
-                if mid == message_id:
-                    log(f"[DEBUG] Matched — returning {approved}", "DEBUG")
-                    return approved
+                if mid in message_ids:
+                    return mid, approved
                 else:
-                    # Button tapped for a different article — buffer it for later
-                    log(f"[DEBUG] Out-of-order tap for message_id={mid} — buffering", "DEBUG")
                     _buffered_responses[mid] = approved
+                    log(f"[DEBUG] Buffered tap for message_id={mid}", "DEBUG")
 
 
-def wait_for_approval(message_id: int) -> bool:
+def wait_for_next(message_ids: set[int]) -> tuple[int, bool]:
     """
-    Wait indefinitely for a YES/NO button press on a previously sent message.
-    Returns True if YES, False if NO.
+    Wait for the next YES/NO tap on any of the given message_ids.
+    Returns (message_id, approved) as soon as one comes in.
     """
-    return asyncio.run(_wait_for_approval(message_id))
+    return asyncio.run(_wait_for_next(message_ids))
 
 
 async def _send_audio(audio_path: str, title: str) -> None:
