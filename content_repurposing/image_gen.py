@@ -15,9 +15,6 @@ load_dotenv()
 
 os.environ.setdefault("FAL_KEY", os.getenv("FAL_KEY", ""))
 
-GENERATED_DIR = Path("generated_images")
-GENERATED_DIR.mkdir(exist_ok=True)
-
 ASSETS_DIR = Path("assets")
 REFERENCE_IMAGE_PATH = ASSETS_DIR / "women.png"
 REFERENCE_URL_CACHE = ASSETS_DIR / "women_url.txt"
@@ -70,7 +67,7 @@ def _submit_image(image_prompt: str, filename_stem: str, reference_url: str | No
     }
 
     if reference_url:
-        arguments["reference_image_url"] = reference_url
+        arguments["image_urls"] = [reference_url]
         log(f"[DEBUG] Reference image attached: {reference_url}", "DEBUG")
 
     handler = fal_client.submit(MODEL, arguments=arguments)
@@ -78,9 +75,13 @@ def _submit_image(image_prompt: str, filename_stem: str, reference_url: str | No
     return handler
 
 
-def _collect_image(handler, filename_stem: str) -> tuple[str | None, str | None]:
+def _collect_image(handler, filename_stem: str, output_dir: Path = None) -> tuple[str | None, str | None]:
     """Block until job is done, download locally, return (url, local_path)."""
     log(f"[DEBUG] Collecting result for: {filename_stem}", "DEBUG")
+
+    if output_dir is None:
+        output_dir = Path("generated_images")
+    output_dir.mkdir(parents=True, exist_ok=True)
 
     try:
         result = handler.get()
@@ -100,7 +101,7 @@ def _collect_image(handler, filename_stem: str) -> tuple[str | None, str | None]
         height = img_meta.get("height", "?")
         log(f"fal.ai image ready — {filename_stem} | {width}x{height}")
 
-        dest = GENERATED_DIR / f"{filename_stem}.jpg"
+        dest = output_dir / f"{filename_stem}.jpg"
         try:
             req = urllib.request.Request(image_url, headers={"User-Agent": "Mozilla/5.0"})
             with urllib.request.urlopen(req, timeout=60) as resp:
@@ -172,7 +173,7 @@ def generate_images_from_json(json_path: str, style_slug: str = "scene") -> list
 
         try:
             handler = _submit_image(prompt, stem, reference_url=reference_url)
-            image_url, image_path = _collect_image(handler, stem)
+            image_url, image_path = _collect_image(handler, stem, output_dir=json_path.parent)
         except Exception as e:
             log(f"Scene {scene_id} failed: {type(e).__name__}: {e}", "ERROR")
             image_url, image_path = None, None

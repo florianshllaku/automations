@@ -320,7 +320,7 @@ def main():
                 print(f"{'='*60}")
                 print(script)
                 print(f"{'='*60}\n")
-                script_path = f"generated_content/scripts/{slug}.txt"
+                script_path = f"generated_content/{slug}/scripts/{slug}.txt"
                 Path(script_path).parent.mkdir(parents=True, exist_ok=True)
                 Path(script_path).write_text(script, encoding="utf-8")
                 print(f"  Script saved: {script_path}")
@@ -347,7 +347,7 @@ def main():
 
             # 4. Generate audio via OpenAI TTS (echo voice, 1.2x speed)
             try:
-                audio_path = generate_audio(script, output_path=f"generated_content/audio/{slug}.mp3")
+                audio_path = generate_audio(script, output_path=f"generated_content/{slug}/audio/{slug}.mp3")
                 print(f"  Audio saved: {audio_path}")
             except Exception as e:
                 print(f"  [ERROR] generate_audio failed: {e}", file=sys.stderr)
@@ -355,7 +355,7 @@ def main():
 
             # 5. Generate subtitles via Gladia + GPT correction
             try:
-                srt_path = generate_subtitles(audio_path, output_path=f"generated_content/subtitles/{slug}.srt", script_text=script)
+                srt_path = generate_subtitles(audio_path, output_path=f"generated_content/{slug}/subtitles/{slug}.srt", script_text=script)
                 print(f"  Subtitles saved: {srt_path}")
             except Exception as e:
                 print(f"  [ERROR] generate_subtitles failed: {e}", file=sys.stderr)
