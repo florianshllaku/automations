@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content Repurposing Pipeline — Project Report</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface2: #21262d;
+      --border: #30363d;
+      --accent: #58a6ff;
+      --accent2: #3fb950;
+      --accent3: #f78166;
+      --accent4: #d2a8ff;
+      --accent5: #ffa657;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --tag-blue: #1f6feb33;
+      --tag-green: #238636;
+      --tag-red: #da3633;
+      --tag-orange: #9e6a03;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* ── TOP HEADER ── */
+    header {
+      background: linear-gradient(135deg, #1a2744 0%, #0d1117 60%);
+      border-bottom: 1px solid var(--border);
+      padding: 48px 40px 36px;
+    }
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--text);
+    }
+    header .subtitle {
+      color: var(--text-muted);
+      margin-top: 6px;
+      font-size: 0.95rem;
+    }
+    header .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+    }
+    .badge-blue   { background: #1f6feb22; border-color: #1f6feb88; color: var(--accent); }
+    .badge-green  { background: #23863622; border-color: #23863688; color: var(--accent2); }
+    .badge-purple { background: #6e40c922; border-color: #6e40c988; color: var(--accent4); }
+    .badge-orange { background: #9e6a0322; border-color: #9e6a0388; color: var(--accent5); }
+    .badge-red    { background: #da363322; border-color: #da363388; color: var(--accent3); }
+
+    /* ── LAYOUT ── */
+    .layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    /* ── SIDEBAR ── */
+    nav {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      border-right: 1px solid var(--border);
+      padding: 28px 0;
+      background: var(--surface);
+    }
+    nav .nav-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      padding: 0 20px 8px;
+    }
+    nav a {
+      display: block;
+      padding: 7px 20px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      border-left: 3px solid transparent;
+      transition: all 0.15s;
+    }
+    nav a:hover, nav a.active {
+      color: var(--accent);
+      background: #1f6feb11;
+      border-left-color: var(--accent);
+    }
+    nav .nav-section { margin-top: 20px; }
+
+    /* ── MAIN CONTENT ── */
+    main {
+      padding: 40px 48px;
+      overflow-x: hidden;
+    }
+    section { margin-bottom: 56px; }
+    section h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+      margin-bottom: 24px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    section h2 .icon { font-size: 1.1rem; }
+    section h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 24px 0 10px;
+    }
+    p { color: var(--text-muted); margin-bottom: 12px; }
+    strong { color: var(--text); }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+    }
+    .card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .card-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 14px;
+    }
+
+    /* ── FUNCTION TABLE ── */
+    .fn-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    .fn-table thead tr { background: var(--surface2); }
+    .fn-table th {
+      text-align: left;
+      padding: 10px 14px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+    }
+    .fn-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+      vertical-align: top;
+    }
+    .fn-table tr:last-child td { border-bottom: none; }
+    .fn-table tr:hover td { background: var(--surface2); }
+    .fn-name { color: var(--accent4); font-family: 'SFMono-Regular', Consolas, monospace; font-size: 0.82rem; }
+    .fn-sig  { color: var(--accent5); font-family: 'SFMono-Regular', Consolas, monospace; font-size: 0.75rem; }
+    .fn-desc { color: var(--text-muted); }
+
+    /* ── CODE BLOCKS ── */
+    pre {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px 18px;
+      overflow-x: auto;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+      font-size: 0.8rem;
+      line-height: 1.65;
+      color: #e6edf3;
+      margin: 12px 0;
+    }
+    code {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-family: 'SFMono-Regular', Consolas, monospace;
+      font-size: 0.82rem;
+      color: var(--accent4);
+    }
+
+    /* ── PIPELINE FLOW ── */
+    .pipeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .pipeline-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      position: relative;
+    }
+    .pipeline-step::before {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 40px;
+      width: 2px;
+      height: calc(100% - 8px);
+      background: var(--border);
+    }
+    .pipeline-step:last-child::before { display: none; }
+    .step-num {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--surface2);
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: var(--accent);
+      position: relative;
+      z-index: 1;
+    }
+    .step-body {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 18px;
+      flex: 1;
+      margin-bottom: 12px;
+    }
+    .step-title { font-weight: 700; color: var(--text); font-size: 0.9rem; }
+    .step-detail { color: var(--text-muted); font-size: 0.82rem; margin-top: 4px; }
+    .step-module { font-size: 0.75rem; color: var(--accent4); font-family: monospace; margin-top: 6px; }
+
+    /* ── FILE TREE ── */
+    .file-tree {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      font-family: 'SFMono-Regular', Consolas, monospace;
+      font-size: 0.82rem;
+      line-height: 1.9;
+    }
+    .ft-dir  { color: var(--accent); font-weight: 600; }
+    .ft-py   { color: var(--accent2); }
+    .ft-data { color: var(--accent5); }
+    .ft-out  { color: var(--accent4); }
+    .ft-conf { color: var(--accent3); }
+    .ft-dead { color: var(--text-muted); text-decoration: line-through; }
+    .ft-note { color: var(--text-muted); font-size: 0.75rem; margin-left: 8px; }
+
+    /* ── WARNINGS / NOTICES ── */
+    .notice {
+      display: flex;
+      gap: 14px;
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin-bottom: 14px;
+      border: 1px solid;
+    }
+    .notice-icon { font-size: 1.1rem; flex-shrink: 0; }
+    .notice-body { font-size: 0.85rem; }
+    .notice-body strong { display: block; margin-bottom: 3px; font-size: 0.88rem; }
+    .notice.warn  { background: #9e6a0318; border-color: #9e6a0366; }
+    .notice.warn .notice-icon { color: var(--accent5); }
+    .notice.warn strong { color: var(--accent5); }
+    .notice.error { background: #da363318; border-color: #da363366; }
+    .notice.error .notice-icon { color: var(--accent3); }
+    .notice.error strong { color: var(--accent3); }
+    .notice.info  { background: #1f6feb18; border-color: #1f6feb66; }
+    .notice.info .notice-icon { color: var(--accent); }
+    .notice.info strong { color: var(--accent); }
+    .notice.good  { background: #23863618; border-color: #23863666; }
+    .notice.good .notice-icon { color: var(--accent2); }
+    .notice.good strong { color: var(--accent2); }
+
+    /* ── CLEANUP TABLE ── */
+    .cleanup-table { width: 100%; border-collapse: collapse; }
+    .cleanup-table th {
+      text-align: left;
+      padding: 10px 14px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+      background: var(--surface2);
+      border-bottom: 1px solid var(--border);
+    }
+    .cleanup-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+    }
+    .cleanup-table tr:hover td { background: var(--surface2); }
+    .status-del  { color: var(--accent3); font-weight: 600; }
+    .status-keep { color: var(--accent2); font-weight: 600; }
+    .status-opt  { color: var(--accent5); font-weight: 600; }
+
+    /* ── DEPS ── */
+    .dep-row { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+    .dep-row:last-child { border-bottom: none; }
+    .dep-name { font-family: monospace; color: var(--accent4); font-size: 0.85rem; min-width: 180px; }
+    .dep-desc { color: var(--text-muted); font-size: 0.85rem; }
+
+    /* ── API TABLE ── */
+    .api-table { width: 100%; border-collapse: collapse; }
+    .api-table th {
+      text-align: left;
+      padding: 10px 14px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+      background: var(--surface2);
+      border-bottom: 1px solid var(--border);
+    }
+    .api-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+      vertical-align: top;
+    }
+    .api-table tr:hover td { background: var(--surface2); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+      nav { position: static; height: auto; }
+      main { padding: 24px 20px; }
+      header { padding: 32px 20px 24px; }
+    }
+
+    /* ── SCROLL NAV HIGHLIGHT ── */
+    section { scroll-margin-top: 20px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Content Repurposing Pipeline</h1>
+  <p class="subtitle">Automated AI-powered short-form video generation from AI news articles</p>
+  <div class="badge-row">
+    <span class="badge badge-blue">Python 3.11+</span>
+    <span class="badge badge-green">Claude Opus 4.6</span>
+    <span class="badge badge-purple">ElevenLabs TTS</span>
+    <span class="badge badge-orange">fal.ai Images</span>
+    <span class="badge badge-red">AssemblyAI STT</span>
+    <span class="badge badge-blue">Telegram Bot</span>
+    <span class="badge badge-green">ffmpeg</span>
+    <span class="badge badge-purple">Playwright</span>
+  </div>
+</header>
+
+<div class="layout">
+
+  <nav>
+    <div class="nav-title">Navigation</div>
+    <a href="#overview">Overview</a>
+    <a href="#file-tree">File Structure</a>
+
+    <div class="nav-section">
+      <div class="nav-title">Modules</div>
+      <a href="#mod-scraper">scraper.py</a>
+      <a href="#mod-pipeline">pipeline.py</a>
+      <a href="#mod-voice">voice.py</a>
+      <a href="#mod-imagegen">image_gen.py</a>
+      <a href="#mod-video">video.py</a>
+      <a href="#mod-telegram">telegram_bot.py</a>
+      <a href="#mod-logger">logger.py</a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-title">Details</div>
+      <a href="#pipeline-flow">Pipeline Flow</a>
+      <a href="#apis">APIs Used</a>
+      <a href="#dependencies">Dependencies</a>
+      <a href="#outputs">Output Files</a>
+      <a href="#cleanup">Cleanup Report</a>
+      <a href="#security">Security</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ══ OVERVIEW ══ -->
+    <section id="overview">
+      <h2><span class="icon">🎬</span> Project Overview</h2>
+      <p>
+        This project is a <strong>fully automated AI content repurposing pipeline</strong>. It monitors <strong>rundown.ai</strong> for new AI-industry news articles, sends them to the user for approval via Telegram, and — upon approval — autonomously generates a complete short-form social video (TikTok / Instagram Reels / YouTube Shorts format).
+      </p>
+      <p>
+        The pipeline uses <strong>Claude Opus 4.6</strong> for research and scriptwriting, <strong>ElevenLabs</strong> for voiceover, <strong>fal.ai</strong> for vertical 9:16 image generation, <strong>AssemblyAI</strong> for word-level subtitle transcription, and <strong>ffmpeg</strong> for final video assembly — delivering every asset back to the user over Telegram.
+      </p>
+
+      <div class="card-grid" style="margin-top:20px;">
+        <div class="card">
+          <div class="card-title">Input</div>
+          <div class="card-sub">Where content comes from</div>
+          <p style="font-size:0.85rem;">rundown.ai AI news category — scraped with Playwright headless browser, up to 4 pages per run.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Approval</div>
+          <div class="card-sub">Human-in-the-loop</div>
+          <p style="font-size:0.85rem;">Each new article is sent to the user via Telegram with YES / NO inline buttons before any processing begins.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Output</div>
+          <div class="card-sub">What gets produced</div>
+          <p style="font-size:0.85rem;">MP4 video (1080×1920, h.264, AAC) + SRT subtitles + 8–12 generated JPEGs + MP3 voiceover — all delivered via Telegram.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Visual Style</div>
+          <div class="card-sub">Current active style</div>
+          <p style="font-size:0.85rem;"><strong>Algorithmic</strong> — high-contrast dark backgrounds, glowing grid lines, circuit-board aesthetics, bold sans-serif overlays. (3 other styles are defined but inactive.)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FILE TREE ══ -->
+    <section id="file-tree">
+      <h2><span class="icon">📁</span> File Structure</h2>
+      <div class="file-tree">
+        <span class="ft-dir">content_repurposing/</span><br>
+        &nbsp;&nbsp;<span class="ft-py">├── pipeline.py</span><span class="ft-note">Core AI generation (research, script, visuals)</span><br>
+        &nbsp;&nbsp;<span class="ft-py">├── scraper.py</span><span class="ft-note">Main orchestrator + article scraper</span><br>
+        &nbsp;&nbsp;<span class="ft-py">├── voice.py</span><span class="ft-note">ElevenLabs text-to-speech</span><br>
+        &nbsp;&nbsp;<span class="ft-py">├── image_gen.py</span><span class="ft-note">fal.ai image generation</span><br>
+        &nbsp;&nbsp;<span class="ft-py">├── video.py</span><span class="ft-note">ffmpeg assembly + AssemblyAI subtitles</span><br>
+        &nbsp;&nbsp;<span class="ft-py">├── telegram_bot.py</span><span class="ft-note">Telegram notifications + approval flow</span><br>
+        &nbsp;&nbsp;<span class="ft-py">├── logger.py</span><span class="ft-note">Structured logging system</span><br>
+        &nbsp;&nbsp;<span class="ft-conf">├── .env</span><span class="ft-note">API keys (never commit!)</span><br>
+        &nbsp;&nbsp;<span class="ft-conf">├── .gitignore</span><span class="ft-note">Excludes .env, seen_articles.json, __pycache__</span><br>
+        &nbsp;&nbsp;<span class="ft-data">├── requirements.txt</span><span class="ft-note">Python dependencies</span><br>
+        &nbsp;&nbsp;<span class="ft-data">├── seen_articles.json</span><span class="ft-note">CRITICAL — tracks processed articles</span><br>
+        &nbsp;&nbsp;<span class="ft-out">├── audio_files/</span><span class="ft-note">Generated MP3 voiceovers</span><br>
+        &nbsp;&nbsp;<span class="ft-out">├── generated_images/</span><span class="ft-note">Generated 9:16 JPEGs from fal.ai</span><br>
+        &nbsp;&nbsp;<span class="ft-out">├── output_videos/</span><span class="ft-note">Final MP4 videos</span><br>
+        &nbsp;&nbsp;<span class="ft-out">├── srt_files/</span><span class="ft-note">Subtitle .srt files</span><br>
+        &nbsp;&nbsp;<span class="ft-out">├── article_images/</span><span class="ft-note">Downloaded article hero images</span><br>
+        &nbsp;&nbsp;<span class="ft-out">├── logs/</span><span class="ft-note">Timestamped run logs</span><br>
+        &nbsp;&nbsp;<span class="ft-dead">├── Advanced/</span><span class="ft-note">EMPTY — safe to delete</span><br>
+        &nbsp;&nbsp;<span class="ft-dead">├── App/</span><span class="ft-note">EMPTY — safe to delete</span><br>
+        &nbsp;&nbsp;<span class="ft-dead">└── Apps/</span><span class="ft-note">EMPTY — safe to delete</span><br>
+      </div>
+    </section>
+
+    <!-- ══ SCRAPER ══ -->
+    <section id="mod-scraper">
+      <h2><span class="icon">🔍</span> scraper.py — Main Orchestrator</h2>
+      <p><strong>Role:</strong> Entry point for the entire pipeline. Scrapes articles, manages Telegram approval workflow, and coordinates all stages in sequence.</p>
+      <p><strong>Lines:</strong> 385 &nbsp;|&nbsp; <strong>Entry:</strong> <code>main()</code></p>
+
+      <h3>Functions</h3>
+      <table class="fn-table">
+        <thead>
+          <tr>
+            <th>Function</th>
+            <th>Signature</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="fn-name">load_seen</td>
+            <td class="fn-sig">() → tuple[dict, str|None, int]</td>
+            <td class="fn-desc">Loads <code>seen_articles.json</code>. Returns (articles_dict, checkpoint_url, next_id). The checkpoint is the most recent article URL — scraping stops when reached.</td>
+          </tr>
+          <tr>
+            <td class="fn-name">save_seen</td>
+            <td class="fn-sig">(seen: dict) → None</td>
+            <td class="fn-desc">Persists article tracking dict to <code>seen_articles.json</code> with ID preservation.</td>
+          </tr>
+          <tr>
+            <td class="fn-name">extract_title</td>
+            <td class="fn-sig">(raw: str) → str</td>
+            <td class="fn-desc">Parses rundown.ai card text. Format: <em>"Category \n\n Title \n\n Author · N min"</em>. Returns the title line (2nd non-empty line).</td>
+          </tr>
+          <tr>
+            <td class="fn-name">fmt_date</td>
+            <td class="fn-sig">(raw) → str|None</td>
+            <td class="fn-desc">Normalizes multiple datetime formats to YYYY-MM-DD.</td>
+          </tr>
+          <tr>
+            <td class="fn-name">scrape_page</td>
+            <td class="fn-sig">(page) → list[dict]</td>
+            <td class="fn-desc">Extracts article cards from an active Playwright page. Filters by URL pattern and title length (≥8 chars). Returns list of <code>{title, url, date}</code>.</td>
+          </tr>
+          <tr>
+            <td class="fn-name">go_to_page</td>
+            <td class="fn-sig">(page, num: int) → bool</td>
+            <td class="fn-desc">Clicks pagination button and waits up to 5 seconds for content swap. Returns True on success.</td>
+          </tr>
+          <tr>
+            <td class="fn-name">main</td>
+            <td class="fn-sig">() → None</td>
+            <td class="fn-desc"><strong>Full pipeline entry point.</strong> Phase 1: Scrape rundown.ai (up to 4 pages). Phase 2: Send Telegram YES/NO for each new article (5s gap). Phase 3: For each approval, run the complete generation pipeline (research → script → audio → images → SRT → video).</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ══ PIPELINE ══ -->
+    <section id="mod-pipeline">
+      <h2><span class="icon">🧠</span> pipeline.py — AI Generation Core</h2>
+      <p><strong>Role:</strong> All Claude API calls live here. Handles article analysis, reel scriptwriting, and visual prompt generation. Also handles article fetching with Playwright.</p>
+      <p><strong>Lines:</strong> 385 &nbsp;|&nbsp; <strong>Model:</strong> claude-opus-4-6 with adaptive thinking</p>
+
+      <h3>Visual Styles (4 defined, 1 active)</h3>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-title" style="color:var(--accent2);">Algorithmic <span class="badge badge-green" style="font-size:0.7rem;">ACTIVE</span></div>
+          <p style="font-size:0.82rem;">High-contrast dark BG, glowing grid lines, circuit-board aesthetics, neon-blue/emerald green data streams, bold white sans-serif overlays. Calm bottom 20px for subtitles.</p>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color:var(--text-muted);">Glitch <span class="badge badge-red" style="font-size:0.7rem;">INACTIVE</span></div>
+          <p style="font-size:0.82rem;">Digital corruption effects, scan lines, VHS artifacts, chromatic aberration, neon colors bleeding on dark backgrounds.</p>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color:var(--text-muted);">Vaporwave <span class="badge badge-red" style="font-size:0.7rem;">INACTIVE</span></div>
+          <p style="font-size:0.82rem;">Retro-futuristic 80s aesthetics, pink/purple gradients, chrome text, grid floors, sunset backgrounds.</p>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color:var(--text-muted);">Data <span class="badge badge-red" style="font-size:0.7rem;">INACTIVE</span></div>
+          <p style="font-size:0.82rem;">Information visualization style, infographic overlays, data tables, chart elements, clean tech look.</p>
+        </div>
+      </div>
+
+      <h3>Functions</h3>
+      <table class="fn-table">
+        <thead>
+          <tr>
+            <th>Function</th>
+            <th>Signature</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="fn-name">fetch_article</td>
+            <td class="fn-sig">(url: str) → tuple[str, str|None]</td>
+            <td class="fn-desc">Uses Playwright to load article with headless Chrome. Removes nav/footer/sidebar noise. Returns (article_text, hero_image_url).</td>
+          </tr>
+          <tr>
+            <td class="fn-name">download_image</td>
+            <td class="fn-sig">(image_url, article_url) → str|None</td>
+            <td class="fn-desc">Downloads article hero image to <code>article_images/</code>. Validates type (jpg, jpeg, png, webp, gif). Returns local path or None.</td>
+          </tr>
+          <tr>
+            <td class="fn-name">_call_claude</td>
+            <td class="fn-sig">(article_text: str, retry: bool) → dict</td>
+            <td class="fn-desc">Internal. Calls Claude Opus 4.6 with adaptive thinking. Strips markdown fences from JSON response. Retries with stricter prompt on JSON parse failure.</td>
+          </tr>
+          <tr>
+            <td class="fn-name">research_article</td>
+            <td class="fn-sig">(url: str) → dict</td>
+            <td class="fn-desc"><strong>Public API.</strong> Full article analysis. Returns: <code>{main_topic, key_facts[5], hook_angle, best_quote, downloaded_image}</code>.</td>
+          </tr>
+          <tr>
+            <td class="fn-name">generate_reel_script</td>
+            <td class="fn-sig">(research: dict) → dict</td>
+            <td class="fn-desc"><strong>Public API.</strong> Converts research into a 45–50s TikTok/Reels script. Returns: <code>{title, runtime, tone, segments[], b_roll[]}</code>. Each segment has: <code>{label, timestamp, on_screen, voiceover}</code>.</td>
+          </tr>
+          <tr>
+            <td class="fn-name">generate_visual_prompts</td>
+            <td class="fn-sig">(reel: dict, style: str) → list[dict]</td>
+            <td class="fn-desc"><strong>Public API.</strong> Generates 8–12 detailed image generation prompts from the reel script. Each frame: <code>{label, visual_tag, voiceover, image_prompt}</code>. Prompts require BOLD embedded text overlays per style spec.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ══ VOICE ══ -->
+    <section id="mod-voice">
+      <h2><span class="icon">🎙️</span> voice.py — Text-to-Speech</h2>
+      <p><strong>Role:</strong> Converts the reel script voiceover text into an MP3 audio file using ElevenLabs.</p>
+      <p><strong>Lines:</strong> 46 &nbsp;|&nbsp; <strong>Model:</strong> eleven_multilingual_v2 &nbsp;|&nbsp; <strong>Voice:</strong> from env (ELEVENLABS_VOICE_ID)</p>
+
+      <h3>Functions</h3>
+      <table class="fn-table">
+        <thead><tr><th>Function</th><th>Signature</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="fn-name">generate_audio</td>
+            <td class="fn-sig">(text: str, output_path: str|Path) → str</td>
+            <td class="fn-desc">Converts text to speech via ElevenLabs streaming API. Writes chunks to output file. Logs chunk count and file size in KB. Returns output path as string. Default output: <code>audio_files/audio.mp3</code>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ══ IMAGE GEN ══ -->
+    <section id="mod-imagegen">
+      <h2><span class="icon">🖼️</span> image_gen.py — Image Generation</h2>
+      <p><strong>Role:</strong> Submits all visual prompts to fal.ai in parallel (non-blocking), then collects results. Downloads and auto-resizes output JPEGs.</p>
+      <p><strong>Lines:</strong> 177 &nbsp;|&nbsp; <strong>Model:</strong> fal-ai/nano-banana-pro &nbsp;|&nbsp; <strong>Aspect:</strong> 9:16 &nbsp;|&nbsp; <strong>Resolution:</strong> 4K</p>
+
+      <h3>Functions</h3>
+      <table class="fn-table">
+        <thead><tr><th>Function</th><th>Signature</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="fn-name">_slug</td>
+            <td class="fn-sig">(text: str) → str</td>
+            <td class="fn-desc">Internal. Converts text to filename-safe slug (lowercase, non-alphanumeric → underscore, max 40 chars).</td>
+          </tr>
+          <tr>
+            <td class="fn-name">_submit_image</td>
+            <td class="fn-sig">(image_prompt, filename_stem) → handler</td>
+            <td class="fn-desc">Internal. Submits job to fal.ai non-blocking. Parameters: prompt, num_images=1, aspect_ratio=9:16, output_format=jpeg, resolution=4K. Returns handler immediately.</td>
+          </tr>
+          <tr>
+            <td class="fn-name">_collect_image</td>
+            <td class="fn-sig">(handler, filename_stem) → tuple[str|None, str|None]</td>
+            <td class="fn-desc">Internal. Blocks until job completes. Downloads JPEG to <code>generated_images/</code>. Auto-resizes if &gt;10 MB (tries quality levels 88→30 at 1080px wide). Returns (image_url, local_path).</td>
+          </tr>
+          <tr>
+            <td class="fn-name">generate_images_for_visuals</td>
+            <td class="fn-sig">(visuals: list[dict], article_title: str, style_slug: str) → list[dict]</td>
+            <td class="fn-desc"><strong>Public API.</strong> Submits all images with 5-second gaps (non-blocking), then collects in order. Filenames: <code>{style}_{title}_{index}_{label}.jpg</code>. Adds <code>image_url</code> and <code>image_path</code> to each visual dict. Returns modified visuals.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ══ VIDEO ══ -->
+    <section id="mod-video">
+      <h2><span class="icon">🎞️</span> video.py — Subtitle & Video Assembly</h2>
+      <p><strong>Role:</strong> Transcribes the voiceover with AssemblyAI (word-level timestamps), generates SRT subtitles, then assembles the final video with ffmpeg.</p>
+      <p><strong>Lines:</strong> 256 &nbsp;|&nbsp; <strong>Output:</strong> 1080×1920 MP4, h.264 crf=23, AAC 192k, 24fps</p>
+
+      <h3>Functions</h3>
+      <table class="fn-table">
+        <thead><tr><th>Function</th><th>Signature</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="fn-name">_fmt_srt_time</td>
+            <td class="fn-sig">(seconds: float) → str</td>
+            <td class="fn-desc">Internal. Converts float seconds to SRT timestamp format <code>HH:MM:SS,mmm</code>.</td>
+          </tr>
+          <tr>
+            <td class="fn-name">_escape_filter_path</td>
+            <td class="fn-sig">(path: str) → str</td>
+            <td class="fn-desc">Internal. Escapes file paths for ffmpeg filter syntax, handling Windows drive letters and special characters.</td>
+          </tr>
+          <tr>
+            <td class="fn-name">_get_audio_duration</td>
+            <td class="fn-sig">(audio_path: str) → float</td>
+            <td class="fn-desc">Internal. Uses ffprobe to get audio duration in seconds. Falls back to 40s if ffprobe fails.</td>
+          </tr>
+          <tr>
+            <td class="fn-name">generate_srt</td>
+            <td class="fn-sig">(reel: dict, title_slug: str, audio_path: str) → str</td>
+            <td class="fn-desc"><strong>Public API.</strong> 1) Uploads audio to AssemblyAI. 2) Requests transcription with word-level timestamps. 3) Polls until complete. 4) Groups words into ~10-word chunks across 2 lines. 5) Applies 50ms gaps between subtitles. Returns path to <code>.srt</code> file.</td>
+          </tr>
+          <tr>
+            <td class="fn-name">generate_video</td>
+            <td class="fn-sig">(visuals: list[dict], audio_path, srt_path, title_slug) → str|None</td>
+            <td class="fn-desc"><strong>Public API.</strong> Calculates per-image duration from voiceover word counts (clamped 6–10s, rescaled to audio length). Creates ffmpeg concat demuxer. Applies vf chain: fps=24, scale 1080×1920, pad black, burn subtitles. Returns MP4 path or None on failure.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ══ TELEGRAM ══ -->
+    <section id="mod-telegram">
+      <h2><span class="icon">📱</span> telegram_bot.py — Notifications & Approval</h2>
+      <p><strong>Role:</strong> All Telegram communication. Sends approval prompts, receives YES/NO responses, delivers generated assets (audio, images, SRT, video).</p>
+      <p><strong>Lines:</strong> 235 &nbsp;|&nbsp; <strong>Polling:</strong> every 10 seconds with stateful offset tracking</p>
+
+      <h3>Functions</h3>
+      <table class="fn-table">
+        <thead><tr><th>Function</th><th>Signature</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="fn-name">send_message</td>
+            <td class="fn-sig">(text: str) → None</td>
+            <td class="fn-desc">Sends HTML-formatted message to the configured Telegram chat.</td>
+          </tr>
+          <tr>
+            <td class="fn-name">send_approval_message</td>
+            <td class="fn-sig">(title: str, url: str) → int</td>
+            <td class="fn-desc">Sends a YES/NO inline-button notification for an article. Returns <code>message_id</code> for response tracking. Non-blocking.</td>
+          </tr>
+          <tr>
+            <td class="fn-name">wait_for_next</td>
+            <td class="fn-sig">(message_ids: set[int]) → tuple[int, bool]</td>
+            <td class="fn-desc"><strong>Main approval API.</strong> Blocks until one of the tracked message IDs receives a response. Polls every 10s. Buffers out-of-order taps. Returns <code>(message_id, approved)</code>.</td>
+          </tr>
+          <tr>
+            <td class="fn-name">send_audio</td>
+            <td class="fn-sig">(audio_path: str, title: str) → None</td>
+            <td class="fn-desc">Sends MP3 as Telegram audio file with title and performer metadata.</td>
+          </tr>
+          <tr>
+            <td class="fn-name">send_generated_images</td>
+            <td class="fn-sig">(visuals: list[dict], title: str) → None</td>
+            <td class="fn-desc">Sends all generated images to Telegram. Uses local file upload via sendPhoto. Falls back to downloading from image_url if local file missing. Skips entries without image_url.</td>
+          </tr>
+          <tr>
+            <td class="fn-name">send_document</td>
+            <td class="fn-sig">(file_path: str, filename: str) → None</td>
+            <td class="fn-desc">Sends any file as a Telegram document. Used to deliver SRT subtitle files.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ══ LOGGER ══ -->
+    <section id="mod-logger">
+      <h2><span class="icon">📋</span> logger.py — Structured Logging</h2>
+      <p><strong>Role:</strong> Provides timestamped logging to both console and log files. Works in conjunction with the <code>_Tee</code> class in scraper.py which redirects stdout/stderr to log files in real-time.</p>
+      <p><strong>Lines:</strong> 42 &nbsp;|&nbsp; <strong>Format:</strong> <code>{timestamp} [{LEVEL}] {message}</code></p>
+
+      <h3>Functions</h3>
+      <table class="fn-table">
+        <thead><tr><th>Function</th><th>Signature</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="fn-name">init_run_log</td>
+            <td class="fn-sig">() → Path</td>
+            <td class="fn-desc">Creates <code>logs/</code> directory. Generates timestamp-based log file: <code>run_{YYYY-MM-DD_HH-MM-SS}.log</code>. Returns Path object.</td>
+          </tr>
+          <tr>
+            <td class="fn-name">log</td>
+            <td class="fn-sig">(message: str, level: str = "INFO") → None</td>
+            <td class="fn-desc">Prints timestamped line to stdout (captured by _Tee) and writes directly to log file. Levels: INFO, DEBUG, ERROR, WARNING.</td>
+          </tr>
+          <tr>
+            <td class="fn-name">write_raw</td>
+            <td class="fn-sig">(text: str) → None</td>
+            <td class="fn-desc">Writes raw stdout/stderr text from _Tee to the log file. Handles lines not ending in newline.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ══ PIPELINE FLOW ══ -->
+    <section id="pipeline-flow">
+      <h2><span class="icon">⚙️</span> End-to-End Pipeline Flow</h2>
+      <p>Complete sequence from startup to final video delivery, triggered by running <code>python scraper.py</code>.</p>
+
+      <div class="pipeline" style="margin-top: 24px;">
+        <div class="pipeline-step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">Scraping Phase</div>
+            <div class="step-detail">Playwright headless browser opens rundown.ai/articles?category=AI. Scrapes up to 4 pages of article cards. Stops at checkpoint (most recently seen article). Saves new articles to seen_articles.json.</div>
+            <div class="step-module">scraper.py → main() → scrape_page()</div>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">User Approval Phase</div>
+            <div class="step-detail">For each new article, sends a Telegram message with YES/NO inline buttons (5s gap between messages). Waits for user responses. Pipeline proceeds in real-time as approvals arrive.</div>
+            <div class="step-module">scraper.py + telegram_bot.py → send_approval_message() → wait_for_next()</div>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <div class="step-title">Article Research</div>
+            <div class="step-detail">Playwright fetches full article text. Claude Opus 4.6 extracts: main topic, 5 key facts, hook angle, best quote. Hero image downloaded if available.</div>
+            <div class="step-module">pipeline.py → research_article() → _call_claude()</div>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <div class="step-title">Reel Script Generation</div>
+            <div class="step-detail">Claude Opus 4.6 converts research into a punchy 45–50s TikTok/Reels script with labeled segments (HOOK, CONTEXT, BUILD, TWIST, CTA), timestamps, on-screen text, and voiceover text.</div>
+            <div class="step-module">pipeline.py → generate_reel_script()</div>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <div class="step-title">Voiceover Generation</div>
+            <div class="step-detail">All segment voiceovers concatenated and sent to ElevenLabs (eleven_multilingual_v2). MP3 saved to audio_files/. Delivered to user via Telegram.</div>
+            <div class="step-module">voice.py → generate_audio() + telegram_bot.py → send_audio()</div>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num">6</div>
+          <div class="step-body">
+            <div class="step-title">Visual Prompt Design</div>
+            <div class="step-detail">Claude Opus 4.6 generates 8–12 detailed image prompts from the reel script, using the "algorithmic" style specification. Each frame includes bold embedded text overlays as part of the prompt.</div>
+            <div class="step-module">pipeline.py → generate_visual_prompts()</div>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num">7</div>
+          <div class="step-body">
+            <div class="step-title">Image Generation</div>
+            <div class="step-detail">All prompts submitted to fal.ai (non-blocking, 5s gap). Collected in order once complete. 9:16 vertical JPEGs downloaded locally. Auto-resized if &gt;10MB. All images sent to Telegram.</div>
+            <div class="step-module">image_gen.py → generate_images_for_visuals() + telegram_bot.py → send_generated_images()</div>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num">8</div>
+          <div class="step-body">
+            <div class="step-title">Subtitle Generation</div>
+            <div class="step-detail">Audio uploaded to AssemblyAI. Transcription requested with word-level timestamps. Polled until complete. Words grouped into ~10-word chunks (2-line format) with 50ms gaps. SRT file saved and sent to Telegram.</div>
+            <div class="step-module">video.py → generate_srt()</div>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num">9</div>
+          <div class="step-body">
+            <div class="step-title">Video Assembly</div>
+            <div class="step-detail">Per-image durations calculated from voiceover word counts (clamped 6–10s, rescaled to audio length). ffmpeg concat demuxer created. Video filter chain: fps=24, scale 1080×1920, pad black, burn subtitles. Encoded as h.264 (crf=23, fast) + AAC 192k. Final MP4 saved to output_videos/.</div>
+            <div class="step-module">video.py → generate_video()</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ APIS ══ -->
+    <section id="apis">
+      <h2><span class="icon">🔌</span> APIs Used</h2>
+      <table class="api-table">
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Purpose</th>
+            <th>Env Variable</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:var(--accent2);">Anthropic</strong></td>
+            <td>Article research, script generation, visual prompts</td>
+            <td><code>ANTHROPIC_API_KEY</code></td>
+            <td>Model: claude-opus-4-6 with adaptive thinking</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--accent4);">ElevenLabs</strong></td>
+            <td>Text-to-speech voiceover generation</td>
+            <td><code>ELEVENLABS_API_KEY</code><br><code>ELEVENLABS_VOICE_ID</code></td>
+            <td>Model: eleven_multilingual_v2, streaming</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--accent5);">fal.ai</strong></td>
+            <td>AI image generation (9:16 vertical, 4K)</td>
+            <td><code>FAL_KEY</code></td>
+            <td>Model: fal-ai/nano-banana-pro, non-blocking jobs</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--accent3);">AssemblyAI</strong></td>
+            <td>Speech-to-text with word-level timestamps for subtitles</td>
+            <td><code>ASSEMBLYAI_API_KEY</code></td>
+            <td>Polled until complete, outputs SRT format</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--accent);">Telegram Bot API</strong></td>
+            <td>User approval, asset delivery, notifications</td>
+            <td><code>TELEGRAM_TOKEN</code><br><code>CHAT_ID</code></td>
+            <td>REST polling (10s interval), inline buttons</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="notice info" style="margin-top:16px;">
+        <div class="notice-icon">ℹ</div>
+        <div class="notice-body">
+          <strong>External System Dependencies (not in requirements.txt)</strong>
+          <code>ffmpeg</code> and <code>ffprobe</code> must be installed separately and available in your system PATH. ffprobe is used for audio duration detection; ffmpeg handles all video encoding.
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ DEPENDENCIES ══ -->
+    <section id="dependencies">
+      <h2><span class="icon">📦</span> Dependencies (requirements.txt)</h2>
+      <div class="card">
+        <div class="dep-row">
+          <span class="dep-name">playwright&nbsp;&gt;=1.44.0</span>
+          <span class="dep-desc">Headless Chrome browser automation — used to scrape rundown.ai and fetch full article text from any website.</span>
+        </div>
+        <div class="dep-row">
+          <span class="dep-name">anthropic&nbsp;&gt;=0.40.0</span>
+          <span class="dep-desc">Anthropic Python SDK — wraps all Claude API calls for research, scriptwriting, and visual prompt generation.</span>
+        </div>
+        <div class="dep-row">
+          <span class="dep-name">elevenlabs&nbsp;&gt;=1.0.0</span>
+          <span class="dep-desc">ElevenLabs Python SDK — streaming text-to-speech API for generating voiceover MP3s.</span>
+        </div>
+        <div class="dep-row">
+          <span class="dep-name">fal-client&nbsp;&gt;=0.5.0</span>
+          <span class="dep-desc">fal.ai client — non-blocking image generation job submission and result collection.</span>
+        </div>
+        <div class="dep-row">
+          <span class="dep-name">python-telegram-bot&nbsp;&gt;=21.0</span>
+          <span class="dep-desc">Telegram Bot API wrapper — used for sending messages, inline buttons, photos, and files.</span>
+        </div>
+        <div class="dep-row">
+          <span class="dep-name">python-dotenv&nbsp;&gt;=1.0.0</span>
+          <span class="dep-desc">Loads environment variables from <code>.env</code> file at startup.</span>
+        </div>
+        <div class="dep-row">
+          <span class="dep-name">requests&nbsp;&gt;=2.31.0</span>
+          <span class="dep-desc">HTTP requests — used in image_gen.py and telegram_bot.py for downloading images and calling REST APIs directly.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ OUTPUTS ══ -->
+    <section id="outputs">
+      <h2><span class="icon">💾</span> Output Files</h2>
+      <p>All outputs from one successful run of article <em>"AI just made the billion-dollar solo founder real"</em> (2026-04-03):</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-title">MP4 Video</div>
+          <div class="card-sub">output_videos/</div>
+          <p style="font-size:0.82rem;">4.9 MB, 1080×1920 vertical, h.264, AAC 192k, 24fps. ~80 seconds. Synced images + voiceover + burned-in subtitles.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">JPEG Images (×11)</div>
+          <div class="card-sub">generated_images/</div>
+          <p style="font-size:0.82rem;">Total 29 MB. Naming: <code>algorithmic_{title}_{index}_{label}.jpg</code>. Segments: HOOK×2, CONTEXT×2, BUILD×3, TWIST×2, CTA×2. Each includes bold text overlays.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">MP3 Voiceover</div>
+          <div class="card-sub">audio_files/</div>
+          <p style="font-size:0.82rem;">1.1 MB, 44.1 kHz mono, 128 kbps. ~80 seconds. Generated by ElevenLabs eleven_multilingual_v2.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">SRT Subtitles</div>
+          <div class="card-sub">srt_files/</div>
+          <p style="font-size:0.82rem;">1.6 KB, 16 entries. Word-level timestamps from AssemblyAI. ~10-word chunks across 2 lines. 50ms gaps between cues.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Run Logs</div>
+          <div class="card-sub">logs/</div>
+          <p style="font-size:0.82rem;">Timestamped <code>run_{datetime}.log</code> files. Capture all stdout/stderr in real-time via _Tee. Include API responses, file sizes, timing info.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">seen_articles.json</div>
+          <div class="card-sub">root/</div>
+          <p style="font-size:0.82rem;">Tracks 27 articles (IDs 1001–1023). Prevents re-processing. Most recent article at index 0 acts as checkpoint. <strong style="color:var(--accent3);">Do not delete.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CLEANUP ══ -->
+    <section id="cleanup">
+      <h2><span class="icon">🗑️</span> Cleanup Report</h2>
+      <p>Files and directories that are candidates for removal, along with files that must be kept.</p>
+
+      <table class="cleanup-table" style="margin-bottom:20px;">
+        <thead>
+          <tr>
+            <th>File / Directory</th>
+            <th>Size</th>
+            <th>Status</th>
+            <th>Reason</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>Advanced/</code></td>
+            <td>0 bytes</td>
+            <td class="status-del">DELETE</td>
+            <td>Completely empty directory, no purpose</td>
+          </tr>
+          <tr>
+            <td><code>App/</code></td>
+            <td>0 bytes</td>
+            <td class="status-del">DELETE</td>
+            <td>Completely empty directory, no purpose</td>
+          </tr>
+          <tr>
+            <td><code>Apps/</code></td>
+            <td>0 bytes</td>
+            <td class="status-del">DELETE</td>
+            <td>Completely empty directory, no purpose</td>
+          </tr>
+          <tr>
+            <td><code>audio.mp3</code> (root)</td>
+            <td>197 KB</td>
+            <td class="status-del">DELETE</td>
+            <td>Test/sample file at project root, not part of pipeline output</td>
+          </tr>
+          <tr>
+            <td><code>output_videos/image.png</code></td>
+            <td>1.5 MB</td>
+            <td class="status-del">DELETE</td>
+            <td>Test/placeholder image incorrectly placed in video output folder</td>
+          </tr>
+          <tr>
+            <td><code>logs/run_2026-04-03_13-32-47.log</code></td>
+            <td>&lt;1 KB</td>
+            <td class="status-opt">OPTIONAL</td>
+            <td>Failed run (Telegram token not loaded). Safe to delete after review.</td>
+          </tr>
+          <tr>
+            <td><code>logs/run_2026-04-03_13-44-44.log</code></td>
+            <td>&lt;1 KB</td>
+            <td class="status-opt">OPTIONAL</td>
+            <td>Run with no new articles found. Safe to delete after review.</td>
+          </tr>
+          <tr>
+            <td><code>generated_images/</code> (sample outputs)</td>
+            <td>~29 MB</td>
+            <td class="status-opt">OPTIONAL</td>
+            <td>Sample outputs from one run. Keep for reference or archive if needed.</td>
+          </tr>
+          <tr>
+            <td><code>pipeline.py</code>, <code>scraper.py</code>, etc.</td>
+            <td>—</td>
+            <td class="status-keep">KEEP</td>
+            <td>Core pipeline logic — do not delete</td>
+          </tr>
+          <tr>
+            <td><code>requirements.txt</code></td>
+            <td>—</td>
+            <td class="status-keep">KEEP</td>
+            <td>Required for environment setup</td>
+          </tr>
+          <tr>
+            <td><code>seen_articles.json</code></td>
+            <td>—</td>
+            <td class="status-keep">KEEP — CRITICAL</td>
+            <td>State persistence. Losing this causes re-scraping all known articles.</td>
+          </tr>
+          <tr>
+            <td><code>.env</code></td>
+            <td>—</td>
+            <td class="status-keep">KEEP (local only)</td>
+            <td>API credentials. Already in .gitignore. Never commit.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ══ SECURITY ══ -->
+    <section id="security">
+      <h2><span class="icon">🔒</span> Security Notes</h2>
+
+      <div class="notice error">
+        <div class="notice-icon">⚠</div>
+        <div class="notice-body">
+          <strong>API Keys in .env File</strong>
+          The <code>.env</code> file contains live API keys for Anthropic, ElevenLabs, fal.ai, AssemblyAI, and Telegram. While this file is correctly listed in <code>.gitignore</code>, it is stored unencrypted on disk. Never commit it, share it, or expose it. Consider rotating keys if this project directory has ever been shared.
+        </div>
+      </div>
+
+      <div class="notice warn">
+        <div class="notice-icon">!</div>
+        <div class="notice-body">
+          <strong>No .env.example Template</strong>
+          There is no <code>.env.example</code> file documenting which environment variables are required. If you set up this project on a new machine, you need to know all 7 variable names by reading the source code. Consider adding a template with placeholder values.
+        </div>
+      </div>
+
+      <div class="notice warn">
+        <div class="notice-icon">!</div>
+        <div class="notice-body">
+          <strong>ffmpeg / ffprobe Not in requirements.txt</strong>
+          These are required system binaries but are not documented in any dependency file. A fresh setup will fail at the video assembly step without them installed and in PATH.
+        </div>
+      </div>
+
+      <div class="notice good">
+        <div class="notice-icon">✓</div>
+        <div class="notice-body">
+          <strong>.gitignore is Correct</strong>
+          The <code>.gitignore</code> properly excludes <code>.env</code>, <code>seen_articles.json</code>, <code>__pycache__/</code>, and <code>*.pyc</code>. Sensitive files and state files will not be accidentally committed.
+        </div>
+      </div>
+
+      <h3>Required .env Variables</h3>
+      <pre>ANTHROPIC_API_KEY=sk-ant-api03-...       # Claude API
+ELEVENLABS_API_KEY=...                   # ElevenLabs TTS
+ELEVENLABS_VOICE_ID=...                  # Voice to use for TTS
+ASSEMBLYAI_API_KEY=...                   # AssemblyAI transcription
+FAL_KEY=...                              # fal.ai image generation
+TELEGRAM_TOKEN=...                       # Telegram bot token
+CHAT_ID=...                              # Telegram chat ID to send to</pre>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  // Highlight active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { threshold: 0.25 });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

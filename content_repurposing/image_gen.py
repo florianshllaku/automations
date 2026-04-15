@@ -1,4 +1,5 @@
 import io
+import json
 import os
 import re
 import time
@@ -17,6 +18,10 @@ os.environ.setdefault("FAL_KEY", os.getenv("FAL_KEY", ""))
 GENERATED_DIR = Path("generated_images")
 GENERATED_DIR.mkdir(exist_ok=True)
 
+ASSETS_DIR = Path("assets")
+REFERENCE_IMAGE_PATH = ASSETS_DIR / "women.png"
+REFERENCE_URL_CACHE = ASSETS_DIR / "women_url.txt"
+
 MODEL = "fal-ai/nano-banana-pro"
 
 
@@ -26,45 +31,66 @@ def _slug(text: str) -> str:
     return text[:40].strip("_")
 
 
-def _submit_image(image_prompt: str, filename_stem: str):
-    """Submit a job to fal.ai and return the handler immediately (non-blocking)."""
-    log(f"[DEBUG] fal.ai submit — stem: {filename_stem}, model: {MODEL}, prompt chars: {len(image_prompt)}", "DEBUG")
-    log(f"[DEBUG] Prompt preview: {image_prompt[:120]}{'...' if len(image_prompt) > 120 else ''}", "DEBUG")
-    log(f"[DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1", "DEBUG")
+def _upload_reference_image() -> str | None:
+    """
+    Upload women.png to fal.ai and cache the URL in assets/women_url.txt.
+    On subsequent runs, reuses the cached URL without re-uploading.
+    Delete women_url.txt to force a fresh upload.
+    """
+    if not REFERENCE_IMAGE_PATH.exists():
+        log(f"Reference image not found at {REFERENCE_IMAGE_PATH} — skipping character reference", "WARNING")
+        return None
 
-    handler = fal_client.submit(
-        MODEL,
-        arguments={
-            "prompt": image_prompt,
-            "num_images": 1,
-            "aspect_ratio": "9:16",
-            "output_format": "jpeg",
-            "resolution": "4K",
-        },
-    )
-    log(f"fal.ai job submitted — stem: {filename_stem}")
+    if REFERENCE_URL_CACHE.exists():
+        cached_url = REFERENCE_URL_CACHE.read_text(encoding="utf-8").strip()
+        if cached_url:
+            log(f"Using cached reference image URL: {cached_url}")
+            return cached_url
+
+    log(f"Uploading reference image: {REFERENCE_IMAGE_PATH}")
+    url = fal_client.upload_file(str(REFERENCE_IMAGE_PATH))
+    log(f"Reference image uploaded: {url}")
+    ASSETS_DIR.mkdir(exist_ok=True)
+    REFERENCE_URL_CACHE.write_text(url, encoding="utf-8")
+    log(f"URL cached to {REFERENCE_URL_CACHE}")
+    return url
+
+
+def _submit_image(image_prompt: str, filename_stem: str, reference_url: str | None = None):
+    """Submit a single job to fal.ai and return the handler."""
+    log(f"fal.ai submit — stem: {filename_stem}")
+    log(f"[DEBUG] Prompt preview: {image_prompt[:120]}{'...' if len(image_prompt) > 120 else ''}", "DEBUG")
+
+    arguments = {
+        "prompt": image_prompt,
+        "num_images": 1,
+        "aspect_ratio": "9:16",
+        "output_format": "jpeg",
+        "resolution": "4K",
+    }
+
+    if reference_url:
+        arguments["reference_image_url"] = reference_url
+        log(f"[DEBUG] Reference image attached: {reference_url}", "DEBUG")
+
+    handler = fal_client.submit(MODEL, arguments=arguments)
     log(f"[DEBUG] Handler request_id: {getattr(handler, 'request_id', 'N/A')}", "DEBUG")
     return handler
 
 
 def _collect_image(handler, filename_stem: str) -> tuple[str | None, str | None]:
-    """Block until the fal.ai job is done, download locally, return (url, local_path)."""
-    log(f"[DEBUG] Collecting result for: {filename_stem} (blocking until ready)", "DEBUG")
+    """Block until job is done, download locally, return (url, local_path)."""
+    log(f"[DEBUG] Collecting result for: {filename_stem}", "DEBUG")
 
     try:
         result = handler.get()
-        log(f"[DEBUG] fal.ai raw result keys: {list(result.keys()) if isinstance(result, dict) else type(result)}", "DEBUG")
-
         images = result.get("images", [])
-        log(f"[DEBUG] Images in result: {len(images)}", "DEBUG")
 
         if not images:
             log(f"fal.ai returned no images for {filename_stem}", "ERROR")
             return None, None
 
         img_meta = images[0]
-        log(f"[DEBUG] Image metadata: {img_meta}", "DEBUG")
-
         image_url = img_meta.get("url")
         if not image_url:
             log(f"fal.ai image missing URL for {filename_stem}", "ERROR")
@@ -72,11 +98,9 @@ def _collect_image(handler, filename_stem: str) -> tuple[str | None, str | None]
 
         width = img_meta.get("width", "?")
         height = img_meta.get("height", "?")
-        log(f"fal.ai image ready — {filename_stem} | {width}x{height} | URL: {image_url}")
+        log(f"fal.ai image ready — {filename_stem} | {width}x{height}")
 
-        # Download JPEG directly from fal.ai, resize if over 10 MB
         dest = GENERATED_DIR / f"{filename_stem}.jpg"
-        log(f"[DEBUG] Downloading JPEG to: {dest}", "DEBUG")
         try:
             req = urllib.request.Request(image_url, headers={"User-Agent": "Mozilla/5.0"})
             with urllib.request.urlopen(req, timeout=60) as resp:
@@ -86,32 +110,24 @@ def _collect_image(handler, filename_stem: str) -> tuple[str | None, str | None]
 
             limit_bytes = 10 * 1024 * 1024
             if len(data) <= limit_bytes:
-                # Already under 10 MB — save as-is
                 dest.write_bytes(data)
-                log(f"[DEBUG] Under 10 MB — saved as-is", "DEBUG")
             else:
-                # Too large — resize and re-compress with Pillow
                 log(f"[DEBUG] Over 10 MB — resizing to 1080px wide", "DEBUG")
                 img = Image.open(io.BytesIO(data)).convert("RGB")
                 orig_w, orig_h = img.size
                 scale = 1080 / orig_w
                 img = img.resize((1080, int(orig_h * scale)), Image.LANCZOS)
-                log(f"[DEBUG] Resized from {orig_w}x{orig_h} to {img.size[0]}x{img.size[1]}", "DEBUG")
-
                 for quality in (88, 75, 60, 45, 30):
                     buf = io.BytesIO()
                     img.save(buf, format="JPEG", quality=quality, optimize=True)
-                    size = buf.tell()
-                    log(f"[DEBUG] Quality={quality} → {size // 1024} KB", "DEBUG")
-                    if size <= limit_bytes:
+                    if buf.tell() <= limit_bytes:
                         dest.write_bytes(buf.getvalue())
                         break
 
             size_kb = dest.stat().st_size // 1024
-            log(f"[DEBUG] Final saved: {size_kb} KB at {dest}", "DEBUG")
-            log(f"Image saved locally: {dest} ({size_kb} KB)")
+            log(f"Image saved: {dest} ({size_kb} KB)")
         except Exception as dl_err:
-            log(f"Local download failed for {filename_stem}: {type(dl_err).__name__}: {dl_err}", "WARNING")
+            log(f"Download failed for {filename_stem}: {type(dl_err).__name__}: {dl_err}", "WARNING")
             dest = None
 
         return image_url, str(dest) if dest else None
@@ -121,56 +137,91 @@ def _collect_image(handler, filename_stem: str) -> tuple[str | None, str | None]
         return None, None
 
 
+def generate_images_from_json(json_path: str, style_slug: str = "scene") -> list[dict]:
+    """
+    Read a visuals JSON file (generated_content/images/{slug}.json),
+    generate images one by one via fal.ai, and return updated scenes with image_path.
+
+    Attaches assets/women.png as a reference image if it exists.
+    """
+    json_path = Path(json_path)
+    if not json_path.exists():
+        log(f"Visuals JSON not found: {json_path}", "ERROR")
+        return []
+
+    data = json.loads(json_path.read_text(encoding="utf-8"))
+    scenes = data.get("scenes", [])
+
+    if not scenes:
+        log("No scenes found in visuals JSON", "WARNING")
+        return []
+
+    log(f"Starting image generation — {len(scenes)} scenes from {json_path.name}")
+
+    # Upload reference image once
+    reference_url = _upload_reference_image()
+
+    results = []
+    for scene in scenes:
+        scene_id = scene.get("id", len(results) + 1)
+        prompt = scene.get("prompt", "")
+        label = _slug(scene.get("script", f"scene_{scene_id}")[:30])
+        stem = f"{style_slug}_{scene_id:02d}_{label}"
+
+        log(f"Generating scene {scene_id}/{len(scenes)} — {stem}")
+
+        try:
+            handler = _submit_image(prompt, stem, reference_url=reference_url)
+            image_url, image_path = _collect_image(handler, stem)
+        except Exception as e:
+            log(f"Scene {scene_id} failed: {type(e).__name__}: {e}", "ERROR")
+            image_url, image_path = None, None
+
+        results.append({**scene, "image_url": image_url, "image_path": image_path})
+
+    succeeded = sum(1 for r in results if r.get("image_url"))
+    log(f"Image generation complete — {succeeded}/{len(scenes)} succeeded")
+    return results
+
+
+# ---------------------------------------------------------------------------
+# Legacy batch function (kept for backwards compat)
+# ---------------------------------------------------------------------------
+
 def generate_images_for_visuals(visuals: list[dict], article_title: str, style_slug: str = "") -> list[dict]:
     """
     Submit all fal.ai jobs 5 seconds apart (non-blocking), then collect all results.
-    style_slug is prepended to filenames to keep styles separate.
     """
     title_slug = _slug(article_title)
     log(f"Starting image generation — {len(visuals)} frames, article: '{article_title}', style: '{style_slug}'")
-    log(f"[DEBUG] Visuals to generate: {[v.get('label') for v in visuals]}", "DEBUG")
 
-    # Phase 1: submit all jobs with 5s gap
+    reference_url = _upload_reference_image()
+
     handlers = []
     for i, v in enumerate(visuals, 1):
         label_slug = _slug(v.get("label", f"frame_{i}"))
         stem = f"{style_slug}_{title_slug}_{i:02d}_{label_slug}" if style_slug else f"{title_slug}_{i:02d}_{label_slug}"
         v["_stem"] = stem
-        log(f"[DEBUG] Submitting image {i}/{len(visuals)} — label: {v.get('label')}, stem: {stem}", "DEBUG")
 
         try:
-            handler = _submit_image(v["image_prompt"], stem)
+            handler = _submit_image(v["image_prompt"], stem, reference_url=reference_url)
             handlers.append((v, handler))
-            log(f"[DEBUG] Submit {i} OK — handler acquired", "DEBUG")
         except Exception as e:
             log(f"fal.ai submit failed for {stem}: {type(e).__name__}: {e}", "ERROR")
             handlers.append((v, None))
 
         if i < len(visuals):
-            log(f"[DEBUG] Sleeping 5s before next submission ({i+1}/{len(visuals)})", "DEBUG")
             time.sleep(5)
 
     log(f"All {len(visuals)} jobs submitted — now collecting results")
 
-    # Phase 2: collect in order
     for i, (v, handler) in enumerate(handlers, 1):
         stem = v.pop("_stem")
-        log(f"[DEBUG] Collecting image {i}/{len(handlers)} — stem: {stem}", "DEBUG")
         if handler is None:
-            log(f"[DEBUG] Skipping collect for {stem} — submit failed", "DEBUG")
             v["image_url"], v["image_path"] = None, None
         else:
             v["image_url"], v["image_path"] = _collect_image(handler, stem)
-            log(f"[DEBUG] Collect {i} result — url: {v['image_url']}, path: {v['image_path']}", "DEBUG")
 
     succeeded = sum(1 for v in visuals if v.get("image_url"))
     log(f"Image generation complete — {succeeded}/{len(visuals)} succeeded")
-
-    log("[DEBUG] Final image summary:", "DEBUG")
-    for v in visuals:
-        label = v.get("label", "")
-        url = v.get("image_url")
-        path = v.get("image_path")
-        log(f"[DEBUG]   [{label}] url={url} | path={path}", "DEBUG")
-
     return visuals

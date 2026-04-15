@@ -1,0 +1,82 @@
+{
+  "scenes": [
+    {
+      "id": 1,
+      "duration": 3,
+      "script": "A mendo(n) se dieta me fruta është thjesht e shëndetshme… sepse janë “natyrale” dhe plot vitamina?",
+      "prompt": "Ultra realistic 4:5 vertical clean composition, slightly dark tones with subtle shadows, shallow depth of field. The same fit realistic woman (same face identity, same hairstyle from reference) sits at a kitchen counter, holds a small bowl of mixed fresh fruit (strawberries, orange slices, banana) and gestures “naturale” with an open palm. Soft directional light, soft shadows, she looks curious and persuasive, natural expression, cinematic mood, space for subtitles."
+    },
+    {
+      "id": 2,
+      "duration": 4,
+      "script": "Po, frutat sjellin fibra, antioksidantë dhe energji me pak kalori… dhe mund të të bëjnë të ndihesh i ngopur.",
+      "prompt": "Ultra realistic conceptual food visual, 4:5 vertical, clean composition, slightly dark tones with soft shadows and shallow depth of field. The same woman places fruit on a cutting board and slices an orange and banana while, over the food, semi-transparent visual effects represent fiber and antioxidants (small green/yellow particles) and a subtle “fullness” symbol (rounded glow). She smiles slightly, focused, natural fit posture. Soft directional light, clean background."
+    },
+    {
+      "id": 3,
+      "duration": 3,
+      "script": "Por kur frutat bëhen pothuajse e vetmja gjë… çfarë ndodh me proteinat, yndyrnat e mira…?",
+      "prompt": "Ultra realistic symbolic composition, 4:5 vertical. Slightly dark tones, subtle shadows, shallow depth of field. The same woman removes a carton labeled “protein” from the counter and replaces it with an overflowing fruit pile, leaving empty space where other foods should be. She points to the empty spot with concern, eyebrows slightly raised. Soft directional light, clean composition, mood caution."
+    },
+    {
+      "id": 4,
+      "duration": 4,
+      "script": "…dhe vitaminat kyçe si B12, vitaminë D dhe omega 3?",
+      "prompt": "Ultra realistic conceptual visuals with objects, 4:5 vertical, clean composition, slightly dark tones with soft shadows and shallow depth of field. The same woman arranges small pill-like placeholders beside fruits labeled “B12”, “D”, “Omega 3” on a neutral tray, then taps each label while looking worried. Fruit remains dominant in the frame; the supplements look “missing” compared to the abundance of fruit. Soft directional light, cinematic realism, space for subtitles."
+    },
+    {
+      "id": 5,
+      "duration": 4,
+      "script": "Frutarizmi është një nënlloj vegan… ku 70–80% të kalorive vijnë nga frutat…",
+      "prompt": "Ultra realistic minimal infographic-style scene, 4:5 vertical, clean composition, slightly dark tones with subtle shadows, shallow depth of field. The same woman holds a smartphone displaying a simple pie chart (70–80% fruit) while her other hand places fruit in the foreground (grapes, apple, banana). She tilts the phone toward camera, confident explanatory expression. Soft directional light, cinematic but realistic, clear area for subtitles."
+    },
+    {
+      "id": 6,
+      "duration": 3,
+      "script": "…dhe pjesa tjetër është shumë e kufizuar.",
+      "prompt": "Ultra realistic minimal scene, 4:5 vertical, clean composition, slightly dark tones with soft shadows and shallow depth of field. The same woman pushes a small “limited” portion of food (a couple of nuts/vegetable tokens) into the side of a tray while the majority of the tray is filled with fruit. She gestures “kufizuar” by drawing a small circle with her finger. Natural, slightly concerned expression. Soft directional light."
+    },
+    {
+      "id": 7,
+      "duration": 4,
+      "script": "Përjashton grupe të tëra ushqimore, ndaj rrezikon lodhje… imunitet më të dobët…",
+      "prompt": "Ultra realistic human interaction + symbolic health, 4:5 vertical, clean composition, slightly dark tones with subtle shadows, shallow depth of field. The same woman stands near the counter and gently sips water, then rubs her eyes with a tired-but-realistic expression (no exaggeration). Behind her, shelves show missing food categories as blurred silhouettes while fruit dominates the front. Soft directional light, subdued mood, space for subtitles."
+    },
+    {
+      "id": 8,
+      "duration": 2,
+      "script": "…dhe kocka më të brishta.",
+      "prompt": "Ultra realistic symbolic composition, 4:5 vertical, clean composition, slightly dark tones with soft shadows and shallow depth of field. The same woman places a fruit bowl down and holds a small, realistic bone-shaped prop that has subtle cracks (non-gory). She looks concerned, palm open. Background neutral kitchen, shallow depth of field, soft directional light, space for subtitles."
+    },
+    {
+      "id": 9,
+      "duration": 3,
+      "script": "Pastaj vjen fruktoza…",
+      "prompt": "Ultra realistic conceptual molecules, 4:5 vertical, clean composition, slightly dark tones with soft shadows and shallow depth of field. The same woman points at a clear glass bowl of fruit puree while glowing molecule visuals form “fructose” style shapes above it. She has a focused teaching expression. Soft directional light, cinematic realism, minimal clutter."
+    },
+    {
+      "id": 10,
+      "duration": 3,
+      "script": "…dhe madje disa fruta kanë indeks më të lartë glikemik.",
+      "prompt": "Ultra realistic food + lab indicator scene, 4:5 vertical, clean composition, slightly dark tones with subtle shadows, shallow depth of field. The same woman holds two fruits side-by-side (banana and berries) while a handheld glucometer/strip display shows a higher value for one fruit. She points to the higher number with a precise gesture, alert expression. Soft directional light, clean background, space for subtitles."
+    },
+    {
+      "id": 11,
+      "duration": 4,
+      "script": "Konsumimi i shpeshtë mund të dëmtojë smaltin e dhëmbëve.",
+      "prompt": "Ultra realistic dental caution visual, 4:5 vertical, clean composition, slightly dark tones with soft shadows and shallow depth of field. The same woman holds a small toothbrush near a realistic close-up dental model/teeth (non-graphic) on a tray. Subtle “erosion” visual overlay appears on enamel surface. She looks gently serious, protective posture. Soft directional light, clean neutral background."
+    },
+    {
+      "id": 12,
+      "duration": 3,
+      "script": "Nëse do ta provosh, bëje me kujdes dhe dëgjo trupin.",
+      "prompt": "Ultra realistic motivational closing scene, 4:5 vertical, clean composition, slightly dark tones with subtle shadows, shallow depth of field. The same woman sits calmly, holds a balanced plate (fruit + a small protein portion + healthy fat like avocado slice) and taps her chest with one hand while the other hand makes a careful “slowly” gesture above the plate. Warm but soft directional light, reassuring expression, cinematic realism, space for subtitles."
+    },
+    {
+      "id": 13,
+      "duration": 3,
+      "script": "Ti e ke dëgjuar këtë dietë, apo do ta provoje? Like dhe koment… dhe ndiq për më shumë.",
+      "prompt": "Ultra realistic end-card style, 4:5 vertical, clean composition, slightly dark tones with soft shadows and shallow depth of field. The same woman faces camera, smiling lightly, one hand pointing toward the viewer and the other doing a thumbs-up gesture. Behind her, a blurred counter with fruit and a small balanced bowl. Soft directional light, inviting social media vibe, clear space for subtitles and CTA text."
+    }
+  ]
+}

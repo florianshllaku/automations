@@ -1,43 +1,24 @@
 import json
-import os
 import re
 import sys
 import time
 from datetime import datetime
+from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8")
 sys.stderr.reconfigure(encoding="utf-8")
 
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeout
-from telegram_bot import send_approval_message, wait_for_next, send_message, send_audio, send_generated_images, send_document
-from pipeline import research_article, generate_reel_script, generate_visual_prompts, VISUAL_STYLES
-from voice import generate_audio
-from image_gen import generate_images_for_visuals
-from video import generate_srt, generate_video
-from logger import log, init_run_log, write_raw
+from telegram_bot import send_approval_message, wait_for_next
+from pipeline import generate_script, generate_visuals
+from image_gen import generate_images_from_json
+from voice import generate_audio, generate_subtitles
 
-
-class _Tee:
-    """Wraps a stream (stdout or stderr) and mirrors all writes to the run log file."""
-    def __init__(self, stream):
-        self._stream = stream
-
-    def write(self, data):
-        self._stream.write(data)
-        write_raw(data)
-
-    def flush(self):
-        self._stream.flush()
-
-    def reconfigure(self, **kwargs):
-        self._stream.reconfigure(**kwargs)
-
-BASE_URL  = "https://www.rundown.ai/articles?category=AI"
-SEEN_FILE = "seen_articles.json"
-MAX_PAGES = 4
-
-PAGE_BTN     = '[fs-cmsload-element="page-button"]'
-ARTICLE_LINK = "a[href^='/articles/']"
+BASE_URL         = "https://telegrafi.com/shendetesi/ushqimi-dhe-dieta/"
+SEEN_FILE        = "seen_articles.json"
+MAX_PAGES        = 2
+ARTICLES_XPATH   = '//*[@id="sSection_Subsection_Layout_0_0_33_0_0_4_0_4_0_0_1"]/div'
+PAGINATION_XPATH = '//*[@id="sSection_Subsection_Layout_0_0_33_0_0_4_0_4_0_0_1"]/div/div[2]/nav/a'
 
 
 # ---------------------------------------------------------------------------
@@ -45,12 +26,6 @@ ARTICLE_LINK = "a[href^='/articles/']"
 # ---------------------------------------------------------------------------
 
 def load_seen() -> tuple[dict[str, dict], str | None, int]:
-    """
-    Returns (seen_dict, checkpoint_url, next_id).
-    checkpoint_url is the URL of the FIRST entry in seen_articles.json —
-    the most recently known article. The scraper stops when it hits this URL.
-    next_id is the next available article ID (starts at 1000).
-    """
     try:
         with open(SEEN_FILE, "r", encoding="utf-8") as f:
             data = json.load(f)
@@ -72,15 +47,6 @@ def save_seen(seen: dict[str, dict]) -> None:
 # Helpers
 # ---------------------------------------------------------------------------
 
-def extract_title(raw: str) -> str:
-    """
-    Card text structure:  Category \\n\\n Title \\n\\n Author · N minutes
-    Title is always the second non-empty line.
-    """
-    lines = [l.strip() for l in raw.splitlines() if l.strip()]
-    return lines[1] if len(lines) >= 2 else (lines[0] if lines else "")
-
-
 def fmt_date(raw) -> str | None:
     if not raw:
         return None
@@ -98,52 +64,144 @@ def fmt_date(raw) -> str | None:
 # ---------------------------------------------------------------------------
 
 def scrape_page(page) -> list[dict]:
+    """
+    Scrape article cards from a telegrafi.com listing page.
+    Skips any card whose text contains 'Reklama' (ads).
+    Returns list of {title, url, date}.
+    """
     seen_urls: set[str] = set()
     articles = []
 
-    for a in page.query_selector_all(ARTICLE_LINK):
-        href = a.get_attribute("href") or ""
-        if not re.match(r"^/articles/[a-z0-9\-]+$", href):
+    # Scope to the articles container only
+    container = page.query_selector(f"xpath={ARTICLES_XPATH}")
+    if not container:
+        print("  WARNING: articles container not found on page.", file=sys.stderr)
+        return articles
+
+    for a in container.query_selector_all("a[href]"):
+        href = (a.get_attribute("href") or "").strip()
+
+        if href.startswith("https://telegrafi.com/"):
+            url = href.rstrip("/") + "/"
+        elif href.startswith("/"):
+            url = "https://telegrafi.com" + href.rstrip("/") + "/"
+        else:
             continue
 
-        url = f"https://www.rundown.ai{href}"
+        # Article URLs have exactly 1 path segment: /article-slug/
+        # Author pages (/author/x/), category pages (/cat/sub/), etc. have 2+
+        path = url.replace("https://telegrafi.com/", "").strip("/")
+        segments = [s for s in path.split("/") if s]
+        if len(segments) != 1:
+            continue
+
         if url in seen_urls:
             continue
-        seen_urls.add(url)
 
-        title = extract_title(a.inner_text() or "")
-        if len(title) < 8:
+        # Find the nearest <article> ancestor — this is the full card
+        card = a.evaluate_handle("el => el.closest('article')") or a
+
+        card_text = card.inner_text() or ""
+
+        # Skip ads
+        if "Reklama" in card_text or "reklama" in card_text:
+            print(f"  [SKIP ads] {url}", file=sys.stderr)
             continue
 
-        time_el = a.query_selector("time")
-        date = fmt_date(
-            time_el.get_attribute("datetime") or time_el.inner_text() if time_el else None
-        )
+        # Extract title from heading tags, fallback to link text
+        title = ""
+        for heading_sel in ("h1", "h2", "h3", "h4"):
+            el = a.query_selector(heading_sel) or card.query_selector(heading_sel)
+            if el:
+                title = el.inner_text().strip()
+                break
+        if not title:
+            title = a.inner_text().strip().splitlines()[0].strip()
 
+        if len(title) < 8:
+            print(f"  [SKIP short title] {url!r} -> {title!r}", file=sys.stderr)
+            continue
+
+        # Date is in a <span> inside the article card metadata area
+        # Try the known structure first: div > div > div:nth-child(2) > div:nth-child(2) > span
+        # then fall back to any <time> or first <span> that looks like a date
+        date = None
+        date_el = card.query_selector("div > div > div:nth-child(2) > div:nth-child(2) > span")
+        if not date_el:
+            date_el = card.query_selector("time")
+        if not date_el:
+            # fallback: grab all spans and pick the one that looks like a date
+            for span in card.query_selector_all("span"):
+                text = span.inner_text().strip()
+                if text and any(c.isdigit() for c in text):
+                    date_el = span
+                    break
+        if date_el:
+            raw = date_el.get_attribute("datetime") or date_el.inner_text().strip()
+            date = fmt_date(raw) or raw  # keep raw string if fmt_date can't parse it
+
+        seen_urls.add(url)
         articles.append({"title": title, "url": url, "date": date})
 
     return articles
 
 
 def go_to_page(page, num: int) -> bool:
-    """Click the pagination button for page `num` and wait for content to swap."""
+    """Click the pagination link matching page `num`."""
     try:
-        btn = page.locator(PAGE_BTN).filter(has_text=re.compile(rf"^{num}$"))
-        btn.wait_for(state="visible", timeout=5000)
+        nav_links = page.locator(f"xpath={PAGINATION_XPATH}")
+        count = nav_links.count()
+        if count == 0:
+            print(f"  No pagination links found for page {num}.", file=sys.stderr)
+            return False
 
-        first_before = page.locator(ARTICLE_LINK).first.get_attribute("href")
-        btn.click()
-
-        # Wait up to 5 s for the article list to swap out
-        for _ in range(10):
-            page.wait_for_timeout(500)
-            if page.locator(ARTICLE_LINK).first.get_attribute("href") != first_before:
+        target = None
+        for i in range(count):
+            link = nav_links.nth(i)
+            text = (link.inner_text() or "").strip()
+            if text == str(num):
+                target = link
                 break
 
+        if target is None:
+            target = nav_links.last
+
+        target.wait_for(state="visible", timeout=5000)
+        target.scroll_into_view_if_needed()
+        target.click()
+        page.wait_for_load_state("domcontentloaded", timeout=15000)
+        page.wait_for_timeout(2000)  # let JS render new page articles
         return True
     except PlaywrightTimeout:
-        print(f"  Page {num} button not found.", file=sys.stderr)
+        print(f"  Pagination click timed out for page {num}.", file=sys.stderr)
         return False
+    except Exception as e:
+        print(f"  go_to_page error (page {num}): {e}", file=sys.stderr)
+        return False
+
+
+# ---------------------------------------------------------------------------
+# Article body fetching
+# ---------------------------------------------------------------------------
+
+ARTICLE_BODY_XPATH = '/html/body/div[4]/div/div[10]/div[1]/div[1]/div[2]/div/div[1]/div/div[1]/div[1]/div'
+
+def fetch_article_body(url: str) -> str:
+    """Load the article page and return the full body text using the known XPath."""
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        page = browser.new_context(user_agent=(
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/124.0.0.0 Safari/537.36"
+        )).new_page()
+        page.goto(url, wait_until="domcontentloaded", timeout=30000)
+        page.wait_for_timeout(2000)
+
+        el = page.query_selector(f"xpath={ARTICLE_BODY_XPATH}")
+        text = el.inner_text().strip() if el else ""
+        browser.close()
+    return text
 
 
 # ---------------------------------------------------------------------------
@@ -151,16 +209,9 @@ def go_to_page(page, num: int) -> bool:
 # ---------------------------------------------------------------------------
 
 def main():
-    run_log = init_run_log()
-    sys.stdout = _Tee(sys.stdout)
-    sys.stderr = _Tee(sys.stderr)
-    log("=" * 60)
-    log(f"RUN STARTED — log: {run_log.name}")
-    log("=" * 60)
     seen, checkpoint, next_id = load_seen()
-    first_run  = checkpoint is None
     all_new: list[dict] = []
-    new_urls:  set[str] = set()
+    new_urls: set[str] = set()
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
@@ -170,25 +221,23 @@ def main():
             "Chrome/124.0.0.0 Safari/537.36"
         )).new_page()
 
-        log(f"Scraping {BASE_URL}")
-        print(f"Loading {BASE_URL} ...", file=sys.stderr)
-        pw.goto(BASE_URL, wait_until="networkidle", timeout=30000)
+        print(f"Loading {BASE_URL} ...")
+        pw.goto(BASE_URL, wait_until="domcontentloaded", timeout=30000)
+        pw.wait_for_timeout(3000)  # let JS render the article cards
 
         for page_num in range(1, MAX_PAGES + 1):
             if page_num > 1:
-                print(f"  → Page {page_num} ...", file=sys.stderr)
+                print(f"  → Navigating to page {page_num} ...")
                 if not go_to_page(pw, page_num):
                     break
 
             articles = scrape_page(pw)
-            print(f"  Page {page_num}: {len(articles)} articles.", file=sys.stderr)
-            log(f"Page {page_num}: {len(articles)} articles found")
+            print(f"  Page {page_num}: {len(articles)} articles found.")
 
             done = False
             for art in articles:
                 if art["url"] == checkpoint:
-                    print(f"  Reached checkpoint at page {page_num}. Stopping.", file=sys.stderr)
-                    log(f"Reached checkpoint at page {page_num} — stopping scrape")
+                    print(f"  Reached checkpoint at page {page_num}. Stopping.")
                     done = True
                     break
                 elif art["url"] not in new_urls:
@@ -200,51 +249,41 @@ def main():
 
         browser.close()
 
-    # Assign IDs to new articles
+    # Assign IDs
     for art in all_new:
         art["id"] = next_id
         next_id += 1
 
     if not all_new:
-        log("No new articles found — nothing to do")
         print("No new articles found.")
         return
 
-    log(f"{len(all_new)} new article(s) found")
-    print(json.dumps(all_new, indent=2, ensure_ascii=False))
+    # Save to seen_articles.json
+    merged = {a["url"]: a for a in all_new}
+    merged.update(seen)
+    save_seen(merged)
 
-    # ── Phase 1: send ALL notifications immediately (5s gap between each) ──
-    saved_new: dict[str, dict] = {}
-    pending: list[tuple[dict, int]] = []  # (article, telegram_message_id)
+    print(f"\n{len(all_new)} new article(s) found. Sending to Telegram...\n")
 
+    # Phase 1 — send all notifications (5s gap between each)
+    pending: list[tuple[dict, int]] = []
     for idx, art in enumerate(all_new):
-        saved_new[art["url"]] = art
-        merged = dict(saved_new)
-        merged.update(seen)
-        save_seen(merged)
-
         if idx > 0:
-            print(f"  Waiting 5 seconds before next notification ...", file=sys.stderr)
             time.sleep(5)
-
-        print(f"  Sending notification for: {art['title']}", file=sys.stderr)
-        log(f"Telegram notification sent: {art['title']}")
         try:
             msg_id = send_approval_message(art["title"], art["url"])
             pending.append((art, msg_id))
+            print(f"  Sent: {art['title']}")
         except Exception as e:
-            log(f"Telegram notification failed for '{art['title']}': {type(e).__name__}: {e}", level="ERROR")
-            print(f"  [TELEGRAM ERROR] Could not send notification for '{art['title']}': {type(e).__name__}: {e}", file=sys.stderr)
+            print(f"  [ERROR] Could not send notification for '{art['title']}': {e}", file=sys.stderr)
 
     if not pending:
-        log("No notifications could be sent — aborting", level="ERROR")
-        print("No notifications could be sent.", file=sys.stderr)
+        print("No notifications could be sent.")
         return
 
-    log(f"All {len(pending)} notification(s) sent — waiting for responses")
-    print(f"\nAll {len(pending)} notification(s) sent. Waiting for your responses ...\n", file=sys.stderr)
+    print(f"\nAll {len(pending)} notification(s) sent. Waiting for responses...\n")
 
-    # ── Phase 2: process each YES immediately as it comes in ──
+    # Phase 2 — wait for user responses and act on them
     article_by_msg_id = {msg_id: art for art, msg_id in pending}
     remaining_ids = set(article_by_msg_id.keys())
 
@@ -252,132 +291,76 @@ def main():
         try:
             msg_id, approved = wait_for_next(remaining_ids)
         except Exception as e:
-            log(f"wait_for_next failed: {type(e).__name__}: {e}", level="ERROR")
-            print(f"  [TELEGRAM ERROR] wait_for_next failed: {type(e).__name__}: {e}", file=sys.stderr)
+            print(f"  [ERROR] wait_for_next failed: {e}", file=sys.stderr)
             break
         remaining_ids.discard(msg_id)
         art = article_by_msg_id[msg_id]
 
         if approved:
-            log(f"User approved: {art['title']}")
-            print(f"User approved — generating content: {art['title']}")
+            print(f"\nCreating content for: {art['title']}")
+
+            # 1. Fetch article body
             try:
-                research = research_article(art["url"])
+                body = fetch_article_body(art["url"])
+                if not body:
+                    print("  [WARNING] Article body was empty — XPath may not have matched.")
+                    continue
+                print(f"  Article body fetched ({len(body)} chars)")
             except Exception as e:
-                log(f"research_article failed for '{art['title']}': {type(e).__name__}: {e}", level="ERROR")
-                print(f"  [PIPELINE ERROR] research_article failed: {type(e).__name__}: {e}", file=sys.stderr)
+                print(f"  [ERROR] Could not fetch article body: {e}", file=sys.stderr)
                 continue
 
+            slug = re.sub(r"[^a-z0-9]+", "_", art.get("title", "article").lower())[:40].strip("_")
+
+            # 2. Generate script via ChatGPT
             try:
-                reel = generate_reel_script(research)
+                script = generate_script(body)
+                print(f"\n{'='*60}")
+                print(f"SCRIPT: {art['title']}")
+                print(f"{'='*60}")
+                print(script)
+                print(f"{'='*60}\n")
+                script_path = f"generated_content/scripts/{slug}.txt"
+                Path(script_path).parent.mkdir(parents=True, exist_ok=True)
+                Path(script_path).write_text(script, encoding="utf-8")
+                print(f"  Script saved: {script_path}")
             except Exception as e:
-                log(f"generate_reel_script failed for '{art['title']}': {type(e).__name__}: {e}", level="ERROR")
-                print(f"  [PIPELINE ERROR] generate_reel_script failed: {type(e).__name__}: {e}", file=sys.stderr)
+                print(f"  [ERROR] generate_script failed: {e}", file=sys.stderr)
                 continue
 
-            # Build the exact voiceover script that goes to ElevenLabs
-            voiceover_text = " ".join(
-                seg["voiceover"] for seg in reel.get("segments", []) if seg.get("voiceover")
-            )
+            # 3. Generate visual prompts JSON
+            try:
+                visuals_path = generate_visuals(script, slug)
+                print(f"  Visuals saved: {visuals_path}")
+            except Exception as e:
+                print(f"  [ERROR] generate_visuals failed: {e}", file=sys.stderr)
+                visuals_path = None
 
-            audio_path = None
-            if voiceover_text:
-                # 1. Send the script text
+            # 3b. Generate images from visuals JSON via fal.ai
+            if visuals_path:
                 try:
-                    script_msg = f"🎙 <b>SCRIPT</b>\n\n{voiceover_text}"
-                    send_message(script_msg)
-                    log("Script sent to Telegram")
+                    scenes = generate_images_from_json(visuals_path, style_slug=slug)
+                    succeeded = sum(1 for s in scenes if s.get("image_path"))
+                    print(f"  Images generated: {succeeded}/{len(scenes)}")
                 except Exception as e:
-                    log(f"send script failed: {type(e).__name__}: {e}", level="ERROR")
-                    print(f"  [TELEGRAM ERROR] send script failed: {type(e).__name__}: {e}", file=sys.stderr)
+                    print(f"  [ERROR] generate_images_from_json failed: {e}", file=sys.stderr)
 
-                # 2. Send the audio
-                try:
-                    title_slug_audio = re.sub(r"[^a-z0-9]+", "_", art.get("title", "article").lower())[:40].strip("_")
-                    audio_path = generate_audio(voiceover_text, output_path=f"audio_files/{title_slug_audio}.mp3")
-                    send_audio(audio_path, title=reel.get("title", ""))
-                except Exception as e:
-                    log(f"Audio generation or send failed: {type(e).__name__}: {e}", level="ERROR")
-                    print(f"  [AUDIO/TELEGRAM ERROR] audio send failed: {type(e).__name__}: {e}", file=sys.stderr)
+            # 4. Generate audio via OpenAI TTS (echo voice, 1.2x speed)
+            try:
+                audio_path = generate_audio(script, output_path=f"generated_content/audio/{slug}.mp3")
+                print(f"  Audio saved: {audio_path}")
+            except Exception as e:
+                print(f"  [ERROR] generate_audio failed: {e}", file=sys.stderr)
+                continue
 
-            # 3. Generate visuals for each style
-            all_style_visuals = {}  # style -> visuals list (for video generation)
-            for style_key, style_name in [("algorithmic", "Algorithmic")]:
-                # 3a. Generate visual prompts for this style
-                style_visuals = None
-                try:
-                    log(f"Generating visual prompts — style: {style_name}")
-                    print(f"  Generating visual prompts ({style_name}) ...", flush=True)
-                    style_visuals = generate_visual_prompts(reel, style_key)
-                    log(f"Visual prompts ready — {style_name}: {len(style_visuals)} frames")
-                except Exception as e:
-                    log(f"generate_visual_prompts failed ({style_name}): {type(e).__name__}: {e}", level="ERROR")
-                    print(f"  [VISUAL ERROR] {style_name}: {type(e).__name__}: {e}", file=sys.stderr)
-                    continue
-
-                # 3b. Generate images from fal.ai
-                try:
-                    log(f"Generating images from fal.ai — style: {style_name}")
-                    style_visuals = generate_images_for_visuals(style_visuals, art.get("title", "article"), style_slug=style_key)
-                    log(f"--- Image collection summary ({style_name}) ---")
-                    for v in style_visuals:
-                        label = v.get("label", "?")
-                        path = v.get("image_path")
-                        size_kb = (os.path.getsize(path) // 1024) if path and os.path.exists(path) else None
-                        status = f"OK — {size_kb} KB at {path}" if size_kb else "FAILED — no local file"
-                        log(f"  [{label}] {status}")
-                    log(f"--- End image collection summary ({style_name}) ---")
-                except Exception as e:
-                    log(f"generate_images_for_visuals failed ({style_name}): {type(e).__name__}: {e}", level="ERROR")
-                    print(f"  [IMAGE GEN ERROR] {style_name}: {type(e).__name__}: {e}", file=sys.stderr)
-                    continue
-
-                # 3c. Send images to Telegram with style label
-                try:
-                    log(f"Sending images to Telegram — style: {style_name}")
-                    send_message(f"🎨 <b>{style_name}</b>")
-                    send_generated_images(style_visuals, title=reel.get("title", ""))
-                except Exception as e:
-                    log(f"send_generated_images failed ({style_name}): {type(e).__name__}: {e}", level="ERROR")
-                    print(f"  [TELEGRAM IMAGE ERROR] {style_name}: {type(e).__name__}: {e}", file=sys.stderr)
-
-                all_style_visuals[style_key] = style_visuals
-
-            # Use the first successfully generated style for the video
-            visuals = next(iter(all_style_visuals.values()), None)
-
-            # 4. Generate SRT + video (after all images are stored)
-            if visuals and audio_path:
-                title_slug = re.sub(r"[^a-z0-9]+", "_", art.get("title", "article").lower())[:40].strip("_")
-                srt_path = None
-                try:
-                    log("Generating SRT file")
-                    srt_path = generate_srt(reel, title_slug, audio_path)
-                    log(f"Sending SRT to Telegram: {srt_path}")
-                    send_document(srt_path, filename=f"{title_slug}.srt")
-                    log("SRT sent to Telegram")
-                except Exception as e:
-                    log(f"SRT generation or send failed: {type(e).__name__}: {e}", level="ERROR")
-                    print(f"  [SRT ERROR] {type(e).__name__}: {e}", file=sys.stderr)
-
-                if srt_path:
-                    try:
-                        log("Generating video with ffmpeg")
-                        video_path = generate_video(visuals, audio_path, srt_path, title_slug)
-                        if video_path:
-                            log(f"Video saved: {video_path}")
-                        else:
-                            log("Video generation returned None", level="WARNING")
-                    except Exception as e:
-                        log(f"Video generation failed: {type(e).__name__}: {e}", level="ERROR")
-                        print(f"  [VIDEO ERROR] {type(e).__name__}: {e}", file=sys.stderr)
+            # 5. Generate subtitles via Gladia + GPT correction
+            try:
+                srt_path = generate_subtitles(audio_path, output_path=f"generated_content/subtitles/{slug}.srt", script_text=script)
+                print(f"  Subtitles saved: {srt_path}")
+            except Exception as e:
+                print(f"  [ERROR] generate_subtitles failed: {e}", file=sys.stderr)
         else:
-            log(f"User skipped: {art['title']}")
-            print(f"User skipped: {art['title']}")
-
-    log("=" * 60)
-    log("RUN COMPLETE")
-    log("=" * 60)
+            print(f"Skipped: {art['title']}")
 
 
 if __name__ == "__main__":

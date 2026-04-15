@@ -1,0 +1,783 @@
+2026-04-10 13:01:07 [INFO] ============================================================
+2026-04-10 13:01:07 [INFO] ============================================================
+2026-04-10 13:01:07 [INFO] RUN STARTED — log: run_2026-04-10_13-01-07.log
+2026-04-10 13:01:07 [INFO] RUN STARTED — log: run_2026-04-10_13-01-07.log
+2026-04-10 13:01:07 [INFO] ============================================================
+2026-04-10 13:01:07 [INFO] ============================================================
+2026-04-10 13:01:14 [INFO] Scraping https://www.rundown.ai/articles?category=AI
+2026-04-10 13:01:14 [INFO] Scraping https://www.rundown.ai/articles?category=AI
+Loading https://www.rundown.ai/articles?category=AI ...
+  Page 1: 8 articles.
+2026-04-10 13:01:25 [INFO] Page 1: 8 articles found
+2026-04-10 13:01:25 [INFO] Page 1: 8 articles found
+  Reached checkpoint at page 1. Stopping.
+2026-04-10 13:01:26 [INFO] Reached checkpoint at page 1 — stopping scrape
+2026-04-10 13:01:26 [INFO] Reached checkpoint at page 1 — stopping scrape
+2026-04-10 13:01:26 [INFO] 5 new article(s) found
+2026-04-10 13:01:26 [INFO] 5 new article(s) found
+[
+  {
+    "title": "Perplexity's agent pivot is on the money",
+    "url": "https://www.rundown.ai/articles/perplexity-agent-pivot-is-on-the-money",
+    "date": null,
+    "id": 1024
+  },
+  {
+    "title": "Meta Superintelligence Labs ships its first model",
+    "url": "https://www.rundown.ai/articles/meta-superintelligence-labs-ships-its-first-model",
+    "date": null,
+    "id": 1025
+  },
+  {
+    "title": "Anthropic's new AI is too powerful for the world",
+    "url": "https://www.rundown.ai/articles/anthropic-new-ai-is-too-powerful-for-the-world",
+    "date": null,
+    "id": 1026
+  },
+  {
+    "title": "Sam Altman's new 'social contract' for AI",
+    "url": "https://www.rundown.ai/articles/sam-altman-new-social-contract-for-ai",
+    "date": null,
+    "id": 1027
+  },
+  {
+    "title": "Anthropic tells OpenClaw users to pay up",
+    "url": "https://www.rundown.ai/articles/anthropic-tells-openclaw-users-to-pay-up",
+    "date": null,
+    "id": 1028
+  }
+]
+  Sending notification for: Perplexity's agent pivot is on the money
+2026-04-10 13:01:26 [INFO] Telegram notification sent: Perplexity's agent pivot is on the money
+2026-04-10 13:01:26 [INFO] Telegram notification sent: Perplexity's agent pivot is on the money
+2026-04-10 13:01:26 [DEBUG] [DEBUG] send_approval_message — title: Perplexity's agent pivot is on the money, url: https://www.rundown.ai/articles/perplexity-agent-pivot-is-on-the-money
+2026-04-10 13:01:26 [DEBUG] [DEBUG] send_approval_message — title: Perplexity's agent pivot is on the money, url: https://www.rundown.ai/articles/perplexity-agent-pivot-is-on-the-money
+2026-04-10 13:01:27 [DEBUG] [DEBUG] Approval message sent — message_id: 294
+2026-04-10 13:01:27 [DEBUG] [DEBUG] Approval message sent — message_id: 294
+  Waiting 5 seconds before next notification ...
+  Sending notification for: Meta Superintelligence Labs ships its first model
+2026-04-10 13:01:32 [INFO] Telegram notification sent: Meta Superintelligence Labs ships its first model
+2026-04-10 13:01:32 [INFO] Telegram notification sent: Meta Superintelligence Labs ships its first model
+2026-04-10 13:01:32 [DEBUG] [DEBUG] send_approval_message — title: Meta Superintelligence Labs ships its first model, url: https://www.rundown.ai/articles/meta-superintelligence-labs-ships-its-first-model
+2026-04-10 13:01:32 [DEBUG] [DEBUG] send_approval_message — title: Meta Superintelligence Labs ships its first model, url: https://www.rundown.ai/articles/meta-superintelligence-labs-ships-its-first-model
+2026-04-10 13:01:34 [DEBUG] [DEBUG] Approval message sent — message_id: 295
+2026-04-10 13:01:34 [DEBUG] [DEBUG] Approval message sent — message_id: 295
+  Waiting 5 seconds before next notification ...
+  Sending notification for: Anthropic's new AI is too powerful for the world
+2026-04-10 13:01:39 [INFO] Telegram notification sent: Anthropic's new AI is too powerful for the world
+2026-04-10 13:01:39 [INFO] Telegram notification sent: Anthropic's new AI is too powerful for the world
+2026-04-10 13:01:39 [DEBUG] [DEBUG] send_approval_message — title: Anthropic's new AI is too powerful for the world, url: https://www.rundown.ai/articles/anthropic-new-ai-is-too-powerful-for-the-world
+2026-04-10 13:01:39 [DEBUG] [DEBUG] send_approval_message — title: Anthropic's new AI is too powerful for the world, url: https://www.rundown.ai/articles/anthropic-new-ai-is-too-powerful-for-the-world
+2026-04-10 13:01:40 [DEBUG] [DEBUG] Approval message sent — message_id: 296
+2026-04-10 13:01:40 [DEBUG] [DEBUG] Approval message sent — message_id: 296
+  Waiting 5 seconds before next notification ...
+  Sending notification for: Sam Altman's new 'social contract' for AI
+2026-04-10 13:01:45 [INFO] Telegram notification sent: Sam Altman's new 'social contract' for AI
+2026-04-10 13:01:45 [INFO] Telegram notification sent: Sam Altman's new 'social contract' for AI
+2026-04-10 13:01:45 [DEBUG] [DEBUG] send_approval_message — title: Sam Altman's new 'social contract' for AI, url: https://www.rundown.ai/articles/sam-altman-new-social-contract-for-ai
+2026-04-10 13:01:45 [DEBUG] [DEBUG] send_approval_message — title: Sam Altman's new 'social contract' for AI, url: https://www.rundown.ai/articles/sam-altman-new-social-contract-for-ai
+2026-04-10 13:01:46 [DEBUG] [DEBUG] Approval message sent — message_id: 297
+2026-04-10 13:01:46 [DEBUG] [DEBUG] Approval message sent — message_id: 297
+  Waiting 5 seconds before next notification ...
+  Sending notification for: Anthropic tells OpenClaw users to pay up
+2026-04-10 13:01:51 [INFO] Telegram notification sent: Anthropic tells OpenClaw users to pay up
+2026-04-10 13:01:51 [INFO] Telegram notification sent: Anthropic tells OpenClaw users to pay up
+2026-04-10 13:01:51 [DEBUG] [DEBUG] send_approval_message — title: Anthropic tells OpenClaw users to pay up, url: https://www.rundown.ai/articles/anthropic-tells-openclaw-users-to-pay-up
+2026-04-10 13:01:51 [DEBUG] [DEBUG] send_approval_message — title: Anthropic tells OpenClaw users to pay up, url: https://www.rundown.ai/articles/anthropic-tells-openclaw-users-to-pay-up
+2026-04-10 13:01:52 [DEBUG] [DEBUG] Approval message sent — message_id: 298
+2026-04-10 13:01:52 [DEBUG] [DEBUG] Approval message sent — message_id: 298
+2026-04-10 13:01:52 [INFO] All 5 notification(s) sent — waiting for responses
+2026-04-10 13:01:52 [INFO] All 5 notification(s) sent — waiting for responses
+
+All 5 notification(s) sent. Waiting for your responses ...
+2026-04-10 13:01:53 [DEBUG] [DEBUG] Initial flush — starting offset: 1
+2026-04-10 13:01:53 [DEBUG] [DEBUG] Initial flush — starting offset: 1
+2026-04-10 13:02:52 [DEBUG] [DEBUG] Poll #6 — 1 update(s)
+2026-04-10 13:02:52 [DEBUG] [DEBUG] Poll #6 — 1 update(s)
+2026-04-10 13:02:52 [INFO] User tapped YES on message_id=298
+2026-04-10 13:02:52 [INFO] User tapped YES on message_id=298
+2026-04-10 13:02:52 [INFO] User approved: Anthropic tells OpenClaw users to pay up
+2026-04-10 13:02:52 [INFO] User approved: Anthropic tells OpenClaw users to pay up
+User approved — generating content: Anthropic tells OpenClaw users to pay up
+2026-04-10 13:02:52 [INFO] Fetching article: https://www.rundown.ai/articles/anthropic-tells-openclaw-users-to-pay-up
+2026-04-10 13:02:52 [INFO] Fetching article: https://www.rundown.ai/articles/anthropic-tells-openclaw-users-to-pay-up
+  Fetching article content: https://www.rundown.ai/articles/anthropic-tells-openclaw-users-to-pay-up
+2026-04-10 13:02:54 [INFO] Article fetched (9964 chars): https://www.rundown.ai/articles/anthropic-tells-openclaw-users-to-pay-up
+2026-04-10 13:02:54 [INFO] Article fetched (9964 chars): https://www.rundown.ai/articles/anthropic-tells-openclaw-users-to-pay-up
+  Downloading image ...
+2026-04-10 13:02:54 [INFO] Image downloaded: article_images\anthropic-tells-openclaw-users-to-pay-up.png
+2026-04-10 13:02:54 [INFO] Image downloaded: article_images\anthropic-tells-openclaw-users-to-pay-up.png
+2026-04-10 13:02:54 [INFO] Calling ChatGPT (research)
+2026-04-10 13:02:54 [INFO] Calling ChatGPT (research)
+  Calling ChatGPT for research ...
+2026-04-10 13:02:58 [INFO] ChatGPT research complete — topic: Anthropic blocks third-party agent platforms like OpenClaw from running on Claude subscription plans, pushing users to pay separately for agent usage
+2026-04-10 13:02:58 [INFO] ChatGPT research complete — topic: Anthropic blocks third-party agent platforms like OpenClaw from running on Claude subscription plans, pushing users to pay separately for agent usage
+2026-04-10 13:02:58 [INFO] Calling ChatGPT (reel script)
+2026-04-10 13:02:58 [INFO] Calling ChatGPT (reel script)
+  Generating reel script ...
+2026-04-10 13:03:03 [INFO] Reel script complete — title: Anthropic vs Open Agents: The Claude Wall, runtime: ~47 seconds
+2026-04-10 13:03:03 [INFO] Reel script complete — title: Anthropic vs Open Agents: The Claude Wall, runtime: ~47 seconds
+2026-04-10 13:03:03 [DEBUG] [DEBUG] send_message — chars: 837, preview: 🎙 <b>SCRIPT</b>
+
+Anthropic is blocking third‑party agent platforms—like OpenClaw
+2026-04-10 13:03:03 [DEBUG] [DEBUG] send_message — chars: 837, preview: 🎙 <b>SCRIPT</b>
+
+Anthropic is blocking third‑party agent platforms—like OpenClaw
+2026-04-10 13:03:04 [DEBUG] [DEBUG] send_message — delivered
+2026-04-10 13:03:04 [DEBUG] [DEBUG] send_message — delivered
+2026-04-10 13:03:04 [INFO] Script sent to Telegram
+2026-04-10 13:03:04 [INFO] Script sent to Telegram
+2026-04-10 13:03:13 [INFO] Sending audio to Telegram — file: audio_files\anthropic_tells_openclaw_users_to_pay_up.mp3, size: 1018 KB, title: Anthropic vs Open Agents: The Claude Wall
+2026-04-10 13:03:13 [INFO] Sending audio to Telegram — file: audio_files\anthropic_tells_openclaw_users_to_pay_up.mp3, size: 1018 KB, title: Anthropic vs Open Agents: The Claude Wall
+2026-04-10 13:03:13 [DEBUG] [DEBUG] audio file exists: True
+2026-04-10 13:03:13 [DEBUG] [DEBUG] audio file exists: True
+2026-04-10 13:03:14 [INFO] Audio sent to Telegram — audio_files\anthropic_tells_openclaw_users_to_pay_up.mp3
+2026-04-10 13:03:14 [INFO] Audio sent to Telegram — audio_files\anthropic_tells_openclaw_users_to_pay_up.mp3
+2026-04-10 13:03:14 [INFO] Generating visual prompts — style: Algorithmic
+2026-04-10 13:03:14 [INFO] Generating visual prompts — style: Algorithmic
+  Generating visual prompts (Algorithmic) ...
+2026-04-10 13:03:14 [INFO] Calling ChatGPT (visual prompts)
+2026-04-10 13:03:14 [INFO] Calling ChatGPT (visual prompts)
+  Generating visual prompts ...
+Traceback (most recent call last):
+  File "C:\Users\brryli\Desktop\automations\content_repurposing\scraper.py", line 384, in <module>
+main()
+  File "C:\Users\brryli\Desktop\automations\content_repurposing\scraper.py", line 311, in main
+style_visuals = generate_visual_prompts(reel, style_key)
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\Desktop\automations\content_repurposing\pipeline.py", line 376, in generate_visual_prompts
+result = _call()
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\Desktop\automations\content_repurposing\pipeline.py", line 363, in _call
+response = client.chat.completions.create(
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\openai\_utils\_utils.py", line 279, in wrapper
+return func(*args, **kwargs)
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\openai\resources\chat\completions.py", line 859, in create
+return self._post(
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\openai\_base_client.py", line 1283, in post
+return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\openai\_base_client.py", line 960, in request
+return self._request(
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\openai\_base_client.py", line 996, in _request
+response = self._client.send(
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 914, in send
+response = self._send_handling_auth(
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+response = self._send_handling_redirects(
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+response = self._send_single_request(request)
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 1015, in _send_single_request
+response = transport.handle_request(request)
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_transports\default.py", line 233, in handle_request
+resp = self._pool.handle_request(req)
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_sync\connection_pool.py", line 216, in handle_request
+raise exc from None
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_sync\connection_pool.py", line 196, in handle_request
+response = connection.handle_request(
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+return self._connection.handle_request(request)
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_sync\http11.py", line 143, in handle_request
+raise exc
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_sync\http11.py", line 113, in handle_request
+) = self._receive_response_headers(**kwargs)
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_sync\http11.py", line 186, in _receive_response_headers
+event = self._receive_event(timeout=timeout)
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_sync\http11.py", line 224, in _receive_event
+data = self._network_stream.read(
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_backends\sync.py", line 126, in read
+return self._sock.recv(max_bytes)
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1233, in recv
+return self.read(buflen)
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+  File "C:\Users\brryli\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1106, in read
+return self._sslobj.read(len)
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+^
+KeyboardInterrupt

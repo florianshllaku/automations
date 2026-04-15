@@ -44,8 +44,8 @@ async def _send_approval_message(title: str, url: str) -> int:
         f"Want to create content for this?"
     )
     keyboard = InlineKeyboardMarkup([[
-        InlineKeyboardButton("✅ YES", callback_data="yes"),
-        InlineKeyboardButton("❌ NO",  callback_data="no"),
+        InlineKeyboardButton("✅ Create Content", callback_data="yes"),
+        InlineKeyboardButton("❌ No",             callback_data="no"),
     ]])
     async with Bot(TOKEN) as bot:
         msg = await bot.send_message(

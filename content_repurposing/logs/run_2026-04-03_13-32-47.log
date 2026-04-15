@@ -1,0 +1,36 @@
+2026-04-03 13:32:47 [INFO] ============================================================
+2026-04-03 13:32:47 [INFO] ============================================================
+2026-04-03 13:32:47 [INFO] RUN STARTED — log: run_2026-04-03_13-32-47.log
+2026-04-03 13:32:47 [INFO] RUN STARTED — log: run_2026-04-03_13-32-47.log
+2026-04-03 13:32:47 [INFO] ============================================================
+2026-04-03 13:32:47 [INFO] ============================================================
+2026-04-03 13:32:52 [INFO] Scraping https://www.rundown.ai/articles?category=AI
+2026-04-03 13:32:52 [INFO] Scraping https://www.rundown.ai/articles?category=AI
+Loading https://www.rundown.ai/articles?category=AI ...
+  Page 1: 8 articles.
+2026-04-03 13:33:03 [INFO] Page 1: 8 articles found
+2026-04-03 13:33:03 [INFO] Page 1: 8 articles found
+  Reached checkpoint at page 1. Stopping.
+2026-04-03 13:33:03 [INFO] Reached checkpoint at page 1 — stopping scrape
+2026-04-03 13:33:03 [INFO] Reached checkpoint at page 1 — stopping scrape
+2026-04-03 13:33:03 [INFO] 1 new article(s) found
+2026-04-03 13:33:03 [INFO] 1 new article(s) found
+[
+  {
+    "title": "AI just made the billion-dollar solo founder real",
+    "url": "https://www.rundown.ai/articles/ai-just-made-the-billion-dollar-solo-founder-real",
+    "date": null,
+    "id": 1023
+  }
+]
+  Sending notification for: AI just made the billion-dollar solo founder real
+2026-04-03 13:33:03 [INFO] Telegram notification sent: AI just made the billion-dollar solo founder real
+2026-04-03 13:33:03 [INFO] Telegram notification sent: AI just made the billion-dollar solo founder real
+2026-04-03 13:33:03 [DEBUG] [DEBUG] send_approval_message — title: AI just made the billion-dollar solo founder real, url: https://www.rundown.ai/articles/ai-just-made-the-billion-dollar-solo-founder-real
+2026-04-03 13:33:03 [DEBUG] [DEBUG] send_approval_message — title: AI just made the billion-dollar solo founder real, url: https://www.rundown.ai/articles/ai-just-made-the-billion-dollar-solo-founder-real
+2026-04-03 13:33:03 [ERROR] Telegram notification failed for 'AI just made the billion-dollar solo founder real': ValueError: TELEGRAM_TOKEN env var is not set
+2026-04-03 13:33:03 [ERROR] Telegram notification failed for 'AI just made the billion-dollar solo founder real': ValueError: TELEGRAM_TOKEN env var is not set
+  [TELEGRAM ERROR] Could not send notification for 'AI just made the billion-dollar solo founder real': ValueError: TELEGRAM_TOKEN env var is not set
+2026-04-03 13:33:03 [ERROR] No notifications could be sent — aborting
+2026-04-03 13:33:03 [ERROR] No notifications could be sent — aborting
+No notifications could be sent.

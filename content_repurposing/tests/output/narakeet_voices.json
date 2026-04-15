@@ -1,0 +1,12248 @@
+[
+  {
+    "name": "abril",
+    "language": "Catalan",
+    "languageCode": "ca-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "abyasa",
+    "language": "Indonesian",
+    "languageCode": "id-ID",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "adam",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Warm",
+      "Deep",
+      "African-American",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "adipati",
+    "language": "Malaysian",
+    "languageCode": "ms-MY",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "aditi",
+    "language": "Hindi",
+    "languageCode": "hi-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "adriana",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "afonso",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "afroditi",
+    "language": "Greek",
+    "languageCode": "el-GR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "agnieszka",
+    "language": "Polish",
+    "languageCode": "pl-PL",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female",
+      "Mature",
+      "Expressive"
+    ]
+  },
+  {
+    "name": "agueda",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "agung",
+    "language": "Indonesian",
+    "languageCode": "id-ID",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "aicelle",
+    "language": "Filipino",
+    "languageCode": "fil-PH",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "aileen",
+    "language": "English (Scottish Accent)",
+    "languageCode": "en-GB-SCT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Mature"
+    ]
+  },
+  {
+    "name": "aisha",
+    "language": "Arabic",
+    "languageCode": "ar-XA",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "aitor",
+    "language": "Basque",
+    "languageCode": "eu-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "ajay",
+    "language": "Malayalam",
+    "languageCode": "ml-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "akira",
+    "language": "Japanese",
+    "languageCode": "ja-JP",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "aksel",
+    "language": "Norwegian",
+    "languageCode": "nb-NO",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "alan",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Calm"
+    ]
+  },
+  {
+    "name": "alberto",
+    "language": "Spanish (Mexican)",
+    "languageCode": "es-MX",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "alejandra",
+    "language": "Spanish (Castilian)",
+    "languageCode": "es-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "alessandra",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "aletta",
+    "language": "English (South African accent)",
+    "languageCode": "en-ZA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "alex",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Warm",
+      "Calm",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "alexandru",
+    "language": "Romanian",
+    "languageCode": "ro-RO",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "alfonso",
+    "language": "Spanish (American)",
+    "languageCode": "es-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "alfred",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Mature",
+      "White"
+    ]
+  },
+  {
+    "name": "ali",
+    "language": "Arabic",
+    "languageCode": "ar-XA",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "alicia",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Child",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "alina",
+    "language": "Romanian",
+    "languageCode": "ro-RO",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "almudena",
+    "language": "Spanish (Castilian)",
+    "languageCode": "es-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "alonso",
+    "language": "Spanish (Mexican)",
+    "languageCode": "es-MX",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "altynai",
+    "language": "Kazakh",
+    "languageCode": "kk-KZ",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Cyrillic"
+    ]
+  },
+  {
+    "name": "amada",
+    "language": "Galician",
+    "languageCode": "gl-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "amanda",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "amber",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Younger",
+      "Warm"
+    ]
+  },
+  {
+    "name": "amelia",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Mature"
+    ]
+  },
+  {
+    "name": "amina",
+    "language": "Arabic",
+    "languageCode": "ar-XA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female",
+      "Emirati"
+    ]
+  },
+  {
+    "name": "amitabh",
+    "language": "Hindi",
+    "languageCode": "hi-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "amleset",
+    "language": "Amharic",
+    "languageCode": "am-ET",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "amrita",
+    "language": "Punjabi",
+    "languageCode": "pa-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "amy",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female",
+      "Mature",
+      "Expressive"
+    ]
+  },
+  {
+    "name": "anastasia",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "stress with ^"
+    ]
+  },
+  {
+    "name": "anders",
+    "language": "Danish",
+    "languageCode": "da-DK",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Younger"
+    ]
+  },
+  {
+    "name": "andreas",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Younger"
+    ]
+  },
+  {
+    "name": "andrew",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Caucasian",
+      "Calm",
+      "Older",
+      "Smooth",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "andrey",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "stress with ^"
+    ]
+  },
+  {
+    "name": "andrzej",
+    "language": "Polish",
+    "languageCode": "pl-PL",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "angharad",
+    "language": "Welsh",
+    "languageCode": "cy-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Southern",
+      "Child"
+    ]
+  },
+  {
+    "name": "angus",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "anil",
+    "language": "Kannada",
+    "languageCode": "kn-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "anita",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Calm",
+      "Younger",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "ankhmaa",
+    "language": "Mongolian",
+    "languageCode": "mn-MN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "anong",
+    "language": "Thai",
+    "languageCode": "th-TH",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "anouk",
+    "language": "Dutch",
+    "languageCode": "nl-NL",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "antoine",
+    "language": "French (Canadian)",
+    "languageCode": "fr-CA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "antonella",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "antonio",
+    "language": "Spanish (Mexican)",
+    "languageCode": "es-MX",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "anushka",
+    "language": "English (Indian accent)",
+    "languageCode": "en-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "anwen",
+    "language": "Welsh",
+    "languageCode": "cy-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Southern"
+    ]
+  },
+  {
+    "name": "aoife",
+    "language": "Irish",
+    "languageCode": "ga-IE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "aparna",
+    "language": "Tamil",
+    "languageCode": "ta-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "arben",
+    "language": "Albanian",
+    "languageCode": "sq-AL",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "archie",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Child"
+    ]
+  },
+  {
+    "name": "aretha",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "African-American"
+    ]
+  },
+  {
+    "name": "ariana",
+    "language": "Spanish (American)",
+    "languageCode": "es-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "ariane",
+    "language": "French (Swiss)",
+    "languageCode": "fr-CH",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "armando",
+    "language": "Spanish (American)",
+    "languageCode": "es-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "armin",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "arnaldo",
+    "language": "Portuguese (European)",
+    "languageCode": "pt-PT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "arpita",
+    "language": "Bangla (West Bengal Indian accent)",
+    "languageCode": "bn-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "arvydas",
+    "language": "Lithuanian",
+    "languageCode": "lt-LT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "asha",
+    "language": "Gujarati",
+    "languageCode": "gu-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "ashley",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Younger"
+    ]
+  },
+  {
+    "name": "astrid",
+    "language": "Norwegian",
+    "languageCode": "nb-NO",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "asyifa",
+    "language": "Sundanese",
+    "languageCode": "su-ID",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "atep",
+    "language": "Sundanese",
+    "languageCode": "su-ID",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "audrey",
+    "language": "French (Canadian)",
+    "languageCode": "fr-CA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "aurora",
+    "language": "Spanish (Castilian)",
+    "languageCode": "es-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "austin",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Californian",
+      "Younger"
+    ]
+  },
+  {
+    "name": "ava",
+    "language": "English (Singaporean accent)",
+    "languageCode": "en-SG",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "ayami",
+    "language": "Japanese",
+    "languageCode": "ja-JP",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "ayelet",
+    "language": "Hebrew",
+    "languageCode": "he-IL",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "aygul",
+    "language": "Kazakh",
+    "languageCode": "kk-KZ",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Cyrillic"
+    ]
+  },
+  {
+    "name": "badrai",
+    "language": "Pashto",
+    "languageCode": "ps-AF",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "baihe",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal"
+    ],
+    "tags": [
+      "Female",
+      "Younger"
+    ]
+  },
+  {
+    "name": "baisali",
+    "language": "Odia",
+    "languageCode": "or-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "banyu",
+    "language": "Indonesian",
+    "languageCode": "id-ID",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "baoguo",
+    "language": "Chinese (Taiwanese Mandarin)",
+    "languageCode": "cmn-TW",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "barbora",
+    "language": "Czech",
+    "languageCode": "cs-CZ",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Mature"
+    ]
+  },
+  {
+    "name": "barney",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Younger"
+    ]
+  },
+  {
+    "name": "bas",
+    "language": "Dutch",
+    "languageCode": "nl-NL",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "beatrice",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "beatriz",
+    "language": "Spanish (Castilian)",
+    "languageCode": "es-ES",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "bedwyr",
+    "language": "Welsh",
+    "languageCode": "cy-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Southern",
+      "Child"
+    ]
+  },
+  {
+    "name": "ben",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "benedict",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Mature",
+      "White",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "benedita",
+    "language": "Portuguese (European)",
+    "languageCode": "pt-PT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "benjamin",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Caucasian",
+      "Excited",
+      "Younger",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "berik",
+    "language": "Kazakh",
+    "languageCode": "kk-KZ",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Cyrillic"
+    ]
+  },
+  {
+    "name": "bernardo",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "besa",
+    "language": "Albanian",
+    "languageCode": "sq-AL",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "bethan",
+    "language": "Welsh",
+    "languageCode": "cy-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Northern"
+    ]
+  },
+  {
+    "name": "bethari",
+    "language": "Indonesian",
+    "languageCode": "id-ID",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "betty",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Warm",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "beverly",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Younger"
+    ]
+  },
+  {
+    "name": "bhavana",
+    "language": "Kannada",
+    "languageCode": "kn-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "bianca",
+    "language": "Filipino",
+    "languageCode": "fil-PH",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "bill",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "birgit",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Mature"
+    ]
+  },
+  {
+    "name": "bisham",
+    "language": "Hindi",
+    "languageCode": "hi-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "biswajit",
+    "language": "Bangla (West Bengal Indian accent)",
+    "languageCode": "bn-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "blake",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "blanca",
+    "language": "Spanish (Castilian)",
+    "languageCode": "es-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "bo",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "bo-young",
+    "language": "Korean",
+    "languageCode": "ko-KR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "bokang",
+    "language": "Setswana",
+    "languageCode": "tn-ZA",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "bonnie",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Child"
+    ]
+  },
+  {
+    "name": "boris",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "stress with ^"
+    ]
+  },
+  {
+    "name": "brad",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "brandon",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Expressive",
+      "African-American",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "brian",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Male",
+      "Mature",
+      "White"
+    ]
+  },
+  {
+    "name": "bridget",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Serious"
+    ]
+  },
+  {
+    "name": "brigitte",
+    "language": "French (Metropolitan)",
+    "languageCode": "fr-FR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "britney",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "britta",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "bronagh",
+    "language": "English (Irish accent)",
+    "languageCode": "en-IE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "brooke",
+    "language": "English (New Zealand accent)",
+    "languageCode": "en-NZ",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "bruce",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Monotonous",
+      "Faster"
+    ]
+  },
+  {
+    "name": "bruno",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "budiwati",
+    "language": "Indonesian",
+    "languageCode": "id-ID",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "cabdi",
+    "language": "Somali",
+    "languageCode": "so-SO",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "camila",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Younger",
+      "Latin-American",
+      "Expressive"
+    ]
+  },
+  {
+    "name": "carl",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "African-American",
+      "East-coast",
+      "New York"
+    ]
+  },
+  {
+    "name": "carlos",
+    "language": "Spanish (American)",
+    "languageCode": "es-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "carmen",
+    "language": "Spanish (American)",
+    "languageCode": "es-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "carol",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Warm"
+    ]
+  },
+  {
+    "name": "catalina",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Latin-American",
+      "Younger"
+    ]
+  },
+  {
+    "name": "catherine",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Younger",
+      "Calm",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "cecilia",
+    "language": "Spanish (American)",
+    "languageCode": "es-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "celine",
+    "language": "French (Canadian)",
+    "languageCode": "fr-CA",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "cerys",
+    "language": "English (Welsh Accent)",
+    "languageCode": "en-GB-WLS",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Northern"
+    ]
+  },
+  {
+    "name": "cesar",
+    "language": "Spanish (Mexican)",
+    "languageCode": "es-MX",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "chad",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Male",
+      "African-American"
+    ]
+  },
+  {
+    "name": "chae-won",
+    "language": "Korean",
+    "languageCode": "ko-KR",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "chao",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "charles",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Mature",
+      "Authoritative"
+    ]
+  },
+  {
+    "name": "charlize",
+    "language": "English (South African accent)",
+    "languageCode": "en-ZA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "chen",
+    "language": "Chinese (Taiwanese Mandarin)",
+    "languageCode": "cmn-TW",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Mature"
+    ]
+  },
+  {
+    "name": "cheng",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal"
+    ],
+    "tags": [
+      "Male",
+      "Mature"
+    ]
+  },
+  {
+    "name": "chiara",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "chico",
+    "language": "Spanish (Mexican)",
+    "languageCode": "es-MX",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "childroid",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Robotic",
+      "High-pitch",
+      "Synthetic"
+    ]
+  },
+  {
+    "name": "chloe",
+    "language": "French (Canadian)",
+    "languageCode": "fr-CA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "chris",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "chuck",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "cillian",
+    "language": "English (Irish accent)",
+    "languageCode": "en-IE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "cindy",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "clara",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Relaxed",
+      "Expressive",
+      "Calm",
+      "Southern",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "claudine",
+    "language": "French (Metropolitan)",
+    "languageCode": "fr-FR",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "clayton",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Teen",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "clive",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Calm"
+    ]
+  },
+  {
+    "name": "colette",
+    "language": "French (Metropolitan)",
+    "languageCode": "fr-FR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "colt",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Southern",
+      "Texan",
+      "Caucasian",
+      "Cowboy"
+    ]
+  },
+  {
+    "name": "conchita",
+    "language": "Spanish (Mexican)",
+    "languageCode": "es-MX",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Child"
+    ]
+  },
+  {
+    "name": "connie",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "connor",
+    "language": "English (Scottish Accent)",
+    "languageCode": "en-GB-SCT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Child"
+    ]
+  },
+  {
+    "name": "conrad",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Serious"
+    ]
+  },
+  {
+    "name": "cora",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Warm",
+      "Expressive"
+    ]
+  },
+  {
+    "name": "corazon",
+    "language": "Maltese",
+    "languageCode": "mt-MT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "cordelia",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "curtis",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "African-American"
+    ]
+  },
+  {
+    "name": "cyrille",
+    "language": "French (Metropolitan)",
+    "languageCode": "fr-FR",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "da-hee",
+    "language": "Korean",
+    "languageCode": "ko-KR",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "dafydd",
+    "language": "Welsh",
+    "languageCode": "cy-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Northern",
+      "Child"
+    ]
+  },
+  {
+    "name": "dagmara",
+    "language": "Polish",
+    "languageCode": "pl-PL",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "daisy",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Warm",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "danuta",
+    "language": "Polish",
+    "languageCode": "pl-PL",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "daoming",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal"
+    ],
+    "tags": [
+      "Male",
+      "Younger"
+    ]
+  },
+  {
+    "name": "daphne",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Child"
+    ]
+  },
+  {
+    "name": "darius",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Calm",
+      "Younger",
+      "African",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "darren",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Excited",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "darya",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "stress with ^"
+    ]
+  },
+  {
+    "name": "daud",
+    "language": "Arabic",
+    "languageCode": "ar-XA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Tunisian"
+    ]
+  },
+  {
+    "name": "dawei",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "dearbhla",
+    "language": "Irish",
+    "languageCode": "ga-IE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Ulster"
+    ]
+  },
+  {
+    "name": "debbie",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "deborah",
+    "language": "English (Canadian)",
+    "languageCode": "en-CA",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "deepika",
+    "language": "English (Indian accent)",
+    "languageCode": "en-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "denzel",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "African-American",
+      "Mature",
+      "East-coast"
+    ]
+  },
+  {
+    "name": "derek",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Calm",
+      "Young",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "deshawn",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "African-American"
+    ]
+  },
+  {
+    "name": "desislava",
+    "language": "Bulgarian",
+    "languageCode": "bg-BG",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "dev",
+    "language": "English (Indian accent)",
+    "languageCode": "en-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "diana",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Excited",
+      "Younger",
+      "African-American",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "didier",
+    "language": "French (Metropolitan)",
+    "languageCode": "fr-FR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "diego",
+    "language": "Spanish (American)",
+    "languageCode": "es-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "dieter",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "dietrich",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Younger",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "dilawar",
+    "language": "Pashto",
+    "languageCode": "ps-AF",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "dilhani",
+    "language": "Sinhala",
+    "languageCode": "si-LK",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "dilip",
+    "language": "English (Indian accent)",
+    "languageCode": "en-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Younger"
+    ]
+  },
+  {
+    "name": "diljit",
+    "language": "Punjabi",
+    "languageCode": "pa-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Gurmukhi"
+    ]
+  },
+  {
+    "name": "dilnoza",
+    "language": "Uzbek",
+    "languageCode": "uz-UZ",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Latin"
+    ]
+  },
+  {
+    "name": "dimitris",
+    "language": "Greek",
+    "languageCode": "el-GR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "dinara",
+    "language": "Kazakh",
+    "languageCode": "kk-KZ",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Cyrillic"
+    ]
+  },
+  {
+    "name": "dolly",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Southern",
+      "Caucasian"
+    ]
+  },
+  {
+    "name": "dolores",
+    "language": "Spanish (Castilian)",
+    "languageCode": "es-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "dominic",
+    "language": "Maltese",
+    "languageCode": "mt-MT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "dong-min",
+    "language": "Korean",
+    "languageCode": "ko-KR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "donna",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Calm",
+      "Deep",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "doron",
+    "language": "Hebrew",
+    "languageCode": "he-IL",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "duane",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "African-American"
+    ]
+  },
+  {
+    "name": "dulce",
+    "language": "Spanish (Castilian)",
+    "languageCode": "es-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Child"
+    ]
+  },
+  {
+    "name": "dumisani",
+    "language": "Ndebele",
+    "languageCode": "nr-ZA",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "duncan",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "dustin",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "dylan",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "eamon",
+    "language": "Irish",
+    "languageCode": "ga-IE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "earl",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Southern",
+      "African-American"
+    ]
+  },
+  {
+    "name": "eddie",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "eduardo",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "edward",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "eevi",
+    "language": "Finnish",
+    "languageCode": "fi-FI",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "einar",
+    "language": "Norwegian",
+    "languageCode": "nb-NO",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "eiza",
+    "language": "Spanish (Mexican)",
+    "languageCode": "es-MX",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "ekaterina",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "elena",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "stress with ^"
+    ]
+  },
+  {
+    "name": "eleni",
+    "language": "Greek",
+    "languageCode": "el-GR",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "eliana",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "elisabeth",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Younger"
+    ]
+  },
+  {
+    "name": "ellie",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "elma",
+    "language": "English (Filipino accent)",
+    "languageCode": "en-PH",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "elsa",
+    "language": "Swedish",
+    "languageCode": "sv-SE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "elvira",
+    "language": "Spanish (Castilian)",
+    "languageCode": "es-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "emilia",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Younger"
+    ]
+  },
+  {
+    "name": "emilio",
+    "language": "Spanish (Castilian)",
+    "languageCode": "es-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "emily",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Expressive"
+    ]
+  },
+  {
+    "name": "emma",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Younger",
+      "Serious"
+    ]
+  },
+  {
+    "name": "emmanuelle",
+    "language": "French (Metropolitan)",
+    "languageCode": "fr-FR",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "enrico",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "enrique",
+    "language": "Spanish (Castilian)",
+    "languageCode": "es-ES",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "erez",
+    "language": "Hebrew",
+    "languageCode": "he-IL",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "eric",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Serious"
+    ]
+  },
+  {
+    "name": "erik",
+    "language": "Swedish",
+    "languageCode": "sv-SE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "erika",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Mature"
+    ]
+  },
+  {
+    "name": "esperanza",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Latin-American",
+      "Mature"
+    ]
+  },
+  {
+    "name": "eszter",
+    "language": "Hungarian",
+    "languageCode": "hu-HU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "eva",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Latin-American"
+    ]
+  },
+  {
+    "name": "fabrice",
+    "language": "French (Belgian)",
+    "languageCode": "fr-BE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "fabrizio",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "fahad",
+    "language": "Urdu",
+    "languageCode": "ur-PK",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "famke",
+    "language": "Dutch",
+    "languageCode": "nl-NL",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "farah",
+    "language": "Arabic",
+    "languageCode": "ar-XA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Emirati"
+    ]
+  },
+  {
+    "name": "farhat",
+    "language": "Kazakh",
+    "languageCode": "kk-KZ",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Cyrillic"
+    ]
+  },
+  {
+    "name": "fatma",
+    "language": "Turkish",
+    "languageCode": "tr-TR",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "federica",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "felicity",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "felipe",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "feng",
+    "language": "Chinese (Taiwanese Mandarin)",
+    "languageCode": "cmn-TW",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Mature"
+    ]
+  },
+  {
+    "name": "fernanda",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "fernando",
+    "language": "Spanish (American)",
+    "languageCode": "es-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "filipe",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "fiona",
+    "language": "English (Scottish Accent)",
+    "languageCode": "en-GB-SCT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Child"
+    ]
+  },
+  {
+    "name": "flora",
+    "language": "Spanish (Castilian)",
+    "languageCode": "es-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "florian",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "floyd",
+    "language": "English (Welsh Accent)",
+    "languageCode": "en-GB-WLS",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Northern"
+    ]
+  },
+  {
+    "name": "forrest",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Southern",
+      "Caucasian"
+    ]
+  },
+  {
+    "name": "francisco",
+    "language": "Spanish (Castilian)",
+    "languageCode": "es-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "franklin",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Expressive"
+    ]
+  },
+  {
+    "name": "fransje",
+    "language": "Dutch",
+    "languageCode": "nl-NL",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "franz",
+    "language": "German (Austrian)",
+    "languageCode": "de-AT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "fred",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Younger"
+    ]
+  },
+  {
+    "name": "freja",
+    "language": "Swedish",
+    "languageCode": "sv-SE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "frida",
+    "language": "Spanish (Castilian)",
+    "languageCode": "es-ES",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "fritzi",
+    "language": "German (Austrian)",
+    "languageCode": "de-AT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "fulvia",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Girl"
+    ]
+  },
+  {
+    "name": "fumiko",
+    "language": "Japanese",
+    "languageCode": "ja-JP",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Child"
+    ]
+  },
+  {
+    "name": "fyodor",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "stress with ^"
+    ]
+  },
+  {
+    "name": "gabrielle",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "gael",
+    "language": "Spanish (American)",
+    "languageCode": "es-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "gail",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Calm",
+      "Friendly"
+    ]
+  },
+  {
+    "name": "galina",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "stress with ^"
+    ]
+  },
+  {
+    "name": "ganbaatar",
+    "language": "Mongolian",
+    "languageCode": "mn-MN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "gareth",
+    "language": "English (Welsh Accent)",
+    "languageCode": "en-GB-WLS",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Southern"
+    ]
+  },
+  {
+    "name": "gary",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Expressive",
+      "Warm",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "gaspard",
+    "language": "French (Metropolitan)",
+    "languageCode": "fr-FR",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "george",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Black"
+    ]
+  },
+  {
+    "name": "georgia",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Southern",
+      "Caucasian"
+    ]
+  },
+  {
+    "name": "gerard",
+    "language": "English (Scottish Accent)",
+    "languageCode": "en-GB-SCT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Mature",
+      "Heavy accent"
+    ]
+  },
+  {
+    "name": "gerhard",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "gertrud",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Warm",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "giles",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Mature"
+    ]
+  },
+  {
+    "name": "gina",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "giovanni",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "girum",
+    "language": "Amharic",
+    "languageCode": "am-ET",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "gisele",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "giulio",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "giuseppe",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "gloria",
+    "language": "Spanish (Mexican)",
+    "languageCode": "es-MX",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "gonzalo",
+    "language": "Galician",
+    "languageCode": "gl-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "gopal",
+    "language": "English (Indian accent)",
+    "languageCode": "en-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "grace",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "graham",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Warm",
+      "Smooth",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "grant",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Calm",
+      "Young",
+      "Authoritative",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "greg",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Warm",
+      "Trustworthy"
+    ]
+  },
+  {
+    "name": "greta",
+    "language": "Swedish",
+    "languageCode": "sv-SE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "gretel",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "guadalupe",
+    "language": "Spanish (Mexican)",
+    "languageCode": "es-MX",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "guardbot",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Robotic",
+      "Low-pitch",
+      "Synthetic"
+    ]
+  },
+  {
+    "name": "guillaume",
+    "language": "French (Metropolitan)",
+    "languageCode": "fr-FR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "gulnora",
+    "language": "Uzbek",
+    "languageCode": "uz-UZ",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Latin"
+    ]
+  },
+  {
+    "name": "gulshat",
+    "language": "Kazakh",
+    "languageCode": "kk-KZ",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Cyrillic"
+    ]
+  },
+  {
+    "name": "gulzar",
+    "language": "Punjabi",
+    "languageCode": "pa-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Gurmukhi"
+    ]
+  },
+  {
+    "name": "guochao",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "gustavo",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "guy",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Calm",
+      "Older"
+    ]
+  },
+  {
+    "name": "gwen",
+    "language": "Welsh",
+    "languageCode": "cy-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "gwyneth",
+    "language": "English (Welsh Accent)",
+    "languageCode": "en-GB-WLS",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Child",
+      "Northern"
+    ]
+  },
+  {
+    "name": "hadas",
+    "language": "Hebrew",
+    "languageCode": "he-IL",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "hai",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Mature"
+    ]
+  },
+  {
+    "name": "haifa",
+    "language": "Arabic",
+    "languageCode": "ar-XA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Iraqi"
+    ]
+  },
+  {
+    "name": "hannah",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Excited",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "hanyu",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "harmony",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "African-American",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "harriet",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Mature",
+      "White",
+      "West Midlands"
+    ]
+  },
+  {
+    "name": "harrison",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "harsh",
+    "language": "Hindi",
+    "languageCode": "hi-IN",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "heba",
+    "language": "Arabic",
+    "languageCode": "ar-XA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Egyptian"
+    ]
+  },
+  {
+    "name": "hector",
+    "language": "Spanish (American)",
+    "languageCode": "es-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "hedvig",
+    "language": "Swedish",
+    "languageCode": "sv-SE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "heidi",
+    "language": "German (Swiss)",
+    "languageCode": "de-CH",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "heike",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "heinz",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "helen",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Mature",
+      "White",
+      "Female"
+    ]
+  },
+  {
+    "name": "henriqueta",
+    "language": "Portuguese (European)",
+    "languageCode": "pt-PT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "hetang",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal"
+    ],
+    "tags": [
+      "Male",
+      "Henan"
+    ]
+  },
+  {
+    "name": "hideaki",
+    "language": "Japanese",
+    "languageCode": "ja-JP",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "hilda",
+    "language": "English (South African accent)",
+    "languageCode": "en-ZA",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "hilde",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "himesh",
+    "language": "English (Indian accent)",
+    "languageCode": "en-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "hoa",
+    "language": "Vietnamese",
+    "languageCode": "vi-VN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "holly",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Younger",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "horacio",
+    "language": "Spanish (Castilian)",
+    "languageCode": "es-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "howard",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Caucasian",
+      "Mature"
+    ]
+  },
+  {
+    "name": "hua",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "hugo",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Younger"
+    ]
+  },
+  {
+    "name": "hye-kyo",
+    "language": "Korean",
+    "languageCode": "ko-KR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Child"
+    ]
+  },
+  {
+    "name": "hye-rim",
+    "language": "Korean",
+    "languageCode": "ko-KR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "hywel",
+    "language": "Welsh",
+    "languageCode": "cy-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Southern"
+    ]
+  },
+  {
+    "name": "ian",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Mature",
+      "White"
+    ]
+  },
+  {
+    "name": "iben",
+    "language": "Danish",
+    "languageCode": "da-DK",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "idris",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "African-American",
+      "Expressive"
+    ]
+  },
+  {
+    "name": "ieuan",
+    "language": "English (Welsh Accent)",
+    "languageCode": "en-GB-WLS",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Child",
+      "Southern"
+    ]
+  },
+  {
+    "name": "ignacio",
+    "language": "Spanish (Castilian)",
+    "languageCode": "es-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "igor",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "ilse",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "imani",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "African-American",
+      "Younger"
+    ]
+  },
+  {
+    "name": "imran",
+    "language": "Urdu",
+    "languageCode": "ur-PK",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "in-guk",
+    "language": "Korean",
+    "languageCode": "ko-KR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "indah",
+    "language": "Malaysian",
+    "languageCode": "ms-MY",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "inderjit",
+    "language": "Punjabi",
+    "languageCode": "pa-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "indira",
+    "language": "Hindi",
+    "languageCode": "hi-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "ines",
+    "language": "Portuguese (European)",
+    "languageCode": "pt-PT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "inez",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "ingrid",
+    "language": "Swedish",
+    "languageCode": "sv-SE",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "ingvar",
+    "language": "Icelandic",
+    "languageCode": "is-IS",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "intan",
+    "language": "Malaysian",
+    "languageCode": "ms-MY",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "ioana",
+    "language": "Romanian",
+    "languageCode": "ro-RO",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "iolanda",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "irina",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "isabella",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "isyana",
+    "language": "Javanese",
+    "languageCode": "jv-ID",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "ivan",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "ivana",
+    "language": "Slovak",
+    "languageCode": "sk-SK",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "ivy",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "West-coast"
+    ]
+  },
+  {
+    "name": "iwona",
+    "language": "Polish",
+    "languageCode": "pl-PL",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "jack",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "jackie",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "jackson",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "jacques",
+    "language": "French (Metropolitan)",
+    "languageCode": "fr-FR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "jada",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "African-American"
+    ]
+  },
+  {
+    "name": "jade",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Asian-American"
+    ]
+  },
+  {
+    "name": "jae-hyun",
+    "language": "Korean",
+    "languageCode": "ko-KR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "jahnu",
+    "language": "Assamese",
+    "languageCode": "as-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "jairus",
+    "language": "Filipino",
+    "languageCode": "fil-PH",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "jana",
+    "language": "Czech",
+    "languageCode": "cs-CZ",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "janez",
+    "language": "Slovene",
+    "languageCode": "sl-SI",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "janhvi",
+    "language": "Hindi",
+    "languageCode": "hi-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "jasna",
+    "language": "Croatian",
+    "languageCode": "hr-HR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "jason",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Younger",
+      "Asian-American",
+      "Expressive"
+    ]
+  },
+  {
+    "name": "javier",
+    "language": "Spanish (Mexican)",
+    "languageCode": "es-MX",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "jayden",
+    "language": "English (Singaporean accent)",
+    "languageCode": "en-SG",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "jeb",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Southern",
+      "Caucasian"
+    ]
+  },
+  {
+    "name": "jeff",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "jemma",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Black"
+    ]
+  },
+  {
+    "name": "jenna",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Excited",
+      "Younger",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "jennifer",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Younger"
+    ]
+  },
+  {
+    "name": "jens",
+    "language": "Danish",
+    "languageCode": "da-DK",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "jerome",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Mature",
+      "African-American"
+    ]
+  },
+  {
+    "name": "jessica",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "ji-dan",
+    "language": "Chinese (Cantonese)",
+    "languageCode": "cmn-HK",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "ji-sung",
+    "language": "Korean",
+    "languageCode": "ko-KR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "ji-yeon",
+    "language": "Korean",
+    "languageCode": "ko-KR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "jianbin",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "jianhua",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal"
+    ],
+    "tags": [
+      "Male",
+      "Child"
+    ]
+  },
+  {
+    "name": "jill",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Younger",
+      "Calm",
+      "Friendly"
+    ]
+  },
+  {
+    "name": "jing",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "joanna",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "jochem",
+    "language": "Afrikaans",
+    "languageCode": "af-ZA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "jodie",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "john",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "jomari",
+    "language": "Filipino",
+    "languageCode": "fil-PH",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "jonah",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Caucasian",
+      "Southern",
+      "Expressive",
+      "Mature",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "joon-gi",
+    "language": "Korean",
+    "languageCode": "ko-KR",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "joost",
+    "language": "Afrikaans",
+    "languageCode": "af-ZA",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "jordi",
+    "language": "Catalan",
+    "languageCode": "ca-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "jorge",
+    "language": "Spanish (Castilian)",
+    "languageCode": "es-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "josephine",
+    "language": "French (Metropolitan)",
+    "languageCode": "fr-FR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "juana",
+    "language": "Spanish (American)",
+    "languageCode": "es-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "judith",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "White",
+      "Mature"
+    ]
+  },
+  {
+    "name": "judy",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Trustworthy"
+    ]
+  },
+  {
+    "name": "jueming",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal"
+    ],
+    "tags": [
+      "Male",
+      "Shandong"
+    ]
+  },
+  {
+    "name": "juha",
+    "language": "Finnish",
+    "languageCode": "fi-FI",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "julia",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "juliana",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "julie",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "East-coast"
+    ]
+  },
+  {
+    "name": "juliette",
+    "language": "French (Canadian)",
+    "languageCode": "fr-CA",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "juraj",
+    "language": "Slovak",
+    "languageCode": "sk-SK",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "jurga",
+    "language": "Lithuanian",
+    "languageCode": "lt-LT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "justin",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Child",
+      "Midwest"
+    ]
+  },
+  {
+    "name": "justine",
+    "language": "French (Belgian)",
+    "languageCode": "fr-BE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "jutta",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "kaarel",
+    "language": "Estonian",
+    "languageCode": "et-EE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "kaige",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "kangana",
+    "language": "English (Indian accent)",
+    "languageCode": "en-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "kaori",
+    "language": "Japanese",
+    "languageCode": "ja-JP",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "kar-ling",
+    "language": "Chinese (Cantonese)",
+    "languageCode": "cmn-HK",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Child"
+    ]
+  },
+  {
+    "name": "kareena",
+    "language": "Hindi",
+    "languageCode": "hi-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "karen",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Younger"
+    ]
+  },
+  {
+    "name": "karim",
+    "language": "Arabic",
+    "languageCode": "ar-XA",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "karthika",
+    "language": "Malayalam",
+    "languageCode": "ml-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "kasumi",
+    "language": "Japanese",
+    "languageCode": "ja-JP",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "katarzyna",
+    "language": "Polish",
+    "languageCode": "pl-PL",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "kate",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Warm",
+      "Trustworthy"
+    ]
+  },
+  {
+    "name": "kayla",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "kei",
+    "language": "Japanese",
+    "languageCode": "ja-JP",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "keira",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female",
+      "Younger"
+    ]
+  },
+  {
+    "name": "keith",
+    "language": "English (New Zealand accent)",
+    "languageCode": "en-NZ",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "kelly",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female",
+      "Asian-American"
+    ]
+  },
+  {
+    "name": "kemal",
+    "language": "Turkish",
+    "languageCode": "tr-TR",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "kendrick",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "African-American"
+    ]
+  },
+  {
+    "name": "kenichi",
+    "language": "Japanese",
+    "languageCode": "ja-JP",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "kenji",
+    "language": "Japanese",
+    "languageCode": "ja-JP",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "kerry",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Caucasian",
+      "Younger",
+      "Excited",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "kerstin",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Child"
+    ]
+  },
+  {
+    "name": "keyana",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "African-American",
+      "Younger"
+    ]
+  },
+  {
+    "name": "khaled",
+    "language": "Arabic",
+    "languageCode": "ar-XA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Emirati"
+    ]
+  },
+  {
+    "name": "khaled-egypt",
+    "language": "Arabic",
+    "languageCode": "ar-XA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Egyptian"
+    ]
+  },
+  {
+    "name": "kim",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "kimberly",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Warm",
+      "Younger",
+      "Friendly"
+    ]
+  },
+  {
+    "name": "kiril",
+    "language": "Bulgarian",
+    "languageCode": "bg-BG",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "kirk",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Mature",
+      "Caucasian"
+    ]
+  },
+  {
+    "name": "klara",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "klaus",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "koen",
+    "language": "Dutch (Flemish)",
+    "languageCode": "nl-BE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "kong-sang",
+    "language": "Chinese (Cantonese)",
+    "languageCode": "cmn-HK",
+    "styles": [
+      "jyutping",
+      "normal",
+      "literal"
+    ],
+    "tags": [
+      "Male",
+      "Younger"
+    ]
+  },
+  {
+    "name": "kristaps",
+    "language": "Latvian",
+    "languageCode": "lv-LV",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "kriti",
+    "language": "English (Indian accent)",
+    "languageCode": "en-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "kuniko",
+    "language": "Japanese",
+    "languageCode": "ja-JP",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "kylie",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Younger",
+      "Calm"
+    ]
+  },
+  {
+    "name": "lada",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "stress with ^"
+    ]
+  },
+  {
+    "name": "ladislav",
+    "language": "Czech",
+    "languageCode": "cs-CZ",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "laetitia",
+    "language": "French (Belgian)",
+    "languageCode": "fr-BE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "laia",
+    "language": "Catalan",
+    "languageCode": "ca-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "lakshmi",
+    "language": "English (Indian accent)",
+    "languageCode": "en-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Younger"
+    ]
+  },
+  {
+    "name": "lalita",
+    "language": "Telugu",
+    "languageCode": "te-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "larisa",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "stress with ^"
+    ]
+  },
+  {
+    "name": "larry",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Caucasian",
+      "Mature"
+    ]
+  },
+  {
+    "name": "lars",
+    "language": "Danish",
+    "languageCode": "da-DK",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "latoya",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Southern",
+      "African-American"
+    ]
+  },
+  {
+    "name": "laura",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "laurent",
+    "language": "French (Metropolitan)",
+    "languageCode": "fr-FR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "laurika",
+    "language": "Afrikaans",
+    "languageCode": "af-ZA",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "layton",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Black"
+    ]
+  },
+  {
+    "name": "lazar",
+    "language": "Serbian",
+    "languageCode": "sr-RS",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "leandra",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "leila",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "leire",
+    "language": "Basque",
+    "languageCode": "eu-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "lenny",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Child"
+    ]
+  },
+  {
+    "name": "leonardo",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "lesia",
+    "language": "Ukrainian",
+    "languageCode": "uk-UA",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "lewis",
+    "language": "English (Welsh Accent)",
+    "languageCode": "en-GB-WLS",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Child",
+      "Northern"
+    ]
+  },
+  {
+    "name": "leyla",
+    "language": "Turkish",
+    "languageCode": "tr-TR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "lhakpa",
+    "language": "Nepali",
+    "languageCode": "ne-NP",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "liam",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Warm",
+      "Excited"
+    ]
+  },
+  {
+    "name": "lieve",
+    "language": "Dutch (Flemish)",
+    "languageCode": "nl-BE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "lihua",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "linda",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Younger",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "lindiwe",
+    "language": "Xhosa",
+    "languageCode": "xh-ZA",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "linnea",
+    "language": "Finnish",
+    "languageCode": "fi-FI",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "lior",
+    "language": "Hebrew",
+    "languageCode": "he-IL",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "lisa",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Younger"
+    ]
+  },
+  {
+    "name": "liselotte",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "livia",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Girl"
+    ]
+  },
+  {
+    "name": "liying",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "llewellyn",
+    "language": "Welsh",
+    "languageCode": "cy-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Northern"
+    ]
+  },
+  {
+    "name": "lola",
+    "language": "Spanish (American)",
+    "languageCode": "es-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "loredana",
+    "language": "Romanian",
+    "languageCode": "ro-RO",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "lorena",
+    "language": "Spanish (Mexican)",
+    "languageCode": "es-MX",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Young"
+    ]
+  },
+  {
+    "name": "lorenzo",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "loretta",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Younger",
+      "Warm"
+    ]
+  },
+  {
+    "name": "lothar",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "lotte",
+    "language": "Dutch",
+    "languageCode": "nl-NL",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "louise",
+    "language": "French (Metropolitan)",
+    "languageCode": "fr-FR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "luc",
+    "language": "French (Canadian)",
+    "languageCode": "fr-CA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "luca",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "luciano",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "lucienne",
+    "language": "French (Metropolitan)",
+    "languageCode": "fr-FR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "lucy",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "ludovica",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "luigi",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "luis",
+    "language": "Spanish (Castilian)",
+    "languageCode": "es-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "luodan",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal"
+    ],
+    "tags": [
+      "Female",
+      "Shaanxi"
+    ]
+  },
+  {
+    "name": "lupita",
+    "language": "Spanish (American)",
+    "languageCode": "es-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "lurdes",
+    "language": "Portuguese (European)",
+    "languageCode": "pt-PT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "luz",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "lynne",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "White",
+      "Northern"
+    ]
+  },
+  {
+    "name": "maaike",
+    "language": "Dutch (Flemish)",
+    "languageCode": "nl-BE",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "macarena",
+    "language": "Spanish (Castilian)",
+    "languageCode": "es-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "madalena",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "madhuri",
+    "language": "Hindi",
+    "languageCode": "hi-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "magda",
+    "language": "Polish",
+    "languageCode": "pl-PL",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "maggie",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "mahir",
+    "language": "Turkish",
+    "languageCode": "tr-TR",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "mahiya",
+    "language": "Bangla (Bangladesh accent)",
+    "languageCode": "bn-BD",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "majida",
+    "language": "Arabic",
+    "languageCode": "ar-XA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Lebanese"
+    ]
+  },
+  {
+    "name": "malcolm",
+    "language": "English (Scottish Accent)",
+    "languageCode": "en-GB-SCT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Younger"
+    ]
+  },
+  {
+    "name": "malee",
+    "language": "Thai",
+    "languageCode": "th-TH",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "man-chi",
+    "language": "Chinese (Cantonese)",
+    "languageCode": "cmn-HK",
+    "styles": [
+      "jyutping",
+      "normal",
+      "literal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "manasi",
+    "language": "Gujarati",
+    "languageCode": "gu-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "mandy",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Caucasian",
+      "Mature",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "manish",
+    "language": "English (Indian accent)",
+    "languageCode": "en-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "manny",
+    "language": "English (Filipino accent)",
+    "languageCode": "en-PH",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "manoel",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Older",
+      "Deep"
+    ]
+  },
+  {
+    "name": "manoj",
+    "language": "Hindi",
+    "languageCode": "hi-IN",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "marcela",
+    "language": "Spanish (Mexican)",
+    "languageCode": "es-MX",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "marcelle",
+    "language": "French (Metropolitan)",
+    "languageCode": "fr-FR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "margaret",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "White",
+      "Mature"
+    ]
+  },
+  {
+    "name": "margarida",
+    "language": "Portuguese (European)",
+    "languageCode": "pt-PT",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "margarita",
+    "language": "Spanish (Puerto Rican accent)",
+    "languageCode": "es-PR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "maria",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Calm",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "maricel",
+    "language": "Filipino",
+    "languageCode": "fil-PH",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "mariko",
+    "language": "Japanese",
+    "languageCode": "ja-JP",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "mario",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "marion",
+    "language": "French (Metropolitan)",
+    "languageCode": "fr-FR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "marisol",
+    "language": "Spanish (Mexican)",
+    "languageCode": "es-MX",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "mark",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Asian-American"
+    ]
+  },
+  {
+    "name": "martha",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Calm",
+      "Older",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "martin",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Mature"
+    ]
+  },
+  {
+    "name": "martina",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "mary",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "masha",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "stress with ^"
+    ]
+  },
+  {
+    "name": "matilda",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Younger",
+      "Monotonous",
+      "Bored"
+    ]
+  },
+  {
+    "name": "matt",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "matteo",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Boy"
+    ]
+  },
+  {
+    "name": "matthias",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "matthieu",
+    "language": "French (Swiss)",
+    "languageCode": "fr-CH",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "maurice",
+    "language": "French (Metropolitan)",
+    "languageCode": "fr-FR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "mawar",
+    "language": "Indonesian",
+    "languageCode": "id-ID",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "mawra",
+    "language": "Urdu",
+    "languageCode": "ur-PK",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "max",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Younger",
+      "Expressive"
+    ]
+  },
+  {
+    "name": "maya",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Younger",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "mayang",
+    "language": "Malaysian",
+    "languageCode": "ms-MY",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "megan",
+    "language": "English (Welsh Accent)",
+    "languageCode": "en-GB-WLS",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Southern"
+    ]
+  },
+  {
+    "name": "mehar",
+    "language": "Hindi",
+    "languageCode": "hi-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "mei",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Younger",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "meilan",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "meiling",
+    "language": "Chinese (Taiwanese Mandarin)",
+    "languageCode": "cmn-TW",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "melanie",
+    "language": "French (Canadian)",
+    "languageCode": "fr-CA",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "melissa",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "mengyao",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal"
+    ],
+    "tags": [
+      "Female",
+      "Child",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "menzi",
+    "language": "Zulu",
+    "languageCode": "zu-ZA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "mercedes",
+    "language": "Spanish (Castilian)",
+    "languageCode": "es-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "mia",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "michael",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Calm",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "mickey",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Male",
+      "Child"
+    ]
+  },
+  {
+    "name": "miguel",
+    "language": "Spanish (Mexican)",
+    "languageCode": "es-MX",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "mike",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "miles",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "milica",
+    "language": "Serbian",
+    "languageCode": "sr-RS",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "mimi",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Cheerful",
+      "Calm",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "min-ho",
+    "language": "Korean",
+    "languageCode": "ko-KR",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "mindy",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Younger"
+    ]
+  },
+  {
+    "name": "minghao",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "minh",
+    "language": "Vietnamese",
+    "languageCode": "vi-VN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "mireia",
+    "language": "Catalan",
+    "languageCode": "ca-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "missy",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female",
+      "Child"
+    ]
+  },
+  {
+    "name": "mohnish",
+    "language": "Marathi",
+    "languageCode": "mr-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "mojca",
+    "language": "Slovene",
+    "languageCode": "sl-SI",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "monika",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "morena",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Child"
+    ]
+  },
+  {
+    "name": "morgan",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "moritz",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "mujo",
+    "language": "Bosnian",
+    "languageCode": "bs-BA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "murali",
+    "language": "Malayalam",
+    "languageCode": "ml-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "murat",
+    "language": "Turkish",
+    "languageCode": "tr-TR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "murilo",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "myfanwy",
+    "language": "Welsh",
+    "languageCode": "cy-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Northern",
+      "Child"
+    ]
+  },
+  {
+    "name": "nabha",
+    "language": "Kannada",
+    "languageCode": "kn-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "nadezhda",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "stress with ^"
+    ]
+  },
+  {
+    "name": "nam",
+    "language": "Vietnamese",
+    "languageCode": "vi-VN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "nancy",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "nandi",
+    "language": "Zulu",
+    "languageCode": "zu-ZA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "naomi",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "natalia",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "stress with ^"
+    ]
+  },
+  {
+    "name": "navneet",
+    "language": "Punjabi",
+    "languageCode": "pa-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Gurmukhi"
+    ]
+  },
+  {
+    "name": "nazan",
+    "language": "Turkish",
+    "languageCode": "tr-TR",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "neerja",
+    "language": "English (Indian accent)",
+    "languageCode": "en-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "nelson",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Mature",
+      "White"
+    ]
+  },
+  {
+    "name": "nga",
+    "language": "Vietnamese",
+    "languageCode": "vi-VN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "ngina",
+    "language": "Swahili",
+    "languageCode": "sw-KE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "nick",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Younger",
+      "Cheerful",
+      "Excited",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "nicole",
+    "language": "French (Metropolitan)",
+    "languageCode": "fr-FR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Child"
+    ]
+  },
+  {
+    "name": "niklas",
+    "language": "Swedish",
+    "languageCode": "sv-SE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "nikolai",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "stress with ^"
+    ]
+  },
+  {
+    "name": "nina",
+    "language": "Macedonian",
+    "languageCode": "mk-MK",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "nino",
+    "language": "Georgian",
+    "languageCode": "ka-GE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "nisa",
+    "language": "Khmer",
+    "languageCode": "km-KH",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "nitesh",
+    "language": "Hindi",
+    "languageCode": "hi-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "nora",
+    "language": "Norwegian",
+    "languageCode": "nb-NO",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "nune",
+    "language": "Armenian",
+    "languageCode": "hy-AM",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "nuria",
+    "language": "Spanish (Mexican)",
+    "languageCode": "es-MX",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "nurit",
+    "language": "Hebrew",
+    "languageCode": "he-IL",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "obinna",
+    "language": "English (Nigerian accent)",
+    "languageCode": "en-NG",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "octavio",
+    "language": "Spanish (Castilian)",
+    "languageCode": "es-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "odette",
+    "language": "French (Metropolitan)",
+    "languageCode": "fr-FR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "odina",
+    "language": "Uzbek",
+    "languageCode": "uz-UZ",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Latin"
+    ]
+  },
+  {
+    "name": "oksana",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "ole",
+    "language": "Norwegian",
+    "languageCode": "nb-NO",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "oleksandr",
+    "language": "Ukrainian",
+    "languageCode": "uk-UA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "olga",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "olivia",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female",
+      "Warm",
+      "Younger",
+      "Friendly"
+    ]
+  },
+  {
+    "name": "olivier",
+    "language": "French (Canadian)",
+    "languageCode": "fr-CA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "ollie",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Child"
+    ]
+  },
+  {
+    "name": "oren",
+    "language": "Hebrew",
+    "languageCode": "he-IL",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "orisa",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Black"
+    ]
+  },
+  {
+    "name": "orla",
+    "language": "English (Irish accent)",
+    "languageCode": "en-IE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "outhine",
+    "language": "Lao",
+    "languageCode": "lo-LA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "oylum",
+    "language": "Turkish",
+    "languageCode": "tr-TR",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "pablo",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Latin-American"
+    ]
+  },
+  {
+    "name": "padma",
+    "language": "Marathi",
+    "languageCode": "mr-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "paige",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Calm",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "pak-chi",
+    "language": "Chinese (Cantonese)",
+    "languageCode": "cmn-HK",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "palesa",
+    "language": "Sesotho",
+    "languageCode": "st-ZA",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "paloma",
+    "language": "Spanish (Castilian)",
+    "languageCode": "es-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "pamela",
+    "language": "English (Canadian)",
+    "languageCode": "en-CA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "paola",
+    "language": "Spanish (Mexican)",
+    "languageCode": "es-MX",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "paquita",
+    "language": "Spanish (Castilian)",
+    "languageCode": "es-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "pascal",
+    "language": "French (Canadian)",
+    "languageCode": "fr-CA",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "patti",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Warm",
+      "Husky"
+    ]
+  },
+  {
+    "name": "paul",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "East-coast"
+    ]
+  },
+  {
+    "name": "paula",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Latin-American"
+    ]
+  },
+  {
+    "name": "paulo",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "pedro",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "penda",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "African-American"
+    ]
+  },
+  {
+    "name": "peter",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Deep",
+      "Authoritative",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "petra",
+    "language": "Czech",
+    "languageCode": "cs-CZ",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "phantom",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Demonic",
+      "Synthetic"
+    ]
+  },
+  {
+    "name": "pierre",
+    "language": "French (Metropolitan)",
+    "languageCode": "fr-FR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "piet",
+    "language": "English (South African accent)",
+    "languageCode": "en-ZA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "pietro",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "pille",
+    "language": "Estonian",
+    "languageCode": "et-EE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "piolo",
+    "language": "Filipino",
+    "languageCode": "fil-PH",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "pooja",
+    "language": "English (Indian accent)",
+    "languageCode": "en-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "prabhat",
+    "language": "English (Indian accent)",
+    "languageCode": "en-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "pratik",
+    "language": "Gujarati",
+    "languageCode": "gu-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "preeti",
+    "language": "Hindi",
+    "languageCode": "hi-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "prosenjit",
+    "language": "Bangla (West Bengal Indian accent)",
+    "languageCode": "bn-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "quan",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "quang",
+    "language": "Vietnamese",
+    "languageCode": "vi-VN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "quentin",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Caucasian",
+      "Mature"
+    ]
+  },
+  {
+    "name": "rachel",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Calm",
+      "Younger",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "rafael",
+    "language": "Spanish (Castilian)",
+    "languageCode": "es-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "raffaella",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "rahul",
+    "language": "Kannada",
+    "languageCode": "kn-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "rajesh",
+    "language": "English (Indian accent)",
+    "languageCode": "en-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "ralph",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "White",
+      "Mature"
+    ]
+  },
+  {
+    "name": "ramakanta",
+    "language": "Odia",
+    "languageCode": "or-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "ramakrishna",
+    "language": "Telugu",
+    "languageCode": "te-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "ramesh",
+    "language": "Gujarati",
+    "languageCode": "gu-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "ramona",
+    "language": "Spanish (Mexican)",
+    "languageCode": "es-MX",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "rana",
+    "language": "Arabic",
+    "languageCode": "ar-XA",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "ranbir",
+    "language": "Hindi",
+    "languageCode": "hi-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "rani",
+    "language": "Hindi",
+    "languageCode": "hi-IN",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "rashmi",
+    "language": "Hindi",
+    "languageCode": "hi-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "raul",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Latin-American"
+    ]
+  },
+  {
+    "name": "ravi",
+    "language": "English (Indian accent)",
+    "languageCode": "en-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "raymond",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Younger",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "regina",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "reza",
+    "language": "Persian",
+    "languageCode": "fa-IR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "rhonda",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Mature"
+    ]
+  },
+  {
+    "name": "rhys",
+    "language": "Welsh",
+    "languageCode": "cy-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "riaan",
+    "language": "English (South African accent)",
+    "languageCode": "en-ZA",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "ricardo",
+    "language": "Spanish (Castilian)",
+    "languageCode": "es-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "rie",
+    "language": "Danish",
+    "languageCode": "da-DK",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Younger"
+    ]
+  },
+  {
+    "name": "rimpi",
+    "language": "Assamese",
+    "languageCode": "as-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "rishi",
+    "language": "English (Indian accent)",
+    "languageCode": "en-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "rita",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Latin-American"
+    ]
+  },
+  {
+    "name": "riyanto",
+    "language": "Javanese",
+    "languageCode": "jv-ID",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "robin",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Younger",
+      "Excited"
+    ]
+  },
+  {
+    "name": "robovoice",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Robotic",
+      "Synthetic"
+    ]
+  },
+  {
+    "name": "rodney",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Mature",
+      "Caucasian"
+    ]
+  },
+  {
+    "name": "rodrigo",
+    "language": "Spanish (Puerto Rican accent)",
+    "languageCode": "es-PR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "roger",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "rogerio",
+    "language": "Portuguese (European)",
+    "languageCode": "pt-PT",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "rohit",
+    "language": "Marathi",
+    "languageCode": "mr-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "rolanda",
+    "language": "Afrikaans",
+    "languageCode": "af-ZA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "romain",
+    "language": "French (Metropolitan)",
+    "languageCode": "fr-FR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "ronald",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "African-American",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "roos",
+    "language": "Dutch",
+    "languageCode": "nl-NL",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "rory",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Younger"
+    ]
+  },
+  {
+    "name": "rosalind",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "rosaria",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "rose",
+    "language": "English (New Zealand accent)",
+    "languageCode": "en-NZ",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "ross",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Calm"
+    ]
+  },
+  {
+    "name": "rubem",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "ruby",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Caucasian",
+      "Mature"
+    ]
+  },
+  {
+    "name": "rupak",
+    "language": "English (Indian accent)",
+    "languageCode": "en-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "russel",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Warm",
+      "Younger",
+      "Friendly",
+      "Expressive"
+    ]
+  },
+  {
+    "name": "ruth",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Calm",
+      "Child"
+    ]
+  },
+  {
+    "name": "ryan",
+    "language": "English (Canadian)",
+    "languageCode": "en-CA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "saara",
+    "language": "Finnish",
+    "languageCode": "fi-FI",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "sal",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Caucasian",
+      "East-coast"
+    ]
+  },
+  {
+    "name": "sally",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Warm",
+      "Younger",
+      "Engaging"
+    ]
+  },
+  {
+    "name": "salman",
+    "language": "Bangla (Bangladesh accent)",
+    "languageCode": "bn-BD",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "samira",
+    "language": "Arabic",
+    "languageCode": "ar-XA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Omani"
+    ]
+  },
+  {
+    "name": "sammy",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "African-American",
+      "Mature",
+      "Excited"
+    ]
+  },
+  {
+    "name": "samuel",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Excited",
+      "Older",
+      "African-American",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "sanam",
+    "language": "Urdu",
+    "languageCode": "ur-PK",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "sanath",
+    "language": "Sinhala",
+    "languageCode": "si-LK",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "sanda",
+    "language": "Burmese",
+    "languageCode": "my-MM",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "sandra",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "sandy",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Caucasian",
+      "Younger",
+      "Excited",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "sangeeta",
+    "language": "Marathi",
+    "languageCode": "mr-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "sanjay",
+    "language": "Hindi",
+    "languageCode": "hi-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "santiago",
+    "language": "Spanish (Mexican)",
+    "languageCode": "es-MX",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "saoirse",
+    "language": "English (Irish accent)",
+    "languageCode": "en-IE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "sarah",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "saskia",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Younger"
+    ]
+  },
+  {
+    "name": "satya",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Indian-American"
+    ]
+  },
+  {
+    "name": "savannah",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Southern",
+      "African-American"
+    ]
+  },
+  {
+    "name": "sebastian",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Calm",
+      "Serious",
+      "Deep",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "seble",
+    "language": "Amharic",
+    "languageCode": "am-ET",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "selena",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Latin-American",
+      "Younger"
+    ]
+  },
+  {
+    "name": "seo-yeon",
+    "language": "Korean",
+    "languageCode": "ko-KR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "serena",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Younger",
+      "African-American",
+      "Expressive"
+    ]
+  },
+  {
+    "name": "serge",
+    "language": "French (Canadian)",
+    "languageCode": "fr-CA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "sergey",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "stress with ^"
+    ]
+  },
+  {
+    "name": "shahana",
+    "language": "Marathi",
+    "languageCode": "mr-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "shane",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Warm",
+      "Trustworthy"
+    ]
+  },
+  {
+    "name": "shaniqua",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "African-American"
+    ]
+  },
+  {
+    "name": "shannon",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "sharon",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Black"
+    ]
+  },
+  {
+    "name": "shavkat",
+    "language": "Uzbek",
+    "languageCode": "uz-UZ",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Latin"
+    ]
+  },
+  {
+    "name": "sheela",
+    "language": "English (Indian accent)",
+    "languageCode": "en-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "shilpa",
+    "language": "English (Indian accent)",
+    "languageCode": "en-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "shirley",
+    "language": "English (Scottish Accent)",
+    "languageCode": "en-GB-SCT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Warm"
+    ]
+  },
+  {
+    "name": "shishi",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "shohreh",
+    "language": "Persian",
+    "languageCode": "fa-IR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "shreya",
+    "language": "Hindi",
+    "languageCode": "hi-IN",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "shruti",
+    "language": "Tamil",
+    "languageCode": "ta-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "shuang",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal"
+    ],
+    "tags": [
+      "Female",
+      "Child",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "sibel",
+    "language": "Turkish",
+    "languageCode": "tr-TR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "signe",
+    "language": "Danish",
+    "languageCode": "da-DK",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female",
+      "Mature"
+    ]
+  },
+  {
+    "name": "sigrid",
+    "language": "Norwegian",
+    "languageCode": "nb-NO",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "silvana",
+    "language": "Spanish (Mexican)",
+    "languageCode": "es-MX",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "silvia",
+    "language": "Catalan",
+    "languageCode": "ca-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "siwan",
+    "language": "English (Welsh Accent)",
+    "languageCode": "en-GB-WLS",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Child",
+      "Southern"
+    ]
+  },
+  {
+    "name": "sofia",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Mature",
+      "Latin-American",
+      "Slower"
+    ]
+  },
+  {
+    "name": "soledad",
+    "language": "Spanish (Castilian)",
+    "languageCode": "es-ES",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "solveig",
+    "language": "Norwegian",
+    "languageCode": "nb-NO",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "somsak",
+    "language": "Thai",
+    "languageCode": "th-TH",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "sonam",
+    "language": "English (Indian accent)",
+    "languageCode": "en-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "sonja",
+    "language": "Norwegian",
+    "languageCode": "nb-NO",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "sovath",
+    "language": "Khmer",
+    "languageCode": "km-KH",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "spencer",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "spike",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Caucasian",
+      "Serious",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "stanley",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Calm",
+      "Boring",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "steinunn",
+    "language": "Icelandic",
+    "languageCode": "is-IS",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "stellan",
+    "language": "Swedish",
+    "languageCode": "sv-SE",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "steve",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Asian-American"
+    ]
+  },
+  {
+    "name": "suada",
+    "language": "Bosnian",
+    "languageCode": "bs-BA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "suleiman",
+    "language": "Arabic",
+    "languageCode": "ar-XA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Male",
+      "Emirati"
+    ]
+  },
+  {
+    "name": "sun-mi",
+    "language": "Korean",
+    "languageCode": "ko-KR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "sunerah",
+    "language": "Bangla (West Bengal Indian accent)",
+    "languageCode": "bn-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "sunil",
+    "language": "Hindi",
+    "languageCode": "hi-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "sushma",
+    "language": "Hindi",
+    "languageCode": "hi-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "suwanna",
+    "language": "Thai",
+    "languageCode": "th-TH",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "suzie",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Asian-American"
+    ]
+  },
+  {
+    "name": "svetlana",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "stress with ^"
+    ]
+  },
+  {
+    "name": "svitlana",
+    "language": "Ukrainian",
+    "languageCode": "uk-UA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "tadeusz",
+    "language": "Polish",
+    "languageCode": "pl-PL",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "tae-hee",
+    "language": "Korean",
+    "languageCode": "ko-KR",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "takeshi",
+    "language": "Japanese",
+    "languageCode": "ja-JP",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "takuya",
+    "language": "Japanese",
+    "languageCode": "ja-JP",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "tamagne",
+    "language": "Amharic",
+    "languageCode": "am-ET",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "tamar",
+    "language": "Hebrew",
+    "languageCode": "he-IL",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "tamsin",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Calm",
+      "Trustworthy"
+    ]
+  },
+  {
+    "name": "tara",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Cute",
+      "Child"
+    ]
+  },
+  {
+    "name": "tatiana",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "taufan",
+    "language": "Malaysian",
+    "languageCode": "ms-MY",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "tenzing",
+    "language": "Nepali",
+    "languageCode": "ne-NP",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "terrence",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Younger",
+      "African-American",
+      "Expressive"
+    ]
+  },
+  {
+    "name": "thabo",
+    "language": "Xhosa",
+    "languageCode": "xh-ZA",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "thandiwe",
+    "language": "English (Nigerian accent)",
+    "languageCode": "en-NG",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "themba",
+    "language": "Zulu",
+    "languageCode": "zu-ZA",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "theodore",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Mature"
+    ]
+  },
+  {
+    "name": "thiago",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "tiffany",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Asian-American",
+      "Expressive"
+    ]
+  },
+  {
+    "name": "tigran",
+    "language": "Armenian",
+    "languageCode": "hy-AM",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "tiina",
+    "language": "Finnish",
+    "languageCode": "fi-FI",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "timmy",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Male",
+      "Child"
+    ]
+  },
+  {
+    "name": "tina",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "tito",
+    "language": "Spanish (Castilian)",
+    "languageCode": "es-ES",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "tofiq",
+    "language": "Azerbaijani",
+    "languageCode": "az-AZ",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "tom",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "tommaso",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "tomoka",
+    "language": "Japanese",
+    "languageCode": "ja-JP",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "tonkham",
+    "language": "Lao",
+    "languageCode": "lo-LA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "tony",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "tornike",
+    "language": "Georgian",
+    "languageCode": "ka-GE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "toshiro",
+    "language": "Japanese",
+    "languageCode": "ja-JP",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "tracy",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Serious"
+    ]
+  },
+  {
+    "name": "travis",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Southern",
+      "Texan",
+      "Caucasian",
+      "Cowboy"
+    ]
+  },
+  {
+    "name": "trine",
+    "language": "Danish",
+    "languageCode": "da-DK",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Younger"
+    ]
+  },
+  {
+    "name": "trinh",
+    "language": "Vietnamese",
+    "languageCode": "vi-VN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "troy",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Calm",
+      "Faster"
+    ]
+  },
+  {
+    "name": "tuah",
+    "language": "Malaysian",
+    "languageCode": "ms-MY",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "tyrell",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Southern",
+      "African-American"
+    ]
+  },
+  {
+    "name": "tyrone",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "African-American"
+    ]
+  },
+  {
+    "name": "uhuru",
+    "language": "Swahili",
+    "languageCode": "sw-KE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "ulrich",
+    "language": "German (Standard)",
+    "languageCode": "de-DE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "uma",
+    "language": "Malayalam",
+    "languageCode": "ml-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "ursina",
+    "language": "German (Swiss)",
+    "languageCode": "de-CH",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "vadim",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "stress with ^"
+    ]
+  },
+  {
+    "name": "vaida",
+    "language": "Lithuanian",
+    "languageCode": "lt-LT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "valentina",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "vanessa",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "varun",
+    "language": "Hindi",
+    "languageCode": "hi-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "vasco",
+    "language": "Portuguese (Brazilian)",
+    "languageCode": "pt-BR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "veerle",
+    "language": "Dutch (Flemish)",
+    "languageCode": "nl-BE",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "vera",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "veronica",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Calm",
+      "Female",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "victor",
+    "language": "French (Metropolitan)",
+    "languageCode": "fr-FR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "victoria",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Younger"
+    ]
+  },
+  {
+    "name": "vidya",
+    "language": "English (Indian accent)",
+    "languageCode": "en-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "vijay",
+    "language": "Tamil",
+    "languageCode": "ta-IN",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "vikram",
+    "language": "Tamil",
+    "languageCode": "ta-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "vilmos",
+    "language": "Hungarian",
+    "languageCode": "hu-HU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "vincent",
+    "language": "French (Metropolitan)",
+    "languageCode": "fr-FR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "vincenzo",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "violette",
+    "language": "French (Canadian)",
+    "languageCode": "fr-CA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "virginia",
+    "language": "English (Australian)",
+    "languageCode": "en-AU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Calm"
+    ]
+  },
+  {
+    "name": "vittorio",
+    "language": "Italian",
+    "languageCode": "it-IT",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "vivienne",
+    "language": "French (Metropolitan)",
+    "languageCode": "fr-FR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "vladimir",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "vlatko",
+    "language": "Macedonian",
+    "languageCode": "mk-MK",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "wael",
+    "language": "Arabic",
+    "languageCode": "ar-XA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Egyptian"
+    ]
+  },
+  {
+    "name": "walter",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Serious"
+    ]
+  },
+  {
+    "name": "wanda",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female",
+      "Warm"
+    ]
+  },
+  {
+    "name": "warren",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Calm",
+      "Older",
+      "Warm",
+      "Expressive",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "wei",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal"
+    ],
+    "tags": [
+      "Female",
+      "Younger"
+    ]
+  },
+  {
+    "name": "wesley",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "whitney",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Expressive"
+    ]
+  },
+  {
+    "name": "will",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "willeke",
+    "language": "Dutch",
+    "languageCode": "nl-NL",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "willem",
+    "language": "Dutch",
+    "languageCode": "nl-NL",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "william",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male",
+      "Mature",
+      "Authoritative"
+    ]
+  },
+  {
+    "name": "wim",
+    "language": "Dutch (Flemish)",
+    "languageCode": "nl-BE",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "wing-yi",
+    "language": "Chinese (Cantonese)",
+    "languageCode": "cmn-HK",
+    "styles": [
+      "jyutping",
+      "normal",
+      "literal"
+    ],
+    "tags": [
+      "Female",
+      "Younger"
+    ]
+  },
+  {
+    "name": "wraith",
+    "language": "English (British)",
+    "languageCode": "en-GB",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Demonic",
+      "Synthetic"
+    ]
+  },
+  {
+    "name": "wyatt",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Southern",
+      "Caucasian"
+    ]
+  },
+  {
+    "name": "xavier",
+    "language": "French (Canadian)",
+    "languageCode": "fr-CA",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "xawa",
+    "language": "Somali",
+    "languageCode": "so-SO",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "xiaoming",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "ximena",
+    "language": "Spanish (American)",
+    "languageCode": "es-US",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "xinyan",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal"
+    ],
+    "tags": [
+      "Female",
+      "Mature"
+    ]
+  },
+  {
+    "name": "xinyi",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "xiulan",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Younger"
+    ]
+  },
+  {
+    "name": "yael",
+    "language": "Hebrew",
+    "languageCode": "he-IL",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "yifei",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "yili",
+    "language": "Chinese (Taiwanese Mandarin)",
+    "languageCode": "cmn-TW",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "yoo-jung",
+    "language": "Korean",
+    "languageCode": "ko-KR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "yulia",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "stress with ^"
+    ]
+  },
+  {
+    "name": "yumei",
+    "language": "Chinese (Taiwanese Mandarin)",
+    "languageCode": "cmn-TW",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "yuqi",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal"
+    ],
+    "tags": [
+      "Female",
+      "Child"
+    ]
+  },
+  {
+    "name": "yuri",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "stress with ^"
+    ]
+  },
+  {
+    "name": "yuriko",
+    "language": "Japanese",
+    "languageCode": "ja-JP",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "yves",
+    "language": "French (Metropolitan)",
+    "languageCode": "fr-FR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "yvette",
+    "language": "French (Metropolitan)",
+    "languageCode": "fr-FR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "zach",
+    "language": "English (American)",
+    "languageCode": "en-US",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Caucasian",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "zanele",
+    "language": "Zulu",
+    "languageCode": "zu-ZA",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "zara",
+    "language": "English (Singaporean accent)",
+    "languageCode": "en-SG",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa",
+      "x-sampa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "zareen",
+    "language": "Punjabi",
+    "languageCode": "pa-IN",
+    "styles": [
+      "literal",
+      "normal"
+    ],
+    "tags": [
+      "Female",
+      "Gurmukhi"
+    ]
+  },
+  {
+    "name": "zemfira",
+    "language": "Azerbaijani",
+    "languageCode": "az-AZ",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  },
+  {
+    "name": "zeya",
+    "language": "Burmese",
+    "languageCode": "my-MM",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "ziad",
+    "language": "Arabic",
+    "languageCode": "ar-XA",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male",
+      "Lebanese"
+    ]
+  },
+  {
+    "name": "zihan",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Younger",
+      "Polyglot"
+    ]
+  },
+  {
+    "name": "ziwen",
+    "language": "Chinese (Mandarin)",
+    "languageCode": "cmn-CN",
+    "styles": [
+      "pinyin",
+      "normal",
+      "literal"
+    ],
+    "tags": [
+      "Female",
+      "Younger"
+    ]
+  },
+  {
+    "name": "zoran",
+    "language": "Croatian",
+    "languageCode": "hr-HR",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Male"
+    ]
+  },
+  {
+    "name": "zoya",
+    "language": "Russian",
+    "languageCode": "ru-RU",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "stress with ^"
+    ]
+  },
+  {
+    "name": "zulfiya",
+    "language": "Uzbek",
+    "languageCode": "uz-UZ",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female",
+      "Latin"
+    ]
+  },
+  {
+    "name": "zuzana",
+    "language": "Slovak",
+    "languageCode": "sk-SK",
+    "styles": [
+      "literal",
+      "normal",
+      "ipa"
+    ],
+    "tags": [
+      "Female"
+    ]
+  }
+]

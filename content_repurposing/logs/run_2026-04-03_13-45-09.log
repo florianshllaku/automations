@@ -1,0 +1,1084 @@
+2026-04-03 13:45:09 [INFO] ============================================================
+2026-04-03 13:45:09 [INFO] ============================================================
+2026-04-03 13:45:09 [INFO] RUN STARTED — log: run_2026-04-03_13-45-09.log
+2026-04-03 13:45:09 [INFO] RUN STARTED — log: run_2026-04-03_13-45-09.log
+2026-04-03 13:45:09 [INFO] ============================================================
+2026-04-03 13:45:09 [INFO] ============================================================
+2026-04-03 13:45:10 [INFO] Scraping https://www.rundown.ai/articles?category=AI
+2026-04-03 13:45:10 [INFO] Scraping https://www.rundown.ai/articles?category=AI
+Loading https://www.rundown.ai/articles?category=AI ...
+  Page 1: 8 articles.
+2026-04-03 13:45:16 [INFO] Page 1: 8 articles found
+2026-04-03 13:45:16 [INFO] Page 1: 8 articles found
+  Reached checkpoint at page 1. Stopping.
+2026-04-03 13:45:16 [INFO] Reached checkpoint at page 1 — stopping scrape
+2026-04-03 13:45:16 [INFO] Reached checkpoint at page 1 — stopping scrape
+2026-04-03 13:45:16 [INFO] 1 new article(s) found
+2026-04-03 13:45:16 [INFO] 1 new article(s) found
+[
+  {
+    "title": "AI just made the billion-dollar solo founder real",
+    "url": "https://www.rundown.ai/articles/ai-just-made-the-billion-dollar-solo-founder-real",
+    "date": null,
+    "id": 1023
+  }
+]
+  Sending notification for: AI just made the billion-dollar solo founder real
+2026-04-03 13:45:16 [INFO] Telegram notification sent: AI just made the billion-dollar solo founder real
+2026-04-03 13:45:16 [INFO] Telegram notification sent: AI just made the billion-dollar solo founder real
+2026-04-03 13:45:16 [DEBUG] [DEBUG] send_approval_message — title: AI just made the billion-dollar solo founder real, url: https://www.rundown.ai/articles/ai-just-made-the-billion-dollar-solo-founder-real
+2026-04-03 13:45:16 [DEBUG] [DEBUG] send_approval_message — title: AI just made the billion-dollar solo founder real, url: https://www.rundown.ai/articles/ai-just-made-the-billion-dollar-solo-founder-real
+2026-04-03 13:45:17 [DEBUG] [DEBUG] Approval message sent — message_id: 277
+2026-04-03 13:45:17 [DEBUG] [DEBUG] Approval message sent — message_id: 277
+2026-04-03 13:45:17 [INFO] All 1 notification(s) sent — waiting for responses
+2026-04-03 13:45:17 [INFO] All 1 notification(s) sent — waiting for responses
+
+All 1 notification(s) sent. Waiting for your responses ...
+2026-04-03 13:45:18 [DEBUG] [DEBUG] Initial flush — starting offset: 1
+2026-04-03 13:45:18 [DEBUG] [DEBUG] Initial flush — starting offset: 1
+2026-04-03 13:45:21 [DEBUG] [DEBUG] Poll #1 — 1 update(s)
+2026-04-03 13:45:21 [DEBUG] [DEBUG] Poll #1 — 1 update(s)
+2026-04-03 13:45:21 [INFO] User tapped YES on message_id=277
+2026-04-03 13:45:21 [INFO] User tapped YES on message_id=277
+2026-04-03 13:45:22 [INFO] User approved: AI just made the billion-dollar solo founder real
+2026-04-03 13:45:22 [INFO] User approved: AI just made the billion-dollar solo founder real
+User approved — generating content: AI just made the billion-dollar solo founder real
+2026-04-03 13:45:22 [INFO] Fetching article: https://www.rundown.ai/articles/ai-just-made-the-billion-dollar-solo-founder-real
+2026-04-03 13:45:22 [INFO] Fetching article: https://www.rundown.ai/articles/ai-just-made-the-billion-dollar-solo-founder-real
+  Fetching article content: https://www.rundown.ai/articles/ai-just-made-the-billion-dollar-solo-founder-real
+2026-04-03 13:45:24 [INFO] Article fetched (9180 chars): https://www.rundown.ai/articles/ai-just-made-the-billion-dollar-solo-founder-real
+2026-04-03 13:45:24 [INFO] Article fetched (9180 chars): https://www.rundown.ai/articles/ai-just-made-the-billion-dollar-solo-founder-real
+  Downloading image ...
+2026-04-03 13:45:24 [INFO] Image downloaded: article_images\ai-just-made-the-billion-dollar-solo-founder-real.png
+2026-04-03 13:45:24 [INFO] Image downloaded: article_images\ai-just-made-the-billion-dollar-solo-founder-real.png
+2026-04-03 13:45:24 [INFO] Calling Claude (research)
+2026-04-03 13:45:24 [INFO] Calling Claude (research)
+  Calling Claude for research ...
+2026-04-03 13:45:31 [INFO] Claude research complete — topic: How solo founder Matthew Gallagher used AI tools to scale his telehealth startup Medvi from a $20K experiment to $1.8B in projected annual sales, fulfilling Sam Altman's prediction of AI-enabled billion-dollar solo companies
+2026-04-03 13:45:31 [INFO] Claude research complete — topic: How solo founder Matthew Gallagher used AI tools to scale his telehealth startup Medvi from a $20K experiment to $1.8B in projected annual sales, fulfilling Sam Altman's prediction of AI-enabled billion-dollar solo companies
+2026-04-03 13:45:31 [INFO] Calling Claude (reel script)
+2026-04-03 13:45:31 [INFO] Calling Claude (reel script)
+  Generating reel script ...
+2026-04-03 13:45:45 [INFO] Reel script complete — title: Solo Founder Hit $1.8B Using AI, runtime: ~48 seconds
+2026-04-03 13:45:45 [INFO] Reel script complete — title: Solo Founder Hit $1.8B Using AI, runtime: ~48 seconds
+2026-04-03 13:45:45 [DEBUG] [DEBUG] send_message — chars: 1000, preview: 🎙 <b>SCRIPT</b>
+
+Sam Altman predicted AI would create the first one-person billi
+2026-04-03 13:45:45 [DEBUG] [DEBUG] send_message — chars: 1000, preview: 🎙 <b>SCRIPT</b>
+
+Sam Altman predicted AI would create the first one-person billi
+2026-04-03 13:45:46 [DEBUG] [DEBUG] send_message — delivered
+2026-04-03 13:45:46 [DEBUG] [DEBUG] send_message — delivered
+2026-04-03 13:45:46 [INFO] Script sent to Telegram
+2026-04-03 13:45:46 [INFO] Script sent to Telegram
+2026-04-03 13:45:46 [DEBUG] [DEBUG] ElevenLabs TTS — voice_id: aJW1epKKEUPPLZULtMRW, model: eleven_multilingual_v2, chars: 983
+2026-04-03 13:45:46 [DEBUG] [DEBUG] ElevenLabs TTS — voice_id: aJW1epKKEUPPLZULtMRW, model: eleven_multilingual_v2, chars: 983
+2026-04-03 13:45:46 [DEBUG] [DEBUG] Script preview: Sam Altman predicted AI would create the first one-person billion-dollar company. It just happened — and it's not what y...
+2026-04-03 13:45:46 [DEBUG] [DEBUG] Script preview: Sam Altman predicted AI would create the first one-person billion-dollar company. It just happened — and it's not what y...
+2026-04-03 13:45:46 [INFO] ElevenLabs TTS call started — voice_id=aJW1epKKEUPPLZULtMRW, chars=983
+2026-04-03 13:45:46 [INFO] ElevenLabs TTS call started — voice_id=aJW1epKKEUPPLZULtMRW, chars=983
+2026-04-03 13:45:46 [DEBUG] [DEBUG] ElevenLabs response received — writing chunks to audio_files\ai_just_made_the_billion_dollar_solo_fou.mp3
+2026-04-03 13:45:46 [DEBUG] [DEBUG] ElevenLabs response received — writing chunks to audio_files\ai_just_made_the_billion_dollar_solo_fou.mp3
+2026-04-03 13:46:08 [DEBUG] [DEBUG] Audio written — 1065 chunks, 1064 KB, path: audio_files\ai_just_made_the_billion_dollar_solo_fou.mp3
+2026-04-03 13:46:08 [DEBUG] [DEBUG] Audio written — 1065 chunks, 1064 KB, path: audio_files\ai_just_made_the_billion_dollar_solo_fou.mp3
+2026-04-03 13:46:08 [INFO] ElevenLabs TTS complete — saved to audio_files\ai_just_made_the_billion_dollar_solo_fou.mp3 (1064 KB)
+2026-04-03 13:46:08 [INFO] ElevenLabs TTS complete — saved to audio_files\ai_just_made_the_billion_dollar_solo_fou.mp3 (1064 KB)
+2026-04-03 13:46:08 [INFO] Sending audio to Telegram — file: audio_files\ai_just_made_the_billion_dollar_solo_fou.mp3, size: 1064 KB, title: Solo Founder Hit $1.8B Using AI
+2026-04-03 13:46:08 [INFO] Sending audio to Telegram — file: audio_files\ai_just_made_the_billion_dollar_solo_fou.mp3, size: 1064 KB, title: Solo Founder Hit $1.8B Using AI
+2026-04-03 13:46:08 [DEBUG] [DEBUG] audio file exists: True
+2026-04-03 13:46:08 [DEBUG] [DEBUG] audio file exists: True
+2026-04-03 13:46:10 [INFO] Audio sent to Telegram — audio_files\ai_just_made_the_billion_dollar_solo_fou.mp3
+2026-04-03 13:46:10 [INFO] Audio sent to Telegram — audio_files\ai_just_made_the_billion_dollar_solo_fou.mp3
+2026-04-03 13:46:10 [INFO] Generating visual prompts — style: Algorithmic
+2026-04-03 13:46:10 [INFO] Generating visual prompts — style: Algorithmic
+  Generating visual prompts (Algorithmic) ...
+2026-04-03 13:46:10 [INFO] Calling Claude (visual prompts)
+2026-04-03 13:46:10 [INFO] Calling Claude (visual prompts)
+  Generating visual prompts ...
+2026-04-03 13:47:05 [INFO] Visual prompts complete — 11 frames generated
+2026-04-03 13:47:05 [INFO] Visual prompts complete — 11 frames generated
+2026-04-03 13:47:05 [INFO] Visual prompts ready — Algorithmic: 11 frames
+2026-04-03 13:47:05 [INFO] Visual prompts ready — Algorithmic: 11 frames
+2026-04-03 13:47:05 [INFO] Generating images from fal.ai — style: Algorithmic
+2026-04-03 13:47:05 [INFO] Generating images from fal.ai — style: Algorithmic
+2026-04-03 13:47:05 [INFO] Starting image generation — 11 frames, article: 'AI just made the billion-dollar solo founder real', style: 'algorithmic'
+2026-04-03 13:47:05 [INFO] Starting image generation — 11 frames, article: 'AI just made the billion-dollar solo founder real', style: 'algorithmic'
+2026-04-03 13:47:05 [DEBUG] [DEBUG] Visuals to generate: ['HOOK', 'HOOK', 'CONTEXT', 'CONTEXT', 'BUILD', 'BUILD', 'BUILD', 'TWIST', 'TWIST', 'CTA', 'CTA']
+2026-04-03 13:47:05 [DEBUG] [DEBUG] Visuals to generate: ['HOOK', 'HOOK', 'CONTEXT', 'CONTEXT', 'BUILD', 'BUILD', 'BUILD', 'TWIST', 'TWIST', 'CTA', 'CTA']
+2026-04-03 13:47:05 [DEBUG] [DEBUG] Submitting image 1/11 — label: HOOK, stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook
+2026-04-03 13:47:05 [DEBUG] [DEBUG] Submitting image 1/11 — label: HOOK, stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook
+2026-04-03 13:47:05 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook, model: fal-ai/nano-banana-pro, prompt chars: 727
+2026-04-03 13:47:05 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook, model: fal-ai/nano-banana-pro, prompt chars: 727
+2026-04-03 13:47:05 [DEBUG] [DEBUG] Prompt preview: A single simplified geometric human silhouette standing at the exact center of a vast dark grid plane, radiating thin lu...
+2026-04-03 13:47:05 [DEBUG] [DEBUG] Prompt preview: A single simplified geometric human silhouette standing at the exact center of a vast dark grid plane, radiating thin lu...
+2026-04-03 13:47:05 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-03 13:47:05 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-03 13:47:06 [INFO] fal.ai job submitted — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook
+2026-04-03 13:47:06 [INFO] fal.ai job submitted — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook
+2026-04-03 13:47:06 [DEBUG] [DEBUG] Handler request_id: 019d532b-19e1-7930-bd93-464e21627e43
+2026-04-03 13:47:06 [DEBUG] [DEBUG] Handler request_id: 019d532b-19e1-7930-bd93-464e21627e43
+2026-04-03 13:47:06 [DEBUG] [DEBUG] Submit 1 OK — handler acquired
+2026-04-03 13:47:06 [DEBUG] [DEBUG] Submit 1 OK — handler acquired
+2026-04-03 13:47:06 [DEBUG] [DEBUG] Sleeping 5s before next submission (2/11)
+2026-04-03 13:47:06 [DEBUG] [DEBUG] Sleeping 5s before next submission (2/11)
+2026-04-03 13:47:11 [DEBUG] [DEBUG] Submitting image 2/11 — label: HOOK, stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook
+2026-04-03 13:47:11 [DEBUG] [DEBUG] Submitting image 2/11 — label: HOOK, stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook
+2026-04-03 13:47:11 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook, model: fal-ai/nano-banana-pro, prompt chars: 646
+2026-04-03 13:47:11 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook, model: fal-ai/nano-banana-pro, prompt chars: 646
+2026-04-03 13:47:11 [DEBUG] [DEBUG] Prompt preview: A colossal bold text '$1B' rendered in sharp angular white typography cracking through a structured geometric grid plane...
+2026-04-03 13:47:11 [DEBUG] [DEBUG] Prompt preview: A colossal bold text '$1B' rendered in sharp angular white typography cracking through a structured geometric grid plane...
+2026-04-03 13:47:11 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-03 13:47:11 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-03 13:47:12 [INFO] fal.ai job submitted — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook
+2026-04-03 13:47:12 [INFO] fal.ai job submitted — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook
+2026-04-03 13:47:12 [DEBUG] [DEBUG] Handler request_id: 019d532b-2f3c-7d20-91ff-69ba643dcfec
+2026-04-03 13:47:12 [DEBUG] [DEBUG] Handler request_id: 019d532b-2f3c-7d20-91ff-69ba643dcfec
+2026-04-03 13:47:12 [DEBUG] [DEBUG] Submit 2 OK — handler acquired
+2026-04-03 13:47:12 [DEBUG] [DEBUG] Submit 2 OK — handler acquired
+2026-04-03 13:47:12 [DEBUG] [DEBUG] Sleeping 5s before next submission (3/11)
+2026-04-03 13:47:12 [DEBUG] [DEBUG] Sleeping 5s before next submission (3/11)
+2026-04-03 13:47:17 [DEBUG] [DEBUG] Submitting image 3/11 — label: CONTEXT, stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context
+2026-04-03 13:47:17 [DEBUG] [DEBUG] Submitting image 3/11 — label: CONTEXT, stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context
+2026-04-03 13:47:17 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context, model: fal-ai/nano-banana-pro, prompt chars: 720
+2026-04-03 13:47:17 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context, model: fal-ai/nano-banana-pro, prompt chars: 720
+2026-04-03 13:47:17 [DEBUG] [DEBUG] Prompt preview: A minimal geometric house shape centered on a structured grid, with a glowing medical cross symbol inside it, branching ...
+2026-04-03 13:47:17 [DEBUG] [DEBUG] Prompt preview: A minimal geometric house shape centered on a structured grid, with a glowing medical cross symbol inside it, branching ...
+2026-04-03 13:47:17 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-03 13:47:17 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-03 13:47:17 [INFO] fal.ai job submitted — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context
+2026-04-03 13:47:17 [INFO] fal.ai job submitted — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context
+2026-04-03 13:47:17 [DEBUG] [DEBUG] Handler request_id: 019d532b-4497-78c1-9cc4-a52d418ba2ad
+2026-04-03 13:47:17 [DEBUG] [DEBUG] Handler request_id: 019d532b-4497-78c1-9cc4-a52d418ba2ad
+2026-04-03 13:47:17 [DEBUG] [DEBUG] Submit 3 OK — handler acquired
+2026-04-03 13:47:17 [DEBUG] [DEBUG] Submit 3 OK — handler acquired
+2026-04-03 13:47:17 [DEBUG] [DEBUG] Sleeping 5s before next submission (4/11)
+2026-04-03 13:47:17 [DEBUG] [DEBUG] Sleeping 5s before next submission (4/11)
+2026-04-03 13:47:22 [DEBUG] [DEBUG] Submitting image 4/11 — label: CONTEXT, stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context
+2026-04-03 13:47:22 [DEBUG] [DEBUG] Submitting image 4/11 — label: CONTEXT, stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context
+2026-04-03 13:47:22 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context, model: fal-ai/nano-banana-pro, prompt chars: 726
+2026-04-03 13:47:22 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context, model: fal-ai/nano-banana-pro, prompt chars: 726
+2026-04-03 13:47:22 [DEBUG] [DEBUG] Prompt preview: Two tiny simplified geometric human figures standing side by side at the center of an enormous structured grid containin...
+2026-04-03 13:47:22 [DEBUG] [DEBUG] Prompt preview: Two tiny simplified geometric human figures standing side by side at the center of an enormous structured grid containin...
+2026-04-03 13:47:22 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-03 13:47:22 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-03 13:47:23 [INFO] fal.ai job submitted — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context
+2026-04-03 13:47:23 [INFO] fal.ai job submitted — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context
+2026-04-03 13:47:23 [DEBUG] [DEBUG] Handler request_id: 019d532b-59ec-74a2-922e-ccd720ecd565
+2026-04-03 13:47:23 [DEBUG] [DEBUG] Handler request_id: 019d532b-59ec-74a2-922e-ccd720ecd565
+2026-04-03 13:47:23 [DEBUG] [DEBUG] Submit 4 OK — handler acquired
+2026-04-03 13:47:23 [DEBUG] [DEBUG] Submit 4 OK — handler acquired
+2026-04-03 13:47:23 [DEBUG] [DEBUG] Sleeping 5s before next submission (5/11)
+2026-04-03 13:47:23 [DEBUG] [DEBUG] Sleeping 5s before next submission (5/11)
+2026-04-03 13:47:28 [DEBUG] [DEBUG] Submitting image 5/11 — label: BUILD, stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build
+2026-04-03 13:47:28 [DEBUG] [DEBUG] Submitting image 5/11 — label: BUILD, stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build
+2026-04-03 13:47:28 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build, model: fal-ai/nano-banana-pro, prompt chars: 709
+2026-04-03 13:47:28 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build, model: fal-ai/nano-banana-pro, prompt chars: 709
+2026-04-03 13:47:28 [DEBUG] [DEBUG] Prompt preview: A tiny geometric seed or coin shape at the left expanding rightward through branching algorithmic pathways into a massiv...
+2026-04-03 13:47:28 [DEBUG] [DEBUG] Prompt preview: A tiny geometric seed or coin shape at the left expanding rightward through branching algorithmic pathways into a massiv...
+2026-04-03 13:47:28 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-03 13:47:28 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-03 13:47:29 [INFO] fal.ai job submitted — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build
+2026-04-03 13:47:29 [INFO] fal.ai job submitted — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build
+2026-04-03 13:47:29 [DEBUG] [DEBUG] Handler request_id: 019d532b-716c-77e0-aac9-fd0091146474
+2026-04-03 13:47:29 [DEBUG] [DEBUG] Handler request_id: 019d532b-716c-77e0-aac9-fd0091146474
+2026-04-03 13:47:29 [DEBUG] [DEBUG] Submit 5 OK — handler acquired
+2026-04-03 13:47:29 [DEBUG] [DEBUG] Submit 5 OK — handler acquired
+2026-04-03 13:47:29 [DEBUG] [DEBUG] Sleeping 5s before next submission (6/11)
+2026-04-03 13:47:29 [DEBUG] [DEBUG] Sleeping 5s before next submission (6/11)
+2026-04-03 13:47:34 [DEBUG] [DEBUG] Submitting image 6/11 — label: BUILD, stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build
+2026-04-03 13:47:34 [DEBUG] [DEBUG] Submitting image 6/11 — label: BUILD, stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build
+2026-04-03 13:47:34 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build, model: fal-ai/nano-banana-pro, prompt chars: 762
+2026-04-03 13:47:34 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build, model: fal-ai/nano-banana-pro, prompt chars: 762
+2026-04-03 13:47:34 [DEBUG] [DEBUG] Prompt preview: Six simplified geometric icons arranged in a perfect hexagonal formation around a central glowing hub node — each icon r...
+2026-04-03 13:47:34 [DEBUG] [DEBUG] Prompt preview: Six simplified geometric icons arranged in a perfect hexagonal formation around a central glowing hub node — each icon r...
+2026-04-03 13:47:34 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-03 13:47:34 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-03 13:47:34 [INFO] fal.ai job submitted — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build
+2026-04-03 13:47:34 [INFO] fal.ai job submitted — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build
+2026-04-03 13:47:34 [DEBUG] [DEBUG] Handler request_id: 019d532b-86cb-7f72-b9af-01a713760e3e
+2026-04-03 13:47:34 [DEBUG] [DEBUG] Handler request_id: 019d532b-86cb-7f72-b9af-01a713760e3e
+2026-04-03 13:47:34 [DEBUG] [DEBUG] Submit 6 OK — handler acquired
+2026-04-03 13:47:34 [DEBUG] [DEBUG] Submit 6 OK — handler acquired
+2026-04-03 13:47:34 [DEBUG] [DEBUG] Sleeping 5s before next submission (7/11)
+2026-04-03 13:47:34 [DEBUG] [DEBUG] Sleeping 5s before next submission (7/11)
+2026-04-03 13:47:39 [DEBUG] [DEBUG] Submitting image 7/11 — label: BUILD, stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build
+2026-04-03 13:47:39 [DEBUG] [DEBUG] Submitting image 7/11 — label: BUILD, stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build
+2026-04-03 13:47:39 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build, model: fal-ai/nano-banana-pro, prompt chars: 730
+2026-04-03 13:47:39 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build, model: fal-ai/nano-banana-pro, prompt chars: 730
+2026-04-03 13:47:39 [DEBUG] [DEBUG] Prompt preview: A single massive vertical bar made of stacked geometric rectangular blocks rising from a grid baseline and dominating th...
+2026-04-03 13:47:39 [DEBUG] [DEBUG] Prompt preview: A single massive vertical bar made of stacked geometric rectangular blocks rising from a grid baseline and dominating th...
+2026-04-03 13:47:39 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-03 13:47:39 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-03 13:47:39 [INFO] fal.ai job submitted — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build
+2026-04-03 13:47:39 [INFO] fal.ai job submitted — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build
+2026-04-03 13:47:39 [DEBUG] [DEBUG] Handler request_id: 019d532b-9afa-7400-9f64-61485933f26d
+2026-04-03 13:47:39 [DEBUG] [DEBUG] Handler request_id: 019d532b-9afa-7400-9f64-61485933f26d
+2026-04-03 13:47:39 [DEBUG] [DEBUG] Submit 7 OK — handler acquired
+2026-04-03 13:47:39 [DEBUG] [DEBUG] Submit 7 OK — handler acquired
+2026-04-03 13:47:39 [DEBUG] [DEBUG] Sleeping 5s before next submission (8/11)
+2026-04-03 13:47:39 [DEBUG] [DEBUG] Sleeping 5s before next submission (8/11)
+2026-04-03 13:47:44 [DEBUG] [DEBUG] Submitting image 8/11 — label: TWIST, stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist
+2026-04-03 13:47:44 [DEBUG] [DEBUG] Submitting image 8/11 — label: TWIST, stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist
+2026-04-03 13:47:44 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist, model: fal-ai/nano-banana-pro, prompt chars: 699
+2026-04-03 13:47:44 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist, model: fal-ai/nano-banana-pro, prompt chars: 699
+2026-04-03 13:47:44 [DEBUG] [DEBUG] Prompt preview: A dramatic exponential growth curve rendered as geometric stepped blocks ascending sharply from bottom-left to upper-rig...
+2026-04-03 13:47:44 [DEBUG] [DEBUG] Prompt preview: A dramatic exponential growth curve rendered as geometric stepped blocks ascending sharply from bottom-left to upper-rig...
+2026-04-03 13:47:44 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-03 13:47:44 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-03 13:47:45 [INFO] fal.ai job submitted — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist
+2026-04-03 13:47:45 [INFO] fal.ai job submitted — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist
+2026-04-03 13:47:45 [DEBUG] [DEBUG] Handler request_id: 019d532b-b056-7d22-8109-4363fd897e3a
+2026-04-03 13:47:45 [DEBUG] [DEBUG] Handler request_id: 019d532b-b056-7d22-8109-4363fd897e3a
+2026-04-03 13:47:45 [DEBUG] [DEBUG] Submit 8 OK — handler acquired
+2026-04-03 13:47:45 [DEBUG] [DEBUG] Submit 8 OK — handler acquired
+2026-04-03 13:47:45 [DEBUG] [DEBUG] Sleeping 5s before next submission (9/11)
+2026-04-03 13:47:45 [DEBUG] [DEBUG] Sleeping 5s before next submission (9/11)
+2026-04-03 13:47:50 [DEBUG] [DEBUG] Submitting image 9/11 — label: TWIST, stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist
+2026-04-03 13:47:50 [DEBUG] [DEBUG] Submitting image 9/11 — label: TWIST, stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist
+2026-04-03 13:47:50 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist, model: fal-ai/nano-banana-pro, prompt chars: 749
+2026-04-03 13:47:50 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist, model: fal-ai/nano-banana-pro, prompt chars: 749
+2026-04-03 13:47:50 [DEBUG] [DEBUG] Prompt preview: A single small geometric human figure standing at the absolute center of a vast radial system viewed from above, with hu...
+2026-04-03 13:47:50 [DEBUG] [DEBUG] Prompt preview: A single small geometric human figure standing at the absolute center of a vast radial system viewed from above, with hu...
+2026-04-03 13:47:50 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-03 13:47:50 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-03 13:47:50 [INFO] fal.ai job submitted — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist
+2026-04-03 13:47:50 [INFO] fal.ai job submitted — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist
+2026-04-03 13:47:50 [DEBUG] [DEBUG] Handler request_id: 019d532b-c5ad-7403-bc16-9884d932b261
+2026-04-03 13:47:50 [DEBUG] [DEBUG] Handler request_id: 019d532b-c5ad-7403-bc16-9884d932b261
+2026-04-03 13:47:50 [DEBUG] [DEBUG] Submit 9 OK — handler acquired
+2026-04-03 13:47:50 [DEBUG] [DEBUG] Submit 9 OK — handler acquired
+2026-04-03 13:47:50 [DEBUG] [DEBUG] Sleeping 5s before next submission (10/11)
+2026-04-03 13:47:50 [DEBUG] [DEBUG] Sleeping 5s before next submission (10/11)
+2026-04-03 13:47:55 [DEBUG] [DEBUG] Submitting image 10/11 — label: CTA, stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta
+2026-04-03 13:47:55 [DEBUG] [DEBUG] Submitting image 10/11 — label: CTA, stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta
+2026-04-03 13:47:55 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta, model: fal-ai/nano-banana-pro, prompt chars: 757
+2026-04-03 13:47:55 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta, model: fal-ai/nano-banana-pro, prompt chars: 757
+2026-04-03 13:47:55 [DEBUG] [DEBUG] Prompt preview: A frame split vertically into two halves by a sharp geometric dividing line. Left half shows frozen static nodes in rigi...
+2026-04-03 13:47:55 [DEBUG] [DEBUG] Prompt preview: A frame split vertically into two halves by a sharp geometric dividing line. Left half shows frozen static nodes in rigi...
+2026-04-03 13:47:55 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-03 13:47:55 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-03 13:47:56 [INFO] fal.ai job submitted — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta
+2026-04-03 13:47:56 [INFO] fal.ai job submitted — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta
+2026-04-03 13:47:56 [DEBUG] [DEBUG] Handler request_id: 019d532b-d9db-7040-a7ef-e8e8eebfccb1
+2026-04-03 13:47:56 [DEBUG] [DEBUG] Handler request_id: 019d532b-d9db-7040-a7ef-e8e8eebfccb1
+2026-04-03 13:47:56 [DEBUG] [DEBUG] Submit 10 OK — handler acquired
+2026-04-03 13:47:56 [DEBUG] [DEBUG] Submit 10 OK — handler acquired
+2026-04-03 13:47:56 [DEBUG] [DEBUG] Sleeping 5s before next submission (11/11)
+2026-04-03 13:47:56 [DEBUG] [DEBUG] Sleeping 5s before next submission (11/11)
+2026-04-03 13:48:01 [DEBUG] [DEBUG] Submitting image 11/11 — label: CTA, stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta
+2026-04-03 13:48:01 [DEBUG] [DEBUG] Submitting image 11/11 — label: CTA, stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta
+2026-04-03 13:48:01 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta, model: fal-ai/nano-banana-pro, prompt chars: 702
+2026-04-03 13:48:01 [DEBUG] [DEBUG] fal.ai submit — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta, model: fal-ai/nano-banana-pro, prompt chars: 702
+2026-04-03 13:48:01 [DEBUG] [DEBUG] Prompt preview: A clean minimal geometric composition with a bold forward-pointing arrow icon constructed from precise geometric shapes ...
+2026-04-03 13:48:01 [DEBUG] [DEBUG] Prompt preview: A clean minimal geometric composition with a bold forward-pointing arrow icon constructed from precise geometric shapes ...
+2026-04-03 13:48:01 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-03 13:48:01 [DEBUG] [DEBUG] Params — aspect_ratio: 9:16, output_format: png, resolution: 4K, num_images: 1
+2026-04-03 13:48:01 [INFO] fal.ai job submitted — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta
+2026-04-03 13:48:01 [INFO] fal.ai job submitted — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta
+2026-04-03 13:48:01 [DEBUG] [DEBUG] Handler request_id: 019d532b-ee06-7622-b014-4c5b7eb379bd
+2026-04-03 13:48:01 [DEBUG] [DEBUG] Handler request_id: 019d532b-ee06-7622-b014-4c5b7eb379bd
+2026-04-03 13:48:01 [DEBUG] [DEBUG] Submit 11 OK — handler acquired
+2026-04-03 13:48:01 [DEBUG] [DEBUG] Submit 11 OK — handler acquired
+2026-04-03 13:48:01 [INFO] All 11 jobs submitted — now collecting results
+2026-04-03 13:48:01 [INFO] All 11 jobs submitted — now collecting results
+2026-04-03 13:48:01 [DEBUG] [DEBUG] Collecting image 1/11 — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook
+2026-04-03 13:48:01 [DEBUG] [DEBUG] Collecting image 1/11 — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook
+2026-04-03 13:48:01 [DEBUG] [DEBUG] Collecting result for: algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook (blocking until ready)
+2026-04-03 13:48:01 [DEBUG] [DEBUG] Collecting result for: algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook (blocking until ready)
+2026-04-03 13:48:09 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-03 13:48:09 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-03 13:48:09 [DEBUG] [DEBUG] Images in result: 1
+2026-04-03 13:48:09 [DEBUG] [DEBUG] Images in result: 1
+2026-04-03 13:48:09 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94c412/oDg6Vn1NO9tW8Rof8ZrUG_gl3x4d1x.jpg', 'content_type': 'image/jpeg', 'file_name': 'oDg6Vn1NO9tW8Rof8ZrUG_gl3x4d1x.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-03 13:48:09 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94c412/oDg6Vn1NO9tW8Rof8ZrUG_gl3x4d1x.jpg', 'content_type': 'image/jpeg', 'file_name': 'oDg6Vn1NO9tW8Rof8ZrUG_gl3x4d1x.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-03 13:48:09 [INFO] fal.ai image ready — algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94c412/oDg6Vn1NO9tW8Rof8ZrUG_gl3x4d1x.jpg
+2026-04-03 13:48:09 [INFO] fal.ai image ready — algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94c412/oDg6Vn1NO9tW8Rof8ZrUG_gl3x4d1x.jpg
+2026-04-03 13:48:09 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook.jpg
+2026-04-03 13:48:09 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook.jpg
+2026-04-03 13:48:14 [DEBUG] [DEBUG] Downloaded 2469 KB
+2026-04-03 13:48:14 [DEBUG] [DEBUG] Downloaded 2469 KB
+2026-04-03 13:48:14 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-03 13:48:14 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-03 13:48:14 [DEBUG] [DEBUG] Final saved: 2469 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook.jpg
+2026-04-03 13:48:14 [DEBUG] [DEBUG] Final saved: 2469 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook.jpg
+2026-04-03 13:48:14 [INFO] Image saved locally: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook.jpg (2469 KB)
+2026-04-03 13:48:14 [INFO] Image saved locally: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook.jpg (2469 KB)
+2026-04-03 13:48:14 [DEBUG] [DEBUG] Collect 1 result — url: https://v3b.fal.media/files/b/0a94c412/oDg6Vn1NO9tW8Rof8ZrUG_gl3x4d1x.jpg, path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook.jpg
+2026-04-03 13:48:14 [DEBUG] [DEBUG] Collect 1 result — url: https://v3b.fal.media/files/b/0a94c412/oDg6Vn1NO9tW8Rof8ZrUG_gl3x4d1x.jpg, path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook.jpg
+2026-04-03 13:48:14 [DEBUG] [DEBUG] Collecting image 2/11 — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook
+2026-04-03 13:48:14 [DEBUG] [DEBUG] Collecting image 2/11 — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook
+2026-04-03 13:48:14 [DEBUG] [DEBUG] Collecting result for: algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook (blocking until ready)
+2026-04-03 13:48:14 [DEBUG] [DEBUG] Collecting result for: algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook (blocking until ready)
+2026-04-03 13:48:14 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-03 13:48:14 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-03 13:48:14 [DEBUG] [DEBUG] Images in result: 1
+2026-04-03 13:48:14 [DEBUG] [DEBUG] Images in result: 1
+2026-04-03 13:48:14 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94c413/QxEhr_ua2EJfF8qZP66RI_PcyKA5S1.jpg', 'content_type': 'image/jpeg', 'file_name': 'QxEhr_ua2EJfF8qZP66RI_PcyKA5S1.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-03 13:48:14 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94c413/QxEhr_ua2EJfF8qZP66RI_PcyKA5S1.jpg', 'content_type': 'image/jpeg', 'file_name': 'QxEhr_ua2EJfF8qZP66RI_PcyKA5S1.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-03 13:48:14 [INFO] fal.ai image ready — algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94c413/QxEhr_ua2EJfF8qZP66RI_PcyKA5S1.jpg
+2026-04-03 13:48:14 [INFO] fal.ai image ready — algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94c413/QxEhr_ua2EJfF8qZP66RI_PcyKA5S1.jpg
+2026-04-03 13:48:14 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook.jpg
+2026-04-03 13:48:14 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook.jpg
+2026-04-03 13:48:17 [DEBUG] [DEBUG] Downloaded 3222 KB
+2026-04-03 13:48:17 [DEBUG] [DEBUG] Downloaded 3222 KB
+2026-04-03 13:48:17 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-03 13:48:17 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-03 13:48:17 [DEBUG] [DEBUG] Final saved: 3222 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook.jpg
+2026-04-03 13:48:17 [DEBUG] [DEBUG] Final saved: 3222 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook.jpg
+2026-04-03 13:48:17 [INFO] Image saved locally: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook.jpg (3222 KB)
+2026-04-03 13:48:17 [INFO] Image saved locally: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook.jpg (3222 KB)
+2026-04-03 13:48:17 [DEBUG] [DEBUG] Collect 2 result — url: https://v3b.fal.media/files/b/0a94c413/QxEhr_ua2EJfF8qZP66RI_PcyKA5S1.jpg, path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook.jpg
+2026-04-03 13:48:17 [DEBUG] [DEBUG] Collect 2 result — url: https://v3b.fal.media/files/b/0a94c413/QxEhr_ua2EJfF8qZP66RI_PcyKA5S1.jpg, path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook.jpg
+2026-04-03 13:48:17 [DEBUG] [DEBUG] Collecting image 3/11 — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context
+2026-04-03 13:48:17 [DEBUG] [DEBUG] Collecting image 3/11 — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context
+2026-04-03 13:48:17 [DEBUG] [DEBUG] Collecting result for: algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context (blocking until ready)
+2026-04-03 13:48:17 [DEBUG] [DEBUG] Collecting result for: algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context (blocking until ready)
+2026-04-03 13:48:17 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-03 13:48:17 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-03 13:48:17 [DEBUG] [DEBUG] Images in result: 1
+2026-04-03 13:48:17 [DEBUG] [DEBUG] Images in result: 1
+2026-04-03 13:48:17 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94c413/kEZAupAbZnLjsQ97JZhw__JOCEDxL6.jpg', 'content_type': 'image/jpeg', 'file_name': 'kEZAupAbZnLjsQ97JZhw__JOCEDxL6.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-03 13:48:17 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94c413/kEZAupAbZnLjsQ97JZhw__JOCEDxL6.jpg', 'content_type': 'image/jpeg', 'file_name': 'kEZAupAbZnLjsQ97JZhw__JOCEDxL6.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-03 13:48:17 [INFO] fal.ai image ready — algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94c413/kEZAupAbZnLjsQ97JZhw__JOCEDxL6.jpg
+2026-04-03 13:48:17 [INFO] fal.ai image ready — algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94c413/kEZAupAbZnLjsQ97JZhw__JOCEDxL6.jpg
+2026-04-03 13:48:17 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context.jpg
+2026-04-03 13:48:17 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context.jpg
+2026-04-03 13:48:21 [DEBUG] [DEBUG] Downloaded 2303 KB
+2026-04-03 13:48:21 [DEBUG] [DEBUG] Downloaded 2303 KB
+2026-04-03 13:48:21 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-03 13:48:21 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-03 13:48:21 [DEBUG] [DEBUG] Final saved: 2303 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context.jpg
+2026-04-03 13:48:21 [DEBUG] [DEBUG] Final saved: 2303 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context.jpg
+2026-04-03 13:48:21 [INFO] Image saved locally: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context.jpg (2303 KB)
+2026-04-03 13:48:21 [INFO] Image saved locally: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context.jpg (2303 KB)
+2026-04-03 13:48:21 [DEBUG] [DEBUG] Collect 3 result — url: https://v3b.fal.media/files/b/0a94c413/kEZAupAbZnLjsQ97JZhw__JOCEDxL6.jpg, path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context.jpg
+2026-04-03 13:48:21 [DEBUG] [DEBUG] Collect 3 result — url: https://v3b.fal.media/files/b/0a94c413/kEZAupAbZnLjsQ97JZhw__JOCEDxL6.jpg, path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context.jpg
+2026-04-03 13:48:21 [DEBUG] [DEBUG] Collecting image 4/11 — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context
+2026-04-03 13:48:21 [DEBUG] [DEBUG] Collecting image 4/11 — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context
+2026-04-03 13:48:21 [DEBUG] [DEBUG] Collecting result for: algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context (blocking until ready)
+2026-04-03 13:48:21 [DEBUG] [DEBUG] Collecting result for: algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context (blocking until ready)
+2026-04-03 13:48:24 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-03 13:48:24 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-03 13:48:24 [DEBUG] [DEBUG] Images in result: 1
+2026-04-03 13:48:24 [DEBUG] [DEBUG] Images in result: 1
+2026-04-03 13:48:24 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94c414/mKBj2e2O4VG4P-ZP91RYv_Mxd5MpqY.jpg', 'content_type': 'image/jpeg', 'file_name': 'mKBj2e2O4VG4P-ZP91RYv_Mxd5MpqY.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-03 13:48:24 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94c414/mKBj2e2O4VG4P-ZP91RYv_Mxd5MpqY.jpg', 'content_type': 'image/jpeg', 'file_name': 'mKBj2e2O4VG4P-ZP91RYv_Mxd5MpqY.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-03 13:48:24 [INFO] fal.ai image ready — algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94c414/mKBj2e2O4VG4P-ZP91RYv_Mxd5MpqY.jpg
+2026-04-03 13:48:24 [INFO] fal.ai image ready — algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94c414/mKBj2e2O4VG4P-ZP91RYv_Mxd5MpqY.jpg
+2026-04-03 13:48:24 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context.jpg
+2026-04-03 13:48:24 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context.jpg
+2026-04-03 13:48:28 [DEBUG] [DEBUG] Downloaded 2660 KB
+2026-04-03 13:48:28 [DEBUG] [DEBUG] Downloaded 2660 KB
+2026-04-03 13:48:28 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-03 13:48:28 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-03 13:48:28 [DEBUG] [DEBUG] Final saved: 2660 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context.jpg
+2026-04-03 13:48:28 [DEBUG] [DEBUG] Final saved: 2660 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context.jpg
+2026-04-03 13:48:28 [INFO] Image saved locally: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context.jpg (2660 KB)
+2026-04-03 13:48:28 [INFO] Image saved locally: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context.jpg (2660 KB)
+2026-04-03 13:48:28 [DEBUG] [DEBUG] Collect 4 result — url: https://v3b.fal.media/files/b/0a94c414/mKBj2e2O4VG4P-ZP91RYv_Mxd5MpqY.jpg, path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context.jpg
+2026-04-03 13:48:28 [DEBUG] [DEBUG] Collect 4 result — url: https://v3b.fal.media/files/b/0a94c414/mKBj2e2O4VG4P-ZP91RYv_Mxd5MpqY.jpg, path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context.jpg
+2026-04-03 13:48:28 [DEBUG] [DEBUG] Collecting image 5/11 — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build
+2026-04-03 13:48:28 [DEBUG] [DEBUG] Collecting image 5/11 — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build
+2026-04-03 13:48:28 [DEBUG] [DEBUG] Collecting result for: algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build (blocking until ready)
+2026-04-03 13:48:28 [DEBUG] [DEBUG] Collecting result for: algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build (blocking until ready)
+2026-04-03 13:48:33 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-03 13:48:33 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-03 13:48:33 [DEBUG] [DEBUG] Images in result: 1
+2026-04-03 13:48:33 [DEBUG] [DEBUG] Images in result: 1
+2026-04-03 13:48:33 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94c415/ymgTNPCOjM7Uv270bGNRa_CANTrImK.jpg', 'content_type': 'image/jpeg', 'file_name': 'ymgTNPCOjM7Uv270bGNRa_CANTrImK.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-03 13:48:33 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94c415/ymgTNPCOjM7Uv270bGNRa_CANTrImK.jpg', 'content_type': 'image/jpeg', 'file_name': 'ymgTNPCOjM7Uv270bGNRa_CANTrImK.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-03 13:48:33 [INFO] fal.ai image ready — algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94c415/ymgTNPCOjM7Uv270bGNRa_CANTrImK.jpg
+2026-04-03 13:48:33 [INFO] fal.ai image ready — algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94c415/ymgTNPCOjM7Uv270bGNRa_CANTrImK.jpg
+2026-04-03 13:48:33 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build.jpg
+2026-04-03 13:48:33 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build.jpg
+2026-04-03 13:48:37 [DEBUG] [DEBUG] Downloaded 3216 KB
+2026-04-03 13:48:37 [DEBUG] [DEBUG] Downloaded 3216 KB
+2026-04-03 13:48:37 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-03 13:48:37 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-03 13:48:37 [DEBUG] [DEBUG] Final saved: 3216 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build.jpg
+2026-04-03 13:48:37 [DEBUG] [DEBUG] Final saved: 3216 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build.jpg
+2026-04-03 13:48:37 [INFO] Image saved locally: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build.jpg (3216 KB)
+2026-04-03 13:48:37 [INFO] Image saved locally: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build.jpg (3216 KB)
+2026-04-03 13:48:37 [DEBUG] [DEBUG] Collect 5 result — url: https://v3b.fal.media/files/b/0a94c415/ymgTNPCOjM7Uv270bGNRa_CANTrImK.jpg, path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build.jpg
+2026-04-03 13:48:37 [DEBUG] [DEBUG] Collect 5 result — url: https://v3b.fal.media/files/b/0a94c415/ymgTNPCOjM7Uv270bGNRa_CANTrImK.jpg, path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build.jpg
+2026-04-03 13:48:37 [DEBUG] [DEBUG] Collecting image 6/11 — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build
+2026-04-03 13:48:37 [DEBUG] [DEBUG] Collecting image 6/11 — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build
+2026-04-03 13:48:37 [DEBUG] [DEBUG] Collecting result for: algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build (blocking until ready)
+2026-04-03 13:48:37 [DEBUG] [DEBUG] Collecting result for: algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build (blocking until ready)
+2026-04-03 13:48:43 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-03 13:48:43 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-03 13:48:43 [DEBUG] [DEBUG] Images in result: 1
+2026-04-03 13:48:43 [DEBUG] [DEBUG] Images in result: 1
+2026-04-03 13:48:43 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94c415/7pqwagJCpLyuZZYpf9rN7_yg6LycUG.jpg', 'content_type': 'image/jpeg', 'file_name': '7pqwagJCpLyuZZYpf9rN7_yg6LycUG.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-03 13:48:43 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94c415/7pqwagJCpLyuZZYpf9rN7_yg6LycUG.jpg', 'content_type': 'image/jpeg', 'file_name': '7pqwagJCpLyuZZYpf9rN7_yg6LycUG.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-03 13:48:43 [INFO] fal.ai image ready — algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94c415/7pqwagJCpLyuZZYpf9rN7_yg6LycUG.jpg
+2026-04-03 13:48:43 [INFO] fal.ai image ready — algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94c415/7pqwagJCpLyuZZYpf9rN7_yg6LycUG.jpg
+2026-04-03 13:48:43 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build.jpg
+2026-04-03 13:48:43 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build.jpg
+2026-04-03 13:48:46 [DEBUG] [DEBUG] Downloaded 2771 KB
+2026-04-03 13:48:46 [DEBUG] [DEBUG] Downloaded 2771 KB
+2026-04-03 13:48:46 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-03 13:48:46 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-03 13:48:46 [DEBUG] [DEBUG] Final saved: 2771 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build.jpg
+2026-04-03 13:48:46 [DEBUG] [DEBUG] Final saved: 2771 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build.jpg
+2026-04-03 13:48:46 [INFO] Image saved locally: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build.jpg (2771 KB)
+2026-04-03 13:48:46 [INFO] Image saved locally: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build.jpg (2771 KB)
+2026-04-03 13:48:46 [DEBUG] [DEBUG] Collect 6 result — url: https://v3b.fal.media/files/b/0a94c415/7pqwagJCpLyuZZYpf9rN7_yg6LycUG.jpg, path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build.jpg
+2026-04-03 13:48:46 [DEBUG] [DEBUG] Collect 6 result — url: https://v3b.fal.media/files/b/0a94c415/7pqwagJCpLyuZZYpf9rN7_yg6LycUG.jpg, path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build.jpg
+2026-04-03 13:48:46 [DEBUG] [DEBUG] Collecting image 7/11 — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build
+2026-04-03 13:48:46 [DEBUG] [DEBUG] Collecting image 7/11 — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build
+2026-04-03 13:48:46 [DEBUG] [DEBUG] Collecting result for: algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build (blocking until ready)
+2026-04-03 13:48:46 [DEBUG] [DEBUG] Collecting result for: algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build (blocking until ready)
+2026-04-03 13:48:46 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-03 13:48:46 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-03 13:48:46 [DEBUG] [DEBUG] Images in result: 1
+2026-04-03 13:48:46 [DEBUG] [DEBUG] Images in result: 1
+2026-04-03 13:48:46 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94c416/7Y5wCDRk5O7D42f1NvQ4__KtUqK4zc.jpg', 'content_type': 'image/jpeg', 'file_name': '7Y5wCDRk5O7D42f1NvQ4__KtUqK4zc.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-03 13:48:46 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94c416/7Y5wCDRk5O7D42f1NvQ4__KtUqK4zc.jpg', 'content_type': 'image/jpeg', 'file_name': '7Y5wCDRk5O7D42f1NvQ4__KtUqK4zc.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-03 13:48:46 [INFO] fal.ai image ready — algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94c416/7Y5wCDRk5O7D42f1NvQ4__KtUqK4zc.jpg
+2026-04-03 13:48:46 [INFO] fal.ai image ready — algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94c416/7Y5wCDRk5O7D42f1NvQ4__KtUqK4zc.jpg
+2026-04-03 13:48:46 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build.jpg
+2026-04-03 13:48:46 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build.jpg
+2026-04-03 13:48:49 [DEBUG] [DEBUG] Downloaded 1776 KB
+2026-04-03 13:48:49 [DEBUG] [DEBUG] Downloaded 1776 KB
+2026-04-03 13:48:49 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-03 13:48:49 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-03 13:48:49 [DEBUG] [DEBUG] Final saved: 1776 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build.jpg
+2026-04-03 13:48:49 [DEBUG] [DEBUG] Final saved: 1776 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build.jpg
+2026-04-03 13:48:49 [INFO] Image saved locally: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build.jpg (1776 KB)
+2026-04-03 13:48:49 [INFO] Image saved locally: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build.jpg (1776 KB)
+2026-04-03 13:48:49 [DEBUG] [DEBUG] Collect 7 result — url: https://v3b.fal.media/files/b/0a94c416/7Y5wCDRk5O7D42f1NvQ4__KtUqK4zc.jpg, path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build.jpg
+2026-04-03 13:48:49 [DEBUG] [DEBUG] Collect 7 result — url: https://v3b.fal.media/files/b/0a94c416/7Y5wCDRk5O7D42f1NvQ4__KtUqK4zc.jpg, path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build.jpg
+2026-04-03 13:48:49 [DEBUG] [DEBUG] Collecting image 8/11 — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist
+2026-04-03 13:48:49 [DEBUG] [DEBUG] Collecting image 8/11 — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist
+2026-04-03 13:48:49 [DEBUG] [DEBUG] Collecting result for: algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist (blocking until ready)
+2026-04-03 13:48:49 [DEBUG] [DEBUG] Collecting result for: algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist (blocking until ready)
+2026-04-03 13:48:49 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-03 13:48:49 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-03 13:48:49 [DEBUG] [DEBUG] Images in result: 1
+2026-04-03 13:48:49 [DEBUG] [DEBUG] Images in result: 1
+2026-04-03 13:48:49 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94c416/QoH9sUSzdIUvHpmJw3vzX_JUcJc5L2.jpg', 'content_type': 'image/jpeg', 'file_name': 'QoH9sUSzdIUvHpmJw3vzX_JUcJc5L2.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-03 13:48:49 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94c416/QoH9sUSzdIUvHpmJw3vzX_JUcJc5L2.jpg', 'content_type': 'image/jpeg', 'file_name': 'QoH9sUSzdIUvHpmJw3vzX_JUcJc5L2.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-03 13:48:49 [INFO] fal.ai image ready — algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94c416/QoH9sUSzdIUvHpmJw3vzX_JUcJc5L2.jpg
+2026-04-03 13:48:49 [INFO] fal.ai image ready — algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94c416/QoH9sUSzdIUvHpmJw3vzX_JUcJc5L2.jpg
+2026-04-03 13:48:49 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist.jpg
+2026-04-03 13:48:49 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist.jpg
+2026-04-03 13:48:52 [DEBUG] [DEBUG] Downloaded 3117 KB
+2026-04-03 13:48:52 [DEBUG] [DEBUG] Downloaded 3117 KB
+2026-04-03 13:48:52 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-03 13:48:52 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-03 13:48:52 [DEBUG] [DEBUG] Final saved: 3117 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist.jpg
+2026-04-03 13:48:52 [DEBUG] [DEBUG] Final saved: 3117 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist.jpg
+2026-04-03 13:48:52 [INFO] Image saved locally: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist.jpg (3117 KB)
+2026-04-03 13:48:52 [INFO] Image saved locally: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist.jpg (3117 KB)
+2026-04-03 13:48:52 [DEBUG] [DEBUG] Collect 8 result — url: https://v3b.fal.media/files/b/0a94c416/QoH9sUSzdIUvHpmJw3vzX_JUcJc5L2.jpg, path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist.jpg
+2026-04-03 13:48:52 [DEBUG] [DEBUG] Collect 8 result — url: https://v3b.fal.media/files/b/0a94c416/QoH9sUSzdIUvHpmJw3vzX_JUcJc5L2.jpg, path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist.jpg
+2026-04-03 13:48:52 [DEBUG] [DEBUG] Collecting image 9/11 — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist
+2026-04-03 13:48:52 [DEBUG] [DEBUG] Collecting image 9/11 — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist
+2026-04-03 13:48:52 [DEBUG] [DEBUG] Collecting result for: algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist (blocking until ready)
+2026-04-03 13:48:52 [DEBUG] [DEBUG] Collecting result for: algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist (blocking until ready)
+2026-04-03 13:48:53 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-03 13:48:53 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-03 13:48:53 [DEBUG] [DEBUG] Images in result: 1
+2026-04-03 13:48:53 [DEBUG] [DEBUG] Images in result: 1
+2026-04-03 13:48:53 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94c417/1yaRy4dUHSm2QSc_3d-cG_M0KR9Qh0.jpg', 'content_type': 'image/jpeg', 'file_name': '1yaRy4dUHSm2QSc_3d-cG_M0KR9Qh0.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-03 13:48:53 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94c417/1yaRy4dUHSm2QSc_3d-cG_M0KR9Qh0.jpg', 'content_type': 'image/jpeg', 'file_name': '1yaRy4dUHSm2QSc_3d-cG_M0KR9Qh0.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-03 13:48:53 [INFO] fal.ai image ready — algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94c417/1yaRy4dUHSm2QSc_3d-cG_M0KR9Qh0.jpg
+2026-04-03 13:48:53 [INFO] fal.ai image ready — algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94c417/1yaRy4dUHSm2QSc_3d-cG_M0KR9Qh0.jpg
+2026-04-03 13:48:53 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist.jpg
+2026-04-03 13:48:53 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist.jpg
+2026-04-03 13:48:56 [DEBUG] [DEBUG] Downloaded 3482 KB
+2026-04-03 13:48:56 [DEBUG] [DEBUG] Downloaded 3482 KB
+2026-04-03 13:48:56 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-03 13:48:56 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-03 13:48:56 [DEBUG] [DEBUG] Final saved: 3482 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist.jpg
+2026-04-03 13:48:56 [DEBUG] [DEBUG] Final saved: 3482 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist.jpg
+2026-04-03 13:48:56 [INFO] Image saved locally: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist.jpg (3482 KB)
+2026-04-03 13:48:56 [INFO] Image saved locally: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist.jpg (3482 KB)
+2026-04-03 13:48:56 [DEBUG] [DEBUG] Collect 9 result — url: https://v3b.fal.media/files/b/0a94c417/1yaRy4dUHSm2QSc_3d-cG_M0KR9Qh0.jpg, path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist.jpg
+2026-04-03 13:48:56 [DEBUG] [DEBUG] Collect 9 result — url: https://v3b.fal.media/files/b/0a94c417/1yaRy4dUHSm2QSc_3d-cG_M0KR9Qh0.jpg, path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist.jpg
+2026-04-03 13:48:56 [DEBUG] [DEBUG] Collecting image 10/11 — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta
+2026-04-03 13:48:56 [DEBUG] [DEBUG] Collecting image 10/11 — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta
+2026-04-03 13:48:56 [DEBUG] [DEBUG] Collecting result for: algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta (blocking until ready)
+2026-04-03 13:48:56 [DEBUG] [DEBUG] Collecting result for: algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta (blocking until ready)
+2026-04-03 13:48:56 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-03 13:48:56 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-03 13:48:56 [DEBUG] [DEBUG] Images in result: 1
+2026-04-03 13:48:56 [DEBUG] [DEBUG] Images in result: 1
+2026-04-03 13:48:56 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94c417/PXj1FL_SdbI__aKSK8KfO_WMNwQG1v.jpg', 'content_type': 'image/jpeg', 'file_name': 'PXj1FL_SdbI__aKSK8KfO_WMNwQG1v.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-03 13:48:56 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94c417/PXj1FL_SdbI__aKSK8KfO_WMNwQG1v.jpg', 'content_type': 'image/jpeg', 'file_name': 'PXj1FL_SdbI__aKSK8KfO_WMNwQG1v.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-03 13:48:56 [INFO] fal.ai image ready — algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94c417/PXj1FL_SdbI__aKSK8KfO_WMNwQG1v.jpg
+2026-04-03 13:48:56 [INFO] fal.ai image ready — algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94c417/PXj1FL_SdbI__aKSK8KfO_WMNwQG1v.jpg
+2026-04-03 13:48:56 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta.jpg
+2026-04-03 13:48:56 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta.jpg
+2026-04-03 13:49:09 [DEBUG] [DEBUG] Downloaded 2870 KB
+2026-04-03 13:49:09 [DEBUG] [DEBUG] Downloaded 2870 KB
+2026-04-03 13:49:09 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-03 13:49:09 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-03 13:49:09 [DEBUG] [DEBUG] Final saved: 2870 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta.jpg
+2026-04-03 13:49:09 [DEBUG] [DEBUG] Final saved: 2870 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta.jpg
+2026-04-03 13:49:09 [INFO] Image saved locally: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta.jpg (2870 KB)
+2026-04-03 13:49:09 [INFO] Image saved locally: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta.jpg (2870 KB)
+2026-04-03 13:49:09 [DEBUG] [DEBUG] Collect 10 result — url: https://v3b.fal.media/files/b/0a94c417/PXj1FL_SdbI__aKSK8KfO_WMNwQG1v.jpg, path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta.jpg
+2026-04-03 13:49:09 [DEBUG] [DEBUG] Collect 10 result — url: https://v3b.fal.media/files/b/0a94c417/PXj1FL_SdbI__aKSK8KfO_WMNwQG1v.jpg, path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta.jpg
+2026-04-03 13:49:09 [DEBUG] [DEBUG] Collecting image 11/11 — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta
+2026-04-03 13:49:09 [DEBUG] [DEBUG] Collecting image 11/11 — stem: algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta
+2026-04-03 13:49:09 [DEBUG] [DEBUG] Collecting result for: algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta (blocking until ready)
+2026-04-03 13:49:09 [DEBUG] [DEBUG] Collecting result for: algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta (blocking until ready)
+2026-04-03 13:49:18 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-03 13:49:18 [DEBUG] [DEBUG] fal.ai raw result keys: ['images', 'description']
+2026-04-03 13:49:18 [DEBUG] [DEBUG] Images in result: 1
+2026-04-03 13:49:18 [DEBUG] [DEBUG] Images in result: 1
+2026-04-03 13:49:18 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94c418/X0LEzGS_zKzK7XprDRGZd_yZ0P3QNG.jpg', 'content_type': 'image/jpeg', 'file_name': 'X0LEzGS_zKzK7XprDRGZd_yZ0P3QNG.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-03 13:49:18 [DEBUG] [DEBUG] Image metadata: {'url': 'https://v3b.fal.media/files/b/0a94c418/X0LEzGS_zKzK7XprDRGZd_yZ0P3QNG.jpg', 'content_type': 'image/jpeg', 'file_name': 'X0LEzGS_zKzK7XprDRGZd_yZ0P3QNG.jpg', 'file_size': None, 'width': 3072, 'height': 5504}
+2026-04-03 13:49:18 [INFO] fal.ai image ready — algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94c418/X0LEzGS_zKzK7XprDRGZd_yZ0P3QNG.jpg
+2026-04-03 13:49:18 [INFO] fal.ai image ready — algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta | 3072x5504 | URL: https://v3b.fal.media/files/b/0a94c418/X0LEzGS_zKzK7XprDRGZd_yZ0P3QNG.jpg
+2026-04-03 13:49:18 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta.jpg
+2026-04-03 13:49:18 [DEBUG] [DEBUG] Downloading JPEG to: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta.jpg
+2026-04-03 13:49:21 [DEBUG] [DEBUG] Downloaded 1553 KB
+2026-04-03 13:49:21 [DEBUG] [DEBUG] Downloaded 1553 KB
+2026-04-03 13:49:21 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-03 13:49:21 [DEBUG] [DEBUG] Under 10 MB — saved as-is
+2026-04-03 13:49:21 [DEBUG] [DEBUG] Final saved: 1553 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta.jpg
+2026-04-03 13:49:21 [DEBUG] [DEBUG] Final saved: 1553 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta.jpg
+2026-04-03 13:49:21 [INFO] Image saved locally: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta.jpg (1553 KB)
+2026-04-03 13:49:21 [INFO] Image saved locally: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta.jpg (1553 KB)
+2026-04-03 13:49:21 [DEBUG] [DEBUG] Collect 11 result — url: https://v3b.fal.media/files/b/0a94c418/X0LEzGS_zKzK7XprDRGZd_yZ0P3QNG.jpg, path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta.jpg
+2026-04-03 13:49:21 [DEBUG] [DEBUG] Collect 11 result — url: https://v3b.fal.media/files/b/0a94c418/X0LEzGS_zKzK7XprDRGZd_yZ0P3QNG.jpg, path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta.jpg
+2026-04-03 13:49:21 [INFO] Image generation complete — 11/11 succeeded
+2026-04-03 13:49:21 [INFO] Image generation complete — 11/11 succeeded
+2026-04-03 13:49:21 [DEBUG] [DEBUG] Final image summary:
+2026-04-03 13:49:21 [DEBUG] [DEBUG] Final image summary:
+2026-04-03 13:49:21 [DEBUG] [DEBUG]   [HOOK] url=https://v3b.fal.media/files/b/0a94c412/oDg6Vn1NO9tW8Rof8ZrUG_gl3x4d1x.jpg | path=generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook.jpg
+2026-04-03 13:49:21 [DEBUG] [DEBUG]   [HOOK] url=https://v3b.fal.media/files/b/0a94c412/oDg6Vn1NO9tW8Rof8ZrUG_gl3x4d1x.jpg | path=generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook.jpg
+2026-04-03 13:49:21 [DEBUG] [DEBUG]   [HOOK] url=https://v3b.fal.media/files/b/0a94c413/QxEhr_ua2EJfF8qZP66RI_PcyKA5S1.jpg | path=generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook.jpg
+2026-04-03 13:49:21 [DEBUG] [DEBUG]   [HOOK] url=https://v3b.fal.media/files/b/0a94c413/QxEhr_ua2EJfF8qZP66RI_PcyKA5S1.jpg | path=generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook.jpg
+2026-04-03 13:49:21 [DEBUG] [DEBUG]   [CONTEXT] url=https://v3b.fal.media/files/b/0a94c413/kEZAupAbZnLjsQ97JZhw__JOCEDxL6.jpg | path=generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context.jpg
+2026-04-03 13:49:21 [DEBUG] [DEBUG]   [CONTEXT] url=https://v3b.fal.media/files/b/0a94c413/kEZAupAbZnLjsQ97JZhw__JOCEDxL6.jpg | path=generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context.jpg
+2026-04-03 13:49:21 [DEBUG] [DEBUG]   [CONTEXT] url=https://v3b.fal.media/files/b/0a94c414/mKBj2e2O4VG4P-ZP91RYv_Mxd5MpqY.jpg | path=generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context.jpg
+2026-04-03 13:49:21 [DEBUG] [DEBUG]   [CONTEXT] url=https://v3b.fal.media/files/b/0a94c414/mKBj2e2O4VG4P-ZP91RYv_Mxd5MpqY.jpg | path=generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context.jpg
+2026-04-03 13:49:21 [DEBUG] [DEBUG]   [BUILD] url=https://v3b.fal.media/files/b/0a94c415/ymgTNPCOjM7Uv270bGNRa_CANTrImK.jpg | path=generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build.jpg
+2026-04-03 13:49:21 [DEBUG] [DEBUG]   [BUILD] url=https://v3b.fal.media/files/b/0a94c415/ymgTNPCOjM7Uv270bGNRa_CANTrImK.jpg | path=generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build.jpg
+2026-04-03 13:49:21 [DEBUG] [DEBUG]   [BUILD] url=https://v3b.fal.media/files/b/0a94c415/7pqwagJCpLyuZZYpf9rN7_yg6LycUG.jpg | path=generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build.jpg
+2026-04-03 13:49:21 [DEBUG] [DEBUG]   [BUILD] url=https://v3b.fal.media/files/b/0a94c415/7pqwagJCpLyuZZYpf9rN7_yg6LycUG.jpg | path=generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build.jpg
+2026-04-03 13:49:21 [DEBUG] [DEBUG]   [BUILD] url=https://v3b.fal.media/files/b/0a94c416/7Y5wCDRk5O7D42f1NvQ4__KtUqK4zc.jpg | path=generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build.jpg
+2026-04-03 13:49:21 [DEBUG] [DEBUG]   [BUILD] url=https://v3b.fal.media/files/b/0a94c416/7Y5wCDRk5O7D42f1NvQ4__KtUqK4zc.jpg | path=generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build.jpg
+2026-04-03 13:49:21 [DEBUG] [DEBUG]   [TWIST] url=https://v3b.fal.media/files/b/0a94c416/QoH9sUSzdIUvHpmJw3vzX_JUcJc5L2.jpg | path=generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist.jpg
+2026-04-03 13:49:21 [DEBUG] [DEBUG]   [TWIST] url=https://v3b.fal.media/files/b/0a94c416/QoH9sUSzdIUvHpmJw3vzX_JUcJc5L2.jpg | path=generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist.jpg
+2026-04-03 13:49:21 [DEBUG] [DEBUG]   [TWIST] url=https://v3b.fal.media/files/b/0a94c417/1yaRy4dUHSm2QSc_3d-cG_M0KR9Qh0.jpg | path=generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist.jpg
+2026-04-03 13:49:21 [DEBUG] [DEBUG]   [TWIST] url=https://v3b.fal.media/files/b/0a94c417/1yaRy4dUHSm2QSc_3d-cG_M0KR9Qh0.jpg | path=generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist.jpg
+2026-04-03 13:49:21 [DEBUG] [DEBUG]   [CTA] url=https://v3b.fal.media/files/b/0a94c417/PXj1FL_SdbI__aKSK8KfO_WMNwQG1v.jpg | path=generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta.jpg
+2026-04-03 13:49:21 [DEBUG] [DEBUG]   [CTA] url=https://v3b.fal.media/files/b/0a94c417/PXj1FL_SdbI__aKSK8KfO_WMNwQG1v.jpg | path=generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta.jpg
+2026-04-03 13:49:21 [DEBUG] [DEBUG]   [CTA] url=https://v3b.fal.media/files/b/0a94c418/X0LEzGS_zKzK7XprDRGZd_yZ0P3QNG.jpg | path=generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta.jpg
+2026-04-03 13:49:21 [DEBUG] [DEBUG]   [CTA] url=https://v3b.fal.media/files/b/0a94c418/X0LEzGS_zKzK7XprDRGZd_yZ0P3QNG.jpg | path=generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta.jpg
+2026-04-03 13:49:21 [INFO] --- Image collection summary (Algorithmic) ---
+2026-04-03 13:49:21 [INFO] --- Image collection summary (Algorithmic) ---
+2026-04-03 13:49:21 [INFO]   [HOOK] OK — 2469 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook.jpg
+2026-04-03 13:49:21 [INFO]   [HOOK] OK — 2469 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook.jpg
+2026-04-03 13:49:21 [INFO]   [HOOK] OK — 3222 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook.jpg
+2026-04-03 13:49:21 [INFO]   [HOOK] OK — 3222 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook.jpg
+2026-04-03 13:49:21 [INFO]   [CONTEXT] OK — 2303 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context.jpg
+2026-04-03 13:49:21 [INFO]   [CONTEXT] OK — 2303 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context.jpg
+2026-04-03 13:49:21 [INFO]   [CONTEXT] OK — 2660 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context.jpg
+2026-04-03 13:49:21 [INFO]   [CONTEXT] OK — 2660 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context.jpg
+2026-04-03 13:49:21 [INFO]   [BUILD] OK — 3216 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build.jpg
+2026-04-03 13:49:21 [INFO]   [BUILD] OK — 3216 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build.jpg
+2026-04-03 13:49:21 [INFO]   [BUILD] OK — 2771 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build.jpg
+2026-04-03 13:49:21 [INFO]   [BUILD] OK — 2771 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build.jpg
+2026-04-03 13:49:21 [INFO]   [BUILD] OK — 1776 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build.jpg
+2026-04-03 13:49:21 [INFO]   [BUILD] OK — 1776 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build.jpg
+2026-04-03 13:49:21 [INFO]   [TWIST] OK — 3117 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist.jpg
+2026-04-03 13:49:21 [INFO]   [TWIST] OK — 3117 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist.jpg
+2026-04-03 13:49:21 [INFO]   [TWIST] OK — 3482 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist.jpg
+2026-04-03 13:49:21 [INFO]   [TWIST] OK — 3482 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist.jpg
+2026-04-03 13:49:21 [INFO]   [CTA] OK — 2870 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta.jpg
+2026-04-03 13:49:21 [INFO]   [CTA] OK — 2870 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta.jpg
+2026-04-03 13:49:21 [INFO]   [CTA] OK — 1553 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta.jpg
+2026-04-03 13:49:21 [INFO]   [CTA] OK — 1553 KB at generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta.jpg
+2026-04-03 13:49:21 [INFO] --- End image collection summary (Algorithmic) ---
+2026-04-03 13:49:21 [INFO] --- End image collection summary (Algorithmic) ---
+2026-04-03 13:49:21 [INFO] Sending images to Telegram — style: Algorithmic
+2026-04-03 13:49:21 [INFO] Sending images to Telegram — style: Algorithmic
+2026-04-03 13:49:21 [DEBUG] [DEBUG] send_message — chars: 20, preview: 🎨 <b>Algorithmic</b>
+2026-04-03 13:49:21 [DEBUG] [DEBUG] send_message — chars: 20, preview: 🎨 <b>Algorithmic</b>
+2026-04-03 13:49:22 [DEBUG] [DEBUG] send_message — delivered
+2026-04-03 13:49:22 [DEBUG] [DEBUG] send_message — delivered
+2026-04-03 13:49:22 [INFO] Sending 11/11 generated image(s) to Telegram via file upload
+2026-04-03 13:49:22 [INFO] Sending 11/11 generated image(s) to Telegram via file upload
+2026-04-03 13:49:22 [DEBUG] [DEBUG] sendPhoto endpoint: https://api.telegram.org/bot8292239871:AAEKlwY9n1gKYidutZgeZxiRQBN_wKJuZsc/sendPhoto
+2026-04-03 13:49:22 [DEBUG] [DEBUG] sendPhoto endpoint: https://api.telegram.org/bot8292239871:AAEKlwY9n1gKYidutZgeZxiRQBN_wKJuZsc/sendPhoto
+2026-04-03 13:49:22 [DEBUG] [DEBUG] Image 1/11 — label: HOOK, url: https://v3b.fal.media/files/b/0a94c412/oDg6Vn1NO9tW8Rof8ZrUG_gl3x4d1x.jpg, local_path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook.jpg
+2026-04-03 13:49:22 [DEBUG] [DEBUG] Image 1/11 — label: HOOK, url: https://v3b.fal.media/files/b/0a94c412/oDg6Vn1NO9tW8Rof8ZrUG_gl3x4d1x.jpg, local_path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook.jpg
+2026-04-03 13:49:22 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook.jpg
+2026-04-03 13:49:22 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook.jpg
+2026-04-03 13:49:22 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook.jpg (2469 KB)
+2026-04-03 13:49:22 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook.jpg (2469 KB)
+2026-04-03 13:49:22 [DEBUG] [DEBUG] POSTing HOOK to Telegram sendPhoto ...
+2026-04-03 13:49:22 [DEBUG] [DEBUG] POSTing HOOK to Telegram sendPhoto ...
+2026-04-03 13:49:23 [DEBUG] [DEBUG] Telegram response status: 200 for HOOK
+2026-04-03 13:49:23 [DEBUG] [DEBUG] Telegram response status: 200 for HOOK
+2026-04-03 13:49:23 [INFO] Image sent to Telegram — HOOK (frame 1)
+2026-04-03 13:49:23 [INFO] Image sent to Telegram — HOOK (frame 1)
+2026-04-03 13:49:23 [DEBUG] [DEBUG] Image 2/11 — label: HOOK, url: https://v3b.fal.media/files/b/0a94c413/QxEhr_ua2EJfF8qZP66RI_PcyKA5S1.jpg, local_path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook.jpg
+2026-04-03 13:49:23 [DEBUG] [DEBUG] Image 2/11 — label: HOOK, url: https://v3b.fal.media/files/b/0a94c413/QxEhr_ua2EJfF8qZP66RI_PcyKA5S1.jpg, local_path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook.jpg
+2026-04-03 13:49:23 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook.jpg
+2026-04-03 13:49:23 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook.jpg
+2026-04-03 13:49:23 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook.jpg (3222 KB)
+2026-04-03 13:49:23 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook.jpg (3222 KB)
+2026-04-03 13:49:23 [DEBUG] [DEBUG] POSTing HOOK to Telegram sendPhoto ...
+2026-04-03 13:49:23 [DEBUG] [DEBUG] POSTing HOOK to Telegram sendPhoto ...
+2026-04-03 13:49:26 [DEBUG] [DEBUG] Telegram response status: 200 for HOOK
+2026-04-03 13:49:26 [DEBUG] [DEBUG] Telegram response status: 200 for HOOK
+2026-04-03 13:49:26 [INFO] Image sent to Telegram — HOOK (frame 2)
+2026-04-03 13:49:26 [INFO] Image sent to Telegram — HOOK (frame 2)
+2026-04-03 13:49:26 [DEBUG] [DEBUG] Image 3/11 — label: CONTEXT, url: https://v3b.fal.media/files/b/0a94c413/kEZAupAbZnLjsQ97JZhw__JOCEDxL6.jpg, local_path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context.jpg
+2026-04-03 13:49:26 [DEBUG] [DEBUG] Image 3/11 — label: CONTEXT, url: https://v3b.fal.media/files/b/0a94c413/kEZAupAbZnLjsQ97JZhw__JOCEDxL6.jpg, local_path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context.jpg
+2026-04-03 13:49:26 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context.jpg
+2026-04-03 13:49:26 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context.jpg
+2026-04-03 13:49:26 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context.jpg (2303 KB)
+2026-04-03 13:49:26 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context.jpg (2303 KB)
+2026-04-03 13:49:26 [DEBUG] [DEBUG] POSTing CONTEXT to Telegram sendPhoto ...
+2026-04-03 13:49:26 [DEBUG] [DEBUG] POSTing CONTEXT to Telegram sendPhoto ...
+2026-04-03 13:49:28 [DEBUG] [DEBUG] Telegram response status: 200 for CONTEXT
+2026-04-03 13:49:28 [DEBUG] [DEBUG] Telegram response status: 200 for CONTEXT
+2026-04-03 13:49:28 [INFO] Image sent to Telegram — CONTEXT (frame 3)
+2026-04-03 13:49:28 [INFO] Image sent to Telegram — CONTEXT (frame 3)
+2026-04-03 13:49:28 [DEBUG] [DEBUG] Image 4/11 — label: CONTEXT, url: https://v3b.fal.media/files/b/0a94c414/mKBj2e2O4VG4P-ZP91RYv_Mxd5MpqY.jpg, local_path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context.jpg
+2026-04-03 13:49:28 [DEBUG] [DEBUG] Image 4/11 — label: CONTEXT, url: https://v3b.fal.media/files/b/0a94c414/mKBj2e2O4VG4P-ZP91RYv_Mxd5MpqY.jpg, local_path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context.jpg
+2026-04-03 13:49:28 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context.jpg
+2026-04-03 13:49:28 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context.jpg
+2026-04-03 13:49:28 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context.jpg (2660 KB)
+2026-04-03 13:49:28 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context.jpg (2660 KB)
+2026-04-03 13:49:28 [DEBUG] [DEBUG] POSTing CONTEXT to Telegram sendPhoto ...
+2026-04-03 13:49:28 [DEBUG] [DEBUG] POSTing CONTEXT to Telegram sendPhoto ...
+2026-04-03 13:49:32 [DEBUG] [DEBUG] Telegram response status: 200 for CONTEXT
+2026-04-03 13:49:32 [DEBUG] [DEBUG] Telegram response status: 200 for CONTEXT
+2026-04-03 13:49:32 [INFO] Image sent to Telegram — CONTEXT (frame 4)
+2026-04-03 13:49:32 [INFO] Image sent to Telegram — CONTEXT (frame 4)
+2026-04-03 13:49:32 [DEBUG] [DEBUG] Image 5/11 — label: BUILD, url: https://v3b.fal.media/files/b/0a94c415/ymgTNPCOjM7Uv270bGNRa_CANTrImK.jpg, local_path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build.jpg
+2026-04-03 13:49:32 [DEBUG] [DEBUG] Image 5/11 — label: BUILD, url: https://v3b.fal.media/files/b/0a94c415/ymgTNPCOjM7Uv270bGNRa_CANTrImK.jpg, local_path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build.jpg
+2026-04-03 13:49:32 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build.jpg
+2026-04-03 13:49:32 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build.jpg
+2026-04-03 13:49:32 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build.jpg (3216 KB)
+2026-04-03 13:49:32 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build.jpg (3216 KB)
+2026-04-03 13:49:32 [DEBUG] [DEBUG] POSTing BUILD to Telegram sendPhoto ...
+2026-04-03 13:49:32 [DEBUG] [DEBUG] POSTing BUILD to Telegram sendPhoto ...
+2026-04-03 13:49:35 [DEBUG] [DEBUG] Telegram response status: 200 for BUILD
+2026-04-03 13:49:35 [DEBUG] [DEBUG] Telegram response status: 200 for BUILD
+2026-04-03 13:49:35 [INFO] Image sent to Telegram — BUILD (frame 5)
+2026-04-03 13:49:35 [INFO] Image sent to Telegram — BUILD (frame 5)
+2026-04-03 13:49:35 [DEBUG] [DEBUG] Image 6/11 — label: BUILD, url: https://v3b.fal.media/files/b/0a94c415/7pqwagJCpLyuZZYpf9rN7_yg6LycUG.jpg, local_path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build.jpg
+2026-04-03 13:49:35 [DEBUG] [DEBUG] Image 6/11 — label: BUILD, url: https://v3b.fal.media/files/b/0a94c415/7pqwagJCpLyuZZYpf9rN7_yg6LycUG.jpg, local_path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build.jpg
+2026-04-03 13:49:35 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build.jpg
+2026-04-03 13:49:35 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build.jpg
+2026-04-03 13:49:35 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build.jpg (2771 KB)
+2026-04-03 13:49:35 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build.jpg (2771 KB)
+2026-04-03 13:49:35 [DEBUG] [DEBUG] POSTing BUILD to Telegram sendPhoto ...
+2026-04-03 13:49:35 [DEBUG] [DEBUG] POSTing BUILD to Telegram sendPhoto ...
+2026-04-03 13:49:38 [DEBUG] [DEBUG] Telegram response status: 200 for BUILD
+2026-04-03 13:49:38 [DEBUG] [DEBUG] Telegram response status: 200 for BUILD
+2026-04-03 13:49:38 [INFO] Image sent to Telegram — BUILD (frame 6)
+2026-04-03 13:49:38 [INFO] Image sent to Telegram — BUILD (frame 6)
+2026-04-03 13:49:38 [DEBUG] [DEBUG] Image 7/11 — label: BUILD, url: https://v3b.fal.media/files/b/0a94c416/7Y5wCDRk5O7D42f1NvQ4__KtUqK4zc.jpg, local_path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build.jpg
+2026-04-03 13:49:38 [DEBUG] [DEBUG] Image 7/11 — label: BUILD, url: https://v3b.fal.media/files/b/0a94c416/7Y5wCDRk5O7D42f1NvQ4__KtUqK4zc.jpg, local_path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build.jpg
+2026-04-03 13:49:38 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build.jpg
+2026-04-03 13:49:38 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build.jpg
+2026-04-03 13:49:38 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build.jpg (1776 KB)
+2026-04-03 13:49:38 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build.jpg (1776 KB)
+2026-04-03 13:49:38 [DEBUG] [DEBUG] POSTing BUILD to Telegram sendPhoto ...
+2026-04-03 13:49:38 [DEBUG] [DEBUG] POSTing BUILD to Telegram sendPhoto ...
+2026-04-03 13:49:40 [DEBUG] [DEBUG] Telegram response status: 200 for BUILD
+2026-04-03 13:49:40 [DEBUG] [DEBUG] Telegram response status: 200 for BUILD
+2026-04-03 13:49:40 [INFO] Image sent to Telegram — BUILD (frame 7)
+2026-04-03 13:49:40 [INFO] Image sent to Telegram — BUILD (frame 7)
+2026-04-03 13:49:40 [DEBUG] [DEBUG] Image 8/11 — label: TWIST, url: https://v3b.fal.media/files/b/0a94c416/QoH9sUSzdIUvHpmJw3vzX_JUcJc5L2.jpg, local_path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist.jpg
+2026-04-03 13:49:40 [DEBUG] [DEBUG] Image 8/11 — label: TWIST, url: https://v3b.fal.media/files/b/0a94c416/QoH9sUSzdIUvHpmJw3vzX_JUcJc5L2.jpg, local_path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist.jpg
+2026-04-03 13:49:40 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist.jpg
+2026-04-03 13:49:40 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist.jpg
+2026-04-03 13:49:40 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist.jpg (3117 KB)
+2026-04-03 13:49:40 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist.jpg (3117 KB)
+2026-04-03 13:49:40 [DEBUG] [DEBUG] POSTing TWIST to Telegram sendPhoto ...
+2026-04-03 13:49:40 [DEBUG] [DEBUG] POSTing TWIST to Telegram sendPhoto ...
+2026-04-03 13:49:41 [DEBUG] [DEBUG] Telegram response status: 200 for TWIST
+2026-04-03 13:49:41 [DEBUG] [DEBUG] Telegram response status: 200 for TWIST
+2026-04-03 13:49:41 [INFO] Image sent to Telegram — TWIST (frame 8)
+2026-04-03 13:49:41 [INFO] Image sent to Telegram — TWIST (frame 8)
+2026-04-03 13:49:41 [DEBUG] [DEBUG] Image 9/11 — label: TWIST, url: https://v3b.fal.media/files/b/0a94c417/1yaRy4dUHSm2QSc_3d-cG_M0KR9Qh0.jpg, local_path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist.jpg
+2026-04-03 13:49:41 [DEBUG] [DEBUG] Image 9/11 — label: TWIST, url: https://v3b.fal.media/files/b/0a94c417/1yaRy4dUHSm2QSc_3d-cG_M0KR9Qh0.jpg, local_path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist.jpg
+2026-04-03 13:49:41 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist.jpg
+2026-04-03 13:49:41 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist.jpg
+2026-04-03 13:49:41 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist.jpg (3482 KB)
+2026-04-03 13:49:41 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist.jpg (3482 KB)
+2026-04-03 13:49:41 [DEBUG] [DEBUG] POSTing TWIST to Telegram sendPhoto ...
+2026-04-03 13:49:41 [DEBUG] [DEBUG] POSTing TWIST to Telegram sendPhoto ...
+2026-04-03 13:49:45 [DEBUG] [DEBUG] Telegram response status: 200 for TWIST
+2026-04-03 13:49:45 [DEBUG] [DEBUG] Telegram response status: 200 for TWIST
+2026-04-03 13:49:45 [INFO] Image sent to Telegram — TWIST (frame 9)
+2026-04-03 13:49:45 [INFO] Image sent to Telegram — TWIST (frame 9)
+2026-04-03 13:49:45 [DEBUG] [DEBUG] Image 10/11 — label: CTA, url: https://v3b.fal.media/files/b/0a94c417/PXj1FL_SdbI__aKSK8KfO_WMNwQG1v.jpg, local_path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta.jpg
+2026-04-03 13:49:45 [DEBUG] [DEBUG] Image 10/11 — label: CTA, url: https://v3b.fal.media/files/b/0a94c417/PXj1FL_SdbI__aKSK8KfO_WMNwQG1v.jpg, local_path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta.jpg
+2026-04-03 13:49:45 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta.jpg
+2026-04-03 13:49:45 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta.jpg
+2026-04-03 13:49:45 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta.jpg (2870 KB)
+2026-04-03 13:49:45 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta.jpg (2870 KB)
+2026-04-03 13:49:45 [DEBUG] [DEBUG] POSTing CTA to Telegram sendPhoto ...
+2026-04-03 13:49:45 [DEBUG] [DEBUG] POSTing CTA to Telegram sendPhoto ...
+2026-04-03 13:49:48 [DEBUG] [DEBUG] Telegram response status: 200 for CTA
+2026-04-03 13:49:48 [DEBUG] [DEBUG] Telegram response status: 200 for CTA
+2026-04-03 13:49:48 [INFO] Image sent to Telegram — CTA (frame 10)
+2026-04-03 13:49:48 [INFO] Image sent to Telegram — CTA (frame 10)
+2026-04-03 13:49:48 [DEBUG] [DEBUG] Image 11/11 — label: CTA, url: https://v3b.fal.media/files/b/0a94c418/X0LEzGS_zKzK7XprDRGZd_yZ0P3QNG.jpg, local_path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta.jpg
+2026-04-03 13:49:48 [DEBUG] [DEBUG] Image 11/11 — label: CTA, url: https://v3b.fal.media/files/b/0a94c418/X0LEzGS_zKzK7XprDRGZd_yZ0P3QNG.jpg, local_path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta.jpg
+2026-04-03 13:49:48 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta.jpg
+2026-04-03 13:49:48 [DEBUG] [DEBUG] Local file exists: True — path: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta.jpg
+2026-04-03 13:49:48 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta.jpg (1553 KB)
+2026-04-03 13:49:48 [DEBUG] [DEBUG] Using local file: generated_images\algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta.jpg (1553 KB)
+2026-04-03 13:49:48 [DEBUG] [DEBUG] POSTing CTA to Telegram sendPhoto ...
+2026-04-03 13:49:48 [DEBUG] [DEBUG] POSTing CTA to Telegram sendPhoto ...
+2026-04-03 13:49:49 [DEBUG] [DEBUG] Telegram response status: 200 for CTA
+2026-04-03 13:49:49 [DEBUG] [DEBUG] Telegram response status: 200 for CTA
+2026-04-03 13:49:49 [INFO] Image sent to Telegram — CTA (frame 11)
+2026-04-03 13:49:49 [INFO] Image sent to Telegram — CTA (frame 11)
+2026-04-03 13:49:49 [INFO] All generated images dispatched to Telegram
+2026-04-03 13:49:49 [INFO] All generated images dispatched to Telegram
+2026-04-03 13:49:49 [INFO] Generating SRT file
+2026-04-03 13:49:49 [INFO] Generating SRT file
+2026-04-03 13:49:49 [DEBUG] [DEBUG] generate_srt (AssemblyAI) — title_slug: ai_just_made_the_billion_dollar_solo_fou, audio: audio_files\ai_just_made_the_billion_dollar_solo_fou.mp3
+2026-04-03 13:49:49 [DEBUG] [DEBUG] generate_srt (AssemblyAI) — title_slug: ai_just_made_the_billion_dollar_solo_fou, audio: audio_files\ai_just_made_the_billion_dollar_solo_fou.mp3
+2026-04-03 13:49:49 [DEBUG] Uploading audio to AssemblyAI...
+2026-04-03 13:49:49 [DEBUG] Uploading audio to AssemblyAI...
+2026-04-03 13:49:54 [DEBUG] [DEBUG] Uploaded — url: https://cdn.assemblyai.com/upload/413490d4e5b1335c086ed9d2b4f03868863661477c8a44ab80beb1604c42f663/6c0ec900-2fac-4bc2-9fdd-609a5191a540
+2026-04-03 13:49:54 [DEBUG] [DEBUG] Uploaded — url: https://cdn.assemblyai.com/upload/413490d4e5b1335c086ed9d2b4f03868863661477c8a44ab80beb1604c42f663/6c0ec900-2fac-4bc2-9fdd-609a5191a540
+2026-04-03 13:49:54 [DEBUG] [DEBUG] Transcription started — id: ac37bbc2-d937-4cfd-9c96-b4da453dadd0
+2026-04-03 13:49:54 [DEBUG] [DEBUG] Transcription started — id: ac37bbc2-d937-4cfd-9c96-b4da453dadd0
+2026-04-03 13:49:55 [DEBUG] [DEBUG] AssemblyAI status: processing
+2026-04-03 13:49:55 [DEBUG] [DEBUG] AssemblyAI status: processing
+2026-04-03 13:49:59 [DEBUG] [DEBUG] AssemblyAI status: completed
+2026-04-03 13:49:59 [DEBUG] [DEBUG] AssemblyAI status: completed
+2026-04-03 13:49:59 [DEBUG] [DEBUG] Words returned: 155
+2026-04-03 13:49:59 [DEBUG] [DEBUG] Words returned: 155
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 1: 00:00:00,160 --> 00:00:03,919 | Sam Altman predicted AI would
+create the first one person
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 1: 00:00:00,160 --> 00:00:03,919 | Sam Altman predicted AI would
+create the first one person
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 2: 00:00:04,000 --> 00:00:07,589 | billion dollar company. It just
+happened and it's not what
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 2: 00:00:04,000 --> 00:00:07,589 | billion dollar company. It just
+happened and it's not what
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 3: 00:00:07,639 --> 00:00:12,429 | you think. Matthew Gallagher built
+a telehealth company called Medvi
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 3: 00:00:07,639 --> 00:00:12,429 | you think. Matthew Gallagher built
+a telehealth company called Medvi
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 4: 00:00:12,480 --> 00:00:16,309 | from his living room in
+LA. He sells GLP1 weight
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 4: 00:00:12,480 --> 00:00:16,309 | from his living room in
+LA. He sells GLP1 weight
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 5: 00:00:16,359 --> 00:00:21,600 | loss drugs online. He outsources
+the doctors, the prescriptions and
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 5: 00:00:16,359 --> 00:00:21,600 | loss drugs online. He outsources
+the doctors, the prescriptions and
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 6: 00:00:21,679 --> 00:00:25,539 | the shipping. His only full
+time hire. His brother He
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 6: 00:00:21,679 --> 00:00:25,539 | the shipping. His only full
+time hire. His brother He
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 7: 00:00:25,609 --> 00:00:29,769 | he spent $20,000 and two
+months building the whole thing.
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 7: 00:00:25,609 --> 00:00:29,769 | he spent $20,000 and two
+months building the whole thing.
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 8: 00:00:29,850 --> 00:00:33,759 | ChatGPT and Claude wrote his
+code midjourney and Runway made
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 8: 00:00:29,850 --> 00:00:33,759 | ChatGPT and Claude wrote his
+code midjourney and Runway made
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 9: 00:00:33,810 --> 00:00:37,960 | his ads. 11 labs and
+custom AI agents handle customer
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 9: 00:00:33,810 --> 00:00:37,960 | his ads. 11 labs and
+custom AI agents handle customer
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 10: 00:00:38,009 --> 00:00:43,359 | service. First year revenue $401
+million. This year Medvai is
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 10: 00:00:38,009 --> 00:00:43,359 | service. First year revenue $401
+million. This year Medvai is
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 11: 00:00:43,409 --> 00:00:48,439 | on pace for 1.8 billion.
+No massive team, no venture
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 11: 00:00:43,409 --> 00:00:48,439 | on pace for 1.8 billion.
+No massive team, no venture
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 12: 00:00:48,490 --> 00:00:53,509 | backed army of engineers. Just
+one founder and AI doing
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 12: 00:00:48,490 --> 00:00:53,509 | backed army of engineers. Just
+one founder and AI doing
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 13: 00:00:53,560 --> 00:00:57,109 | the work of hundreds. Altman
+said this would have been
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 13: 00:00:53,560 --> 00:00:57,109 | the work of hundreds. Altman
+said this would have been
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 14: 00:00:57,159 --> 00:01:01,750 | unimaginable without AI. Now it's
+real. The question isn't whether
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 14: 00:00:57,159 --> 00:01:01,750 | unimaginable without AI. Now it's
+real. The question isn't whether
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 15: 00:01:01,799 --> 00:01:06,069 | AI replaces companies, it's whether
+you're building. While everyone else
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 15: 00:01:01,799 --> 00:01:06,069 | AI replaces companies, it's whether
+you're building. While everyone else
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 16: 00:01:06,120 --> 00:01:07,760 | is debating.
+Follow for more.
+2026-04-03 13:49:59 [DEBUG] [DEBUG]   Entry 16: 00:01:06,120 --> 00:01:07,760 | is debating.
+Follow for more.
+2026-04-03 13:49:59 [INFO] SRT saved: srt_files\ai_just_made_the_billion_dollar_solo_fou.srt (16 entries)
+2026-04-03 13:49:59 [INFO] SRT saved: srt_files\ai_just_made_the_billion_dollar_solo_fou.srt (16 entries)
+2026-04-03 13:49:59 [DEBUG] [DEBUG] SRT full content:
+1
+00:00:00,160 --> 00:00:03,919
+Sam Altman predicted AI would
+create the first one person
+
+2
+00:00:04,000 --> 00:00:07,589
+billion dollar company. It just
+happened and it's not what
+
+3
+00:00:07,639 --> 00:00:12,429
+you think. Matthew Gallagher built
+a telehealth company called Medvi
+
+4
+00:00:12,480 --> 00:00:16,309
+from his living room in
+LA. He sells GLP1 weight
+
+5
+00:00:16,359 --> 00:00:21,600
+loss drugs online. He outsources
+the doctors, the prescriptions and
+
+6
+00:00:21,679 --> 00:00:25,539
+the shipping. His only full
+time hire. His brother He
+
+7
+00:00:25,609 --> 00:00:29,769
+he spent $20,000 and two
+months building the whole thing.
+
+8
+00:00:29,850 --> 00:00:33,759
+ChatGPT and Claude wrote his
+code midjourney and Runway made
+
+9
+00:00:33,810 --> 00:00:37,960
+his ads. 11 labs and
+custom AI agents handle customer
+
+10
+00:00:38,009 --> 00:00:43,359
+service. First year revenue $401
+million. This year Medvai is
+
+11
+00:00:43,409 --> 00:00:48,439
+on pace for 1.8 billion.
+No massive team, no venture
+
+12
+00:00:48,490 --> 00:00:53,509
+backed army of engineers. Just
+one founder and AI doing
+
+13
+00:00:53,560 --> 00:00:57,109
+the work of hundreds. Altman
+said this would have been
+
+14
+00:00:57,159 --> 00:01:01,750
+unimaginable without AI. Now it's
+real. The question isn't whether
+
+15
+00:01:01,799 --> 00:01:06,069
+AI replaces companies, it's whether
+you're building. While everyone else
+
+16
+00:01:06,120 --> 00:01:07,760
+is debating.
+Follow for more.
+2026-04-03 13:49:59 [DEBUG] [DEBUG] SRT full content:
+1
+00:00:00,160 --> 00:00:03,919
+Sam Altman predicted AI would
+create the first one person
+
+2
+00:00:04,000 --> 00:00:07,589
+billion dollar company. It just
+happened and it's not what
+
+3
+00:00:07,639 --> 00:00:12,429
+you think. Matthew Gallagher built
+a telehealth company called Medvi
+
+4
+00:00:12,480 --> 00:00:16,309
+from his living room in
+LA. He sells GLP1 weight
+
+5
+00:00:16,359 --> 00:00:21,600
+loss drugs online. He outsources
+the doctors, the prescriptions and
+
+6
+00:00:21,679 --> 00:00:25,539
+the shipping. His only full
+time hire. His brother He
+
+7
+00:00:25,609 --> 00:00:29,769
+he spent $20,000 and two
+months building the whole thing.
+
+8
+00:00:29,850 --> 00:00:33,759
+ChatGPT and Claude wrote his
+code midjourney and Runway made
+
+9
+00:00:33,810 --> 00:00:37,960
+his ads. 11 labs and
+custom AI agents handle customer
+
+10
+00:00:38,009 --> 00:00:43,359
+service. First year revenue $401
+million. This year Medvai is
+
+11
+00:00:43,409 --> 00:00:48,439
+on pace for 1.8 billion.
+No massive team, no venture
+
+12
+00:00:48,490 --> 00:00:53,509
+backed army of engineers. Just
+one founder and AI doing
+
+13
+00:00:53,560 --> 00:00:57,109
+the work of hundreds. Altman
+said this would have been
+
+14
+00:00:57,159 --> 00:01:01,750
+unimaginable without AI. Now it's
+real. The question isn't whether
+
+15
+00:01:01,799 --> 00:01:06,069
+AI replaces companies, it's whether
+you're building. While everyone else
+
+16
+00:01:06,120 --> 00:01:07,760
+is debating.
+Follow for more.
+
+2026-04-03 13:49:59 [INFO] Sending SRT to Telegram: srt_files\ai_just_made_the_billion_dollar_solo_fou.srt
+2026-04-03 13:49:59 [INFO] Sending SRT to Telegram: srt_files\ai_just_made_the_billion_dollar_solo_fou.srt
+2026-04-03 13:49:59 [INFO] Sending document to Telegram: ai_just_made_the_billion_dollar_solo_fou.srt (1 KB)
+2026-04-03 13:49:59 [INFO] Sending document to Telegram: ai_just_made_the_billion_dollar_solo_fou.srt (1 KB)
+2026-04-03 13:49:59 [DEBUG] [DEBUG] Document path: srt_files\ai_just_made_the_billion_dollar_solo_fou.srt, exists: True
+2026-04-03 13:49:59 [DEBUG] [DEBUG] Document path: srt_files\ai_just_made_the_billion_dollar_solo_fou.srt, exists: True
+2026-04-03 13:50:00 [INFO] Document sent: ai_just_made_the_billion_dollar_solo_fou.srt
+2026-04-03 13:50:00 [INFO] Document sent: ai_just_made_the_billion_dollar_solo_fou.srt
+2026-04-03 13:50:00 [INFO] SRT sent to Telegram
+2026-04-03 13:50:00 [INFO] SRT sent to Telegram
+2026-04-03 13:50:00 [INFO] Generating video with ffmpeg
+2026-04-03 13:50:00 [INFO] Generating video with ffmpeg
+2026-04-03 13:50:00 [DEBUG] [DEBUG] generate_video — title_slug: ai_just_made_the_billion_dollar_solo_fou, visuals: 11, audio: audio_files\ai_just_made_the_billion_dollar_solo_fou.mp3, srt: srt_files\ai_just_made_the_billion_dollar_solo_fou.srt
+2026-04-03 13:50:00 [DEBUG] [DEBUG] generate_video — title_slug: ai_just_made_the_billion_dollar_solo_fou, visuals: 11, audio: audio_files\ai_just_made_the_billion_dollar_solo_fou.mp3, srt: srt_files\ai_just_made_the_billion_dollar_solo_fou.srt
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Valid images: 11/11 (skipped 0 with missing path)
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Valid images: 11/11 (skipped 0 with missing path)
+2026-04-03 13:50:00 [DEBUG] [DEBUG] ffprobe — getting duration of: audio_files\ai_just_made_the_billion_dollar_solo_fou.mp3
+2026-04-03 13:50:00 [DEBUG] [DEBUG] ffprobe — getting duration of: audio_files\ai_just_made_the_billion_dollar_solo_fou.mp3
+2026-04-03 13:50:00 [DEBUG] [DEBUG] ffprobe stdout: 68.034467
+2026-04-03 13:50:00 [DEBUG] [DEBUG] ffprobe stdout: 68.034467
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Audio duration: 68.034s
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Audio duration: 68.034s
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Timing — audio: 68.034s, images: 11, durations (6-10s clamped): ['5.3s', '5.3s', '6.0s', '6.5s', '5.3s', '8.6s', '5.3s', '5.3s', '7.7s', '7.3s', '5.3s']
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Timing — audio: 68.034s, images: 11, durations (6-10s clamped): ['5.3s', '5.3s', '6.0s', '6.5s', '5.3s', '8.6s', '5.3s', '5.3s', '7.7s', '7.3s', '5.3s']
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Concat entry 1: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook.jpg @ 5.314s
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Concat entry 1: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_ai_just_made_the_billion_dollar_solo_fou_01_hook.jpg @ 5.314s
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Concat entry 2: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook.jpg @ 5.314s
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Concat entry 2: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_ai_just_made_the_billion_dollar_solo_fou_02_hook.jpg @ 5.314s
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Concat entry 3: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context.jpg @ 6.025s
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Concat entry 3: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_ai_just_made_the_billion_dollar_solo_fou_03_context.jpg @ 6.025s
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Concat entry 4: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context.jpg @ 6.456s
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Concat entry 4: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_ai_just_made_the_billion_dollar_solo_fou_04_context.jpg @ 6.456s
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Concat entry 5: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build.jpg @ 5.314s
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Concat entry 5: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_ai_just_made_the_billion_dollar_solo_fou_05_build.jpg @ 5.314s
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Concat entry 6: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build.jpg @ 8.608s
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Concat entry 6: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_ai_just_made_the_billion_dollar_solo_fou_06_build.jpg @ 8.608s
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Concat entry 7: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build.jpg @ 5.314s
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Concat entry 7: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_ai_just_made_the_billion_dollar_solo_fou_07_build.jpg @ 5.314s
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Concat entry 8: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist.jpg @ 5.314s
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Concat entry 8: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_ai_just_made_the_billion_dollar_solo_fou_08_twist.jpg @ 5.314s
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Concat entry 9: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist.jpg @ 7.747s
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Concat entry 9: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_ai_just_made_the_billion_dollar_solo_fou_09_twist.jpg @ 7.747s
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Concat entry 10: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta.jpg @ 7.316s
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Concat entry 10: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_ai_just_made_the_billion_dollar_solo_fou_10_cta.jpg @ 7.316s
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Concat entry 11: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta.jpg @ 5.314s
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Concat entry 11: C:/Users/brryli/Desktop/automations/content_repurposing/generated_images/algorithmic_ai_just_made_the_billion_dollar_solo_fou_11_cta.jpg @ 5.314s
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Concat file written: C:\Users\brryli\AppData\Local\Temp\tmpbpskhfsz.txt
+2026-04-03 13:50:00 [DEBUG] [DEBUG] Concat file written: C:\Users\brryli\AppData\Local\Temp\tmpbpskhfsz.txt
+2026-04-03 13:50:00 [DEBUG] [DEBUG] SRT escaped path for filter: srt_files/ai_just_made_the_billion_dollar_solo_fou.srt
+2026-04-03 13:50:00 [DEBUG] [DEBUG] SRT escaped path for filter: srt_files/ai_just_made_the_billion_dollar_solo_fou.srt
+2026-04-03 13:50:00 [DEBUG] [DEBUG] ffmpeg command: ffmpeg -y -f concat -safe 0 -i C:\Users\brryli\AppData\Local\Temp\tmpbpskhfsz.txt -i audio_files\ai_just_made_the_billion_dollar_solo_fou.mp3 -map 0:v:0 -map 1:a:0 -vf fps=24,scale=1080:1920:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:(oh-ih)/2:black,subtitles='srt_files/ai_just_made_the_billion_dollar_solo_fou.srt':force_style='FontName=Inter Bold,Bold=1,FontSize=8,PrimaryColour=&H0000FFFF,Outline=0,Shadow=0,Alignment=2,MarginV=20,WrapStyle=2' -c:v libx264 -preset fast -crf 23 -c:a aac -b:a 192k -shortest output_videos\ai_just_made_the_billion_dollar_solo_fou.mp4
+2026-04-03 13:50:00 [DEBUG] [DEBUG] ffmpeg command: ffmpeg -y -f concat -safe 0 -i C:\Users\brryli\AppData\Local\Temp\tmpbpskhfsz.txt -i audio_files\ai_just_made_the_billion_dollar_solo_fou.mp3 -map 0:v:0 -map 1:a:0 -vf fps=24,scale=1080:1920:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:(oh-ih)/2:black,subtitles='srt_files/ai_just_made_the_billion_dollar_solo_fou.srt':force_style='FontName=Inter Bold,Bold=1,FontSize=8,PrimaryColour=&H0000FFFF,Outline=0,Shadow=0,Alignment=2,MarginV=20,WrapStyle=2' -c:v libx264 -preset fast -crf 23 -c:a aac -b:a 192k -shortest output_videos\ai_just_made_the_billion_dollar_solo_fou.mp4
+2026-04-03 13:50:00 [INFO] Running ffmpeg — output: output_videos\ai_just_made_the_billion_dollar_solo_fou.mp4
+2026-04-03 13:50:00 [INFO] Running ffmpeg — output: output_videos\ai_just_made_the_billion_dollar_solo_fou.mp4
+2026-04-03 13:50:13 [DEBUG] [DEBUG] ffmpeg return code: 0
+2026-04-03 13:50:13 [DEBUG] [DEBUG] ffmpeg return code: 0
+2026-04-03 13:50:13 [DEBUG] [DEBUG] ffmpeg stderr (last 1000 chars):
+880] mb P  I16..4:  0.1%  0.1%  0.1%  P16..4:  1.2%  0.1%  0.1%  0.0%  0.0%    skip:98.3%
+[libx264 @ 0000025a93ae7880] mb B  I16..4:  0.0%  0.0%  0.0%  B16..8:  0.0%  0.0%  0.0%  direct: 0.0%  skip:99.9%  L0:57.6% L1:42.4% BI: 0.0%
+[libx264 @ 0000025a93ae7880] 8x8 transform intra:37.6% inter:87.0%
+[libx264 @ 0000025a93ae7880] coded y,uvDC,uvAC intra: 74.8% 82.8% 75.1% inter: 0.1% 0.1% 0.0%
+[libx264 @ 0000025a93ae7880] i16 v,h,dc,p: 46% 40%  7%  7%
+[libx264 @ 0000025a93ae7880] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 26% 20% 32%  4%  4%  3%  3%  3%  4%
+[libx264 @ 0000025a93ae7880] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 37% 23%  9%  6%  6%  4%  5%  4%  5%
+[libx264 @ 0000025a93ae7880] i8c dc,h,v,p: 48% 21% 26%  5%
+[libx264 @ 0000025a93ae7880] Weighted P-Frames: Y:0.0% UV:0.0%
+[libx264 @ 0000025a93ae7880] ref P L0: 91.6%  8.4%
+[libx264 @ 0000025a93ae7880] ref B L0: 90.3%  9.7%
+[libx264 @ 0000025a93ae7880] ref B L1: 92.1%  7.9%
+[libx264 @ 0000025a93ae7880] kb/s:432.04
+[aac @ 0000025a94310b80] Qavg: 63347.320
+2026-04-03 13:50:13 [DEBUG] [DEBUG] ffmpeg stderr (last 1000 chars):
+880] mb P  I16..4:  0.1%  0.1%  0.1%  P16..4:  1.2%  0.1%  0.1%  0.0%  0.0%    skip:98.3%
+[libx264 @ 0000025a93ae7880] mb B  I16..4:  0.0%  0.0%  0.0%  B16..8:  0.0%  0.0%  0.0%  direct: 0.0%  skip:99.9%  L0:57.6% L1:42.4% BI: 0.0%
+[libx264 @ 0000025a93ae7880] 8x8 transform intra:37.6% inter:87.0%
+[libx264 @ 0000025a93ae7880] coded y,uvDC,uvAC intra: 74.8% 82.8% 75.1% inter: 0.1% 0.1% 0.0%
+[libx264 @ 0000025a93ae7880] i16 v,h,dc,p: 46% 40%  7%  7%
+[libx264 @ 0000025a93ae7880] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 26% 20% 32%  4%  4%  3%  3%  3%  4%
+[libx264 @ 0000025a93ae7880] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 37% 23%  9%  6%  6%  4%  5%  4%  5%
+[libx264 @ 0000025a93ae7880] i8c dc,h,v,p: 48% 21% 26%  5%
+[libx264 @ 0000025a93ae7880] Weighted P-Frames: Y:0.0% UV:0.0%
+[libx264 @ 0000025a93ae7880] ref P L0: 91.6%  8.4%
+[libx264 @ 0000025a93ae7880] ref B L0: 90.3%  9.7%
+[libx264 @ 0000025a93ae7880] ref B L1: 92.1%  7.9%
+[libx264 @ 0000025a93ae7880] kb/s:432.04
+[aac @ 0000025a94310b80] Qavg: 63347.320
+2026-04-03 13:50:13 [INFO] Video saved: output_videos\ai_just_made_the_billion_dollar_solo_fou.mp4 (4.8 MB)
+2026-04-03 13:50:13 [INFO] Video saved: output_videos\ai_just_made_the_billion_dollar_solo_fou.mp4 (4.8 MB)
+2026-04-03 13:50:13 [DEBUG] [DEBUG] Deleting concat temp file: C:\Users\brryli\AppData\Local\Temp\tmpbpskhfsz.txt
+2026-04-03 13:50:13 [DEBUG] [DEBUG] Deleting concat temp file: C:\Users\brryli\AppData\Local\Temp\tmpbpskhfsz.txt
+2026-04-03 13:50:13 [INFO] Video saved: output_videos\ai_just_made_the_billion_dollar_solo_fou.mp4
+2026-04-03 13:50:13 [INFO] Video saved: output_videos\ai_just_made_the_billion_dollar_solo_fou.mp4
+2026-04-03 13:50:13 [INFO] ============================================================
+2026-04-03 13:50:13 [INFO] ============================================================
+2026-04-03 13:50:13 [INFO] RUN COMPLETE
+2026-04-03 13:50:13 [INFO] RUN COMPLETE
+2026-04-03 13:50:13 [INFO] ============================================================
+2026-04-03 13:50:13 [INFO] ============================================================

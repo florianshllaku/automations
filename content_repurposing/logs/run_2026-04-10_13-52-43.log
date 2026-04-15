@@ -1,0 +1,78 @@
+2026-04-10 13:52:43 [INFO] ============================================================
+2026-04-10 13:52:43 [INFO] ============================================================
+2026-04-10 13:52:43 [INFO] RUN STARTED — log: run_2026-04-10_13-52-43.log
+2026-04-10 13:52:43 [INFO] RUN STARTED — log: run_2026-04-10_13-52-43.log
+2026-04-10 13:52:43 [INFO] ============================================================
+2026-04-10 13:52:43 [INFO] ============================================================
+2026-04-10 13:52:44 [INFO] Scraping https://www.rundown.ai/articles?category=AI
+2026-04-10 13:52:44 [INFO] Scraping https://www.rundown.ai/articles?category=AI
+Loading https://www.rundown.ai/articles?category=AI ...
+  Page 1: 8 articles.
+2026-04-10 13:52:54 [INFO] Page 1: 8 articles found
+2026-04-10 13:52:54 [INFO] Page 1: 8 articles found
+  Reached checkpoint at page 1. Stopping.
+2026-04-10 13:52:54 [INFO] Reached checkpoint at page 1 — stopping scrape
+2026-04-10 13:52:54 [INFO] Reached checkpoint at page 1 — stopping scrape
+2026-04-10 13:52:55 [INFO] 1 new article(s) found
+2026-04-10 13:52:55 [INFO] 1 new article(s) found
+[
+  {
+    "title": "Perplexity's agent pivot is on the money",
+    "url": "https://www.rundown.ai/articles/perplexity-agent-pivot-is-on-the-money",
+    "date": null,
+    "id": 1029
+  }
+]
+  Sending notification for: Perplexity's agent pivot is on the money
+2026-04-10 13:52:55 [INFO] Telegram notification sent: Perplexity's agent pivot is on the money
+2026-04-10 13:52:55 [INFO] Telegram notification sent: Perplexity's agent pivot is on the money
+2026-04-10 13:52:55 [DEBUG] [DEBUG] send_approval_message — title: Perplexity's agent pivot is on the money, url: https://www.rundown.ai/articles/perplexity-agent-pivot-is-on-the-money
+2026-04-10 13:52:55 [DEBUG] [DEBUG] send_approval_message — title: Perplexity's agent pivot is on the money, url: https://www.rundown.ai/articles/perplexity-agent-pivot-is-on-the-money
+2026-04-10 13:52:56 [DEBUG] [DEBUG] Approval message sent — message_id: 310
+2026-04-10 13:52:56 [DEBUG] [DEBUG] Approval message sent — message_id: 310
+2026-04-10 13:52:56 [INFO] All 1 notification(s) sent — waiting for responses
+2026-04-10 13:52:56 [INFO] All 1 notification(s) sent — waiting for responses
+
+All 1 notification(s) sent. Waiting for your responses ...
+2026-04-10 13:52:57 [DEBUG] [DEBUG] Initial flush — starting offset: 1
+2026-04-10 13:52:57 [DEBUG] [DEBUG] Initial flush — starting offset: 1
+2026-04-10 13:53:01 [DEBUG] [DEBUG] Poll #1 — 1 update(s)
+2026-04-10 13:53:01 [DEBUG] [DEBUG] Poll #1 — 1 update(s)
+2026-04-10 13:53:01 [INFO] User tapped YES on message_id=310
+2026-04-10 13:53:01 [INFO] User tapped YES on message_id=310
+2026-04-10 13:53:02 [INFO] User approved: Perplexity's agent pivot is on the money
+2026-04-10 13:53:02 [INFO] User approved: Perplexity's agent pivot is on the money
+User approved — generating content: Perplexity's agent pivot is on the money
+2026-04-10 13:53:04 [INFO] Article fetched (9657 chars)
+2026-04-10 13:53:04 [INFO] Article fetched (9657 chars)
+2026-04-10 13:53:04 [INFO] Calling ChatGPT (script generation)
+2026-04-10 13:53:04 [INFO] Calling ChatGPT (script generation)
+  Calling ChatGPT to generate script ...
+2026-04-10 13:53:09 [INFO] Script generated — 1405 chars
+2026-04-10 13:53:09 [INFO] Script generated — 1405 chars
+2026-04-10 13:53:09 [DEBUG] [DEBUG] send_message — chars: 1422, preview: 🎙 <b>SCRIPT</b>
+
+Perplexity po bëhet financë. Jo vetëm kërkim.  
+Po, e dëgjuat m
+2026-04-10 13:53:09 [DEBUG] [DEBUG] send_message — chars: 1422, preview: 🎙 <b>SCRIPT</b>
+
+Perplexity po bëhet financë. Jo vetëm kërkim.  
+Po, e dëgjuat m
+2026-04-10 13:53:10 [DEBUG] [DEBUG] send_message — delivered
+2026-04-10 13:53:10 [DEBUG] [DEBUG] send_message — delivered
+2026-04-10 13:53:10 [INFO] Script sent to Telegram
+2026-04-10 13:53:10 [INFO] Script sent to Telegram
+2026-04-10 13:53:21 [INFO] Sending audio to Telegram — file: audio_files\perplexity_s_agent_pivot_is_on_the_money.mp3, size: 1608 KB, title: Perplexity's agent pivot is on the money
+2026-04-10 13:53:21 [INFO] Sending audio to Telegram — file: audio_files\perplexity_s_agent_pivot_is_on_the_money.mp3, size: 1608 KB, title: Perplexity's agent pivot is on the money
+2026-04-10 13:53:21 [DEBUG] [DEBUG] audio file exists: True
+2026-04-10 13:53:21 [DEBUG] [DEBUG] audio file exists: True
+2026-04-10 13:53:24 [INFO] Audio sent to Telegram — audio_files\perplexity_s_agent_pivot_is_on_the_money.mp3
+2026-04-10 13:53:24 [INFO] Audio sent to Telegram — audio_files\perplexity_s_agent_pivot_is_on_the_money.mp3
+2026-04-10 13:53:24 [INFO] Audio sent to Telegram: audio_files\perplexity_s_agent_pivot_is_on_the_money.mp3
+2026-04-10 13:53:24 [INFO] Audio sent to Telegram: audio_files\perplexity_s_agent_pivot_is_on_the_money.mp3
+2026-04-10 13:53:24 [INFO] ============================================================
+2026-04-10 13:53:24 [INFO] ============================================================
+2026-04-10 13:53:24 [INFO] RUN COMPLETE
+2026-04-10 13:53:24 [INFO] RUN COMPLETE
+2026-04-10 13:53:24 [INFO] ============================================================
+2026-04-10 13:53:24 [INFO] ============================================================
