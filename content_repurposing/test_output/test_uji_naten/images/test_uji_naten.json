@@ -1,0 +1,34 @@
+{
+  "scenes": [
+    {
+      "id": 1,
+      "duration": 5,
+      "script": "A e pini ujin që ka qëndruar gjithë natën?",
+      "prompt": "Ultra realistic 4:5 vertical video frame, clean composition, natural colors, minimal background. A fit natural-looking woman (same face identity and hairstyle as reference) stands near a kitchen counter and gently slides a clear glass of water toward the camera as if asking a question, soft shadows, slightly dark tones, shallow depth of field, balanced contrast. Subtle worried-curious expression, natural light from the side, realistic skin texture."
+    },
+    {
+      "id": 2,
+      "duration": 6,
+      "script": "Edhe pse duket i sigurt, pas disa orësh mund të kontaminohet.",
+      "prompt": "Ultra realistic 4:5 vertical, clean composition, minimal background with neutral tones. The same woman leans in and taps the water surface with a small spoon while faint invisible “contamination” is suggested visually using subtle floating micro-particles above the water (conceptual but realistic style). Soft shadows, slightly dark tones, shallow depth of field, balanced contrast, natural colors. Expression shifts to concern, natural light, cinematic softness."
+    },
+    {
+      "id": 3,
+      "duration": 5,
+      "script": "Deri në 12 orë është OK…",
+      "prompt": "Ultra realistic 4:5 vertical, clean composition, minimal dark-neutral background. The same woman holds a smartphone showing a timer set to “12h” (no brand), while her other hand points to the glass of water next to it. Soft shadows, slightly dark tones, shallow depth of field, balanced contrast, natural colors. Calm reassuring expression, natural side lighting, realistic movement blur."
+    },
+    {
+      "id": 4,
+      "duration": 6,
+      "script": "…por pas 24 orësh, më mirë pini ujë të freskët.",
+      "prompt": "Ultra realistic 4:5 vertical, clean composition, minimal background. The same woman pours fresh water into a clean glass from a pitcher, discarding the older one off-frame. She performs a quick swap motion (pouring action clearly visible). Soft shadows, slightly dark tones, subtle condensation realism, shallow depth of field, balanced contrast, natural colors. Confident caring expression, natural light, fresh and reassuring mood."
+    },
+    {
+      "id": 5,
+      "duration": 4,
+      "script": "Zgjidh ujin e freskët pas 24 orësh.",
+      "prompt": "Ultra realistic 4:5 vertical, clean composition, symbolic composition with gentle dark tones and minimal background. The same woman places two glasses on the counter—left glass with a slightly cloudy water texture, right glass with clear fresh water—then her hand pushes the clear one forward. Soft shadows, slightly dark tones, shallow depth of field, balanced contrast, natural colors. Clear, decisive expression; natural light from the side; ultra realistic texture and lighting."
+    }
+  ]
+}

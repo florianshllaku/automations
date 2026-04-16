@@ -153,7 +153,7 @@ def generate_srt(reel: dict, title_slug: str, audio_path: str) -> str:
     return str(srt_path)
 
 
-def generate_video(visuals: list[dict], audio_path: str, srt_path: str, title_slug: str) -> str | None:
+def generate_video(visuals: list[dict], audio_path: str, srt_path: str, title_slug: str, output_path: str = None) -> str | None:
     log(f"[DEBUG] generate_video — title_slug: {title_slug}, visuals: {len(visuals)}, audio: {audio_path}, srt: {srt_path}", "DEBUG")
 
     valid = [v for v in visuals if v.get("image_path") and os.path.exists(v["image_path"])]
@@ -197,7 +197,7 @@ def generate_video(visuals: list[dict], audio_path: str, srt_path: str, title_sl
 
     log(f"[DEBUG] Concat file written: {concat_path}", "DEBUG")
 
-    output_path = str(OUTPUT_DIR / f"{title_slug}.mp4")
+    output_path = output_path or str(OUTPUT_DIR / f"{title_slug}.mp4")
     srt_escaped = _escape_filter_path(srt_path)
     log(f"[DEBUG] SRT escaped path for filter: {srt_escaped}", "DEBUG")
 

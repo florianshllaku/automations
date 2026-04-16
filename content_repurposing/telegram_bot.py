@@ -10,8 +10,12 @@ from logger import log
 
 load_dotenv()
 
-TOKEN   = os.getenv("TELEGRAM_TOKEN")
-CHAT_ID = os.getenv("CHAT_ID")
+TOKEN     = os.getenv("TELEGRAM_TOKEN")
+CHAT_ID   = os.getenv("CHAT_ID")
+CHAT_ID2  = os.getenv("CHAT_ID2")
+
+# All chat IDs that receive informational messages (audio, images, documents, plain text)
+CHAT_IDS = [cid for cid in [CHAT_ID, CHAT_ID2] if cid]
 
 # Persistent polling state — shared across all wait_for_approval calls so that
 # callbacks tapped out-of-order are never lost.
@@ -21,11 +25,8 @@ _buffered_responses: dict[int, bool] = {}  # message_id -> approved
 
 async def _send_message(text: str) -> None:
     async with Bot(TOKEN) as bot:
-        await bot.send_message(
-            chat_id=CHAT_ID,
-            text=text,
-            parse_mode="HTML",
-        )
+        for cid in CHAT_IDS:
+            await bot.send_message(chat_id=cid, text=text, parse_mode="HTML")
 
 
 def send_message(text: str) -> None:
@@ -137,13 +138,14 @@ def wait_for_next(message_ids: set[int]) -> tuple[int, bool]:
 
 async def _send_audio(audio_path: str, title: str) -> None:
     async with Bot(TOKEN) as bot:
-        with open(audio_path, "rb") as f:
-            await bot.send_audio(
-                chat_id=CHAT_ID,
-                audio=f,
-                title=title or "Reel Voiceover",
-                performer="Content Pipeline",
-            )
+        for cid in CHAT_IDS:
+            with open(audio_path, "rb") as f:
+                await bot.send_audio(
+                    chat_id=cid,
+                    audio=f,
+                    title=title or "Reel Voiceover",
+                    performer="Content Pipeline",
+                )
 
 
 def send_audio(audio_path: str, title: str = "") -> None:
@@ -197,15 +199,16 @@ def send_generated_images(visuals: list[dict], title: str = "") -> None:
                 log(f"[DEBUG] Downloaded to temp file: {tmp_path} ({len(data)//1024} KB)", "DEBUG")
 
             log(f"[DEBUG] POSTing {label} to Telegram sendPhoto ...", "DEBUG")
-            with open(send_path, "rb") as f:
-                resp = requests.post(
-                    api_url,
-                    data={"chat_id": CHAT_ID},
-                    files={"photo": (f"{label}.jpg", f, "image/jpeg")},
-                    timeout=60,
-                )
-            log(f"[DEBUG] Telegram response status: {resp.status_code} for {label}", "DEBUG")
-            resp.raise_for_status()
+            for cid in CHAT_IDS:
+                with open(send_path, "rb") as f:
+                    resp = requests.post(
+                        api_url,
+                        data={"chat_id": cid},
+                        files={"photo": (f"{label}.jpg", f, "image/jpeg")},
+                        timeout=60,
+                    )
+                log(f"[DEBUG] Telegram response status: {resp.status_code} for {label} (chat {cid})", "DEBUG")
+                resp.raise_for_status()
             log(f"Image sent to Telegram — {label} (frame {i})")
         except Exception as e:
             log(f"Telegram image send failed for {label}: {type(e).__name__}: {e}", "ERROR")
@@ -219,8 +222,9 @@ def send_generated_images(visuals: list[dict], title: str = "") -> None:
 
 async def _send_document(file_path: str, filename: str) -> None:
     async with Bot(TOKEN) as bot:
-        with open(file_path, "rb") as f:
-            await bot.send_document(chat_id=CHAT_ID, document=f, filename=filename)
+        for cid in CHAT_IDS:
+            with open(file_path, "rb") as f:
+                await bot.send_document(chat_id=cid, document=f, filename=filename)
 
 
 def send_document(file_path: str, filename: str) -> None:

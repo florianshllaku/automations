@@ -165,7 +165,6 @@ Lighting:
 
 Background:
 - Keep backgrounds clean, minimal, and slightly dark or neutral
-- Ensure clear negative space for subtitles
 - Avoid clutter, focus on clarity and readability
 
 Always include in prompts:
@@ -227,7 +226,7 @@ Each prompt must:
 Now process the following script:"""
 
 
-def generate_visuals(script: str, slug: str) -> str:
+def generate_visuals(script: str, slug: str, output_dir: Path = None) -> str:
     """
     Send the script to ChatGPT and generate a JSON file with visual scene prompts.
     Saves to generated_content/images/{slug}.json and returns the path.
@@ -251,7 +250,7 @@ def generate_visuals(script: str, slug: str) -> str:
         log(f"Visual prompt JSON parse error: {e}", "ERROR")
         data = {"scenes": [], "raw": raw}
 
-    output_path = Path("generated_content") / slug / "images" / f"{slug}.json"
+    output_path = (output_dir if output_dir else Path("generated_content") / slug / "images") / f"{slug}.json"
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
