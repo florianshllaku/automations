@@ -13,6 +13,7 @@ from telegram_bot import send_approval_message, wait_for_next
 from pipeline import generate_script, generate_visuals
 from image_gen import generate_images_from_json
 from voice import generate_audio, generate_subtitles
+from video import generate_video
 
 BASE_URL         = "https://telegrafi.com/shendetesi/ushqimi-dhe-dieta/"
 SEEN_FILE        = "seen_articles.json"
@@ -337,6 +338,7 @@ def main():
                 visuals_path = None
 
             # 3b. Generate images from visuals JSON via fal.ai
+            scenes = []
             if visuals_path:
                 try:
                     scenes = generate_images_from_json(visuals_path, style_slug=slug)
@@ -359,6 +361,28 @@ def main():
                 print(f"  Subtitles saved: {srt_path}")
             except Exception as e:
                 print(f"  [ERROR] generate_subtitles failed: {e}", file=sys.stderr)
+                srt_path = None
+
+            # 6. Stitch animated video
+            if visuals_path and srt_path and scenes:
+                try:
+                    visuals_for_video = [
+                        {
+                            "image_path": s.get("image_path"),
+                            "voiceover":  s.get("script", ""),
+                            "label":      str(s.get("id", i)),
+                        }
+                        for i, s in enumerate(scenes)
+                    ]
+                    video_path = f"generated_content/{slug}/video.mp4"
+                    Path(video_path).parent.mkdir(parents=True, exist_ok=True)
+                    result = generate_video(visuals_for_video, audio_path, srt_path, slug, output_path=video_path)
+                    if result:
+                        print(f"  Video saved: {result}")
+                    else:
+                        print("  [ERROR] generate_video returned None", file=sys.stderr)
+                except Exception as e:
+                    print(f"  [ERROR] generate_video failed: {e}", file=sys.stderr)
         else:
             print(f"Skipped: {art['title']}")
 

@@ -2,7 +2,6 @@ import io
 import json
 import os
 import re
-import time
 import urllib.request
 from pathlib import Path
 
@@ -20,6 +19,7 @@ REFERENCE_IMAGE_PATH = ASSETS_DIR / "women.png"
 REFERENCE_URL_CACHE = ASSETS_DIR / "women_url.txt"
 
 MODEL = "fal-ai/nano-banana-pro"
+MODEL_EDIT = "fal-ai/nano-banana-pro/edit"
 
 
 def _slug(text: str) -> str:
@@ -69,8 +69,12 @@ def _submit_image(image_prompt: str, filename_stem: str, reference_url: str | No
     if reference_url:
         arguments["image_urls"] = [reference_url]
         log(f"[DEBUG] Reference image attached: {reference_url}", "DEBUG")
+        model = MODEL_EDIT
+    else:
+        model = MODEL
 
-    handler = fal_client.submit(MODEL, arguments=arguments)
+    log(f"[DEBUG] Using model: {model}", "DEBUG")
+    handler = fal_client.submit(model, arguments=arguments)
     log(f"[DEBUG] Handler request_id: {getattr(handler, 'request_id', 'N/A')}", "DEBUG")
     return handler
 
@@ -172,7 +176,8 @@ def generate_images_from_json(json_path: str, style_slug: str = "scene") -> list
         log(f"Generating scene {scene_id}/{len(scenes)} — {stem}")
 
         try:
-            handler = _submit_image(prompt, stem, reference_url=reference_url)
+            scene_ref = reference_url if scene.get("use_character", True) else None
+            handler = _submit_image(prompt, stem, reference_url=scene_ref)
             image_url, image_path = _collect_image(handler, stem, output_dir=json_path.parent)
         except Exception as e:
             log(f"Scene {scene_id} failed: {type(e).__name__}: {e}", "ERROR")
@@ -183,46 +188,3 @@ def generate_images_from_json(json_path: str, style_slug: str = "scene") -> list
     succeeded = sum(1 for r in results if r.get("image_url"))
     log(f"Image generation complete — {succeeded}/{len(scenes)} succeeded")
     return results
-
-
-# ---------------------------------------------------------------------------
-# Legacy batch function (kept for backwards compat)
-# ---------------------------------------------------------------------------
-
-def generate_images_for_visuals(visuals: list[dict], article_title: str, style_slug: str = "") -> list[dict]:
-    """
-    Submit all fal.ai jobs 5 seconds apart (non-blocking), then collect all results.
-    """
-    title_slug = _slug(article_title)
-    log(f"Starting image generation — {len(visuals)} frames, article: '{article_title}', style: '{style_slug}'")
-
-    reference_url = _upload_reference_image()
-
-    handlers = []
-    for i, v in enumerate(visuals, 1):
-        label_slug = _slug(v.get("label", f"frame_{i}"))
-        stem = f"{style_slug}_{title_slug}_{i:02d}_{label_slug}" if style_slug else f"{title_slug}_{i:02d}_{label_slug}"
-        v["_stem"] = stem
-
-        try:
-            handler = _submit_image(v["image_prompt"], stem, reference_url=reference_url)
-            handlers.append((v, handler))
-        except Exception as e:
-            log(f"fal.ai submit failed for {stem}: {type(e).__name__}: {e}", "ERROR")
-            handlers.append((v, None))
-
-        if i < len(visuals):
-            time.sleep(5)
-
-    log(f"All {len(visuals)} jobs submitted — now collecting results")
-
-    for i, (v, handler) in enumerate(handlers, 1):
-        stem = v.pop("_stem")
-        if handler is None:
-            v["image_url"], v["image_path"] = None, None
-        else:
-            v["image_url"], v["image_path"] = _collect_image(handler, stem)
-
-    succeeded = sum(1 for v in visuals if v.get("image_url"))
-    log(f"Image generation complete — {succeeded}/{len(visuals)} succeeded")
-    return visuals
