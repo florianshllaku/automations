@@ -206,7 +206,7 @@ def generate_video(visuals: list[dict], audio_path: str, srt_path: str, title_sl
         "scale=1080:1920:force_original_aspect_ratio=decrease,"
         "pad=1080:1920:(ow-iw)/2:(oh-ih)/2:black,"
         f"subtitles='{srt_escaped}':force_style='"
-        "FontName=Inter Bold,Bold=1,FontSize=8,PrimaryColour=&H0000FFFF,"
+        "FontName=Inter Bold,Bold=1,FontSize=8,PrimaryColour=&H00FFFFFF,"
         "Outline=0,Shadow=0,"
         "Alignment=2,MarginV=20,WrapStyle=2'"
     )
