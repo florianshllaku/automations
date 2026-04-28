@@ -94,9 +94,8 @@ CORE OBJECTIVE:
 Create engaging, coherent, and visually varied scenes that match the script exactly and feel like a continuous story.
 
 MAIN CHARACTER RULE:
-The woman from the reference image MUST appear in exactly 3-4 scenes. This is a hard requirement — always include her in at least 3 scenes, no matter how many total scenes there are.
-The remaining scenes should be object-only, food, conceptual, or environmental — no person at all.
-When you do include her, use the SAME woman:
+If a person is used in the scene:
+- Always use the SAME woman from the reference image provided
 - Keep the same face identity, facial structure, and hairstyle (hair must NOT change)
 
 You CAN change:
@@ -110,8 +109,10 @@ The character should be portrayed as:
 - Natural
 - Realistic (not overly stylized)
 
-For each scene, include a "use_character" field: true if the woman appears in that scene, false otherwise.
-Scenes with "use_character": false must NOT mention any person — focus on objects, environments, food, or concepts.
+IMPORTANT CHARACTER BALANCE RULE:
+- When the woman appears → keep the scene CLEAN, MINIMAL, and focused on her
+- Avoid adding excessive objects or distractions around her
+- Background should support her, not compete with her
 
 VISUAL STYLE RULES:
 
@@ -120,9 +121,13 @@ Lighting:
 - Prefer natural light, soft directional light, or a light cinematic feel
 - Maintain balanced contrast with gentle highlights to keep the image fresh and positive
 
-Background:
-- Keep backgrounds clean, minimal, and slightly dark or neutral
-- Avoid clutter, focus on clarity and readability
+Background & ENVIRONMENT (ENHANCED RICHNESS):
+- When NO human is present → scenes should feel RICH, DETAILED, and STORY-DRIVEN
+- Add layered elements: textures, surfaces, depth, small objects, environmental context
+- Use realistic environments: kitchen counters, wooden tables, marble surfaces, notebooks, soft fabrics, glass, reflections
+- Include subtle imperfections (crumbs, water droplets, paper texture, shadows) to increase realism
+- Use foreground + midground + background depth when possible
+- Keep it visually rich but still CLEAN and readable (no chaotic clutter)
 
 Always include in prompts:
 - soft shadows
@@ -133,19 +138,31 @@ Always include in prompts:
 - clean composition
 - balanced contrast
 - natural colors
-- minimal background
+
+SCENE RICHNESS RULE (CRITICAL UPGRADE):
+- Every non-human scene must feel like a REAL MOMENT, not a flat object display
+- Add context:
+  BAD: "banana on table"
+  GOOD: "sliced banana on a wooden table with knife, soft crumbs, natural light from window, subtle shadow falling across surface"
+
+- Add interaction cues even without people:
+  - partially cut food
+  - spilled elements
+  - opened notebook with handwriting
+  - moving composition feeling (mid-action freeze)
 
 SCENE VARIETY (CRITICAL):
 Avoid repetition. Rotate between:
 1. Human interaction (movement, action)
-2. Food visuals (fruits, meals)
-3. Conceptual visuals (molecules, nutrients, symbols)
-4. Minimal scenes (writing, notebook, objects)
-5. Symbolic compositions (imbalance, absence)
+2. Food visuals (rich, textured, detailed setups)
+3. Conceptual visuals (molecules, nutrients, abstract representations with depth)
+4. Minimal scenes (writing, notebook, objects with strong composition)
+5. Symbolic compositions (imbalance, absence, contrast)
 
 INTERACTION RULE:
 Scenes must feel alive:
 - cutting, placing, writing, pointing, moving objects
+- mid-action moments (not static posing)
 - NOT just holding items passively
 
 LOGIC RULE:
@@ -156,6 +173,7 @@ Each scene must:
 
 If multiple items are mentioned (e.g. banana, orange, apple):
 - include them together in ONE scene logically
+- arrange them in a natural, visually pleasing composition
 
 TIMING:
 Each scene must be between 4 and 7 seconds.
@@ -167,8 +185,7 @@ OUTPUT FORMAT:
       "id": number,
       "duration": 4-7,
       "script": "...",
-      "prompt": "...",
-      "use_character": true or false
+      "prompt": "..."
     }
   ]
 }
@@ -177,9 +194,15 @@ PROMPT STRUCTURE:
 Each prompt must:
 - include the main character (if human is present)
 - include lighting and composition details
-- include action (interaction)
+- include action (interaction or implied motion)
 - include mood/emotion
+- include environmental richness when applicable
 - be optimized for realistic image generation
+
+FINAL RULE:
+- Human scenes = minimal, clean, focused
+- Non-human scenes = rich, detailed, immersive
+- Always prioritize clarity + storytelling over randomness
 
 Now process the following script:"""
 
