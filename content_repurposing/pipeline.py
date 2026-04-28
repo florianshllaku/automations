@@ -4,7 +4,6 @@ from pathlib import Path
 
 from openai import OpenAI
 from dotenv import load_dotenv
-from playwright.sync_api import sync_playwright
 from logger import log
 
 load_dotenv()
@@ -47,52 +46,6 @@ SCRIPT_SYSTEM_PROMPT = (
     'Mbylle me një pyetje të thjeshtë ose thirrje si "ndiq për më shumë" ose "like dhe koment"\n'
     "Mos përdor CTA të komplikuara"
 )
-
-
-# ---------------------------------------------------------------------------
-# Article fetching
-# ---------------------------------------------------------------------------
-
-def fetch_article(url: str) -> str:
-    """
-    Load the article page in a headless browser and return the main article text.
-    Strips nav / footer / related-articles sections before extracting text.
-    """
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
-        page = browser.new_page(user_agent=(
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) "
-            "Chrome/124.0.0.0 Safari/537.36"
-        ))
-        page.goto(url, wait_until="networkidle", timeout=30000)
-
-        article_text = page.evaluate("""() => {
-            document.querySelectorAll(
-                'nav, footer, header, aside, ' +
-                '[class*="related"], [class*="recommended"], [class*="sidebar"], ' +
-                '[id*="related"], [id*="recommended"]'
-            ).forEach(el => el.remove());
-
-            const candidates = [
-                'article',
-                '[class*="article-body"]',
-                '[class*="post-body"]',
-                '[class*="post-content"]',
-                '[class*="entry-content"]',
-                'main',
-            ];
-            for (const sel of candidates) {
-                const el = document.querySelector(sel);
-                if (el && el.innerText.trim().length > 300) {
-                    return el.innerText.trim();
-                }
-            }
-            return document.body.innerText.trim();
-        }""")
-
-        browser.close()
-    return article_text
 
 
 # ---------------------------------------------------------------------------
@@ -141,8 +94,9 @@ CORE OBJECTIVE:
 Create engaging, coherent, and visually varied scenes that match the script exactly and feel like a continuous story.
 
 MAIN CHARACTER RULE:
-If a person is used in the scene:
-- Always use the SAME woman from the reference image provided
+The woman from the reference image MUST appear in exactly 3-4 scenes. This is a hard requirement — always include her in at least 3 scenes, no matter how many total scenes there are.
+The remaining scenes should be object-only, food, conceptual, or environmental — no person at all.
+When you do include her, use the SAME woman:
 - Keep the same face identity, facial structure, and hairstyle (hair must NOT change)
 
 You CAN change:
@@ -155,6 +109,9 @@ The character should be portrayed as:
 - Fit
 - Natural
 - Realistic (not overly stylized)
+
+For each scene, include a "use_character" field: true if the woman appears in that scene, false otherwise.
+Scenes with "use_character": false must NOT mention any person — focus on objects, environments, food, or concepts.
 
 VISUAL STYLE RULES:
 
@@ -210,7 +167,8 @@ OUTPUT FORMAT:
       "id": number,
       "duration": 4-7,
       "script": "...",
-      "prompt": "..."
+      "prompt": "...",
+      "use_character": true or false
     }
   ]
 }

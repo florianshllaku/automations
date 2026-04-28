@@ -1,0 +1,60 @@
+{
+  "scenes": [
+    {
+      "id": 1,
+      "duration": 5,
+      "script": "A po të therë, po të djeg, po të mpihet këmba… sidomos kur rri ulur?",
+      "prompt": "Ultra realistic 4:5 vertical clean composition, slightly dark tones with soft shadows, natural colors, shallow depth of field. Show the same realistic woman from the reference image seated at a desk/chair, slightly hunched. She reacts with a subtle grimace and tilts her leg, one hand touching her lower back/hip while the other points toward her thigh as if feeling tingling. Mood: concerned, mildly uncomfortable. Background minimal and neutral, balanced contrast, soft directional light.",
+      "use_character": true
+    },
+    {
+      "id": 2,
+      "duration": 6,
+      "script": "Këto shpesh lidhen me ishiasin: barrë nga ulja që përkeqëson qafën, shpinën, ijët dhe këmbët.",
+      "prompt": "Ultra realistic 4:5 vertical, clean composition, slightly dark tones with soft shadows, shallow depth of field. Minimal office interior with a chair and a person-shaped silhouette shadow blurred on the backrest, showing subtle light “stress” lines radiating from neck and lower back down toward hips and legs. No person visible, only their shadow silhouette. Mood: explanatory, informative. Natural colors, balanced contrast.",
+      "use_character": false
+    },
+    {
+      "id": 3,
+      "duration": 5,
+      "script": "Dhimbja therëse nis nga fundi i shpinës dhe zbret përgjatë këmbës kur ulesh ose vozit.",
+      "prompt": "Ultra realistic 4:5 vertical, clean composition, slightly dark tones with subtle shadows, shallow depth of field. Show a car driver seat area (dashboard edge, steering wheel partially visible) with a warm light on the lower back area using a realistic medical-style overlay illusion: a thin glowing path starts at lower spine and travels down a leg shaped silhouette (no human body). Action: the glowing path “moves” downward as if tracing pain. Mood: clear, instructional. Natural colors, balanced contrast.",
+      "use_character": false
+    },
+    {
+      "id": 4,
+      "duration": 6,
+      "script": "Shpesh shkaku është irritimi i nervit shiatik—mund të shtypet nga hernia e diskut ose nga muskuli piriformis.",
+      "prompt": "Ultra realistic 4:5 vertical, clean composition, slightly dark tones with soft shadows, shallow depth of field. Conceptual medical visual: a transparent spine model on a minimal dark background, with a small disk protrusion slightly compressing a nerve cord; next to it, a piriformis muscle-like shape presses the nerve. Show gentle motion: the nerve appears compressed and then eased slightly. Mood: educational, reassuring. Natural colors, balanced contrast.",
+      "use_character": false
+    },
+    {
+      "id": 5,
+      "duration": 6,
+      "script": "Lajmi i mirë: ndryshime të thjeshta rutine mund të sjellin lehtësim të ndjeshëm.",
+      "prompt": "Ultra realistic 4:5 vertical, clean composition, slightly dark tones with soft shadows, shallow depth of field. Show a simple minimalist desk setup: a smartphone timer displaying “30 min”, a small folded note “Shtrirje” and a foam mat or towel on the floor. Action: finger-like motion indicator (no person) flipping the note and starting the timer; subtle calming light rays imply relief. Mood: hopeful, encouraging. Natural colors, balanced contrast, minimal background.",
+      "use_character": false
+    },
+    {
+      "id": 6,
+      "duration": 6,
+      "script": "Provo të ngrihesh çdo 30 minuta, të rregullosh mbështetjen e shpinës dhe bëj shtrirje të lehtë piriformisi ulur 30 sekonda për secilën anë.",
+      "prompt": "Ultra realistic 4:5 vertical, clean composition, slightly dark tones with soft shadows, shallow depth of field. Same realistic woman from the reference image (same face identity and hairstyle) seated on a chair with a small lumbar support pillow. She adjusts the pillow with one hand, then transitions into a seated piriformis stretch: one ankle resting over the opposite knee, torso leaning forward gently. Action: she holds the stretch for the moment, with a calm, focused expression. Include a small visible timer on a phone stand beside her showing “30s”. Mood: careful, therapeutic. Natural colors, balanced contrast, minimal background.",
+      "use_character": true
+    },
+    {
+      "id": 7,
+      "duration": 5,
+      "script": "Nëse dhimbja rritet, ndalo dhe kërko këshillë.",
+      "prompt": "Ultra realistic 4:5 vertical, clean composition, slightly dark tones with subtle shadows, shallow depth of field. Close-up of a smartphone displaying a stop icon and a simple note “Ndalo + Kërko këshillë”, placed next to the mat on a neutral surface. Action: the screen shows the timer paused and a warning badge appears; no person present. Mood: cautious, safety-first. Natural colors, balanced contrast, minimal background.",
+      "use_character": false
+    },
+    {
+      "id": 8,
+      "duration": 5,
+      "script": "A po të ndodh edhe ty kur rri ulur gjatë? Ndaj në koment dhe ndiq për më shumë.",
+      "prompt": "Ultra realistic 4:5 vertical, clean composition, slightly dark tones with soft shadows, shallow depth of field. Same realistic woman from the reference image (same identity and hairstyle) sitting back in a chair, now more comfortable. She gestures toward the viewer with a friendly, inviting expression (one hand near the phone/tablet as if prompting comments), and subtle on-screen style UI text in the background space: “Comment: po/jo”. Action: she points gently, encouraging engagement. Mood: warm, interactive. Natural colors, balanced contrast, minimal background.",
+      "use_character": true
+    }
+  ]
+}

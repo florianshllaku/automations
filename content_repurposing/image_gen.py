@@ -2,7 +2,6 @@ import io
 import json
 import os
 import re
-import time
 import urllib.request
 from pathlib import Path
 
@@ -20,6 +19,7 @@ REFERENCE_IMAGE_PATH = ASSETS_DIR / "women.png"
 REFERENCE_URL_CACHE = ASSETS_DIR / "women_url.txt"
 
 MODEL = "fal-ai/nano-banana-pro"
+MODEL_EDIT = "fal-ai/nano-banana-pro/edit"
 
 
 def _slug(text: str) -> str:
@@ -69,8 +69,12 @@ def _submit_image(image_prompt: str, filename_stem: str, reference_url: str | No
     if reference_url:
         arguments["image_urls"] = [reference_url]
         log(f"[DEBUG] Reference image attached: {reference_url}", "DEBUG")
+        model = MODEL_EDIT
+    else:
+        model = MODEL
 
-    handler = fal_client.submit(MODEL, arguments=arguments)
+    log(f"[DEBUG] Using model: {model}", "DEBUG")
+    handler = fal_client.submit(model, arguments=arguments)
     log(f"[DEBUG] Handler request_id: {getattr(handler, 'request_id', 'N/A')}", "DEBUG")
     return handler
 
@@ -138,12 +142,62 @@ def _collect_image(handler, filename_stem: str, output_dir: Path = None) -> tupl
         return None, None
 
 
+_CHARACTER_PROMPT_PREFIX = (
+    "The same woman from the reference image is shown in this scene — "
+    "realistic, fit, natural look, same face identity and hairstyle as reference, unchanged. "
+)
+
+_MIN_CHARACTER_SCENES = 3
+_MAX_CHARACTER_SCENES = 4
+
+
+def _enforce_character_scenes(scenes: list[dict]) -> list[dict]:
+    """
+    Guarantee exactly 3–4 scenes have use_character=True.
+    - If GPT returned fewer than 3, promote evenly-spaced non-character scenes.
+    - If GPT returned more than 4, demote the excess (keep the most spread-out ones).
+    - For every use_character=True scene, ensure the prompt explicitly mentions her.
+    """
+    char_indices = [i for i, s in enumerate(scenes) if s.get("use_character") is True]
+
+    # Too few — promote evenly-spaced non-character scenes
+    if len(char_indices) < _MIN_CHARACTER_SCENES:
+        non_char = [i for i in range(len(scenes)) if i not in char_indices]
+        needed = _MIN_CHARACTER_SCENES - len(char_indices)
+        step = max(1, len(non_char) // (needed + 1))
+        promote = [non_char[j * step] for j in range(needed) if j * step < len(non_char)]
+        for idx in promote:
+            scenes[idx]["use_character"] = True
+            log(f"Promoted scene {scenes[idx].get('id', idx+1)} to use_character=True (needed {_MIN_CHARACTER_SCENES} min)")
+        char_indices = [i for i, s in enumerate(scenes) if s.get("use_character") is True]
+
+    # Too many — demote excess, keeping evenly-distributed ones
+    if len(char_indices) > _MAX_CHARACTER_SCENES:
+        step = len(char_indices) / _MAX_CHARACTER_SCENES
+        keep = {char_indices[int(j * step)] for j in range(_MAX_CHARACTER_SCENES)}
+        for i in char_indices:
+            if i not in keep:
+                scenes[i]["use_character"] = False
+                log(f"Demoted scene {scenes[i].get('id', i+1)} to use_character=False (capped at {_MAX_CHARACTER_SCENES})")
+        char_indices = [i for i, s in enumerate(scenes) if s.get("use_character") is True]
+
+    # Inject explicit character description into every character scene prompt
+    for i in char_indices:
+        if _CHARACTER_PROMPT_PREFIX not in scenes[i].get("prompt", ""):
+            scenes[i]["prompt"] = _CHARACTER_PROMPT_PREFIX + scenes[i]["prompt"]
+
+    log(f"Character scenes enforced: {len(char_indices)}/{len(scenes)} — indices {char_indices}")
+    return scenes
+
+
 def generate_images_from_json(json_path: str, style_slug: str = "scene") -> list[dict]:
     """
     Read a visuals JSON file (generated_content/images/{slug}.json),
     generate images one by one via fal.ai, and return updated scenes with image_path.
 
     Attaches assets/women.png as a reference image if it exists.
+    Deletes leftover images from previous runs before generating new ones.
+    Enforces exactly 3–4 character appearances via the reference image.
     """
     json_path = Path(json_path)
     if not json_path.exists():
@@ -159,6 +213,17 @@ def generate_images_from_json(json_path: str, style_slug: str = "scene") -> list
 
     log(f"Starting image generation — {len(scenes)} scenes from {json_path.name}")
 
+    # Clean up leftover images from previous runs
+    output_dir = json_path.parent
+    old_images = sorted(output_dir.glob(f"{style_slug}_*.jpg"))
+    if old_images:
+        for old_img in old_images:
+            old_img.unlink()
+        log(f"Cleaned up {len(old_images)} old image(s) from previous run")
+
+    # Enforce 3–4 character appearances and fix prompts
+    scenes = _enforce_character_scenes(scenes)
+
     # Upload reference image once
     reference_url = _upload_reference_image()
 
@@ -172,8 +237,9 @@ def generate_images_from_json(json_path: str, style_slug: str = "scene") -> list
         log(f"Generating scene {scene_id}/{len(scenes)} — {stem}")
 
         try:
-            handler = _submit_image(prompt, stem, reference_url=reference_url)
-            image_url, image_path = _collect_image(handler, stem, output_dir=json_path.parent)
+            scene_ref = reference_url if scene.get("use_character") is True else None
+            handler = _submit_image(prompt, stem, reference_url=scene_ref)
+            image_url, image_path = _collect_image(handler, stem, output_dir=output_dir)
         except Exception as e:
             log(f"Scene {scene_id} failed: {type(e).__name__}: {e}", "ERROR")
             image_url, image_path = None, None
@@ -183,46 +249,3 @@ def generate_images_from_json(json_path: str, style_slug: str = "scene") -> list
     succeeded = sum(1 for r in results if r.get("image_url"))
     log(f"Image generation complete — {succeeded}/{len(scenes)} succeeded")
     return results
-
-
-# ---------------------------------------------------------------------------
-# Legacy batch function (kept for backwards compat)
-# ---------------------------------------------------------------------------
-
-def generate_images_for_visuals(visuals: list[dict], article_title: str, style_slug: str = "") -> list[dict]:
-    """
-    Submit all fal.ai jobs 5 seconds apart (non-blocking), then collect all results.
-    """
-    title_slug = _slug(article_title)
-    log(f"Starting image generation — {len(visuals)} frames, article: '{article_title}', style: '{style_slug}'")
-
-    reference_url = _upload_reference_image()
-
-    handlers = []
-    for i, v in enumerate(visuals, 1):
-        label_slug = _slug(v.get("label", f"frame_{i}"))
-        stem = f"{style_slug}_{title_slug}_{i:02d}_{label_slug}" if style_slug else f"{title_slug}_{i:02d}_{label_slug}"
-        v["_stem"] = stem
-
-        try:
-            handler = _submit_image(v["image_prompt"], stem, reference_url=reference_url)
-            handlers.append((v, handler))
-        except Exception as e:
-            log(f"fal.ai submit failed for {stem}: {type(e).__name__}: {e}", "ERROR")
-            handlers.append((v, None))
-
-        if i < len(visuals):
-            time.sleep(5)
-
-    log(f"All {len(visuals)} jobs submitted — now collecting results")
-
-    for i, (v, handler) in enumerate(handlers, 1):
-        stem = v.pop("_stem")
-        if handler is None:
-            v["image_url"], v["image_path"] = None, None
-        else:
-            v["image_url"], v["image_path"] = _collect_image(handler, stem)
-
-    succeeded = sum(1 for v in visuals if v.get("image_url"))
-    log(f"Image generation complete — {succeeded}/{len(visuals)} succeeded")
-    return visuals

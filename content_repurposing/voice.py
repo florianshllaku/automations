@@ -10,9 +10,6 @@ from pydub import AudioSegment
 
 load_dotenv()
 
-AUDIO_DIR = Path("audio_files")
-AUDIO_DIR.mkdir(exist_ok=True)
-
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 GLADIA_KEY = os.getenv("GLADIA_KEY", "")
 GLADIA_BASE_URL = "https://api.gladia.io"
