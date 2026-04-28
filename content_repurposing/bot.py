@@ -117,7 +117,28 @@ async def cmd_news(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         return
 
     if not articles:
-        await update.message.reply_text("✅ No new articles found right now.")
+        seen, _, _ = load_seen()
+        last5 = list(seen.values())[:5]
+        if not last5:
+            await update.message.reply_text("✅ No new articles and no history found.")
+            return
+        await update.message.reply_text(
+            "✅ No new articles. Here are the last 5 — want to create content for any?",
+        )
+        for art in last5:
+            h = hashlib.md5(art["url"].encode()).hexdigest()[:8]
+            _pending_articles[h] = art
+            keyboard = InlineKeyboardMarkup([[
+                InlineKeyboardButton("✅ Create Content", callback_data=f"create_{h}"),
+                InlineKeyboardButton("❌ Skip",           callback_data=f"skip_{h}"),
+            ]])
+            await update.message.reply_text(
+                f"📌 <b>{art['title']}</b>\n"
+                f"<a href=\"{art['url']}\">🔗 Read article</a>",
+                reply_markup=keyboard,
+                parse_mode="HTML",
+                disable_web_page_preview=True,
+            )
         return
 
     await update.message.reply_text(
