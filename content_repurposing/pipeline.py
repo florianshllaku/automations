@@ -94,8 +94,9 @@ CORE OBJECTIVE:
 Create engaging, coherent, and visually varied scenes that match the script exactly and feel like a continuous story.
 
 MAIN CHARACTER RULE:
-If a person is used in the scene:
-- Always use the SAME woman from the reference image provided
+The woman from the reference image MUST appear in exactly 3-4 scenes. This is a hard requirement — always include her in at least 3 scenes, no matter how many total scenes there are.
+The remaining scenes should be object-only, food, conceptual, or environmental — no person at all.
+When you do include her, always use the SAME woman from the reference image:
 - Keep the same face identity, facial structure, and hairstyle (hair must NOT change)
 
 You CAN change:
@@ -108,6 +109,9 @@ The character should be portrayed as:
 - Fit
 - Natural
 - Realistic (not overly stylized)
+
+For each scene, include a "use_character" field: true if the woman appears in that scene, false otherwise.
+Scenes with "use_character": false must NOT mention any person — focus on objects, environments, food, or concepts.
 
 IMPORTANT CHARACTER BALANCE RULE:
 - When the woman appears → keep the scene CLEAN, MINIMAL, and focused on her
@@ -185,7 +189,8 @@ OUTPUT FORMAT:
       "id": number,
       "duration": 4-7,
       "script": "...",
-      "prompt": "..."
+      "prompt": "...",
+      "use_character": true or false
     }
   ]
 }
