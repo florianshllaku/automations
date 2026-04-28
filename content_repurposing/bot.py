@@ -97,31 +97,31 @@ async def _send_audio_file(bot: Bot, audio_path: str, title: str) -> None:
 
 async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(
-        "👋 Pershendetje! Une jam boti juaj per content.\n\n"
-        "Komanda:\n"
-        "• /news — Shfaq lajmet e fundit\n"
-        "• /start — Mesazh mirëseardhjeje\n\n"
-        "Ose dergo cdo mesazh dhe do te pergjigjem me ChatGPT. 🤖"
+        "👋 Hey! I'm your content bot.\n\n"
+        "Commands:\n"
+        "• /news — Scrape the latest articles\n"
+        "• /start — Show this message\n\n"
+        "Or just send me any message and I'll reply via ChatGPT. 🤖"
     )
 
 
 # ── /news ────────────────────────────────────────────────────────────────────
 
 async def cmd_news(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_text("🔍 Duke kerkuar lajmet e reja, prit...")
+    await update.message.reply_text("🔍 Scraping latest articles, hang on...")
     try:
         articles = await asyncio.to_thread(_scrape_new_articles)
     except Exception as e:
-        await update.message.reply_text(f"❌ Gabim gjate scraping: {e}")
+        await update.message.reply_text(f"❌ Scraping error: {e}")
         log(f"[bot] Scraping error: {e}", "ERROR")
         return
 
     if not articles:
-        await update.message.reply_text("✅ Nuk ka lajme te reja per momentin.")
+        await update.message.reply_text("✅ No new articles found right now.")
         return
 
     await update.message.reply_text(
-        f"📰 Gjeta <b>{len(articles)}</b> lajme te reja:",
+        f"📰 Found <b>{len(articles)}</b> new article(s):",
         parse_mode="HTML",
     )
 
@@ -129,12 +129,12 @@ async def cmd_news(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         h = hashlib.md5(art["url"].encode()).hexdigest()[:8]
         _pending_articles[h] = art
         keyboard = InlineKeyboardMarkup([[
-            InlineKeyboardButton("✅ Krijo Content", callback_data=f"create_{h}"),
-            InlineKeyboardButton("❌ Kalo",          callback_data=f"skip_{h}"),
+            InlineKeyboardButton("✅ Create Content", callback_data=f"create_{h}"),
+            InlineKeyboardButton("❌ Skip",           callback_data=f"skip_{h}"),
         ]])
         await update.message.reply_text(
             f"📌 <b>{art['title']}</b>\n"
-            f"<a href=\"{art['url']}\">🔗 Lexo artikullin</a>",
+            f"<a href=\"{art['url']}\">🔗 Read article</a>",
             reply_markup=keyboard,
             parse_mode="HTML",
             disable_web_page_preview=True,
@@ -155,12 +155,12 @@ async def handle_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
         art = _pending_articles.get(h)
         if not art:
             await query.edit_message_reply_markup(reply_markup=None)
-            await query.message.reply_text("❌ Artikulli nuk eshte me i disponueshem.")
+            await query.message.reply_text("❌ Article is no longer available.")
             return
         await query.edit_message_reply_markup(reply_markup=None)
         await context.bot.send_message(
             chat_id=chat_id,
-            text=f"🎬 Duke krijuar content per:\n<b>{art['title']}</b>",
+            text=f"🎬 Creating content for:\n<b>{art['title']}</b>",
             parse_mode="HTML",
         )
         asyncio.create_task(_run_pipeline(context.bot, chat_id, art))
@@ -169,9 +169,9 @@ async def handle_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     elif data.startswith("skip_"):
         h = data[5:]
         art = _pending_articles.pop(h, None)
-        title = art["title"] if art else "artikulli"
+        title = art["title"] if art else "article"
         await query.edit_message_reply_markup(reply_markup=None)
-        await query.message.reply_text(f"⏭ Kalova: {title}")
+        await query.message.reply_text(f"⏭ Skipped: {title}")
 
     # ── TikTok: publish
     elif data.startswith("publish_"):
@@ -179,21 +179,21 @@ async def handle_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
         info = _ready_videos.get(slug)
         if not info:
             await query.edit_message_reply_markup(reply_markup=None)
-            await query.message.reply_text("❌ Video nuk eshte me e disponueshme.")
+            await query.message.reply_text("❌ Video is no longer available.")
             return
         await query.edit_message_reply_markup(reply_markup=None)
-        await query.message.reply_text("📤 Duke postuar ne TikTok...")
+        await query.message.reply_text("📤 Posting to TikTok...")
         try:
             post = await asyncio.to_thread(post_video_to_tiktok, info["drive_url"], info["title"])
             _ready_videos.pop(slug, None)
             await query.message.reply_text(
-                f"✅ <b>Postuar ne TikTok!</b>\n"
+                f"✅ <b>Posted to TikTok!</b>\n"
                 f"ID: <code>{post.get('id')}</code>\n"
                 f"Scheduled: {post.get('dueAt', 'automatic')}",
                 parse_mode="HTML",
             )
         except Exception as e:
-            await query.message.reply_text(f"❌ Gabim gjate postimit: {e}")
+            await query.message.reply_text(f"❌ TikTok posting error: {e}")
             log(f"[bot] TikTok post error: {e}", "ERROR")
 
     # ── TikTok: skip publish
@@ -201,12 +201,12 @@ async def handle_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
         slug = data[10:]
         _ready_videos.pop(slug, None)
         await query.edit_message_reply_markup(reply_markup=None)
-        await query.message.reply_text("⏭ Kalova postimin ne TikTok.")
+        await query.message.reply_text("⏭ Skipped TikTok posting.")
 
 
 # ── General message → ChatGPT ─────────────────────────────────────────────────
 
-NEWS_TRIGGERS = ["lajme", "latest news", "shfaq lajme", "news", "lajmet"]
+NEWS_TRIGGERS = ["lajme", "latest news", "show news", "news", "lajmet", "get news"]
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     text = (update.message.text or "").strip()
@@ -225,8 +225,8 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
                     {
                         "role": "system",
                         "content": (
-                            "Je nje asistent i zgjuar i specializuar per content marketing, "
-                            "social media dhe TikTok. Pergjigju shkurt dhe qarte ne shqip."
+                            "You are a smart assistant specialized in content marketing, "
+                            "social media, and TikTok. Reply concisely and clearly in English."
                         ),
                     },
                     {"role": "user", "content": text},
@@ -235,7 +235,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
         )
         reply = response.choices[0].message.content or "..."
     except Exception as e:
-        reply = f"❌ ChatGPT gabim: {e}"
+        reply = f"❌ ChatGPT error: {e}"
         log(f"[bot] ChatGPT error: {e}", "ERROR")
 
     await update.message.reply_text(reply)
@@ -254,33 +254,33 @@ async def _run_pipeline(bot: Bot, chat_id: int, art: dict) -> None:
 
     try:
         # 1. Fetch article body
-        await notify("📥 Duke marrë tekstin e artikullit...")
+        await notify("📥 Fetching article text...")
         body = await asyncio.to_thread(fetch_article_body, art["url"])
         if not body:
-            await notify("⚠️ Nuk u gjet tekst ne artikull. Ndoshta XPath ndryshoi.")
+            await notify("⚠️ Article body was empty — XPath may have changed.")
             return
 
         # 2. Generate script
-        await notify("✍️ Duke gjeneruar skriptin me ChatGPT...")
+        await notify("✍️ Generating script with ChatGPT...")
         script = await asyncio.to_thread(generate_script, body)
         script_path = f"generated_content/{slug}/scripts/{slug}.txt"
         Path(script_path).parent.mkdir(parents=True, exist_ok=True)
         Path(script_path).write_text(script, encoding="utf-8")
-        await notify(f"📝 <b>Skripti:</b>\n\n{script}")
+        await notify(f"📝 <b>Script:</b>\n\n{script}")
 
         # 3. Generate visual prompts JSON
-        await notify("🎨 Duke gjeneruar promptet vizuale...")
+        await notify("🎨 Generating visual prompts...")
         visuals_path = await asyncio.to_thread(generate_visuals, script, slug)
 
         # 4. Generate images via fal.ai
-        await notify("🖼 Duke gjeneruar imazhet me AI... (mund te zgjase disa minuta)")
+        await notify("🖼 Generating images with AI... (this may take a few minutes)")
         scenes = await asyncio.to_thread(generate_images_from_json, visuals_path, slug)
         succeeded = sum(1 for s in scenes if s.get("image_path"))
-        await notify(f"✅ Imazhe: {succeeded}/{len(scenes)} te gjeneruara")
+        await notify(f"✅ Images: {succeeded}/{len(scenes)} generated")
         await _send_images(bot, scenes)
 
         # 5. Generate audio
-        await notify("🔊 Duke gjeneruar zerin (TTS)...")
+        await notify("🔊 Generating voiceover (TTS)...")
         audio_path = await asyncio.to_thread(
             generate_audio, script,
             f"generated_content/{slug}/audio/{slug}.mp3"
@@ -288,7 +288,7 @@ async def _run_pipeline(bot: Bot, chat_id: int, art: dict) -> None:
         await _send_audio_file(bot, audio_path, art["title"])
 
         # 6. Generate subtitles
-        await notify("💬 Duke gjeneruar titrat (Gladia)...")
+        await notify("💬 Generating subtitles (Gladia)...")
         srt_path = await asyncio.to_thread(
             generate_subtitles,
             audio_path,
@@ -297,7 +297,7 @@ async def _run_pipeline(bot: Bot, chat_id: int, art: dict) -> None:
         )
 
         # 7. Stitch video
-        await notify("🎬 Duke montuar videon me ffmpeg...")
+        await notify("🎬 Assembling video with ffmpeg...")
         visuals_for_video = [
             {
                 "image_path": s.get("image_path"),
@@ -312,11 +312,11 @@ async def _run_pipeline(bot: Bot, chat_id: int, art: dict) -> None:
             generate_video, visuals_for_video, audio_path, srt_path, slug, video_path
         )
         if not result:
-            await notify("❌ Gjenerimi i videos deshtoi.")
+            await notify("❌ Video generation failed.")
             return
 
         # 8. Upload to Google Drive
-        await notify("☁️ Duke ngarkuar videon ne Google Drive...")
+        await notify("☁️ Uploading video to Google Drive...")
         drive_url = await asyncio.to_thread(upload_video, result)
         log(f"[bot] Drive URL: {drive_url}")
 
@@ -325,17 +325,17 @@ async def _run_pipeline(bot: Bot, chat_id: int, art: dict) -> None:
 
         # 9. Send TikTok approval prompt
         keyboard = InlineKeyboardMarkup([[
-            InlineKeyboardButton("✅ Posto ne TikTok!", callback_data=f"publish_{slug}"),
-            InlineKeyboardButton("❌ Kalo",             callback_data=f"nopublish_{slug}"),
+            InlineKeyboardButton("✅ Post to TikTok!", callback_data=f"publish_{slug}"),
+            InlineKeyboardButton("❌ Skip",            callback_data=f"nopublish_{slug}"),
         ]])
         for cid in CHAT_IDS:
             await bot.send_message(
                 chat_id=cid,
                 text=(
-                    f"🎬 <b>VIDEO GATI!</b>\n\n"
+                    f"🎬 <b>VIDEO READY!</b>\n\n"
                     f"<b>{art['title']}</b>\n\n"
-                    f"📁 <a href=\"{drive_url}\">Shiko ne Google Drive</a>\n\n"
-                    f"Posto ne TikTok?"
+                    f"📁 <a href=\"{drive_url}\">View on Google Drive</a>\n\n"
+                    f"Post this to TikTok?"
                 ),
                 reply_markup=keyboard,
                 parse_mode="HTML",
@@ -343,7 +343,7 @@ async def _run_pipeline(bot: Bot, chat_id: int, art: dict) -> None:
 
     except Exception as e:
         log(f"[bot] Pipeline error for '{art['title']}': {type(e).__name__}: {e}", "ERROR")
-        await notify(f"❌ <b>Gabim ne pipeline:</b>\n{type(e).__name__}: {e}")
+        await notify(f"❌ <b>Pipeline error:</b>\n{type(e).__name__}: {e}")
 
 
 # ── Scraper (blocking, safe to call from asyncio.to_thread) ──────────────────
