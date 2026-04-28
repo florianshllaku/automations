@@ -220,6 +220,40 @@ def send_generated_images(visuals: list[dict], title: str = "") -> None:
     log("All generated images dispatched to Telegram")
 
 
+async def _send_tiktok_approval(drive_url: str, title: str) -> int:
+    """Send a YES/NO prompt asking whether to post the video to TikTok."""
+    text = (
+        f"🎬 <b>VIDEO READY</b>\n\n"
+        f"<b>{title}</b>\n\n"
+        f"📁 <a href=\"{drive_url}\">View on Google Drive</a>\n\n"
+        f"Post this to TikTok?"
+    )
+    keyboard = InlineKeyboardMarkup([[
+        InlineKeyboardButton("✅ Yes, post it!", callback_data="yes"),
+        InlineKeyboardButton("❌ No, skip",      callback_data="no"),
+    ]])
+    async with Bot(TOKEN) as bot:
+        msg = await bot.send_message(
+            chat_id=CHAT_ID,
+            text=text,
+            reply_markup=keyboard,
+            parse_mode="HTML",
+        )
+    return msg.message_id
+
+
+def send_tiktok_approval(drive_url: str, title: str) -> int:
+    """Send TikTok post approval prompt. Returns message_id for polling."""
+    log(f"[DEBUG] send_tiktok_approval — title: {title}, drive_url: {drive_url}", "DEBUG")
+    if not TOKEN:
+        raise ValueError("TELEGRAM_TOKEN env var is not set")
+    if not CHAT_ID:
+        raise ValueError("CHAT_ID env var is not set")
+    msg_id = asyncio.run(_send_tiktok_approval(drive_url, title))
+    log(f"[DEBUG] TikTok approval message sent — message_id: {msg_id}", "DEBUG")
+    return msg_id
+
+
 async def _send_document(file_path: str, filename: str) -> None:
     async with Bot(TOKEN) as bot:
         for cid in CHAT_IDS:

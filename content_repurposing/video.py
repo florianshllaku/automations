@@ -273,24 +273,29 @@ def generate_video(visuals: list[dict], audio_path: str, srt_path: str, title_sl
 
         output_path = output_path or str(OUTPUT_DIR / f"{title_slug}.mp4")
         srt_escaped = _escape_filter_path(srt_path)
+        logo_path = str(Path(__file__).parent / "assets" / "jeto_mire_logo.png")
         log(f"[DEBUG] SRT escaped path for filter: {srt_escaped}", "DEBUG")
 
-        vf = (
-            "scale=1080:1920:force_original_aspect_ratio=decrease,"
+        filter_complex = (
+            "[0:v]scale=1080:1920:force_original_aspect_ratio=decrease,"
             "pad=1080:1920:(ow-iw)/2:(oh-ih)/2:black,"
             f"subtitles='{srt_escaped}':force_style='"
             "FontName=Inter Bold,Bold=1,FontSize=8,PrimaryColour=&H0000FFFF,"
             "Outline=0,Shadow=0,"
             "Alignment=2,MarginV=20,WrapStyle=2'"
+            "[main];"
+            "[2:v]scale=230:-1[logo];"
+            "[main][logo]overlay=W-w-30:30[out]"
         )
 
         cmd = [
             "ffmpeg", "-y",
             "-f", "concat", "-safe", "0", "-i", concat_path,
             "-i", audio_path,
-            "-map", "0:v:0",
+            "-i", logo_path,
+            "-filter_complex", filter_complex,
+            "-map", "[out]",
             "-map", "1:a:0",
-            "-vf", vf,
             "-c:v", "libx264", "-preset", "fast", "-crf", "23",
             "-c:a", "aac", "-b:a", "192k",
             "-shortest",

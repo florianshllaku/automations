@@ -1,3 +1,8 @@
 .env
 __pycache__/
 *.pyc
+credentials.json
+token.json
+generated_content/
+*.mp4
+assets/women_url.txt
