@@ -9,11 +9,13 @@ sys.stdout.reconfigure(encoding="utf-8")
 sys.stderr.reconfigure(encoding="utf-8")
 
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeout
-from telegram_bot import send_approval_message, wait_for_next
+from telegram_bot import send_approval_message, wait_for_next, send_tiktok_approval
 from pipeline import generate_script, generate_visuals
 from image_gen import generate_images_from_json
 from voice import generate_audio, generate_subtitles
 from video import generate_video
+from gdrive_uploader import upload_video
+from buffer_poster import post_video_to_tiktok
 
 BASE_URL         = "https://telegrafi.com/shendetesi/ushqimi-dhe-dieta/"
 SEEN_FILE        = "seen_articles.json"
@@ -379,6 +381,21 @@ def main():
                     result = generate_video(visuals_for_video, audio_path, srt_path, slug, output_path=video_path)
                     if result:
                         print(f"  Video saved: {result}")
+                        # Upload to Google Drive and ask user whether to post on TikTok
+                        try:
+                            print("  Uploading to Google Drive ...")
+                            drive_url = upload_video(result)
+                            print(f"  Drive URL: {drive_url}")
+                            msg_id = send_tiktok_approval(drive_url, art["title"])
+                            _, approved = wait_for_next({msg_id})
+                            if approved:
+                                print("  Posting to TikTok via Buffer ...")
+                                post = post_video_to_tiktok(drive_url, art["title"])
+                                print(f"  TikTok post queued — id: {post.get('id')}, dueAt: {post.get('dueAt')}")
+                            else:
+                                print("  Skipped TikTok post.")
+                        except Exception as e:
+                            print(f"  [ERROR] TikTok flow failed: {e}", file=sys.stderr)
                     else:
                         print("  [ERROR] generate_video returned None", file=sys.stderr)
                 except Exception as e:

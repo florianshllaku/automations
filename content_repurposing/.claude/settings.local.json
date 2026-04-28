@@ -37,7 +37,12 @@
       "Bash(--version)",
       "Read(//c/Users/brryli/AppData/Local/Programs/Python/**)",
       "Bash(\"C:/Users/brryli/AppData/Local/Programs/Python/Python312/python.exe\" -c \":*)",
-      "Bash(del:*)"
+      "Bash(del:*)",
+      "mcp__buffer__get_account",
+      "mcp__buffer__list_channels",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
     ]
   }
 }
