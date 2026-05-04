@@ -1,0 +1,5 @@
+anthropic
+playwright
+jinja2
+pillow
+python-dotenv

@@ -1,0 +1,95 @@
+{
+  "business": {
+    "name": "Sharp Group",
+    "handle": "sharp_group",
+    "niche": "digital marketing",
+    "location": "Prishtina, Kosovo",
+    "tagline": "",
+    "services": [
+      "social media management",
+      "SEO",
+      "Google Ads",
+      "web design",
+      "web development",
+      "branding"
+    ],
+    "tone": "clean, confident, and straightforward — posts alternate between Albanian and English",
+    "target_audience": "businesses and entrepreneurs in Kosovo and the region, primarily in the healthcare industry but also general businesses looking to grow online"
+  },
+
+  "brand": {
+    "primary_color": "#FF8643",
+    "secondary_color": "#080808",
+    "background_color": "#FFFFFF",
+    "text_color": "#080808",
+    "accent_color": "#FF8643",
+    "fonts": {
+      "heading": "Poppins Bold",
+      "body": "Poppins Regular",
+      "accent": "Poppins SemiBold"
+    },
+    "font_files": {
+      "heading": "assets/sharp_group/fonts/Poppins-Bold.ttf",
+      "body": "assets/sharp_group/fonts/Poppins-Regular.ttf",
+      "accent": "assets/sharp_group/fonts/Poppins-SemiBold.ttf"
+    }
+  },
+
+  "assets": {
+    "logo": "assets/sharp_group/logo.png",
+    "logo_white": "assets/sharp_group/logo_white.png",
+    "photos": [],
+    "textures": [],
+    "icons": []
+  },
+
+  "visual_style": {
+    "active_style": "bold_minimal",
+    "description": "Clean white or light grey backgrounds. Bold Poppins typography. Orange (#FF8643) used as headline or accent color. Black for body text. Minimal design — one clear message per post. No clutter. Always text_only layout.",
+    "image_generation_style": "clean, modern, professional, minimal, white or grey background, bold typography, corporate digital style",
+    "avoid": "too many colors, busy backgrounds, cartoon style, neon, anything not clean and modern",
+    "force_layout": "text_only",
+    "force_color_mood": "light"
+  },
+
+  "content_strategy": {
+    "post_types": [
+      "tip",
+      "educational",
+      "case_study",
+      "promotional",
+      "testimonial",
+      "trend"
+    ],
+    "post_type_weights": {
+      "tip": 0.3,
+      "educational": 0.25,
+      "case_study": 0.2,
+      "promotional": 0.1,
+      "testimonial": 0.1,
+      "trend": 0.05
+    },
+    "avoid_repeating_type_within": 2,
+    "hashtags": [
+      "#sharpgroup",
+      "#digitalmarketing",
+      "#socialmedia",
+      "#seo",
+      "#googleads",
+      "#webdesign",
+      "#branding",
+      "#marketing",
+      "#prishtina",
+      "#kosovo"
+    ],
+    "call_to_action": ""
+  },
+
+  "output": {
+    "format": "instagram_feed",
+    "aspect_ratio": "4:5",
+    "width_px": 1080,
+    "height_px": 1350,
+    "subtitle_safe_zone_bottom_px": 20
+  }
+}
