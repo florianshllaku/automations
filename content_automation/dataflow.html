@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Automation — Data Flow</title>
+<style>
+  :root {
+    --orange: #FF680B;
+    --orange-light: #FF8643;
+    --black: #0A0A0A;
+    --dark: #111111;
+    --card: #181818;
+    --border: #2a2a2a;
+    --text: #E8E8E8;
+    --muted: #888;
+    --white: #FFFFFF;
+    --green: #22c55e;
+    --blue: #3b82f6;
+    --purple: #a855f7;
+    --yellow: #eab308;
+    --teal: #14b8a6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: linear-gradient(135deg, #0A0A0A 0%, #1a0a00 50%, #0A0A0A 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 60px 40px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%; transform: translateX(-50%);
+    width: 800px; height: 400px;
+    background: radial-gradient(ellipse, rgba(255,104,11,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,104,11,0.15);
+    border: 1px solid rgba(255,104,11,0.4);
+    color: var(--orange);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 58px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .hero h1 span { color: var(--orange); }
+  .hero p {
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto 36px;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .stat { text-align: center; }
+  .stat-number { font-size: 32px; font-weight: 800; color: var(--orange); display: block; }
+  .stat-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+
+  /* ─── SECTION ─── */
+  .section { padding: 60px 40px; max-width: 1400px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: clamp(26px, 3vw, 38px);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .section-sub { font-size: 16px; color: var(--muted); margin-bottom: 50px; }
+
+  /* ─── PIPELINE FLOW ─── */
+  .pipeline-wrap {
+    background: var(--dark);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 50px 40px;
+    overflow-x: auto;
+  }
+  .pipeline-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: nowrap;
+    min-width: 900px;
+  }
+  .pipe-node {
+    flex-shrink: 0;
+    width: 130px;
+    text-align: center;
+    position: relative;
+  }
+  .pipe-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    margin: 0 auto 10px;
+    position: relative;
+    z-index: 1;
+  }
+  .pipe-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.3;
+  }
+  .pipe-sub {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+  .pipe-arrow {
+    flex-shrink: 0;
+    width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pipe-arrow svg { width: 36px; height: 16px; }
+
+  /* node color schemes */
+  .n-trigger .pipe-icon { background: linear-gradient(135deg, #1e3a5f, #2563eb22); border: 1.5px solid #3b82f6; }
+  .n-gpt .pipe-icon     { background: linear-gradient(135deg, #064e3b, #10b98122); border: 1.5px solid #10b981; }
+  .n-gemini .pipe-icon  { background: linear-gradient(135deg, #3b0764, #a855f722); border: 1.5px solid #a855f7; }
+  .n-fal .pipe-icon     { background: linear-gradient(135deg, #7c2d12, #ff680b22); border: 1.5px solid var(--orange); }
+  .n-overlay .pipe-icon { background: linear-gradient(135deg, #1e3a5f, #0ea5e922); border: 1.5px solid #0ea5e9; }
+  .n-refine .pipe-icon  { background: linear-gradient(135deg, #3b0764, #d946ef22); border: 1.5px solid #d946ef; }
+  .n-output .pipe-icon  { background: linear-gradient(135deg, #14532d, #22c55e22); border: 1.5px solid #22c55e; }
+  .n-post .pipe-icon    { background: linear-gradient(135deg, #7c2d12, #f97316); border: 1.5px solid var(--orange-light); }
+
+  /* ─── PIPELINE LEGEND ─── */
+  .pipe-legend {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ─── STEP CARDS ─── */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 24px;
+  }
+  .step-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .step-card:hover { transform: translateY(-2px); }
+  .step-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .step-card.c-blue::before   { background: #3b82f6; }
+  .step-card.c-green::before  { background: #22c55e; }
+  .step-card.c-purple::before { background: #a855f7; }
+  .step-card.c-orange::before { background: var(--orange); }
+  .step-card.c-sky::before    { background: #0ea5e9; }
+  .step-card.c-pink::before   { background: #ec4899; }
+  .step-card.c-emerald::before{ background: #10b981; }
+  .step-card.c-red::before    { background: #ef4444; }
+
+  .step-card:hover.c-blue   { border-color: #3b82f6; }
+  .step-card:hover.c-green  { border-color: #22c55e; }
+  .step-card:hover.c-purple { border-color: #a855f7; }
+  .step-card:hover.c-orange { border-color: var(--orange); }
+  .step-card:hover.c-sky    { border-color: #0ea5e9; }
+  .step-card:hover.c-pink   { border-color: #ec4899; }
+  .step-card:hover.c-emerald{ border-color: #10b981; }
+  .step-card:hover.c-red    { border-color: #ef4444; }
+
+  .step-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .step-num {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 900;
+    flex-shrink: 0;
+    color: var(--white);
+  }
+  .step-card.c-blue   .step-num { background: #1d4ed8; }
+  .step-card.c-green  .step-num { background: #15803d; }
+  .step-card.c-purple .step-num { background: #7e22ce; }
+  .step-card.c-orange .step-num { background: var(--orange); }
+  .step-card.c-sky    .step-num { background: #0284c7; }
+  .step-card.c-pink   .step-num { background: #be185d; }
+  .step-card.c-emerald .step-num{ background: #047857; }
+  .step-card.c-red    .step-num { background: #b91c1c; }
+
+  .step-title { font-size: 17px; font-weight: 700; color: var(--white); }
+  .step-engine {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 2px;
+    color: var(--muted);
+  }
+  .step-desc { font-size: 14px; color: #aaa; line-height: 1.7; margin-bottom: 18px; }
+
+  /* inputs/outputs */
+  .io-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .io-box {
+    flex: 1; min-width: 120px;
+    background: #0f0f0f;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .io-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .io-title.in  { color: #3b82f6; }
+  .io-title.out { color: #22c55e; }
+  .io-list { list-style: none; }
+  .io-list li {
+    font-size: 12px;
+    color: #ccc;
+    padding: 2px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .io-list li::before { content: '›'; color: var(--orange); font-weight: 700; }
+
+  /* tags */
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 100px;
+    background: rgba(255,104,11,0.1);
+    border: 1px solid rgba(255,104,11,0.25);
+    color: var(--orange);
+  }
+
+  /* ─── AI MODELS ROW ─── */
+  .models-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .model-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    text-align: center;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .model-card:hover { transform: translateY(-2px); }
+  .model-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+    margin: 0 auto 12px;
+  }
+  .model-name { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+  .model-role { font-size: 12px; color: var(--muted); }
+  .model-badge {
+    display: inline-block;
+    font-size: 10px; font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-top: 10px;
+  }
+
+  /* ─── OUTPUT SECTION ─── */
+  .output-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  .output-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .output-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: rgba(255,104,11,0.06);
+    transform: translate(20px, 20px);
+  }
+  .output-icon { font-size: 28px; margin-bottom: 12px; }
+  .output-title { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+  .output-desc { font-size: 13px; color: var(--muted); }
+  .output-spec {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--orange);
+    margin-top: 10px;
+    font-family: 'Courier New', monospace;
+  }
+
+  /* ─── TIMELINE ─── */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px; top: 8px; bottom: 8px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--orange), #ff680b44, transparent);
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 32px;
+  }
+  .tl-dot {
+    position: absolute;
+    left: -26px; top: 4px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--orange);
+    border: 2px solid var(--black);
+    box-shadow: 0 0 0 3px rgba(255,104,11,0.2);
+  }
+  .tl-label {
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1px;
+    color: var(--orange);
+    margin-bottom: 4px;
+  }
+  .tl-title { font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+  .tl-desc { font-size: 14px; color: #aaa; line-height: 1.6; }
+
+  /* ─── DATA TABLE ─── */
+  .data-table { width: 100%; border-collapse: collapse; }
+  .data-table th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .data-table td {
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #ccc;
+    border-bottom: 1px solid #1a1a1a;
+    vertical-align: top;
+  }
+  .data-table tr:hover td { background: #161616; }
+  .td-model {
+    font-weight: 700;
+    color: var(--white);
+    white-space: nowrap;
+  }
+  .td-tag {
+    display: inline-block;
+    font-size: 10px; font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 100px;
+  }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0;
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: var(--dark);
+    border-top: 1px solid var(--border);
+    padding: 40px;
+    text-align: center;
+  }
+  .footer-logo { font-size: 22px; font-weight: 900; color: var(--white); letter-spacing: -0.5px; margin-bottom: 8px; }
+  .footer-logo span { color: var(--orange); }
+  .footer p { font-size: 13px; color: var(--muted); }
+
+  /* ─── UTILITIES ─── */
+  .text-orange { color: var(--orange); }
+  .text-muted  { color: var(--muted); }
+  .text-white  { color: var(--white); }
+  .fw-bold     { font-weight: 700; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .hero { padding: 40px 24px; }
+    .section { padding: 48px 24px; }
+    .hero-stats { gap: 28px; }
+    .pipeline-wrap { padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-badge">AI-Powered Content Pipeline</div>
+  <h1>From <span>Zero to Post</span><br>Fully Automated.</h1>
+  <p>A multi-model AI system that generates, designs, refines, and publishes brand content — with zero manual effort.</p>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-number">6</span>
+      <span class="stat-label">AI Stages</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">3</span>
+      <span class="stat-label">AI Models</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">4</span>
+      <span class="stat-label">Image Variants</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">~3 min</span>
+      <span class="stat-label">Full Run Time</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     PIPELINE OVERVIEW
+════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">System Overview</div>
+  <div class="section-title">The Full Pipeline at a Glance</div>
+  <div class="section-sub">Every stage, every model, every data handoff — in one view.</div>
+
+  <div class="pipeline-wrap">
+    <div class="pipeline-row">
+
+      <!-- TRIGGER -->
+      <div class="pipe-node n-trigger">
+        <div class="pipe-icon">⚡</div>
+        <div class="pipe-label">Trigger</div>
+        <div class="pipe-sub">Command / Timer</div>
+      </div>
+      <div class="pipe-arrow">
+        <svg viewBox="0 0 36 16" fill="none">
+          <path d="M0 8 L26 8" stroke="#444" stroke-width="2"/>
+          <path d="M22 3 L30 8 L22 13" stroke="#FF680B" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+
+      <!-- GPT -->
+      <div class="pipe-node n-gpt">
+        <div class="pipe-icon">🧠</div>
+        <div class="pipe-label">GPT-4o</div>
+        <div class="pipe-sub">Content Brain</div>
+      </div>
+      <div class="pipe-arrow">
+        <svg viewBox="0 0 36 16" fill="none">
+          <path d="M0 8 L26 8" stroke="#444" stroke-width="2"/>
+          <path d="M22 3 L30 8 L22 13" stroke="#FF680B" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+
+      <!-- GEMINI -->
+      <div class="pipe-node n-gemini">
+        <div class="pipe-icon">👁️</div>
+        <div class="pipe-label">Gemini Vision</div>
+        <div class="pipe-sub">Image Strategy</div>
+      </div>
+      <div class="pipe-arrow">
+        <svg viewBox="0 0 36 16" fill="none">
+          <path d="M0 8 L26 8" stroke="#444" stroke-width="2"/>
+          <path d="M22 3 L30 8 L22 13" stroke="#FF680B" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+
+      <!-- FAL -->
+      <div class="pipe-node n-fal">
+        <div class="pipe-icon">🎨</div>
+        <div class="pipe-label">Fal.ai ×4</div>
+        <div class="pipe-sub">Image Gen</div>
+      </div>
+      <div class="pipe-arrow">
+        <svg viewBox="0 0 36 16" fill="none">
+          <path d="M0 8 L26 8" stroke="#444" stroke-width="2"/>
+          <path d="M22 3 L30 8 L22 13" stroke="#FF680B" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+
+      <!-- OVERLAY -->
+      <div class="pipe-node n-overlay">
+        <div class="pipe-icon">✍️</div>
+        <div class="pipe-label">Text Overlay</div>
+        <div class="pipe-sub">Pillow + Gemini</div>
+      </div>
+      <div class="pipe-arrow">
+        <svg viewBox="0 0 36 16" fill="none">
+          <path d="M0 8 L26 8" stroke="#444" stroke-width="2"/>
+          <path d="M22 3 L30 8 L22 13" stroke="#FF680B" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+
+      <!-- REFINE -->
+      <div class="pipe-node n-refine">
+        <div class="pipe-icon">🔄</div>
+        <div class="pipe-label">AI Refinement</div>
+        <div class="pipe-sub">Auto QA Loop</div>
+      </div>
+      <div class="pipe-arrow">
+        <svg viewBox="0 0 36 16" fill="none">
+          <path d="M0 8 L26 8" stroke="#444" stroke-width="2"/>
+          <path d="M22 3 L30 8 L22 13" stroke="#FF680B" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+
+      <!-- OUTPUT -->
+      <div class="pipe-node n-output">
+        <div class="pipe-icon">📸</div>
+        <div class="pipe-label">Final Posts</div>
+        <div class="pipe-sub">4 Variants</div>
+      </div>
+      <div class="pipe-arrow">
+        <svg viewBox="0 0 36 16" fill="none">
+          <path d="M0 8 L26 8" stroke="#444" stroke-width="2"/>
+          <path d="M22 3 L30 8 L22 13" stroke="#FF680B" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+
+      <!-- PUBLISH -->
+      <div class="pipe-node n-post">
+        <div class="pipe-icon">🚀</div>
+        <div class="pipe-label">Publish</div>
+        <div class="pipe-sub">Instagram · TikTok</div>
+      </div>
+
+    </div>
+
+    <div class="pipe-legend">
+      <div class="legend-item">
+        <div class="legend-dot" style="background:#3b82f6;"></div>
+        Entry Point
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:#22c55e;"></div>
+        GPT-4o (OpenAI)
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:#a855f7;"></div>
+        Gemini Vision (Google)
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:var(--orange);"></div>
+        Fal.ai Image Gen
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:#0ea5e9;"></div>
+        Pillow (Python)
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:#22c55e;"></div>
+        Final Output
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     STEP-BY-STEP DEEP DIVE
+════════════════════════════════════════════════ -->
+<hr class="divider">
+<div class="section">
+  <div class="section-label">Step-by-Step Breakdown</div>
+  <div class="section-title">What Happens Inside Each Stage</div>
+  <div class="section-sub">Every box in the pipeline — unwrapped.</div>
+
+  <div class="steps-grid">
+
+    <!-- STEP 1 -->
+    <div class="step-card c-blue">
+      <div class="step-header">
+        <div class="step-num">1</div>
+        <div>
+          <div class="step-title">Content Generation</div>
+          <div class="step-engine">Engine: GPT-4o (OpenAI)</div>
+        </div>
+      </div>
+      <div class="step-desc">
+        The system reads the brand guidelines and the last 10 post history entries to avoid repetition. GPT-4o is asked to act as a senior content strategist and return a structured JSON brief — complete with a theme, on-image headline in Albanian, and a full Instagram caption with hashtags.
+      </div>
+      <div class="io-row">
+        <div class="io-box">
+          <div class="io-title in">Inputs</div>
+          <ul class="io-list">
+            <li>BRAND.md guidelines</li>
+            <li>Post history (last 10)</li>
+            <li>Business profile JSON</li>
+          </ul>
+        </div>
+        <div class="io-box">
+          <div class="io-title out">Outputs</div>
+          <ul class="io-list">
+            <li>Post type (tip / case study…)</li>
+            <li>Theme (English, internal)</li>
+            <li>Headline (Albanian)</li>
+            <li>Caption + hashtags</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">Anti-repetition logic</span>
+        <span class="tag">Albanian text</span>
+        <span class="tag">JSON output</span>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step-card c-green">
+      <div class="step-header">
+        <div class="step-num">2</div>
+        <div>
+          <div class="step-title">Reference Image Selection</div>
+          <div class="step-engine">Engine: Local File System</div>
+        </div>
+      </div>
+      <div class="step-desc">
+        Three real past posts are randomly sampled from the brand's uploaded content library. These serve as visual "style anchors" — showing the AI what the brand actually looks like in practice, not just what the guidelines say. This dramatically improves visual consistency across all output.
+      </div>
+      <div class="io-row">
+        <div class="io-box">
+          <div class="io-title in">Inputs</div>
+          <ul class="io-list">
+            <li>uploaded_posts/ folder</li>
+            <li>All past brand images</li>
+          </ul>
+        </div>
+        <div class="io-box">
+          <div class="io-title out">Outputs</div>
+          <ul class="io-list">
+            <li>3 random reference images</li>
+            <li>Passed to Gemini Vision</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">Visual style anchoring</span>
+        <span class="tag">Brand consistency</span>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step-card c-purple">
+      <div class="step-header">
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-title">Image Prompt Generation</div>
+          <div class="step-engine">Engine: Gemini Vision (Google)</div>
+        </div>
+      </div>
+      <div class="step-desc">
+        Gemini Vision receives the 3 reference images, the content theme, the post headline, and the brand guidelines. It analyzes all of this to craft a precise, detailed generation prompt for Fal.ai — specifying scene concept, color palette, material textures, lighting style, object placement, and composition rules.
+      </div>
+      <div class="io-row">
+        <div class="io-box">
+          <div class="io-title in">Inputs</div>
+          <ul class="io-list">
+            <li>3 reference images</li>
+            <li>Content theme</li>
+            <li>BRAND.md</li>
+            <li>Post headline</li>
+          </ul>
+        </div>
+        <div class="io-box">
+          <div class="io-title out">Outputs</div>
+          <ul class="io-list">
+            <li>Visual concept (1 sentence)</li>
+            <li>Full Fal.ai prompt</li>
+            <li>Scene + lighting brief</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">Multimodal AI</span>
+        <span class="tag">Brand-aligned prompting</span>
+        <span class="tag">No text in image</span>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step-card c-orange">
+      <div class="step-header">
+        <div class="step-num">4</div>
+        <div>
+          <div class="step-title">Background Image Generation</div>
+          <div class="step-engine">Engine: Fal.ai (4 parallel calls)</div>
+        </div>
+      </div>
+      <div class="step-desc">
+        Four background images are generated simultaneously using two different AI models in two modes each: with and without visual references. This creates a diverse set of options — some creatively free, others tightly aligned to brand history. The best are surfaced for selection.
+      </div>
+      <div class="io-row">
+        <div class="io-box">
+          <div class="io-title in">Inputs</div>
+          <ul class="io-list">
+            <li>Fal.ai prompt</li>
+            <li>Reference images (optional)</li>
+            <li>4:5 aspect ratio spec</li>
+          </ul>
+        </div>
+        <div class="io-box">
+          <div class="io-title out">Outputs</div>
+          <ul class="io-list">
+            <li>nano_noref.jpg</li>
+            <li>nano_ref.jpg</li>
+            <li>gpt_noref.jpg</li>
+            <li>gpt_ref.jpg</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">4 variants</span>
+        <span class="tag">1080×1350px</span>
+        <span class="tag">4K quality</span>
+        <span class="tag">nano-banana-pro</span>
+        <span class="tag">gpt-image-2</span>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step-card c-sky">
+      <div class="step-header">
+        <div class="step-num">5</div>
+        <div>
+          <div class="step-title">Text + Logo Overlay</div>
+          <div class="step-engine">Engine: Gemini Vision + Pillow</div>
+        </div>
+      </div>
+      <div class="step-desc">
+        For each background, Gemini Vision analyzes the image and returns three different layout philosophies (bold, minimal, centered). The Python Pillow library then executes the chosen layout: placing the logo, sizing and wrapping the headline, drawing optional contrast overlays, adding the brand accent bar, and applying text shadows for maximum readability.
+      </div>
+      <div class="io-row">
+        <div class="io-box">
+          <div class="io-title in">Inputs</div>
+          <ul class="io-list">
+            <li>4 background images</li>
+            <li>Albanian headline</li>
+            <li>Gemini layout choices</li>
+          </ul>
+        </div>
+        <div class="io-box">
+          <div class="io-title out">Outputs</div>
+          <ul class="io-list">
+            <li>Logo placed (top center)</li>
+            <li>Headline rendered</li>
+            <li>Overlay + accent bar</li>
+            <li>4 complete post images</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">3 layout options</span>
+        <span class="tag">Poppins font</span>
+        <span class="tag">Orange accent</span>
+        <span class="tag">Text shadows</span>
+      </div>
+    </div>
+
+    <!-- STEP 6 -->
+    <div class="step-card c-pink">
+      <div class="step-header">
+        <div class="step-num">6</div>
+        <div>
+          <div class="step-title">AI Quality Refinement Loop</div>
+          <div class="step-engine">Engine: Gemini Vision (iterative)</div>
+        </div>
+      </div>
+      <div class="step-desc">
+        The completed post is sent back to Gemini Vision for a quality review. Gemini scores the design out of 10 and gives specific improvement notes. If the score is below 9, the layout parameters are adjusted and the image is re-rendered. This loop runs until the AI itself approves the result — or a maximum of 8 rounds.
+      </div>
+      <div class="io-row">
+        <div class="io-box">
+          <div class="io-title in">Inputs</div>
+          <ul class="io-list">
+            <li>Rendered post image</li>
+            <li>Current layout settings</li>
+          </ul>
+        </div>
+        <div class="io-box">
+          <div class="io-title out">Outputs</div>
+          <ul class="io-list">
+            <li>Score /10</li>
+            <li>Design feedback</li>
+            <li>Updated layout params</li>
+            <li>Refined final image</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">Auto QA</span>
+        <span class="tag">Score threshold: 9/10</span>
+        <span class="tag">Max 8 rounds</span>
+      </div>
+    </div>
+
+    <!-- STEP 7 -->
+    <div class="step-card c-emerald">
+      <div class="step-header">
+        <div class="step-num">7</div>
+        <div>
+          <div class="step-title">History Logging</div>
+          <div class="step-engine">Engine: Local JSON Database</div>
+        </div>
+      </div>
+      <div class="step-desc">
+        Every generated post is catalogued with full metadata — post type, headline, caption, visual description, all image paths, colors used, and engagement placeholders. This history feeds back into Step 1 to prevent content repetition and maintain strategic variety across weeks of posting.
+      </div>
+      <div class="io-row">
+        <div class="io-box">
+          <div class="io-title in">Inputs</div>
+          <ul class="io-list">
+            <li>All post metadata</li>
+            <li>4 final image paths</li>
+            <li>Caption + type</li>
+          </ul>
+        </div>
+        <div class="io-box">
+          <div class="io-title out">Outputs</div>
+          <ul class="io-list">
+            <li>history/sharp_group.json</li>
+            <li>Feeds next run's context</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">Feedback loop</span>
+        <span class="tag">Engagement tracking</span>
+        <span class="tag">No repetition</span>
+      </div>
+    </div>
+
+    <!-- STEP 8 -->
+    <div class="step-card c-red">
+      <div class="step-header">
+        <div class="step-num">8</div>
+        <div>
+          <div class="step-title">Publish to Social Media</div>
+          <div class="step-engine">Engine: Platform APIs</div>
+        </div>
+      </div>
+      <div class="step-desc">
+        The selected image variant and its caption are posted directly to social platforms via their official APIs. The system handles authentication, media upload, caption injection with hashtags, and post scheduling — making the human's only job choosing which of the 4 variants to go live with.
+      </div>
+      <div class="io-row">
+        <div class="io-box">
+          <div class="io-title in">Inputs</div>
+          <ul class="io-list">
+            <li>Selected post image</li>
+            <li>Albanian caption</li>
+            <li>Hashtags</li>
+          </ul>
+        </div>
+        <div class="io-box">
+          <div class="io-title out">Outputs</div>
+          <ul class="io-list">
+            <li>Live Instagram post</li>
+            <li>Live TikTok post</li>
+            <li>Engagement metrics back</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">Instagram API</span>
+        <span class="tag">TikTok API</span>
+        <span class="tag">Auto-caption</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     AI MODELS USED
+════════════════════════════════════════════════ -->
+<hr class="divider">
+<div class="section">
+  <div class="section-label">Technology Stack</div>
+  <div class="section-title">The AI Models Powering This</div>
+  <div class="section-sub">Three world-class models — each doing what they do best.</div>
+
+  <div class="models-grid">
+    <div class="model-card" style="border-color:#10b981;">
+      <div class="model-icon" style="background:linear-gradient(135deg,#064e3b,#10b98122); border:1.5px solid #10b981;">🧠</div>
+      <div class="model-name">GPT-4o</div>
+      <div class="model-role">Content Strategy &amp; Copy</div>
+      <div class="model-badge" style="background:rgba(16,185,129,0.1);color:#10b981;border:1px solid rgba(16,185,129,0.3);">OpenAI</div>
+      <div style="margin-top:12px; font-size:12px; color:var(--muted);">Writes all brand copy, captions, themes, and strategic content briefs. Understands Albanian language nuances and brand tone.</div>
+    </div>
+    <div class="model-card" style="border-color:#a855f7;">
+      <div class="model-icon" style="background:linear-gradient(135deg,#3b0764,#a855f722); border:1.5px solid #a855f7;">👁️</div>
+      <div class="model-name">Gemini Vision</div>
+      <div class="model-role">Visual Analysis &amp; QA</div>
+      <div class="model-badge" style="background:rgba(168,85,247,0.1);color:#a855f7;border:1px solid rgba(168,85,247,0.3);">Google</div>
+      <div style="margin-top:12px; font-size:12px; color:var(--muted);">Analyzes images, crafts generation prompts, decides text placement, and scores final posts. Runs up to 8× per post.</div>
+    </div>
+    <div class="model-card" style="border-color:var(--orange);">
+      <div class="model-icon" style="background:linear-gradient(135deg,#7c2d12,#ff680b22); border:1.5px solid var(--orange);">🎨</div>
+      <div class="model-name">Fal.ai Flux</div>
+      <div class="model-role">Background Image Generation</div>
+      <div class="model-badge" style="background:rgba(255,104,11,0.1);color:var(--orange);border:1px solid rgba(255,104,11,0.3);">Fal.ai</div>
+      <div style="margin-top:12px; font-size:12px; color:var(--muted);">Generates photorealistic 4K backgrounds in brand palette. Uses nano-banana-pro and gpt-image-2 models for variety.</div>
+    </div>
+    <div class="model-card" style="border-color:#0ea5e9;">
+      <div class="model-icon" style="background:linear-gradient(135deg,#0c4a6e,#0ea5e922); border:1.5px solid #0ea5e9;">🐍</div>
+      <div class="model-name">Pillow (Python)</div>
+      <div class="model-role">Pixel-Perfect Image Rendering</div>
+      <div class="model-badge" style="background:rgba(14,165,233,0.1);color:#0ea5e9;border:1px solid rgba(14,165,233,0.3);">Python</div>
+      <div style="margin-top:12px; font-size:12px; color:var(--muted);">Executes the AI's layout decisions with pixel precision: fonts, shadows, overlays, logo sizing, spacing, brand colors.</div>
+    </div>
+  </div>
+
+  <!-- API Calls table -->
+  <div style="margin-top:40px; background:var(--card); border:1px solid var(--border); border-radius:16px; overflow:hidden;">
+    <div style="padding:20px 24px; border-bottom:1px solid var(--border);">
+      <div style="font-size:14px; font-weight:700; color:var(--white);">API Calls Per Post Generated</div>
+      <div style="font-size:12px; color:var(--muted); margin-top:2px;">What the system does every single run</div>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Stage</th>
+          <th>Model</th>
+          <th>Calls</th>
+          <th>Purpose</th>
+          <th>Output Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Content Brief</td>
+          <td class="td-model">GPT-4o</td>
+          <td><span class="td-tag" style="background:rgba(34,197,94,0.1);color:#22c55e;">×1</span></td>
+          <td>Generate post type, theme, Albanian headline, caption</td>
+          <td>JSON</td>
+        </tr>
+        <tr>
+          <td>Image Prompt</td>
+          <td class="td-model">Gemini Vision</td>
+          <td><span class="td-tag" style="background:rgba(168,85,247,0.1);color:#a855f7;">×1</span></td>
+          <td>Analyze references → craft background gen prompt</td>
+          <td>Text prompt</td>
+        </tr>
+        <tr>
+          <td>Background Gen</td>
+          <td class="td-model">Fal.ai</td>
+          <td><span class="td-tag" style="background:rgba(255,104,11,0.1);color:var(--orange);">×4</span></td>
+          <td>Generate 4 background image variants</td>
+          <td>JPEG images</td>
+        </tr>
+        <tr>
+          <td>Text Placement</td>
+          <td class="td-model">Gemini Vision</td>
+          <td><span class="td-tag" style="background:rgba(168,85,247,0.1);color:#a855f7;">×3 per variant</span></td>
+          <td>Analyze each background, decide layout options</td>
+          <td>Layout JSON</td>
+        </tr>
+        <tr>
+          <td>QA Refinement</td>
+          <td class="td-model">Gemini Vision</td>
+          <td><span class="td-tag" style="background:rgba(236,72,153,0.1);color:#ec4899;">×1–8</span></td>
+          <td>Score design, suggest improvements, iterate</td>
+          <td>Score + params</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     FINAL OUTPUTS
+════════════════════════════════════════════════ -->
+<hr class="divider">
+<div class="section">
+  <div class="section-label">What Gets Created</div>
+  <div class="section-title">The Final Deliverables</div>
+  <div class="section-sub">Everything the system produces in a single automated run.</div>
+
+  <div class="output-grid">
+    <div class="output-card">
+      <div class="output-icon">🖼️</div>
+      <div class="output-title">4 Post Variants</div>
+      <div class="output-desc">Four fully composed images — two model approaches, each with and without visual references. Pick the best one.</div>
+      <div class="output-spec">1080 × 1350px · JPEG · 95% quality</div>
+    </div>
+    <div class="output-card">
+      <div class="output-icon">📝</div>
+      <div class="output-title">Instagram Caption</div>
+      <div class="output-desc">Up to 120 words in Albanian, strategically written with hashtags and a fixed CTA phrase at the end.</div>
+      <div class="output-spec">Albanian · Hashtags · CTA</div>
+    </div>
+    <div class="output-card">
+      <div class="output-icon">🗂️</div>
+      <div class="output-title">Post History Record</div>
+      <div class="output-desc">JSON log of every post: type, headline, caption, image paths, colors, dates, and engagement slots ready to fill.</div>
+      <div class="output-spec">history/sharp_group.json</div>
+    </div>
+    <div class="output-card">
+      <div class="output-icon">📋</div>
+      <div class="output-title">Refinement Log</div>
+      <div class="output-desc">Full transcript of every AI design review round — what was scored, what feedback was given, what changed.</div>
+      <div class="output-spec">gemini_refinement_log.txt</div>
+    </div>
+    <div class="output-card">
+      <div class="output-icon">🌐</div>
+      <div class="output-title">Web Management UI</div>
+      <div class="output-desc">A local web app to browse all generated posts, view captions, manage history, and prepare content for upload.</div>
+      <div class="output-spec">localhost:5050</div>
+    </div>
+    <div class="output-card">
+      <div class="output-icon">📊</div>
+      <div class="output-title">Design Analysis</div>
+      <div class="output-desc">GPT-4o Vision analyzes all past posts to extract visual patterns — used to keep future content on-brand automatically.</div>
+      <div class="output-spec">vision_analysis.txt</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     BRAND RULES
+════════════════════════════════════════════════ -->
+<hr class="divider">
+<div class="section">
+  <div class="section-label">Brand Enforcement</div>
+  <div class="section-title">How Brand Consistency is Enforced</div>
+  <div class="section-sub">BRAND.md is injected into every single AI call — not just once, at every stage.</div>
+
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:20px;">
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;">
+      <div style="font-size:22px;margin-bottom:12px;">🎨</div>
+      <div style="font-weight:700;color:var(--white);margin-bottom:8px;">Color System</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.7;">Three strict colors: <span style="color:#F9F9F9;">■</span> Off-white #F9F9F9 background, <span style="color:var(--orange);">■</span> Orange #FF680B accent, <span style="color:#888;">■</span> Black #000000 text. Any AI call that proposes anything outside these is overridden.</div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;">
+      <div style="font-size:22px;margin-bottom:12px;">🔤</div>
+      <div style="font-weight:700;color:var(--white);margin-bottom:8px;">Typography</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.7;">Poppins font, Bold and SemiBold weights only. Headlines up to 15 words max. All on-image text is Albanian. Logo placed top-center, scaled to 900px width.</div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;">
+      <div style="font-size:22px;margin-bottom:12px;">📐</div>
+      <div style="font-weight:700;color:var(--white);margin-bottom:8px;">Composition Rules</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.7;">4:5 vertical format (1080×1350px). 3D objects fill lower 40% of frame. Top center is reserved for logo and headline. No objects compete with text.</div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;">
+      <div style="font-size:22px;margin-bottom:12px;">💬</div>
+      <div style="font-weight:700;color:var(--white);margin-bottom:8px;">Voice &amp; Tone</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.7;">Performance-first, strategic, direct. Never motivational fluff. All captions end with the fixed CTA: "Behu me i mprehte me ne." — every single time.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     TIMELINE / HOW A POST IS BORN
+════════════════════════════════════════════════ -->
+<hr class="divider">
+<div class="section">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;">
+    <div>
+      <div class="section-label">Run Sequence</div>
+      <div class="section-title" style="margin-bottom:36px;">A Post is Born in ~3 Minutes</div>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-label">T + 0s</div>
+          <div class="tl-title">Command fires</div>
+          <div class="tl-desc">py generator.py sharp_group — loads brand profile, reads post history, spins up all API clients.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-label">T + 5s</div>
+          <div class="tl-title">GPT writes the brief</div>
+          <div class="tl-desc">OpenAI returns theme, Albanian headline, caption. Anti-repetition logic blocks any recent post type or headline.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-label">T + 12s</div>
+          <div class="tl-title">Gemini reads references</div>
+          <div class="tl-desc">3 past posts are analyzed. Gemini crafts the Fal.ai generation prompt aligned to brand visual history.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-label">T + 20s – 90s</div>
+          <div class="tl-title">Fal.ai generates 4 backgrounds</div>
+          <div class="tl-desc">Four simultaneous image generation calls. Two models × two modes. Each is 4K, brand palette, no text or logos.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-label">T + 100s</div>
+          <div class="tl-title">Text overlays applied</div>
+          <div class="tl-desc">For each background, Gemini proposes 3 layouts. Pillow renders logo + headline + accents onto all 4 variants.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-label">T + 130s – 180s</div>
+          <div class="tl-title">AI rates and refines</div>
+          <div class="tl-desc">Gemini Vision reviews each design, scores it, and iterates until 9/10 or 8 rounds. No human feedback needed.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-label">T + ~180s</div>
+          <div class="tl-title">Done. 4 posts ready.</div>
+          <div class="tl-desc">Images, caption, and metadata saved. Human reviews the 4 options and picks one to push live.</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label">Value Delivered</div>
+      <div class="section-title" style="margin-bottom:36px;">Why This Matters</div>
+
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;gap:16px;align-items:flex-start;">
+          <div style="font-size:24px;flex-shrink:0;">⚡</div>
+          <div>
+            <div style="font-weight:700;color:var(--white);margin-bottom:4px;">Zero Manual Design</div>
+            <div style="font-size:13px;color:var(--muted);">From blank slate to 4 publish-ready posts in 3 minutes. No Canva, no designer, no briefs.</div>
+          </div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;gap:16px;align-items:flex-start;">
+          <div style="font-size:24px;flex-shrink:0;">🔒</div>
+          <div>
+            <div style="font-weight:700;color:var(--white);margin-bottom:4px;">100% Brand Consistency</div>
+            <div style="font-size:13px;color:var(--muted);">BRAND.md is injected at every single AI call. Color, tone, typography — always on-brand.</div>
+          </div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;gap:16px;align-items:flex-start;">
+          <div style="font-size:24px;flex-shrink:0;">♾️</div>
+          <div>
+            <div style="font-weight:700;color:var(--white);margin-bottom:4px;">Infinite Variety, No Repetition</div>
+            <div style="font-size:13px;color:var(--muted);">History tracking prevents any topic, headline, or post type from repeating — ever.</div>
+          </div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;gap:16px;align-items:flex-start;">
+          <div style="font-size:24px;flex-shrink:0;">🤖</div>
+          <div>
+            <div style="font-weight:700;color:var(--white);margin-bottom:4px;">Self-Improving Quality</div>
+            <div style="font-size:13px;color:var(--muted);">AI reviews its own work. Designs are iterated automatically until they hit a quality threshold.</div>
+          </div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;gap:16px;align-items:flex-start;">
+          <div style="font-size:24px;flex-shrink:0;">📈</div>
+          <div>
+            <div style="font-weight:700;color:var(--white);margin-bottom:4px;">Built to Scale</div>
+            <div style="font-size:13px;color:var(--muted);">Add a new brand profile and the entire pipeline runs for it. Multi-brand, multi-platform from day one.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════ -->
+<div class="footer">
+  <div class="footer-logo">n'<span>shpi</span></div>
+  <p style="margin-bottom:6px;">AI Content Automation · Built for Sharp Group</p>
+  <p style="font-size:12px; color:#444;">Confidential — for client presentation purposes only</p>
+</div>
+
+</body>
+</html>

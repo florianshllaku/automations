@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content AI Pipeline — Article → TikTok</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #070b14;
+  --surface: #0d1320;
+  --surface2: #111827;
+  --border: #1c2a3e;
+  --border2: #243347;
+  --text: #e2eaff;
+  --muted: #5a7298;
+  --blue: #3b82f6;
+  --purple: #8b5cf6;
+  --teal: #0fb8a3;
+  --amber: #f59e0b;
+  --red: #ef4444;
+  --green: #22c55e;
+  --pink: #ec4899;
+  --slate: #64748b;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85em;
+  background: rgba(255,255,255,0.07);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* ── HERO ─────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  padding: 72px 40px 64px;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 60%, rgba(59,130,246,0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 60% at 80% 40%, rgba(139,92,246,0.12) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(59,130,246,0.35);
+  background: rgba(59,130,246,0.08);
+  border-radius: 100px;
+  padding: 6px 18px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #93c5fd;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.hero h1 {
+  font-size: clamp(28px, 4.5vw, 60px);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+  background: linear-gradient(135deg, #ffffff 0%, #bfdbfe 40%, #c4b5fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.hero h1 span {
+  background: linear-gradient(135deg, #f59e0b, #fb923c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sub {
+  font-size: 17px;
+  color: var(--muted);
+  max-width: 560px;
+  margin: 0 auto 48px;
+  position: relative;
+}
+
+/* ── STATS ────────────────────────────────────────────────── */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--border);
+}
+
+.stat {
+  padding: 28px 24px;
+  text-align: center;
+  border-right: 1px solid var(--border);
+  background: var(--surface);
+  transition: background 0.2s;
+}
+
+.stat:last-child { border-right: none; }
+.stat:hover { background: var(--surface2); }
+
+.stat-num {
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--blue), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+/* ── OVERVIEW STRIP ───────────────────────────────────────── */
+.overview-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.ov-item {
+  padding: 32px 24px;
+  border-right: 1px solid var(--border);
+  position: relative;
+  transition: background 0.2s;
+}
+
+.ov-item:last-child { border-right: none; }
+
+.ov-item:hover { background: var(--surface2); }
+
+.ov-phase-tag {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ov-phase-tag::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.ov-title {
+  font-size: 17px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.ov-desc {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.ov-steps-count {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 11px;
+  color: var(--border2);
+  font-weight: 700;
+}
+
+.ov-arrow {
+  position: absolute;
+  right: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 28px;
+  height: 28px;
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.ov-item:last-child .ov-arrow { display: none; }
+
+/* ── MAIN CONTENT ────────────────────────────────────────── */
+.main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 72px 40px 80px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+.section-title h2 {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.section-title p {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* ── PIPELINE ────────────────────────────────────────────── */
+.pipeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Phase block */
+.phase-block {
+  margin-bottom: 40px;
+}
+
+.phase-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 22px;
+  border-radius: 12px;
+  border: 1px solid;
+  margin-bottom: 20px;
+}
+
+.phase-num {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.6;
+  white-space: nowrap;
+}
+
+.phase-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.phase-name {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.phase-desc {
+  font-size: 12px;
+  opacity: 0.65;
+  margin-top: 1px;
+}
+
+/* Steps wrapper */
+.steps {
+  padding-left: 32px;
+  border-left: 2px solid var(--border);
+  margin-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Step */
+.step-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  transition: all 0.18s ease;
+  cursor: default;
+  position: relative;
+  margin-left: -1px;
+}
+
+.step-card:hover {
+  background: var(--surface2);
+  transform: translateX(3px);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.35);
+}
+
+.step-dot {
+  position: absolute;
+  left: -41px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+  flex-shrink: 0;
+}
+
+.step-num-badge {
+  font-size: 12px;
+  font-weight: 800;
+  font-family: 'JetBrains Mono', monospace;
+  min-width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.step-emoji {
+  font-size: 22px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.step-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.step-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.step-desc {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.step-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+/* Tags */
+.tag {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 100px;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+
+.tag-telegram  { background: rgba(41,182,246,0.12); color: #38bdf8; border: 1px solid rgba(41,182,246,0.2); }
+.tag-playwright{ background: rgba(102,187,106,0.12); color: #86efac; border: 1px solid rgba(102,187,106,0.2); }
+.tag-openai    { background: rgba(16,185,129,0.12);  color: #34d399; border: 1px solid rgba(16,185,129,0.2); }
+.tag-falai     { background: rgba(239,68,68,0.12);   color: #f87171; border: 1px solid rgba(239,68,68,0.2); }
+.tag-gladia    { background: rgba(168,85,247,0.12);  color: #c084fc; border: 1px solid rgba(168,85,247,0.2); }
+.tag-ffmpeg    { background: rgba(245,158,11,0.12);  color: #fcd34d; border: 1px solid rgba(245,158,11,0.2); }
+.tag-gdrive    { background: rgba(59,130,246,0.12);  color: #93c5fd; border: 1px solid rgba(59,130,246,0.2); }
+.tag-buffer    { background: rgba(236,72,153,0.12);  color: #f9a8d4; border: 1px solid rgba(236,72,153,0.2); }
+.tag-human     { background: rgba(245,158,11,0.18);  color: #fbbf24; border: 1px solid rgba(245,158,11,0.4); }
+.tag-output    { background: rgba(100,116,139,0.12); color: #94a3b8; border: 1px solid rgba(100,116,139,0.2); }
+
+/* Human checkpoint card override */
+.step-card.is-human {
+  border-color: rgba(245,158,11,0.35);
+  background: rgba(245,158,11,0.04);
+}
+
+.step-card.is-human:hover {
+  border-color: rgba(245,158,11,0.6);
+}
+
+.human-label {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #f59e0b;
+  background: rgba(245,158,11,0.12);
+  border: 1px solid rgba(245,158,11,0.25);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 3px;
+  display: inline-block;
+}
+
+/* Arrow connector between steps */
+.step-arrow {
+  height: 20px;
+  display: flex;
+  align-items: center;
+  padding-left: 22px;
+}
+
+.step-arrow-line {
+  width: 1px;
+  height: 20px;
+  margin-left: 15px;
+}
+
+/* Phase-to-phase gap */
+.phase-gap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0 12px;
+  position: relative;
+  margin-left: 16px;
+}
+
+.phase-gap-line {
+  position: absolute;
+  left: -26px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+}
+
+.phase-gap-badge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--muted);
+  background: var(--bg);
+  padding: 4px 12px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  z-index: 1;
+}
+
+/* ── COLORS PER PHASE ────────────────────────────────────── */
+/* Discovery – blue */
+.ph-discovery { color: #3b82f6; border-color: rgba(59,130,246,0.25); background: rgba(59,130,246,0.06); }
+.ph-discovery .step-dot { background: #3b82f6; }
+.ph-discovery .step-num-badge { background: rgba(59,130,246,0.15); color: #3b82f6; }
+.ph-discovery .step-card { border-left: 3px solid rgba(59,130,246,0.6); }
+.ph-discovery .step-arrow-line { background: linear-gradient(to bottom, rgba(59,130,246,0.5), rgba(59,130,246,0.1)); }
+.ph-discovery .steps { border-left-color: rgba(59,130,246,0.3); }
+
+/* AI – purple */
+.ph-ai { color: #8b5cf6; border-color: rgba(139,92,246,0.25); background: rgba(139,92,246,0.06); }
+.ph-ai .step-dot { background: #8b5cf6; }
+.ph-ai .step-num-badge { background: rgba(139,92,246,0.15); color: #8b5cf6; }
+.ph-ai .step-card { border-left: 3px solid rgba(139,92,246,0.6); }
+.ph-ai .step-arrow-line { background: linear-gradient(to bottom, rgba(139,92,246,0.5), rgba(139,92,246,0.1)); }
+.ph-ai .steps { border-left-color: rgba(139,92,246,0.3); }
+
+/* Production – teal */
+.ph-prod { color: #0fb8a3; border-color: rgba(15,184,163,0.25); background: rgba(15,184,163,0.06); }
+.ph-prod .step-dot { background: #0fb8a3; }
+.ph-prod .step-num-badge { background: rgba(15,184,163,0.15); color: #0fb8a3; }
+.ph-prod .step-card { border-left: 3px solid rgba(15,184,163,0.6); }
+.ph-prod .step-arrow-line { background: linear-gradient(to bottom, rgba(15,184,163,0.5), rgba(15,184,163,0.1)); }
+.ph-prod .steps { border-left-color: rgba(15,184,163,0.3); }
+
+/* Publishing – amber */
+.ph-pub { color: #f59e0b; border-color: rgba(245,158,11,0.25); background: rgba(245,158,11,0.06); }
+.ph-pub .step-dot { background: #f59e0b; }
+.ph-pub .step-num-badge { background: rgba(245,158,11,0.15); color: #f59e0b; }
+.ph-pub .step-card { border-left: 3px solid rgba(245,158,11,0.6); }
+.ph-pub .step-arrow-line { background: linear-gradient(to bottom, rgba(245,158,11,0.5), rgba(245,158,11,0.1)); }
+.ph-pub .steps { border-left-color: rgba(245,158,11,0.3); }
+
+/* ── FINAL RESULT CARD ───────────────────────────────────── */
+.result-card {
+  margin-top: 40px;
+  background: linear-gradient(135deg, rgba(245,158,11,0.08) 0%, rgba(251,146,60,0.08) 100%);
+  border: 1px solid rgba(245,158,11,0.3);
+  border-radius: 16px;
+  padding: 32px 36px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.result-icon {
+  font-size: 52px;
+  flex-shrink: 0;
+}
+
+.result-title {
+  font-size: 22px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #f59e0b, #fb923c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 6px;
+}
+
+.result-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.result-spec {
+  margin-top: 14px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ── SERVICES GRID ───────────────────────────────────────── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 72px 0 0;
+}
+
+.services-grid {
+  margin-top: 52px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+}
+
+.svc-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 20px;
+  transition: all 0.2s;
+}
+
+.svc-card:hover {
+  border-color: var(--border2);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.4);
+}
+
+.svc-icon { font-size: 26px; margin-bottom: 12px; }
+
+.svc-name {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.svc-role {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ── OUTPUT FILES ────────────────────────────────────────── */
+.output-section {
+  margin-top: 60px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px;
+}
+
+.output-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.output-header h3 {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.output-path {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.output-files {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 12px;
+}
+
+.out-file {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.out-file.final {
+  border-color: rgba(245,158,11,0.35);
+  background: rgba(245,158,11,0.04);
+}
+
+.out-file-icon { font-size: 22px; flex-shrink: 0; }
+
+.out-file-name {
+  font-size: 12px;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 2px;
+}
+
+.out-file-desc {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* ── FOOTER ──────────────────────────────────────────────── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 40px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+footer strong { color: var(--text); }
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .stats-bar { grid-template-columns: repeat(2, 1fr); }
+  .overview-strip { grid-template-columns: 1fr 1fr; }
+  .main { padding: 48px 20px 60px; }
+  .hero { padding: 56px 24px 48px; }
+  .ov-arrow { display: none; }
+  .result-card { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<header class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-badge">⚡ &nbsp; Fully Automated AI Pipeline</div>
+  <h1>News Article &nbsp;→&nbsp; <span>TikTok Video</span></h1>
+  <p class="hero-sub">End-to-end content repurposing: a health article gets scraped, rewritten, illustrated, voiced, and published to TikTok — automatically.</p>
+</header>
+
+<!-- ══════════════════ STATS ══════════════════ -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">13</div>
+    <div class="stat-label">Automated Steps</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">7</div>
+    <div class="stat-label">AI &amp; API Services</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">2</div>
+    <div class="stat-label">Human Checkpoints</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1080p</div>
+    <div class="stat-label">Portrait TikTok Output</div>
+  </div>
+</div>
+
+<!-- ══════════════════ OVERVIEW STRIP ══════════════════ -->
+<div class="overview-strip">
+  <div class="ov-item">
+    <div class="ov-arrow">›</div>
+    <span class="ov-steps-count">3 steps</span>
+    <div class="ov-phase-tag" style="color:#3b82f6;">Phase 1</div>
+    <div class="ov-title">🔍 Discovery</div>
+    <div class="ov-desc">Scrape news articles, surface new content, get human sign-off before processing begins</div>
+  </div>
+  <div class="ov-item">
+    <div class="ov-arrow">›</div>
+    <span class="ov-steps-count">4 steps</span>
+    <div class="ov-phase-tag" style="color:#8b5cf6;">Phase 2</div>
+    <div class="ov-title">🤖 AI Generation</div>
+    <div class="ov-desc">AI writes the script, plans visual scenes, and generates 5–8 cinematic images</div>
+  </div>
+  <div class="ov-item">
+    <div class="ov-arrow">›</div>
+    <span class="ov-steps-count">3 steps</span>
+    <div class="ov-phase-tag" style="color:#0fb8a3;">Phase 3</div>
+    <div class="ov-title">🎬 Production</div>
+    <div class="ov-desc">Voice synthesis, subtitle creation, and full video assembly with animation and branding</div>
+  </div>
+  <div class="ov-item">
+    <span class="ov-steps-count">3 steps</span>
+    <div class="ov-phase-tag" style="color:#f59e0b;">Phase 4</div>
+    <div class="ov-title">📱 Publishing</div>
+    <div class="ov-desc">Upload to cloud, human approval, then auto-scheduled to TikTok via Buffer API</div>
+  </div>
+</div>
+
+<!-- ══════════════════ MAIN PIPELINE ══════════════════ -->
+<div class="main">
+
+  <div class="section-title">
+    <h2>Full Pipeline — Step by Step</h2>
+    <p>Every action from the first trigger to the published TikTok</p>
+  </div>
+
+  <div class="pipeline">
+
+    <!-- ───── PHASE 1: DISCOVERY ───── -->
+    <div class="phase-block ph-discovery">
+      <div class="phase-header ph-discovery">
+        <span class="phase-num">Phase 1</span>
+        <span class="phase-icon">🔍</span>
+        <div>
+          <div class="phase-name">Discovery</div>
+          <div class="phase-desc">Trigger the pipeline and choose which articles to produce</div>
+        </div>
+      </div>
+
+      <div class="steps ph-discovery">
+
+        <div class="step-row">
+          <div class="step-card">
+            <div class="step-dot"></div>
+            <div class="step-num-badge">01</div>
+            <span class="step-emoji">📲</span>
+            <div class="step-body">
+              <div class="step-title">Telegram Command — Trigger</div>
+              <div class="step-desc">User sends the <code>/news</code> command to the Telegram bot. This fires up the full pipeline and begins article discovery.</div>
+            </div>
+            <div class="step-right">
+              <span class="tag tag-telegram">Telegram Bot</span>
+            </div>
+          </div>
+          <div class="step-arrow"><div class="step-arrow-line"></div></div>
+        </div>
+
+        <div class="step-row">
+          <div class="step-card">
+            <div class="step-dot"></div>
+            <div class="step-num-badge">02</div>
+            <span class="step-emoji">🕷️</span>
+            <div class="step-body">
+              <div class="step-title">Web Scraping — Article Discovery</div>
+              <div class="step-desc">A Playwright headless browser visits <strong>Telegrafi.com</strong> (health &amp; nutrition section), extracts titles, URLs, and dates across up to 2 pages. Already-processed articles are filtered out using a local <code>seen_articles.json</code> checkpoint file.</div>
+            </div>
+            <div class="step-right">
+              <span class="tag tag-playwright">Playwright</span>
+              <span class="tag tag-output">Telegrafi.com</span>
+            </div>
+          </div>
+          <div class="step-arrow"><div class="step-arrow-line"></div></div>
+        </div>
+
+        <div class="step-row">
+          <div class="step-card is-human">
+            <div class="step-dot" style="background:#f59e0b;"></div>
+            <div class="step-num-badge" style="background:rgba(245,158,11,0.15);color:#f59e0b;">✋</div>
+            <span class="step-emoji">👤</span>
+            <div class="step-body">
+              <div class="human-label">Human Checkpoint #1</div>
+              <div class="step-title" style="color:#f59e0b;">Article Approval via Telegram</div>
+              <div class="step-desc">Each new article is sent to Telegram with inline buttons <strong>[✅ Create]</strong> and <strong>[❌ Skip]</strong>. The human reviews the headline and decides. Approved articles move to Phase 2. Skipped ones are archived and never processed.</div>
+            </div>
+            <div class="step-right">
+              <span class="tag tag-human">👤 Human</span>
+              <span class="tag tag-telegram">Telegram</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="phase-gap">
+      <div class="phase-gap-badge">↓ &nbsp; Approved article passed to AI</div>
+    </div>
+
+    <!-- ───── PHASE 2: AI GENERATION ───── -->
+    <div class="phase-block ph-ai">
+      <div class="phase-header ph-ai">
+        <span class="phase-num">Phase 2</span>
+        <span class="phase-icon">🤖</span>
+        <div>
+          <div class="phase-name">AI Content Generation</div>
+          <div class="phase-desc">AI writes the script, plans scenes, and generates all visual imagery</div>
+        </div>
+      </div>
+
+      <div class="steps ph-ai">
+
+        <div class="step-row">
+          <div class="step-card">
+            <div class="step-dot"></div>
+            <div class="step-num-badge">04</div>
+            <span class="step-emoji">📄</span>
+            <div class="step-body">
+              <div class="step-title">Fetch Full Article Body</div>
+              <div class="step-desc">Playwright loads the approved article page and extracts the complete body text. This is the raw source material that all AI steps work from.</div>
+            </div>
+            <div class="step-right">
+              <span class="tag tag-playwright">Playwright</span>
+            </div>
+          </div>
+          <div class="step-arrow"><div class="step-arrow-line"></div></div>
+        </div>
+
+        <div class="step-row">
+          <div class="step-card">
+            <div class="step-dot"></div>
+            <div class="step-num-badge">05</div>
+            <span class="step-emoji">✍️</span>
+            <div class="step-body">
+              <div class="step-title">AI Script Generation</div>
+              <div class="step-desc">ChatGPT rewrites the article into a punchy <strong>110–130 word Albanian voiceover script</strong>. Style: catchy, viral, conversational — designed to hold attention for ~40 seconds. Saved as <code>.txt</code>.</div>
+            </div>
+            <div class="step-right">
+              <span class="tag tag-openai">OpenAI GPT</span>
+              <span class="tag tag-output">Albanian · 40s</span>
+            </div>
+          </div>
+          <div class="step-arrow"><div class="step-arrow-line"></div></div>
+        </div>
+
+        <div class="step-row">
+          <div class="step-card">
+            <div class="step-dot"></div>
+            <div class="step-num-badge">06</div>
+            <span class="step-emoji">🎨</span>
+            <div class="step-body">
+              <div class="step-title">AI Visual Scene Planning</div>
+              <div class="step-desc">ChatGPT reads the script and outputs structured <strong>JSON</strong>: 5–8 scenes, each with a duration (4–7 sec), a detailed image generation prompt, and whether to feature the brand character. This JSON drives the next step.</div>
+            </div>
+            <div class="step-right">
+              <span class="tag tag-openai">OpenAI GPT</span>
+              <span class="tag tag-output">JSON · 5–8 scenes</span>
+            </div>
+          </div>
+          <div class="step-arrow"><div class="step-arrow-line"></div></div>
+        </div>
+
+        <div class="step-row">
+          <div class="step-card">
+            <div class="step-dot"></div>
+            <div class="step-num-badge">07</div>
+            <span class="step-emoji">🖼️</span>
+            <div class="step-body">
+              <div class="step-title">AI Image Generation — One Per Scene</div>
+              <div class="step-desc">fal.ai generates a <strong>4K portrait image</strong> for each scene using the detailed prompts. Scenes flagged for the brand character use a reference photo to keep visual identity consistent. Output: 5–8 JPEG images at 9:16 aspect ratio.</div>
+            </div>
+            <div class="step-right">
+              <span class="tag tag-falai">fal.ai</span>
+              <span class="tag tag-output">4K · 9:16</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="phase-gap">
+      <div class="phase-gap-badge">↓ &nbsp; Script + Images passed to production</div>
+    </div>
+
+    <!-- ───── PHASE 3: PRODUCTION ───── -->
+    <div class="phase-block ph-prod">
+      <div class="phase-header ph-prod">
+        <span class="phase-num">Phase 3</span>
+        <span class="phase-icon">🎬</span>
+        <div>
+          <div class="phase-name">Media Production</div>
+          <div class="phase-desc">Voice synthesis, subtitle creation, and full video assembly with animation effects</div>
+        </div>
+      </div>
+
+      <div class="steps ph-prod">
+
+        <div class="step-row">
+          <div class="step-card">
+            <div class="step-dot"></div>
+            <div class="step-num-badge">08</div>
+            <span class="step-emoji">🎙️</span>
+            <div class="step-body">
+              <div class="step-title">Text-to-Speech Audio</div>
+              <div class="step-desc">OpenAI TTS converts the script into natural Albanian speech using the <code>echo</code> voice at <strong>1.2× speed</strong> — tuned for short-form pacing. Output: <code>.mp3</code> audio file.</div>
+            </div>
+            <div class="step-right">
+              <span class="tag tag-openai">OpenAI TTS</span>
+              <span class="tag tag-output">MP3 · 1.2×</span>
+            </div>
+          </div>
+          <div class="step-arrow"><div class="step-arrow-line"></div></div>
+        </div>
+
+        <div class="step-row">
+          <div class="step-card">
+            <div class="step-dot"></div>
+            <div class="step-num-badge">09</div>
+            <span class="step-emoji">💬</span>
+            <div class="step-body">
+              <div class="step-title">Subtitle Generation &amp; AI Correction</div>
+              <div class="step-desc">The audio is uploaded to <strong>Gladia API</strong> which returns word-level timestamps. These are grouped into ~11-word chunks and formatted as two-line SRT entries. A final GPT pass corrects any transcription errors against the original script.</div>
+            </div>
+            <div class="step-right">
+              <span class="tag tag-gladia">Gladia</span>
+              <span class="tag tag-openai">GPT Correction</span>
+            </div>
+          </div>
+          <div class="step-arrow"><div class="step-arrow-line"></div></div>
+        </div>
+
+        <div class="step-row">
+          <div class="step-card">
+            <div class="step-dot"></div>
+            <div class="step-num-badge">10</div>
+            <span class="step-emoji">🎞️</span>
+            <div class="step-body">
+              <div class="step-title">Video Assembly — ffmpeg</div>
+              <div class="step-desc">ffmpeg animates each image with a random <strong>Ken Burns effect</strong> (zoom, pan, tilt). Clips are concatenated, synced with the audio track, subtitles are burned in (yellow, bold, Inter), and the brand logo is overlaid top-right. Output: <strong>1080×1920 H.264 MP4</strong>.</div>
+            </div>
+            <div class="step-right">
+              <span class="tag tag-ffmpeg">ffmpeg</span>
+              <span class="tag tag-output">1080×1920 MP4</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="phase-gap">
+      <div class="phase-gap-badge">↓ &nbsp; Finished video passed to publishing</div>
+    </div>
+
+    <!-- ───── PHASE 4: PUBLISHING ───── -->
+    <div class="phase-block ph-pub">
+      <div class="phase-header ph-pub">
+        <span class="phase-num">Phase 4</span>
+        <span class="phase-icon">📱</span>
+        <div>
+          <div class="phase-name">Publishing</div>
+          <div class="phase-desc">Cloud upload, human review of finished video, then automated TikTok scheduling</div>
+        </div>
+      </div>
+
+      <div class="steps ph-pub">
+
+        <div class="step-row">
+          <div class="step-card">
+            <div class="step-dot"></div>
+            <div class="step-num-badge">11</div>
+            <span class="step-emoji">☁️</span>
+            <div class="step-body">
+              <div class="step-title">Upload to Google Drive</div>
+              <div class="step-desc">The finished MP4 is uploaded to a shared <strong>Google Drive</strong> folder via OAuth. A public direct-download link is generated — this URL is what gets passed to Buffer for TikTok posting.</div>
+            </div>
+            <div class="step-right">
+              <span class="tag tag-gdrive">Google Drive</span>
+            </div>
+          </div>
+          <div class="step-arrow"><div class="step-arrow-line"></div></div>
+        </div>
+
+        <div class="step-row">
+          <div class="step-card is-human">
+            <div class="step-dot" style="background:#f59e0b;"></div>
+            <div class="step-num-badge" style="background:rgba(245,158,11,0.15);color:#f59e0b;">✋</div>
+            <span class="step-emoji">👤</span>
+            <div class="step-body">
+              <div class="human-label">Human Checkpoint #2</div>
+              <div class="step-title" style="color:#f59e0b;">Video Approval via Telegram</div>
+              <div class="step-desc">A <em>"VIDEO READY!"</em> notification is sent with a Google Drive preview link and buttons <strong>[✅ Post to TikTok]</strong> and <strong>[❌ Skip]</strong>. The human watches the video and decides. Rejected videos are archived; approved ones go live.</div>
+            </div>
+            <div class="step-right">
+              <span class="tag tag-human">👤 Human</span>
+              <span class="tag tag-telegram">Telegram</span>
+            </div>
+          </div>
+          <div class="step-arrow"><div class="step-arrow-line"></div></div>
+        </div>
+
+        <div class="step-row">
+          <div class="step-card">
+            <div class="step-dot"></div>
+            <div class="step-num-badge">13</div>
+            <span class="step-emoji">🎵</span>
+            <div class="step-body">
+              <div class="step-title">Post to TikTok — Buffer API</div>
+              <div class="step-desc">Buffer's GraphQL API receives the Google Drive URL and the video title. It queues the post for the <strong>TikTok channel</strong> and schedules it automatically for optimal posting time. A confirmation with the scheduled time is sent back to Telegram.</div>
+            </div>
+            <div class="step-right">
+              <span class="tag tag-buffer">Buffer API</span>
+              <span class="tag tag-output">TikTok</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══ FINAL RESULT CARD ══ -->
+  <div class="result-card">
+    <span class="result-icon">🎵</span>
+    <div>
+      <div class="result-title">TikTok Video — Live</div>
+      <div class="result-desc">
+        A fully produced, subtitled, branded short-form video is scheduled and published to TikTok.
+        The original article has been transformed into engaging vertical content — without any manual editing, recording, or design work.
+      </div>
+      <div class="result-spec">
+        <span class="tag tag-output">1080 × 1920 px</span>
+        <span class="tag tag-output">H.264 · AAC</span>
+        <span class="tag tag-output">Albanian subtitles</span>
+        <span class="tag tag-output">Ken Burns animated</span>
+        <span class="tag tag-output">Brand watermark</span>
+        <span class="tag tag-output">Auto-scheduled</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SERVICES DIVIDER ══ -->
+  <hr class="divider">
+
+  <div class="section-title" style="margin-top:60px;">
+    <h2>Services &amp; Technologies</h2>
+    <p>The full stack powering this pipeline — 7 APIs working in sequence</p>
+  </div>
+
+  <div class="services-grid">
+    <div class="svc-card">
+      <div class="svc-icon">📲</div>
+      <div class="svc-name" style="color:#38bdf8;">Telegram Bot API</div>
+      <div class="svc-role">Human control interface — triggers, approval buttons, and status notifications throughout the pipeline</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">🕷️</div>
+      <div class="svc-name" style="color:#86efac;">Playwright</div>
+      <div class="svc-role">Headless browser automation for scraping article listings and fetching full article body text</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">🧠</div>
+      <div class="svc-name" style="color:#34d399;">OpenAI GPT</div>
+      <div class="svc-role">Three roles: script writing, JSON scene planning, and subtitle accuracy correction</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">🎙️</div>
+      <div class="svc-name" style="color:#34d399;">OpenAI TTS</div>
+      <div class="svc-role">Converts the Albanian script to natural speech using the <em>echo</em> voice — output sped up to 1.2× for short-form pacing</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">🖼️</div>
+      <div class="svc-name" style="color:#f87171;">fal.ai</div>
+      <div class="svc-role">High-quality 4K portrait image generation from detailed scene prompts, with optional brand character reference</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">💬</div>
+      <div class="svc-name" style="color:#c084fc;">Gladia API</div>
+      <div class="svc-role">Word-level audio transcription providing precise timestamps for accurate subtitle placement</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">🎞️</div>
+      <div class="svc-name" style="color:#fcd34d;">ffmpeg</div>
+      <div class="svc-role">Local video engine: animated Ken Burns clips, audio sync, subtitle burning, logo overlay, H.264 encoding</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">☁️</div>
+      <div class="svc-name" style="color:#93c5fd;">Google Drive</div>
+      <div class="svc-role">Cloud video hosting — generates a public direct download URL used by Buffer to ingest the video for TikTok</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">📡</div>
+      <div class="svc-name" style="color:#f9a8d4;">Buffer</div>
+      <div class="svc-role">TikTok publishing via GraphQL API — receives the Drive URL and title, queues and auto-schedules the post</div>
+    </div>
+  </div>
+
+  <!-- ══ OUTPUT FILES ══ -->
+  <div class="output-section">
+    <div class="output-header">
+      <h3>Files Generated Per Article</h3>
+    </div>
+    <div class="output-path">Saved to <code>generated_content/{article-slug}/</code> — all intermediate and final outputs are preserved</div>
+
+    <div class="output-files">
+      <div class="out-file">
+        <span class="out-file-icon">📝</span>
+        <div>
+          <div class="out-file-name">scripts/slug.txt</div>
+          <div class="out-file-desc">Albanian voiceover (110–130 words)</div>
+        </div>
+      </div>
+      <div class="out-file">
+        <span class="out-file-icon">🗂️</span>
+        <div>
+          <div class="out-file-name">images/slug.json</div>
+          <div class="out-file-desc">Scene plan with AI image prompts</div>
+        </div>
+      </div>
+      <div class="out-file">
+        <span class="out-file-icon">🖼️</span>
+        <div>
+          <div class="out-file-name">images/slug_01_*.jpg</div>
+          <div class="out-file-desc">5–8 AI-generated 4K scene images</div>
+        </div>
+      </div>
+      <div class="out-file">
+        <span class="out-file-icon">🔊</span>
+        <div>
+          <div class="out-file-name">audio/slug.mp3</div>
+          <div class="out-file-desc">TTS narration at 1.2× speed</div>
+        </div>
+      </div>
+      <div class="out-file">
+        <span class="out-file-icon">💬</span>
+        <div>
+          <div class="out-file-name">subtitles/slug.srt</div>
+          <div class="out-file-desc">Timestamped 2-line subtitle file</div>
+        </div>
+      </div>
+      <div class="out-file final">
+        <span class="out-file-icon">🎬</span>
+        <div>
+          <div class="out-file-name" style="color:#f59e0b;">video.mp4</div>
+          <div class="out-file-desc">1080×1920 · H.264 · TikTok-ready</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer>
+  <strong>Content Automation Pipeline</strong> &nbsp;·&nbsp; Article → TikTok, fully automated &nbsp;·&nbsp; Powered by AI at every step
+</footer>
+
+</body>
+</html>
