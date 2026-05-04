@@ -1,0 +1,38 @@
+{
+  "handle": "smith_co_plumbing",
+  "posts": [
+    {
+      "id": 1,
+      "date": "2026-04-23",
+      "post_type": "tip",
+      "caption": "Top tip: Never pour grease down the drain. It hardens and causes blockages. Run hot water after washing dishes instead! \ud83d\udca7",
+      "headline": "Don't Pour Grease Down The Drain",
+      "visual_description": "Bold white text on dark navy background. Brand logo top right. Warning icon in accent yellow.",
+      "image_path": "output/smith_co_plumbing/post_001.png",
+      "colors_used": ["#1A2E4A", "#FFFFFF", "#F5A623"],
+      "engagement": { "likes": 84, "comments": 6 }
+    },
+    {
+      "id": 2,
+      "date": "2026-04-25",
+      "post_type": "testimonial",
+      "caption": "\"Called Smith & Co at 7am with a burst pipe — fixed by 9am. Absolute legends.\" - Sarah M.",
+      "headline": "Fixed By 9AM",
+      "visual_description": "Photo background of water pipe repair. Large quote text overlay. Star rating in yellow.",
+      "image_path": "output/smith_co_plumbing/post_002.png",
+      "colors_used": ["#1A2E4A", "#FFFFFF", "#F5A623"],
+      "engagement": { "likes": 121, "comments": 14 }
+    },
+    {
+      "id": 3,
+      "date": "2026-04-27",
+      "post_type": "promotion",
+      "caption": "Hot water system playing up? Get a FREE inspection this week. Limited spots. DM us now.",
+      "headline": "Free Hot Water Inspection",
+      "visual_description": "Split layout. Left: photo of hot water system. Right: offer text on yellow background.",
+      "image_path": "output/smith_co_plumbing/post_003.png",
+      "colors_used": ["#F5A623", "#1A2E4A", "#FFFFFF"],
+      "engagement": { "likes": 66, "comments": 22 }
+    }
+  ]
+}

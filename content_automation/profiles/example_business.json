@@ -1,0 +1,90 @@
+{
+  "business": {
+    "name": "Smith & Co. Plumbing",
+    "handle": "smith_co_plumbing",
+    "niche": "plumbing",
+    "location": "Melbourne, AU",
+    "tagline": "Fast, clean, reliable.",
+    "services": [
+      "emergency repairs",
+      "hot water systems",
+      "blocked drains",
+      "bathroom renovations"
+    ],
+    "tone": "professional but approachable",
+    "target_audience": "homeowners aged 30-55"
+  },
+
+  "brand": {
+    "primary_color": "#1A2E4A",
+    "secondary_color": "#F5A623",
+    "background_color": "#FFFFFF",
+    "text_color": "#1A2E4A",
+    "accent_color": "#F5A623",
+    "fonts": {
+      "heading": "Montserrat Bold",
+      "body": "Inter Regular",
+      "accent": "Montserrat Italic"
+    },
+    "font_files": {
+      "heading": "assets/smith_co_plumbing/fonts/Montserrat-Bold.ttf",
+      "body": "assets/smith_co_plumbing/fonts/Inter-Regular.ttf",
+      "accent": "assets/smith_co_plumbing/fonts/Montserrat-Italic.ttf"
+    }
+  },
+
+  "assets": {
+    "logo": "assets/smith_co_plumbing/logo.png",
+    "logo_white": "assets/smith_co_plumbing/logo_white.png",
+    "photos": [
+      "assets/smith_co_plumbing/photos/team.jpg",
+      "assets/smith_co_plumbing/photos/van.jpg",
+      "assets/smith_co_plumbing/photos/work_sample_1.jpg"
+    ],
+    "textures": [],
+    "icons": []
+  },
+
+  "visual_style": {
+    "active_style": "bold_minimal",
+    "description": "Bold typography on clean backgrounds. Strong use of brand colors. Minimal clutter. One key message per post.",
+    "image_generation_style": "photorealistic, professional, warm lighting, residential setting",
+    "avoid": "cartoon, clipart, overly dark, neon colors"
+  },
+
+  "content_strategy": {
+    "post_types": [
+      "tip",
+      "before_after",
+      "promotion",
+      "testimonial",
+      "educational",
+      "seasonal"
+    ],
+    "post_type_weights": {
+      "tip": 0.3,
+      "before_after": 0.2,
+      "promotion": 0.15,
+      "testimonial": 0.2,
+      "educational": 0.1,
+      "seasonal": 0.05
+    },
+    "avoid_repeating_type_within": 2,
+    "hashtags": [
+      "#plumber",
+      "#plumbing",
+      "#melbourneplumber",
+      "#homerepair",
+      "#plumbingservices"
+    ],
+    "call_to_action": "Call us on 0400 000 000 or DM to book."
+  },
+
+  "output": {
+    "format": "instagram_feed",
+    "aspect_ratio": "4:5",
+    "width_px": 1080,
+    "height_px": 1350,
+    "subtitle_safe_zone_bottom_px": 20
+  }
+}
