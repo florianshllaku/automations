@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import { InteriorNav } from "@/components/interior-nav"
 
 export default function PrivateAirbnbPage() {
   const images = [
@@ -21,12 +22,15 @@ export default function PrivateAirbnbPage() {
 
   return (
     <main className="pt-20 pb-20 bg-background flex-1">
-      {/* Hero Image - natural aspect ratio, centered at 50% width */}
-      <div className="relative w-full mb-12 flex justify-center">
-        <img
-          src={images[0]}
-          alt="Private Airbnb"
-          className="w-1/2 h-auto"
+      {/* Hero Video */}
+      <div className="relative w-full mb-12">
+        <video
+          src="/images/header_aribnb.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-auto"
         />
       </div>
 
@@ -62,8 +66,19 @@ export default function PrivateAirbnbPage() {
         </Link>
       </div>
 
+      {/* Project Description - same width as images */}
+      <div className="w-1/2 mx-auto mb-12 lg:mb-16 space-y-5 font-light text-sm lg:text-base leading-relaxed">
+        <p>The space is conceived as a central living environment, where balance between composition, color, and volume shapes a refined and cohesive atmosphere, creating a clear and coherent spatial experience.</p>
+        <p>Design approach is based on visual clarity and the use of uniformly colored materials, contributing to a calm and contemporary aesthetic.</p>
+        <p>Clean surfaces and balanced tones define a functional space with a refined visual presence. The space follows the same formal logic, where controlled colors and simple forms support a calm and balanced atmosphere.</p>
+        <p>The composition aims to provide visual comfort and a sense of ease in everyday use. The design adopts a more expressive character, placing different architectural languages in dialogue.</p>
+        <p>The contrast between form and color creates a strong visual identity and a distinctive moment within the project. The spatial treatment maintains conceptual coherence through the use of colored materials and a clean compositional approach.</p>
+        <p>A restrained and controlled aesthetic contributes to a clear, orderly, and functional environment. The design continues with the same visual language, supporting a calm and balanced environment.</p>
+        <p>Colors, light, and form work together to create a consistent and comfortable spatial experience.</p>
+      </div>
+
       {/* Image Gallery - Centered at 50% Width, natural aspect ratios */}
-      <div className="space-y-0 flex flex-col items-center">
+      <div className="flex flex-col gap-3 lg:gap-6 items-center">
         {images.slice(1).map((image, index) => (
           <div key={index} className="relative w-1/2">
             <img
@@ -74,6 +89,8 @@ export default function PrivateAirbnbPage() {
           </div>
         ))}
       </div>
+
+      <InteriorNav next={{ href: "/interiors/vr-apartment", label: "v.r. apartment" }} />
     </main>
   )
 }

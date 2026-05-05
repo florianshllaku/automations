@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { InteriorNav } from "@/components/interior-nav"
 
 const gallery = [
   { src: "/images/noun-agency-01.png", alt: "noun agency lounge area with KAWS companion and Wassily chair" },
@@ -20,29 +21,44 @@ export default function NounAgencyPage() {
         />
       </div>
 
-      {/* Title + metadata */}
-      <div className="px-6 lg:px-12 max-w-4xl mb-16 lg:mb-24">
-        <Link
-          href="/interiors"
-          className="inline-block text-sm font-light lowercase mb-6 hover:opacity-60 transition-opacity"
-        >
-          ← back to interiors
-        </Link>
-
-        <h1 className="text-3xl lg:text-5xl font-bold mb-10 lg:mb-14 lowercase">
+      {/* Content Container */}
+      <div className="px-6 lg:px-12 max-w-6xl mx-auto">
+        {/* Title */}
+        <h1 className="text-5xl lg:text-6xl font-bold mb-8 lowercase">
           noun agency
         </h1>
 
-        <dl className="grid grid-cols-[auto_1fr] gap-x-8 gap-y-3 text-base lg:text-lg max-w-md">
-          <dt className="font-bold lowercase">location</dt>
-          <dd className="font-light">Switzerland</dd>
-
-          <dt className="font-bold lowercase">year</dt>
-          <dd className="font-light">2024</dd>
-
-          <dt className="font-bold lowercase">type</dt>
-          <dd className="font-light">Office</dd>
+        {/* Metadata Grid */}
+        <dl className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 pb-16 border-b border-border">
+          <div>
+            <dt className="text-sm font-bold mb-1">Location</dt>
+            <dd className="text-base font-light">Switzerland</dd>
+          </div>
+          <div>
+            <dt className="text-sm font-bold mb-1">Year</dt>
+            <dd className="text-base font-light">2024</dd>
+          </div>
+          <div>
+            <dt className="text-sm font-bold mb-1">Type</dt>
+            <dd className="text-base font-light">Office</dd>
+          </div>
         </dl>
+
+        {/* Back Link */}
+        <Link
+          href="/interiors"
+          className="inline-block text-sm font-light hover:opacity-60 transition-opacity mb-16"
+        >
+          ← back to interiors
+        </Link>
+      </div>
+
+      {/* Project Description - same width as images */}
+      <div className="w-1/2 mx-auto mb-12 lg:mb-16 space-y-5 font-light text-sm lg:text-base leading-relaxed">
+        <p>Set in Winterthur, the space unfolds through a restrained monochromatic palette of black, white, and grey, where geometry and materiality take precedence over decoration. Natural light filters through vertical louvers, casting controlled bands of shadow that move across the surfaces, creating a quiet chiaroscuro effect with a distinctly cinematic, almost clinical precision.</p>
+        <p>The furniture reads less as utility and more as a curated collection of objects. A chair inspired by the Wassily Chair introduces a tactile contrast through its tubular metal frame and cowhide-like texture, softening the rigidity of the setting. Nearby, a transparent acrylic armchair plays with perception, its black cylindrical supports grounding an otherwise weightless form. The presence of a KAWS Companion in matte black shifts the interior toward a gallery-like atmosphere, embedding a layer of pop-cultural reference within an otherwise disciplined composition.</p>
+        <p>Material contrasts define the spatial experience. Reflective surfaces, such as the mirrored glass table and the polished floor, disperse light and subtly expand the room's visual boundaries. In opposition, the dense black carpet and the creased leather sofa absorb light, adding depth and anchoring the composition. Raw, almost brutalist accessories with stone-like textures introduce a sense of weight and tactility, preventing the space from becoming overly polished or sterile.</p>
+        <p>What emerges is an interior that balances restraint with intention. It avoids conventional notions of comfort, instead leaning into a colder, more controlled aesthetic where each element is carefully positioned and visually accountable. The result feels less like a living space and more like a precisely composed environment—somewhere between a private gallery and a staged architectural statement.</p>
       </div>
 
       {/* Gallery - centered at 50% width, stacked images at natural aspect ratios */}
@@ -57,6 +73,8 @@ export default function NounAgencyPage() {
           </div>
         ))}
       </div>
+
+      <InteriorNav prev={{ href: "/interiors/vr-apartment", label: "v.r. apartment" }} />
     </main>
   )
 }

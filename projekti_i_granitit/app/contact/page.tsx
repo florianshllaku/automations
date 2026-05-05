@@ -4,7 +4,7 @@ import { Instagram, Facebook, Linkedin } from "lucide-react"
 
 export default function ContactPage() {
   return (
-    <main className="pt-24 bg-white text-black font-light flex-1 flex flex-col">
+    <main className="pt-24 pb-8 bg-white text-black font-light flex-1 flex flex-col">
       {/* Hero Image - Studio Vendi Branded Banner */}
       <div className="relative w-full aspect-[21/9] mb-16 lg:mb-24">
         <Image
@@ -24,7 +24,7 @@ export default function ContactPage() {
           {/* Address */}
           <div>
             <p className="text-base lg:text-lg">
-              Rr. Vellezerit Gervalla, Bregu i Diellit,
+              Rr. Vëllezerit Gervalla, Bregu i Diellit,
             </p>
             <p className="text-base lg:text-lg">Prishtinë 10000</p>
             <p className="text-base lg:text-lg">Kosovë</p>
