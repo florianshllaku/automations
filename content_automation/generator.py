@@ -1,9 +1,7 @@
 """
-Full pipeline: ChatGPT brief -> Gemini image prompt -> 4x Fal.ai backgrounds -> text overlay
+Full pipeline: ChatGPT brief -> Gemini image prompt -> 2x Fal.ai backgrounds (GPT-Image-2 only)
 
-Outputs 4 variants per run:
-  post_NNN_nano_noref.jpg  — nano-banana-pro, no reference images
-  post_NNN_nano_ref.jpg    — nano-banana-pro/edit, with reference images
+Outputs 2 variants per run:
   post_NNN_gpt_noref.jpg   — gpt-image-2, no reference images
   post_NNN_gpt_ref.jpg     — gpt-image-2/edit, with reference images
 
@@ -30,8 +28,6 @@ from content_brain import (
 from fal_image_gen import (
     generate_gpt_no_ref,
     generate_gpt_with_ref,
-    generate_nano_no_ref,
-    generate_nano_with_ref,
 )
 
 
@@ -72,7 +68,7 @@ def run(handle: str, custom_text: str = None):
     bg_dir = output_dir / "_bg_temp"
 
     # Determine next post number
-    existing = sorted(output_dir.glob("post_*_nano_noref.jpg"))
+    existing = sorted(output_dir.glob("post_*_gpt_noref.jpg"))
     next_num = len(existing) + 1
 
     print(f"\n{'='*55}")
@@ -108,21 +104,15 @@ def run(handle: str, custom_text: str = None):
     chosen_prompt = image_prompts[0]
     print(f"  Prompt: {chosen_prompt[:120]}...")
 
-    # -- Step 4: Generate 4 background images via Fal.ai ----------------------
-    print("\n[4/5] Generating 4 background images via Fal.ai...")
+    # -- Step 4: Generate 1 background image via Fal.ai (GPT-Image-2, ref only) -
+    print("\n[4/5] Generating background image via Fal.ai (GPT-Image-2, with refs)...")
 
-    bg_nano_noref = generate_nano_no_ref(chosen_prompt, bg_dir)
-    bg_nano_ref   = generate_nano_with_ref(chosen_prompt, ref_images, bg_dir)
-    bg_gpt_noref  = generate_gpt_no_ref(chosen_prompt, bg_dir)
-    bg_gpt_ref    = generate_gpt_with_ref(chosen_prompt, ref_images, bg_dir)
+    bg_gpt_ref = generate_gpt_with_ref(chosen_prompt, ref_images, bg_dir)
 
-    # -- Step 5: Move generated images to output dir --------------------------
-    print("\n[5/5] Saving 4 background images...")
+    # -- Step 5: Move generated image to output dir ---------------------------
+    print("\n[5/5] Saving background image...")
     variants = [
-        ("nano_noref", bg_nano_noref),
-        ("nano_ref",   bg_nano_ref),
-        ("gpt_noref",  bg_gpt_noref),
-        ("gpt_ref",    bg_gpt_ref),
+        ("gpt_ref", bg_gpt_ref),
     ]
 
     output_paths = []
@@ -137,10 +127,11 @@ def run(handle: str, custom_text: str = None):
     # -- Save to history -------------------------------------------------------
     save_to_history(handle, brief, chosen_prompt, output_paths)
 
-    print(f"\nDone. 4 posts generated:")
+    print(f"\nDone. 1 post generated:")
     for p in output_paths:
         print(f"  {p}")
-    print(f"\n  Caption ready to copy:\n\n{brief['caption']}\n")
+    safe_caption = brief['caption'].encode('utf-8', errors='replace').decode('utf-8')
+    print(f"\n  Caption ready to copy:\n\n{safe_caption}\n")
     return output_paths
 
 

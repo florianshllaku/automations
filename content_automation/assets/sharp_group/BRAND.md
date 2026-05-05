@@ -16,7 +16,7 @@ The Sharp Group logo plays a central role in establishing brand consistency and 
 ---
 
 ## 4. Color System
-The color system of Sharp Group is designed with a strict focus on contrast, clarity, and direction. The primary background color is an off-white tone (#F9F9F9), which provides a clean and modern foundation for all visuals. Black (#000000) is used as the main text color and for depth within 3D elements, ensuring readability and authority. Orange (#FF680B) functions as the primary accent color, used deliberately to highlight key words, emphasize important elements, and guide the viewer’s attention.
+The color system of Sharp Group is designed with a strict focus on contrast, clarity, and direction. The primary background color is an off-white tone, which provides a clean and modern foundation for all visuals. Black (#000000) is used as the main text color and for depth within 3D elements, ensuring readability and authority. Orange (#FF680B) functions as the primary accent color, used deliberately to highlight key words, emphasize important elements, and guide the viewer’s attention.
 
 This system is not aesthetic-driven but functional. Black delivers the message, orange directs the eye, and white maintains balance. Orange is never overused; it is reserved for moments that require emphasis, such as keywords, focal points in visuals, or calls to action.
 
@@ -36,24 +36,36 @@ The typography itself communicates confidence and structure. It should feel deci
 ---
 
 ## 6. Background Style
-The background system is designed to support the message without competing for attention. It is consistently light, minimal, and clean, using subtle textures such as paper grain, light grid patterns, or soft abstract shapes. These elements add depth without introducing visual noise.
+The background should not feel completely flat or empty, even when using an off-white base. Very subtle design textures and patterns should be introduced to create depth and visual interest while maintaining minimalism.
 
-The background must never overpower the foreground. Its role is to create a calm and controlled environment in which the message and visuals can stand out clearly. High contrast between background and text is always maintained, and excessive detail is avoided.
+These background details can include extremely light grid lines inspired by mathematical notebook paper, soft square patterns, faint technical layouts, subtle paper grain, or lightly wrinkled paper textures. The effect should remain understated and almost invisible at first glance, serving only to break the emptiness of the background and give the composition a more premium and designed feel.
+
+These elements must always stay low contrast and highly minimal, never competing with the headline or central visual. Their purpose is to add texture, structure, and sophistication while preserving the clean visual identity of Sharp Group.
 
 ---
 
-## 7. Imagery System (3D + Concept Thinking)
-The imagery system is the most defining element of Sharp Group’s visual identity. It is built around the principle that visuals should communicate ideas, not decorate space. Every image exists to represent a business concept in a clear and immediate way.
+## 7. Imagery System (3D + Artistic Composition)
+The imagery system is the most defining element of Sharp Group’s visual identity. It is built around the principle that visuals should communicate ideas powerfully and with artistic impact — not just decorate space. Every image must feel premium, editorial, and visually striking at first glance.
 
-The visual language relies on soft, minimal 3D objects that feel modern, controlled, and intentional. Materials are typically matte or slightly semi-gloss, avoiding heavy textures that distract from the concept. Lighting is directional and clean, creating soft shadows that add depth while preserving clarity.
+**Composition philosophy — go beyond a single object.** Visuals are not limited to one isolated 3D element floating on a white background. The strongest posts combine multiple elements into a cohesive artistic scene: a hero object supported by complementary shapes, geometric structures, flowing lines, layered depth, or environmental context. Think art-directed editorial layouts, not basic product renders.
 
-Color within visuals follows strict logic. White elements act as neutral participants, supporting the composition without drawing attention. Orange is used as the hero color, highlighting key objects or moments of action. Black is introduced selectively to create contrast and visual grounding.
+**Artistic elements that are actively encouraged:**
+- Repeating geometric patterns — grids, arcs, diagonal rule lines, concentric circles — that run consistently across the entire composition. If a line pattern is used, it must be perfectly uniform in weight, spacing, and angle across the whole image. Random or inconsistent patterns are not acceptable.
+- Layered 3D scenes with foreground, midground, and background depth — objects at different scales creating visual perspective
+- Abstract structural forms: floating platforms, interconnected rings, architectural grid fragments, precision overlay frames, suspended geometric shapes
+- Multi-object symbolic arrangements in dynamic compositions (e.g. a chess board with a rising arrow cutting through it, stacked data blocks with an orange light beam, a target surrounded by orbiting arrows)
+- Flowing organic curves contrasted against sharp geometric elements for visual tension
+- Scattered micro-details: dots, dashes, small diamond or square accents that add texture and richness without clutter
 
-Each composition is driven by a simple structure where a business idea is translated into a visual metaphor and reinforced by a bold statement. Common symbolic elements include chess pieces to represent strategy, targets for precision, arrows for growth, megaphones for marketing, and money to represent results. These symbols are chosen because they are universally understood, allowing the viewer to immediately grasp the concept.
+**Materials and lighting:** Matte and semi-gloss surfaces, directional studio lighting with soft dramatic shadows. Surfaces should feel tactile and premium. Subtle reflective accents or a soft glow on orange elements are encouraged — they add energy and depth.
 
-A secondary layer of visuals may be introduced to add context and relatability. This can include human elements such as a person using a phone, working on a laptop, or engaging in a business interaction. These elements are always supportive, never dominant, and exist to connect the abstract idea to real-world application.
+**Color logic:** Off-white is the foundation. Orange (#FF680B) is the hero — used on the most important object, key structural lines, a dramatic accent, or a single bold light source. Black creates contrast, shadow, and weight. These three colors must feel deliberately balanced across the full composition, not applied randomly.
 
-The composition maintains a clear hierarchy, with one dominant focal point supported by secondary elements. Spacing is used deliberately to avoid clutter, and every element serves a purpose. If a visual requires explanation, it is considered too complex and must be simplified.
+**Consistency rule:** Any repeating visual element — lines, dots, grids, squares, patterns — must be perfectly consistent across the entire image in weight, spacing, and rhythm. A pattern that breaks or drifts destroys the premium feel immediately.
+
+**Symbolic vocabulary** remains valid: chess pieces, targets, arrows, megaphones, coins, graphs, clocks, locks, funnels, magnifying glasses. But place them inside a richer visual world rather than in empty space. The symbol should feel like it belongs to a scene, not like a stock image dropped on a white canvas.
+
+The composition maintains a clear hierarchy — one dominant focal point, supported by secondary and tertiary elements that build the scene. Every element earns its place. If the image feels cluttered, simplify. If it feels empty, enrich it.
 
 ---
 
