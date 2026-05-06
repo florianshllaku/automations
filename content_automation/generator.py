@@ -134,6 +134,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("handle", nargs="?", default="sharp_group")
     parser.add_argument("--text", type=str, default=None, help="Custom on-image text (skips ChatGPT)")
-    parser.add_argument("--template", type=str, default="default", choices=["default", "corner_left", "corner_right"], help="Template layout to use")
+    parser.add_argument("--template", type=str, default="default", choices=["default", "orange"], help="Template layout to use")
     args = parser.parse_args()
     run(args.handle, custom_text=args.text, template=args.template)

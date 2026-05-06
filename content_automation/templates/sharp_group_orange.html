@@ -20,48 +20,17 @@
     width: 1080px;
     height: 1350px;
     overflow: hidden;
-    background: #080808;
+    background: #FF680B;
   }
 
   .canvas {
     position: relative;
     width: 1080px;
     height: 1350px;
-    background: #080808;
+    background: #FF680B;
   }
 
-  /* ── Visual image — bottom RIGHT corner, true 50% quadrant ── */
-  .visual {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 50%;
-    height: 50%;
-    background-image: url('{{ bg_image }}');
-    background-size: cover;
-    background-position: center bottom;
-    z-index: 1;
-  }
-
-  /* Soft fade on the left edge — blends into dark bg */
-  .visual::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, #080808 0%, transparent 40%);
-    z-index: 2;
-  }
-
-  /* Soft fade on the top edge */
-  .visual::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, #080808 0%, transparent 35%);
-    z-index: 2;
-  }
-
-  /* ── Logo — top center ── */
+  /* ── Logo — top center, forced white ── */
   .logo-wrap {
     position: absolute;
     top: 50px;
@@ -78,8 +47,8 @@
     filter: brightness(0) invert(1);
   }
 
-  /* ── Text block — top area, full width ── */
-  .text-block {
+  /* ── Content block — sits below logo ── */
+  .bottom-block {
     position: absolute;
     top: 220px;
     left: 0; right: 0;
@@ -88,7 +57,16 @@
     text-align: left;
   }
 
-  /* Main post text */
+  /* Black accent bar */
+  .accent-bar {
+    width: 60px;
+    height: 6px;
+    background: #080808;
+    border-radius: 3px;
+    margin-top: 26px;
+  }
+
+  /* Main post text — white, font-size set by JS */
   .post-text {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
@@ -102,24 +80,15 @@
     white-space: pre-line;
   }
 
-  /* Orange keyword highlight */
+  /* Black keyword highlight (inverted from default orange) */
   .post-text .hl {
-    color: #FF680B;
-  }
-
-  /* Orange accent bar — below text */
-  .accent-bar {
-    width: 60px;
-    height: 6px;
-    background: #FF680B;
-    border-radius: 3px;
-    margin-top: 26px;
+    color: #080808;
   }
 
   /* Optional CTA button */
   .cta-button {
     display: none;
-    background: #FF680B;
+    background: #080808;
     color: #FFFFFF;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
@@ -127,12 +96,25 @@
     padding: 18px 48px;
     border-radius: 50px;
     letter-spacing: 0.4px;
-    box-shadow: 0 4px 20px rgba(255,104,11,0.50);
-    margin-top: 36px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.30);
   }
 
   .cta-button.visible {
     display: inline-block;
+  }
+
+  /* Bottom brand tag */
+  .brand-tag {
+    position: absolute;
+    bottom: 48px;
+    left: 0; right: 0;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: #080808;
+    z-index: 20;
   }
 
 </style>
@@ -140,20 +122,20 @@
 <body>
   <div class="canvas">
 
-    <!-- Visual — bottom right corner -->
-    <div class="visual"></div>
-
     <!-- Logo -->
     <div class="logo-wrap">
       <img src="{{ logo }}" alt="Sharp Group">
     </div>
 
-    <!-- Text + accent bar -->
-    <div class="text-block">
+    <!-- Content block -->
+    <div class="bottom-block">
       <div class="post-text">{{ post_text }}</div>
       <div class="accent-bar"></div>
       <div class="cta-button">{{ cta_text }}</div>
     </div>
+
+    <!-- Brand tag -->
+    <div class="brand-tag">SHARP GROUP</div>
 
   </div>
 
@@ -171,8 +153,12 @@
         el.style.fontSize = mid + 'px';
         var lh    = mid * LINE_H;
         var lines = Math.round(el.scrollHeight / lh);
-        if (lines <= MAX) { best = mid; lo = mid + 1; }
-        else              { hi   = mid - 1; }
+        if (lines <= MAX) {
+          best = mid;
+          lo   = mid + 1;
+        } else {
+          hi   = mid - 1;
+        }
       }
       el.style.fontSize = best + 'px';
     })();

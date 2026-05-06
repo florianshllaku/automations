@@ -22,9 +22,8 @@ FONTS_DIR    = ASSETS / "fonts"
 TEMPLATES_DIR = Path(__file__).parent / "templates"
 
 TEMPLATE_MAP = {
-    "default":      TEMPLATES_DIR / "sharp_group.html",
-    "corner_left":  TEMPLATES_DIR / "sharp_group_corner_left.html",
-    "corner_right": TEMPLATES_DIR / "sharp_group_corner_right.html",
+    "default": TEMPLATES_DIR / "sharp_group.html",
+    "orange":  TEMPLATES_DIR / "sharp_group_orange.html",
 }
 
 
