@@ -856,6 +856,52 @@
         "likes": 0,
         "comments": 0
       }
+    },
+    {
+      "id": 41,
+      "date": "2026-05-06",
+      "post_type": "educational",
+      "headline": "Mos prit, fillo tani.",
+      "body_text": "",
+      "caption": "",
+      "visual_description": "A premium 3D abstract editorial render for a digital marketing agency, vertical 4:5 aspect ratio. In the bottom-center 50% of the frame, a sleek, minimalist matte black chess knight is positioned as i",
+      "image_path": "C:\\Users\\brryli\\Desktop\\automations\\content_automation\\output\\sharp_group\\post_017_final.jpg",
+      "image_variants": [
+        "C:\\Users\\brryli\\Desktop\\automations\\content_automation\\output\\sharp_group\\post_017_final.jpg",
+        "C:\\Users\\brryli\\Desktop\\automations\\content_automation\\output\\sharp_group\\post_017_gpt_ref.jpg"
+      ],
+      "colors_used": [
+        "#FF8643",
+        "#080808",
+        "#FFFFFF"
+      ],
+      "engagement": {
+        "likes": 0,
+        "comments": 0
+      }
+    },
+    {
+      "id": 42,
+      "date": "2026-05-06",
+      "post_type": "educational",
+      "headline": "Mos prit, fillo tani.",
+      "body_text": "",
+      "caption": "",
+      "visual_description": "Full-body editorial studio photography of a professional man in a sharp black turtleneck and dark trousers, positioned strictly in the bottom 45% of the frame. He is standing in profile, looking forwa",
+      "image_path": "C:\\Users\\brryli\\Desktop\\automations\\content_automation\\output\\sharp_group\\post_018_final.jpg",
+      "image_variants": [
+        "C:\\Users\\brryli\\Desktop\\automations\\content_automation\\output\\sharp_group\\post_018_final.jpg",
+        "C:\\Users\\brryli\\Desktop\\automations\\content_automation\\output\\sharp_group\\post_018_gpt_ref.jpg"
+      ],
+      "colors_used": [
+        "#FF8643",
+        "#080808",
+        "#FFFFFF"
+      ],
+      "engagement": {
+        "likes": 0,
+        "comments": 0
+      }
     }
   ]
 }
