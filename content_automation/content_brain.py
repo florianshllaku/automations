@@ -124,10 +124,18 @@ COMPOSITION_RULES = {
         "- Background must be off-white (#F9F9F9) or very light — never dark\n"
         "- Leave a calm, uncluttered area at the top center for logo and text overlay"
     ),
+    "white": (
+        "- Background must be a clean off-white / very light cream (#F9F9F9) — never dark, never colored\n"
+        "- Leave a calm, uncluttered area at the top center for logo and text overlay"
+    ),
     "orange": (
-        "- Background must be off-white (#F9F9F9) or very light — never dark\n"
-        "- Leave a calm, uncluttered area at the top center for logo and text overlay\n"
-        "- The final post will have a solid orange (#FF680B) background overlaid — keep the composition clean and minimal"
+        "- Background MUST be a solid, saturated Sharp Group orange (#FF680B) filling the entire frame — NOT white, NOT off-white, NOT cream\n"
+        "- The orange background is non-negotiable: think of the whole scene rendered inside an orange room / on an orange seamless studio backdrop\n"
+        "- Hero objects, props and figures must visually POP against the orange — use matte black, deep charcoal, off-white / cream, and soft warm shadows for contrast\n"
+        "- Do NOT add another large orange object on top of the orange background; orange-on-orange kills contrast. Accents must be black or off-white\n"
+        "- Lighting: warm directional studio light, soft dramatic shadows on the orange surface to give depth\n"
+        "- Optional subtle texture (very faint grid, paper grain) is fine but the dominant tone of the image must read clearly as orange\n"
+        "- Leave a calm, uncluttered area at the top center for logo and text overlay (text will be white on orange)"
     ),
 }
 
@@ -168,12 +176,13 @@ The 3 reference images attached show the agency's existing posts. Study them to 
 Your task: decide what the BEST possible visual concept is for this specific theme and text within the required style above, then write one detailed Fal.ai prompt for it. Think like a creative director, not a template.
 
 Non-negotiable rules:
-- Absolutely NO text, NO logos, NO letters anywhere in the image
+- Absolutely NO text, NO letters, NO words, NO captions, NO Sharp Group logo anywhere in the image
 - Orange (#FF680B) as the dominant accent color on key objects
 - Black for depth, contrast, and grounding
 - 3D objects must be matte or semi-gloss — clean lighting, soft shadows
 - Vertical composition (4:5 ratio, 1080x1350px)
 - Feel: modern, premium, minimal, professional digital marketing agency
+- PHONE / LAPTOP / TABLET RULE: if the scene contains a phone, tablet, or laptop (held by a person or standalone), the screen MUST clearly show recognizable social media app icons or UI — Instagram (pink-orange gradient camera), TikTok (black with cyan/pink music note), Facebook (blue "f"), YouTube (red play), LinkedIn (blue "in"), WhatsApp (green phone). A phone home screen with a grid of these app icons, or an open Instagram/TikTok/Facebook feed, are both ideal. The screen must NEVER be blank, dark, generic, or show unrelated content. The app icons themselves are allowed (they live inside the device UI, not as post text).
 {COMPOSITION_RULES[layout]}
 
 Respond with ONLY valid JSON, nothing else:

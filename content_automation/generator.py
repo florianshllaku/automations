@@ -58,7 +58,7 @@ def save_to_history(handle: str, brief: dict, image_prompt: str, output_paths: l
     print(f"  Saved to history as post #{next_id}")
 
 
-def run(handle: str, custom_text: str = None, template: str = "default"):
+def run(handle: str, custom_text: str = None, template: str = "default", cta_text: str = None):
     output_dir = OUTPUT_DIR / handle
     output_dir.mkdir(parents=True, exist_ok=True)
     bg_dir = output_dir / "_bg_temp"
@@ -115,7 +115,7 @@ def run(handle: str, custom_text: str = None, template: str = "default"):
     shutil.rmtree(bg_dir, ignore_errors=True)
 
     final_out = output_dir / f"post_{next_num:03d}_final.jpg"
-    render_post(bg_out, brief["post_text"], final_out, template=template)
+    render_post(bg_out, brief["post_text"], final_out, template=template, cta_text=cta_text)
 
     output_paths = [final_out, bg_out]
 
@@ -135,5 +135,7 @@ if __name__ == "__main__":
     parser.add_argument("handle", nargs="?", default="sharp_group")
     parser.add_argument("--text", type=str, default=None, help="Custom on-image text (skips ChatGPT)")
     parser.add_argument("--template", type=str, default="default", choices=["default", "orange"], help="Template layout to use")
+    parser.add_argument("--cta", type=str, nargs="?", const="NA KONTAKTONI", default=None,
+                        help="Show a CTA button (left side, replaces accent line). Pass --cta for default 'NA KONTAKTONI', or --cta 'CUSTOM TEXT'.")
     args = parser.parse_args()
-    run(args.handle, custom_text=args.text, template=args.template)
+    run(args.handle, custom_text=args.text, template=args.template, cta_text=args.cta)

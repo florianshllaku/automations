@@ -30,6 +30,24 @@
     background: #FF680B;
   }
 
+  /* ── Background image (fal.ai orange-bg render) ── */
+  .bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('{{ bg_image }}');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+  }
+
+  /* ── Subtle dark overlay so white headline stays legible ── */
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.18);
+    z-index: 5;
+  }
+
   /* ── Logo — top center, forced white ── */
   .logo-wrap {
     position: absolute;
@@ -47,10 +65,10 @@
     filter: brightness(0) invert(1);
   }
 
-  /* ── Content block — sits below logo ── */
+  /* ── Content block — sits right below logo ── */
   .bottom-block {
     position: absolute;
-    top: 220px;
+    top: 150px;
     left: 0; right: 0;
     padding: 0 76px;
     z-index: 20;
@@ -101,26 +119,21 @@
 
   .cta-button.visible {
     display: inline-block;
+    margin-top: 26px;
   }
 
-  /* Bottom brand tag */
-  .brand-tag {
-    position: absolute;
-    bottom: 48px;
-    left: 0; right: 0;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 28px;
-    letter-spacing: 2px;
-    color: #080808;
-    z-index: 20;
+  /* When CTA is visible, hide the accent line — the button replaces it */
+  .bottom-block:has(.cta-button.visible) .accent-bar {
+    display: none;
   }
 
 </style>
 </head>
 <body>
   <div class="canvas">
+
+    <div class="bg"></div>
+    <div class="overlay"></div>
 
     <!-- Logo -->
     <div class="logo-wrap">
@@ -133,9 +146,6 @@
       <div class="accent-bar"></div>
       <div class="cta-button">{{ cta_text }}</div>
     </div>
-
-    <!-- Brand tag -->
-    <div class="brand-tag">SHARP GROUP</div>
 
   </div>
 

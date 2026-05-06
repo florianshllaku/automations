@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(pip install:*)",
-      "Bash(py generator.py sharp_group)"
+      "Bash(py generator.py sharp_group)",
+      "Bash(py generator.py sharp_group --template orange)"
     ]
   }
 }

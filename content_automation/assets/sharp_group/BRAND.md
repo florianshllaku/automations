@@ -15,6 +15,18 @@ The Sharp Group logo plays a central role in establishing brand consistency and 
 
 ---
 
+## 3.5 Background Color Modes (literal interpretation)
+
+When a post is requested in a specific background color, the generated image MUST literally be in that color. The color is not a hint or a "vibe" — it is the actual dominant tone of the rendered scene.
+
+- **"orange" mode** → background is solid Sharp Group orange (#FF680B). Hero objects use matte black, off-white, or cream to pop against the orange. Never white, never off-white. Text overlay will be white.
+- **"white" mode** (default) → background is clean off-white (#F9F9F9). Hero objects use orange + black for accent. Text overlay will be black.
+- **"black" mode** → background is deep matte black (#080808). Hero objects use orange + white for contrast. Text overlay will be white.
+
+If the requested mode and the generated image disagree on background color, the generation is wrong — the mode wins.
+
+---
+
 ## 4. Color System
 The color system of Sharp Group is designed with a strict focus on contrast, clarity, and direction. The primary background color is an off-white tone, which provides a clean and modern foundation for all visuals. Black (#000000) is used as the main text color and for depth within 3D elements, ensuring readability and authority. Orange (#FF680B) functions as the primary accent color, used deliberately to highlight key words, emphasize important elements, and guide the viewer’s attention.
 
@@ -115,6 +127,13 @@ Symbolic objects, geometric compositions, architectural elements, 3D renders. Us
 
 **Style B — Real People / Editorial Photography:**
 A photorealistic person (studio quality, seamless off-white background) in a business or everyday digital context — scrolling a phone, working on a laptop, in a meeting, thinking. The entire figure must be fully visible. The person occupies only the bottom 40–50% of the image, leaving the top clean for text. Smart casual or professional clothing in neutral/dark tones. Orange accent details in the environment (phone glow, chair, geometric shapes around the figure).
+
+**Phone & laptop screen rule (mandatory):**
+Whenever a phone, tablet, or laptop is visible in the composition — whether held by a person or as a standalone object — the screen MUST clearly display recognizable social media app icons or interfaces (Instagram, Facebook, TikTok, YouTube, LinkedIn, WhatsApp, X/Twitter). Acceptable executions:
+- A phone home screen showing a grid of those app icons (Instagram pink-orange gradient, TikTok black with cyan/pink, Facebook blue "f", YouTube red play, etc.)
+- An open Instagram / TikTok / Facebook feed UI on the screen
+- Notification badges on social icons
+The screen must never be blank, dark, generic, or showing irrelevant content. This grounds the agency's social-media positioning visually. Icons should look like the real apps but stylized cleanly — no logos used as text on the post itself, only inside the device screen.
 
 **Rotation rule:** Roughly every other post should alternate between Style A and Style B. If the last post used 3D graphics, the next should use a real person, and vice versa. Never use the same style more than 2 posts in a row.
 

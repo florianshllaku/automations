@@ -64,10 +64,10 @@
     filter: none;
   }
 
-  /* ── Top content block — sits below logo ── */
+  /* ── Top content block — sits right below logo ── */
   .bottom-block {
     position: absolute;
-    top: 220px;
+    top: 150px;
     left: 0; right: 0;
     padding: 0 76px;
     z-index: 20;
@@ -118,6 +118,12 @@
 
   .cta-button.visible {
     display: inline-block;
+    margin-top: 26px;
+  }
+
+  /* When CTA is visible, hide the accent line — the button replaces it */
+  .bottom-block:has(.cta-button.visible) .accent-bar {
+    display: none;
   }
 
 </style>
