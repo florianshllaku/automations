@@ -124,21 +124,10 @@ COMPOSITION_RULES = {
         "- Background must be off-white (#F9F9F9) or very light — never dark\n"
         "- Leave a calm, uncluttered area at the top center for logo and text overlay"
     ),
-    "corner_left": (
-        "- Background of the full image can be dark or rich — this will be placed on a black canvas\n"
-        "- COMPOSITION: The subject/visual must be concentrated in the BOTTOM-LEFT corner of the frame, "
-        "occupying roughly the left 50% and bottom 50% of the canvas. "
-        "The top-right area must be minimal and calm. "
-        "Subject should face or point inward (right/up) toward the text area. "
-        "No important visual elements in the top-left or right half — those areas will be overlaid with text."
-    ),
-    "corner_right": (
-        "- Background of the full image can be dark or rich — this will be placed on a black canvas\n"
-        "- COMPOSITION: The subject/visual must be concentrated in the BOTTOM-RIGHT corner of the frame, "
-        "occupying roughly the right 50% and bottom 50% of the canvas. "
-        "The top-left area must be minimal and calm. "
-        "Subject should face or point inward (left/up) toward the text area. "
-        "No important visual elements in the top-right or left half — those areas will be overlaid with text."
+    "orange": (
+        "- Background must be off-white (#F9F9F9) or very light — never dark\n"
+        "- Leave a calm, uncluttered area at the top center for logo and text overlay\n"
+        "- The final post will have a solid orange (#FF680B) background overlaid — keep the composition clean and minimal"
     ),
 }
 
