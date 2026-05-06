@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  @font-face {
+    font-family: 'Poppins';
+    font-weight: 700;
+    src: url('{{ font_bold }}') format('truetype');
+  }
+  @font-face {
+    font-family: 'Poppins';
+    font-weight: 600;
+    src: url('{{ font_semibold }}') format('truetype');
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body, html {
+    width: 1080px;
+    height: 1350px;
+    overflow: hidden;
+    background: #080808;
+  }
+
+  .canvas {
+    position: relative;
+    width: 1080px;
+    height: 1350px;
+    background: #080808;
+  }
+
+  /* ── Visual image — bottom LEFT corner, true 50% quadrant ── */
+  .visual {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    background-image: url('{{ bg_image }}');
+    background-size: cover;
+    background-position: center bottom;
+    z-index: 1;
+  }
+
+  /* Soft fade on the right edge — blends into dark bg */
+  .visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(270deg, #080808 0%, transparent 40%);
+    z-index: 2;
+  }
+
+  /* Soft fade on the top edge */
+  .visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, #080808 0%, transparent 35%);
+    z-index: 2;
+  }
+
+  /* ── Logo — top center ── */
+  .logo-wrap {
+    position: absolute;
+    top: 50px;
+    left: 0; right: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 20;
+  }
+
+  .logo-wrap img {
+    width: 220px;
+    height: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+  }
+
+  /* ── Text block — top area, full width ── */
+  .text-block {
+    position: absolute;
+    top: 220px;
+    left: 0; right: 0;
+    padding: 0 76px;
+    z-index: 20;
+    text-align: left;
+  }
+
+  /* Main post text */
+  .post-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 120px;
+    line-height: 1.05;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: -1.5px;
+    margin-bottom: 0;
+    word-break: break-word;
+    white-space: pre-line;
+  }
+
+  /* Orange keyword highlight */
+  .post-text .hl {
+    color: #FF680B;
+  }
+
+  /* Orange accent bar — below text */
+  .accent-bar {
+    width: 60px;
+    height: 6px;
+    background: #FF680B;
+    border-radius: 3px;
+    margin-top: 26px;
+  }
+
+  /* Optional CTA button */
+  .cta-button {
+    display: none;
+    background: #FF680B;
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    padding: 18px 48px;
+    border-radius: 50px;
+    letter-spacing: 0.4px;
+    box-shadow: 0 4px 20px rgba(255,104,11,0.50);
+    margin-top: 36px;
+  }
+
+  .cta-button.visible {
+    display: inline-block;
+  }
+
+</style>
+</head>
+<body>
+  <div class="canvas">
+
+    <!-- Visual — bottom left corner -->
+    <div class="visual"></div>
+
+    <!-- Logo -->
+    <div class="logo-wrap">
+      <img src="{{ logo }}" alt="Sharp Group">
+    </div>
+
+    <!-- Text + accent bar -->
+    <div class="text-block">
+      <div class="post-text">{{ post_text }}</div>
+      <div class="accent-bar"></div>
+      <div class="cta-button">{{ cta_text }}</div>
+    </div>
+
+  </div>
+
+  <script>
+    (function () {
+      var el      = document.querySelector('.post-text');
+      var MAX     = 4;
+      var LINE_H  = 1.05;
+      var MIN_PX  = 32;
+      var MAX_PX  = 160;
+
+      var lo = MIN_PX, hi = MAX_PX, best = MIN_PX;
+      while (lo <= hi) {
+        var mid = Math.floor((lo + hi) / 2);
+        el.style.fontSize = mid + 'px';
+        var lh    = mid * LINE_H;
+        var lines = Math.round(el.scrollHeight / lh);
+        if (lines <= MAX) { best = mid; lo = mid + 1; }
+        else              { hi   = mid - 1; }
+      }
+      el.style.fontSize = best + 'px';
+    })();
+  </script>
+</body>
+</html>

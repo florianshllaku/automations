@@ -7,7 +7,7 @@ load_dotenv()
 
 BUFFER_API_KEY = os.getenv("BUFFER_API_KEY")
 TIKTOK_CHANNEL_ID = "69eb46c4031bfa423c3a9d93"
-GRAPHQL_ENDPOINT = "https://api.bufferapp.com/graphql"
+GRAPHQL_ENDPOINT = "https://api.buffer.com/graphql"
 
 MUTATION = """
 mutation CreatePost($input: PostCreateInput!) {

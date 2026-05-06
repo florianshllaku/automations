@@ -37,9 +37,7 @@ The typography itself communicates confidence and structure. It should feel deci
 
 ## 6. Background Style
 The background should not feel completely flat or empty, even when using an off-white base. Very subtle design textures and patterns should be introduced to create depth and visual interest while maintaining minimalism.
-
 These background details can include extremely light grid lines inspired by mathematical notebook paper, soft square patterns, faint technical layouts, subtle paper grain, or lightly wrinkled paper textures. The effect should remain understated and almost invisible at first glance, serving only to break the emptiness of the background and give the composition a more premium and designed feel.
-
 These elements must always stay low contrast and highly minimal, never competing with the headline or central visual. Their purpose is to add texture, structure, and sophistication while preserving the clean visual identity of Sharp Group.
 
 ---
@@ -95,9 +93,9 @@ All visual posts must be designed in a **4:5 aspect ratio (vertical format)**. T
 ---
 
 ## 13. Image & 3D Placement System
-The main visual element, whether a 3D graphic or contextual image, must be positioned in the **lower right, lower left, or bottom center** of the composition. This keeps the upper area clean for text and ensures readability.
+The main visual element, whether a 3D graphic or contextual image, must be positioned in the bottom center of the composition. This keeps the upper area clean for text and ensures readability.
 
-The visual should cover approximately **40% of the total post area**, making it large enough to create impact while still supporting the headline rather than competing with it.
+The visual should cover approximately **50% of the total post area**, making it large enough to create impact while still supporting the headline rather than competing with it.
 
 The visual must feel integrated into the layout and aligned with the message direction, not randomly placed.
 
@@ -105,3 +103,79 @@ The visual must feel integrated into the layout and aligned with the message dir
 
 ## 14. Final Rule
 Every post must clearly communicate how it contributes to improving business performance or return on investment. If a post does not solve a problem or clarify a result, it is considered noise.
+
+---
+
+## 16. Visual Style Mix — People vs. Graphics
+
+Sharp Group does NOT use only abstract 3D graphics. The visual system alternates intentionally between two equally valid styles:
+
+**Style A — 3D Abstract / Geometric:**
+Symbolic objects, geometric compositions, architectural elements, 3D renders. Used to communicate concepts, systems, strategy, and structure.
+
+**Style B — Real People / Editorial Photography:**
+A photorealistic person (studio quality, seamless off-white background) in a business or everyday digital context — scrolling a phone, working on a laptop, in a meeting, thinking. The entire figure must be fully visible. The person occupies only the bottom 40–50% of the image, leaving the top clean for text. Smart casual or professional clothing in neutral/dark tones. Orange accent details in the environment (phone glow, chair, geometric shapes around the figure).
+
+**Rotation rule:** Roughly every other post should alternate between Style A and Style B. If the last post used 3D graphics, the next should use a real person, and vice versa. Never use the same style more than 2 posts in a row.
+
+**Why:** Real people create emotional connection and relatability. 3D graphics create premium authority and concept clarity. Both are needed for a feed that feels alive and strategically varied.
+
+## 15. Copywriting Direction
+
+The copywriting of Sharp Group should not sound like traditional marketing language. The goal is not to create generic captions, motivational quotes, or corporate-style messaging. Every line should feel intentional, psychologically observant, emotionally sharp, and strategically intelligent.
+
+The communication style should feel like someone is finally explaining what is ACTUALLY happening in modern business, customer behavior, visibility, trust, and attention.
+
+Sharp Group does not communicate like:
+“rrit biznesin”
+“maksimizo rezultatet”
+“marketing i suksesshem”
+“rrit engagement”
+“coje biznesin ne nivelin tjeter”
+
+Instead, the brand communicates through realizations, observations, emotional truths, and modern business psychology.
+
+The strongest copy usually explains invisible problems:
+
+* pse bizneset behen te harrueshme
+* pse njerezit humbin besim tek faqet joaktive
+* pse familiariteti krijon shitje
+* pse konsistenca ndikon ne perceptim
+* pse shpejtesia duket profesionale
+* pse vemendja online po behet gjithmone e me e veshtire
+
+The writing should feel modern, minimal, and emotionally intelligent.
+Short sentences are preferred.
+Strong rhythm is important.
+The copy should create:
+
+* tension
+* curiosity
+* perspective shifts
+* “kjo eshte shume e vertete” moments
+
+The tone should feel more like a strategist observing modern business behavior than a marketer trying to sell a service.
+
+Examples of the desired direction:
+
+“Postimet pa strategji jane si te bertasesh ne nje dhome plot zhurme.
+Je aktiv…
+por askush nuk po te degjon.”
+
+“Shumica e bizneseve nuk kane mungese klientesh.
+Kane mungese qartesie se KU po humbin vemendjen.”
+
+“Njerezit nuk blejne gjithmone produktin me te mire.
+Shpesh blejne brendin qe ju duket me familjar.”
+
+“Bizneset rrall here zhduken brenda nates.
+Thjesht dalin ngadale nga vemendja e njerezve.”
+
+“One week without posting?
+Askush nuk e veren.
+Tre muaj?
+Njerezit fillojne te pyesin veten nese biznesi ende ekziston.”
+
+The goal of the copy is not simply to inform.
+The goal is to create recognition, awareness, emotional realism, and strategic clarity.
+

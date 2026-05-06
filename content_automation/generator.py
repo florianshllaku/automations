@@ -1,11 +1,9 @@
 """
-Full pipeline: ChatGPT brief -> Gemini image prompt -> 2x Fal.ai backgrounds (GPT-Image-2 only)
+Full pipeline: ChatGPT brief -> Gemini image prompt -> Fal.ai background -> HTML render
 
-Outputs 2 variants per run:
-  post_NNN_gpt_noref.jpg   — gpt-image-2, no reference images
-  post_NNN_gpt_ref.jpg     — gpt-image-2/edit, with reference images
-
-Temp bg files are deleted after overlay is applied.
+Outputs per run:
+  post_NNN_gpt_ref.jpg    — raw background (fal.ai / gpt-image-2/edit)
+  post_NNN_final.jpg      — final post with logo, text, CTA overlay (Playwright)
 
 Usage:
   py generator.py sharp_group
@@ -25,10 +23,8 @@ from content_brain import (
     generate_image_prompts,
     pick_reference_images,
 )
-from fal_image_gen import (
-    generate_gpt_no_ref,
-    generate_gpt_with_ref,
-)
+from fal_image_gen import generate_gpt_with_ref
+from html_renderer import render_post
 
 
 def save_to_history(handle: str, brief: dict, image_prompt: str, output_paths: list[Path]):
@@ -62,13 +58,13 @@ def save_to_history(handle: str, brief: dict, image_prompt: str, output_paths: l
     print(f"  Saved to history as post #{next_id}")
 
 
-def run(handle: str, custom_text: str = None):
+def run(handle: str, custom_text: str = None, template: str = "default"):
     output_dir = OUTPUT_DIR / handle
     output_dir.mkdir(parents=True, exist_ok=True)
     bg_dir = output_dir / "_bg_temp"
 
     # Determine next post number
-    existing = sorted(output_dir.glob("post_*_gpt_noref.jpg"))
+    existing = sorted(output_dir.glob("post_*_gpt_ref.jpg"))
     next_num = len(existing) + 1
 
     print(f"\n{'='*55}")
@@ -100,7 +96,7 @@ def run(handle: str, custom_text: str = None):
 
     # -- Step 3: Generate image prompt via Gemini Vision -----------------------
     print("\n[3/5] Generating image prompt via Gemini Vision...")
-    image_prompts = generate_image_prompts(brief["theme"], brief["post_text"], ref_images, handle)
+    image_prompts = generate_image_prompts(brief["theme"], brief["post_text"], ref_images, handle, layout=template)
     chosen_prompt = image_prompts[0]
     print(f"  Prompt: {chosen_prompt[:120]}...")
 
@@ -109,28 +105,27 @@ def run(handle: str, custom_text: str = None):
 
     bg_gpt_ref = generate_gpt_with_ref(chosen_prompt, ref_images, bg_dir)
 
-    # -- Step 5: Move generated image to output dir ---------------------------
-    print("\n[5/5] Saving background image...")
-    variants = [
-        ("gpt_ref", bg_gpt_ref),
-    ]
+    # -- Step 5: Save background + render final post ---------------------------
+    print("\n[5/5] Saving background and rendering final post...")
 
-    output_paths = []
-    for label, bg_path in variants:
-        out = output_dir / f"post_{next_num:03d}_{label}.jpg"
-        shutil.move(str(bg_path), str(out))
-        output_paths.append(out)
-        print(f"  -> {out.name}")
+    bg_out = output_dir / f"post_{next_num:03d}_gpt_ref.jpg"
+    shutil.move(str(bg_gpt_ref), str(bg_out))
+    print(f"  Background -> {bg_out.name}")
 
     shutil.rmtree(bg_dir, ignore_errors=True)
+
+    final_out = output_dir / f"post_{next_num:03d}_final.jpg"
+    render_post(bg_out, brief["post_text"], final_out, template=template)
+
+    output_paths = [final_out, bg_out]
 
     # -- Save to history -------------------------------------------------------
     save_to_history(handle, brief, chosen_prompt, output_paths)
 
-    print(f"\nDone. 1 post generated:")
-    for p in output_paths:
-        print(f"  {p}")
-    safe_caption = brief['caption'].encode('utf-8', errors='replace').decode('utf-8')
+    print(f"\nDone. Post generated:")
+    print(f"  Final:      {final_out}")
+    print(f"  Background: {bg_out}")
+    safe_caption = brief['caption'].encode(sys.stdout.encoding or 'utf-8', errors='replace').decode(sys.stdout.encoding or 'utf-8')
     print(f"\n  Caption ready to copy:\n\n{safe_caption}\n")
     return output_paths
 
@@ -139,5 +134,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("handle", nargs="?", default="sharp_group")
     parser.add_argument("--text", type=str, default=None, help="Custom on-image text (skips ChatGPT)")
+    parser.add_argument("--template", type=str, default="default", choices=["default", "corner_left", "corner_right"], help="Template layout to use")
     args = parser.parse_args()
-    run(args.handle, custom_text=args.text)
+    run(args.handle, custom_text=args.text, template=args.template)

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  @font-face {
+    font-family: 'Poppins';
+    font-weight: 700;
+    src: url('{{ font_bold }}') format('truetype');
+  }
+  @font-face {
+    font-family: 'Poppins';
+    font-weight: 600;
+    src: url('{{ font_semibold }}') format('truetype');
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body, html {
+    width: 1080px;
+    height: 1350px;
+    overflow: hidden;
+    background: #000;
+  }
+
+  .canvas {
+    position: relative;
+    width: 1080px;
+    height: 1350px;
+  }
+
+  /* ── Background ── */
+  .bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('{{ bg_image }}');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+  }
+
+  /* ── Full overlay 30% ── */
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.05);
+    z-index: 5;
+  }
+
+  /* ── Logo — top center ── */
+  .logo-wrap {
+    position: absolute;
+    top: 50px;
+    left: 0; right: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 20;
+  }
+
+  .logo-wrap img {
+    width: 220px;
+    height: auto;
+    object-fit: contain;
+    filter: none;
+  }
+
+  /* ── Top content block — sits below logo ── */
+  .bottom-block {
+    position: absolute;
+    top: 220px;
+    left: 0; right: 0;
+    padding: 0 76px;
+    z-index: 20;
+    text-align: left;
+  }
+
+  /* Orange accent bar — sits below the text */
+  .accent-bar {
+    width: 60px;
+    height: 6px;
+    background: #FF680B;
+    border-radius: 3px;
+    margin-top: 26px;
+  }
+
+  /* Main post text — font-size set by JS */
+  .post-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 120px;
+    line-height: 1.05;
+    color: #080808;
+    text-transform: uppercase;
+    letter-spacing: -1.5px;
+    margin-bottom: 0;
+    word-break: break-word;
+    white-space: pre-line;
+  }
+
+  /* Orange keyword highlight */
+  .post-text .hl {
+    color: #FF680B;
+  }
+
+  /* Optional CTA button — hidden by default */
+  .cta-button {
+    display: none;
+    background: #FF680B;
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    padding: 18px 48px;
+    border-radius: 50px;
+    letter-spacing: 0.4px;
+    box-shadow: 0 4px 20px rgba(255,104,11,0.50);
+  }
+
+  .cta-button.visible {
+    display: inline-block;
+  }
+
+</style>
+</head>
+<body>
+  <div class="canvas">
+
+    <div class="bg"></div>
+    <div class="overlay"></div>
+
+    <!-- Logo -->
+    <div class="logo-wrap">
+      <img src="{{ logo }}" alt="Sharp Group">
+    </div>
+
+    <!-- Bottom: accent bar + main text + optional CTA -->
+    <div class="bottom-block">
+      <div class="post-text">{{ post_text }}</div>
+      <div class="accent-bar"></div>
+      <div class="cta-button">{{ cta_text }}</div>
+    </div>
+
+  </div>
+
+  <script>
+    (function () {
+      var el      = document.querySelector('.post-text');
+      var MAX     = 4;      // maximum lines allowed
+      var LINE_H  = 1.05;   // must match CSS line-height
+      var MIN_PX  = 32;
+      var MAX_PX  = 160;
+
+      // Binary search: find largest font-size where rendered lines <= MAX
+      var lo = MIN_PX, hi = MAX_PX, best = MIN_PX;
+      while (lo <= hi) {
+        var mid = Math.floor((lo + hi) / 2);
+        el.style.fontSize = mid + 'px';
+        var lh    = mid * LINE_H;
+        var lines = Math.round(el.scrollHeight / lh);
+        if (lines <= MAX) {
+          best = mid;
+          lo   = mid + 1;   // try bigger
+        } else {
+          hi   = mid - 1;   // too many lines, go smaller
+        }
+      }
+      el.style.fontSize = best + 'px';
+    })();
+  </script>
+</body>
+</html>
