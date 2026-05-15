@@ -1,0 +1,578 @@
+{% extends "base.html" %}
+{% block title %}Krijo Post — Sharp Group Studio{% endblock %}
+
+{% block head %}
+<style>
+  body { display: flex; min-height: 100vh; overflow: hidden; }
+
+  .sidebar {
+    width: 240px; min-height: 100vh; flex-shrink: 0;
+    background: var(--dark); border-right: 1px solid var(--border);
+    display: flex; flex-direction: column; padding: 28px 0;
+  }
+  .sidebar-logo { padding: 0 24px 32px; border-bottom: 1px solid var(--border); }
+  .sidebar-logo .brand { font-size: 16px; font-weight: 800; }
+  .sidebar-logo .brand span { color: var(--orange); }
+  .sidebar-logo .sub { font-size: 10px; color: var(--gray); letter-spacing: 2.5px; text-transform: uppercase; margin-top: 4px; }
+  .nav { flex: 1; padding: 24px 12px; display: flex; flex-direction: column; gap: 4px; }
+  .nav-item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 10px; font-size: 13px; font-weight: 500; color: var(--gray); transition: all 0.15s; }
+  .nav-item:hover { background: var(--dark2); color: var(--white); }
+  .nav-item.active { background: var(--orange-dim); color: var(--orange); }
+  .sidebar-footer { padding: 20px 16px; border-top: 1px solid var(--border); }
+  .logout-btn { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 10px; font-size: 13px; color: var(--gray); transition: all 0.15s; width: 100%; background: none; border: none; }
+  .logout-btn:hover { color: #ff5555; }
+
+  .main {
+    flex: 1; overflow-y: auto;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 48px 32px;
+  }
+
+  .page-header { text-align: center; margin-bottom: 44px; max-width: 560px; }
+  .page-header h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; }
+  .page-header h1 span { color: var(--orange); }
+  .page-header p { font-size: 14px; color: var(--gray); margin-top: 10px; line-height: 1.6; }
+
+  .chat-container {
+    width: 100%; max-width: 680px;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+
+  /* Bot bubble */
+  .msg-bot { display: flex; align-items: flex-start; gap: 12px; }
+  .msg-bot .avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--orange), #ff9044);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 14px; font-weight: 800;
+  }
+  .msg-bot .bubble {
+    background: var(--dark2); border: 1px solid var(--border);
+    border-radius: 0 16px 16px 16px;
+    padding: 14px 18px; font-size: 14px; line-height: 1.6; max-width: 520px;
+  }
+
+  /* User bubble */
+  .msg-user { display: flex; justify-content: flex-end; }
+  .msg-user .bubble {
+    background: var(--orange); color: white;
+    border-radius: 16px 0 16px 16px;
+    padding: 12px 18px; font-size: 14px; max-width: 420px; line-height: 1.5;
+  }
+
+  /* Choice cards (2 columns) */
+  .choice-cards-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  /* Choice cards (3 columns) */
+  .choice-cards-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+
+  .choice-card {
+    background: var(--dark); border: 1.5px solid var(--border);
+    border-radius: 14px; padding: 16px 14px; cursor: pointer;
+    transition: all 0.2s; text-align: left;
+  }
+  .choice-card:hover { border-color: rgba(255,104,11,0.4); background: rgba(255,104,11,0.04); }
+  .choice-card.selected { border-color: var(--orange); background: var(--orange-dim); }
+  .choice-card .cc-icon { font-size: 22px; margin-bottom: 8px; display: block; }
+  .choice-card .cc-title { font-size: 13px; font-weight: 700; margin-bottom: 3px; }
+  .choice-card .cc-desc { font-size: 11px; color: var(--gray); line-height: 1.5; }
+  .choice-card.selected .cc-desc { color: rgba(255,255,255,0.6); }
+
+  /* Background preview swatch on the card */
+  .bg-swatch {
+    width: 32px; height: 32px; border-radius: 8px; margin-bottom: 10px;
+    border: 1.5px solid rgba(255,255,255,0.1);
+  }
+  .swatch-white  { background: #F9F9F9; }
+  .swatch-orange { background: #FF680B; }
+
+  /* CTA toggle */
+  .cta-toggle-row {
+    display: flex; gap: 10px;
+  }
+  .toggle-btn {
+    flex: 1; background: var(--dark); border: 1.5px solid var(--border);
+    border-radius: 50px; padding: 11px 20px; font-size: 13px; font-weight: 600;
+    color: var(--gray); cursor: pointer; transition: all 0.2s; text-align: center;
+  }
+  .toggle-btn:hover { border-color: rgba(255,104,11,0.4); color: var(--white); }
+  .toggle-btn.selected { border-color: var(--orange); background: var(--orange-dim); color: var(--orange); }
+
+  /* Text input area */
+  .input-area {
+    background: var(--dark); border: 1px solid var(--border);
+    border-radius: 16px; padding: 14px 18px;
+    display: flex; align-items: flex-end; gap: 12px;
+  }
+  .input-area textarea {
+    flex: 1; background: none; border: none; outline: none;
+    color: var(--white); font-size: 14px; resize: none;
+    max-height: 120px; line-height: 1.6; min-height: 22px;
+  }
+  .input-area textarea::placeholder { color: var(--gray); }
+  .send-btn {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: var(--orange); border: none; color: white;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; transition: all 0.2s; cursor: pointer;
+  }
+  .send-btn:hover { background: #e55900; transform: scale(1.08); }
+
+  /* Single line input (for CTA text) */
+  .inline-input-row {
+    background: var(--dark); border: 1px solid var(--border);
+    border-radius: 16px; padding: 14px 18px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .inline-input-row input {
+    flex: 1; background: none; border: none; outline: none;
+    color: var(--white); font-size: 14px; line-height: 1.6;
+  }
+  .inline-input-row input::placeholder { color: var(--gray); }
+
+  /* Summary card */
+  .summary-card {
+    background: var(--dark2); border: 1px solid var(--border);
+    border-left: 3px solid var(--orange);
+    border-radius: 14px; padding: 16px 20px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .summary-card .sum-row { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+  .summary-card .sum-lbl { color: var(--gray); font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; min-width: 80px; }
+  .summary-card .sum-val { font-weight: 600; }
+
+  /* Generate button */
+  .generate-btn {
+    width: 100%; background: var(--orange); color: #fff; border: none;
+    border-radius: 50px; padding: 16px; font-size: 15px; font-weight: 700;
+    cursor: pointer; transition: all 0.2s; margin-top: 4px;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+  }
+  .generate-btn:hover { background: #e55900; box-shadow: 0 4px 24px rgba(255,104,11,0.4); transform: translateY(-1px); }
+
+  /* Loading card */
+  .loading-card {
+    background: var(--dark2); border: 1px solid var(--border);
+    border-radius: 16px; padding: 32px 24px; text-align: center;
+  }
+  .spinner {
+    width: 44px; height: 44px; margin: 0 auto 16px;
+    border: 3px solid var(--dark3); border-top-color: var(--orange);
+    border-radius: 50%; animation: spin 0.9s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .loading-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .loading-card p { font-size: 13px; color: var(--gray); }
+  .progress-text { font-size: 12px; color: var(--orange); margin-top: 12px; font-weight: 500; }
+  .progress-steps { display: flex; justify-content: center; gap: 6px; margin-top: 20px; flex-wrap: wrap; }
+  .step-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--dark3); border-radius: 20px;
+    padding: 6px 12px; font-size: 11px; color: var(--gray);
+  }
+  .step-badge.active { background: var(--orange-dim); color: var(--orange); }
+  .step-badge.done   { background: rgba(0,200,80,0.1); color: #4caf50; }
+
+  .error-card {
+    background: rgba(255,60,60,0.08); border: 1px solid rgba(255,60,60,0.2);
+    border-radius: 14px; padding: 20px 24px; text-align: center;
+  }
+  .error-card h3 { font-size: 15px; font-weight: 600; color: #ff6b6b; margin-bottom: 8px; }
+  .error-card p { font-size: 13px; color: var(--gray); margin-bottom: 16px; }
+
+  .hidden { display: none !important; }
+
+  /* Fade in animation for new steps */
+  .fade-in { animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="sidebar">
+  <div class="sidebar-logo">
+    <div class="brand">SHARP <span>GROUP</span></div>
+    <div class="sub">Content Studio</div>
+  </div>
+  <nav class="nav">
+    <a href="/dashboard" class="nav-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      Dashboard
+    </a>
+    <a href="/create" class="nav-item active">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      Krijo Post
+    </a>
+  </nav>
+  <div class="sidebar-footer">
+    <a href="/logout" class="logout-btn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      Dilni
+    </a>
+  </div>
+</div>
+
+<main class="main">
+  <div class="page-header">
+    <h1>Krijo <span>Postimin</span> e Radhës</h1>
+    <p>Zgjidh si dëshiron të fillosh. AI gjeneron 3 variante vizuale me stilin tënd.</p>
+  </div>
+
+  <div class="chat-container" id="chatContainer">
+
+    <!-- STEP 1: Mode -->
+    <div class="msg-bot fade-in">
+      <div class="avatar">SG</div>
+      <div class="bubble">Si dëshiron të fillosh postimin e radhës?</div>
+    </div>
+
+    <div id="modeSection" class="fade-in">
+      <div class="choice-cards-3">
+        <div class="choice-card" onclick="selectMode('ai')" id="mode-ai">
+          <span class="cc-icon">✨</span>
+          <div class="cc-title">Lejo AI-n</div>
+          <div class="cc-desc">AI zgjedh temën dhe tekstin automatikisht.</div>
+        </div>
+        <div class="choice-card" onclick="selectMode('topic')" id="mode-topic">
+          <span class="cc-icon">💡</span>
+          <div class="cc-title">Jep Temën</div>
+          <div class="cc-desc">Shkruaj temën, AI ndërton tekstin.</div>
+        </div>
+        <div class="choice-card" onclick="selectMode('text')" id="mode-text">
+          <span class="cc-icon">✍️</span>
+          <div class="cc-title">Jep Tekstin</div>
+          <div class="cc-desc">Shkruaj direkt tekstin e postimit.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: Text input (shown for topic/text modes) -->
+    <div id="inputSection" class="hidden fade-in">
+      <div class="msg-bot">
+        <div class="avatar">SG</div>
+        <div class="bubble" id="inputPromptBubble">Shkruaj këtu...</div>
+      </div>
+      <div class="input-area">
+        <textarea
+          id="userInput"
+          placeholder="Shkruaj këtu..."
+          rows="1"
+          oninput="autoResize(this)"
+          onkeydown="handleTextEnter(event)"
+        ></textarea>
+        <button class="send-btn" onclick="confirmTextInput()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 3: Background color (shown after mode confirmed) -->
+    <div id="bgSection" class="hidden fade-in">
+      <div class="msg-bot">
+        <div class="avatar">SG</div>
+        <div class="bubble">Cili sfond preferon për postimin?</div>
+      </div>
+      <div class="choice-cards-2" style="max-width: 420px;">
+        <div class="choice-card" onclick="selectBg('white')" id="bg-white">
+          <div class="bg-swatch swatch-white"></div>
+          <div class="cc-title">Sfond i Bardhë</div>
+          <div class="cc-desc">Off-white klasik — stil i pastër dhe minimal.</div>
+        </div>
+        <div class="choice-card" onclick="selectBg('orange')" id="bg-orange">
+          <div class="bg-swatch swatch-orange"></div>
+          <div class="cc-title">Sfond Orange</div>
+          <div class="cc-desc">Bold dhe energjik — Sharp Group orange.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4: CTA option -->
+    <div id="ctaSection" class="hidden fade-in">
+      <div class="msg-bot">
+        <div class="avatar">SG</div>
+        <div class="bubble">Dëshiron të shtosh një buton CTA në post?</div>
+      </div>
+      <div class="cta-toggle-row" style="max-width:300px">
+        <button class="toggle-btn" onclick="selectCta(true)" id="cta-yes">Po, shto CTA</button>
+        <button class="toggle-btn" onclick="selectCta(false)" id="cta-no">Jo, pa CTA</button>
+      </div>
+    </div>
+
+    <!-- STEP 4b: CTA text input -->
+    <div id="ctaInputSection" class="hidden fade-in">
+      <div class="msg-bot">
+        <div class="avatar">SG</div>
+        <div class="bubble">Çfarë të shkruajë butoni CTA?</div>
+      </div>
+      <div class="inline-input-row">
+        <input
+          type="text"
+          id="ctaTextInput"
+          placeholder='p.sh. "Behu me i mprehte", "Kontakto Na"...'
+          onkeydown="handleCtaEnter(event)"
+          maxlength="40"
+        >
+        <button class="send-btn" onclick="confirmCtaText()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 5: Summary + Generate -->
+    <div id="summarySection" class="hidden fade-in">
+      <div class="msg-bot">
+        <div class="avatar">SG</div>
+        <div class="bubble">Gjithçka duket gati. Ja përmbledhja:</div>
+      </div>
+      <div class="summary-card" id="summaryCard"></div>
+      <button class="generate-btn" onclick="submitGenerate()">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Gjenero 3 Variante
+      </button>
+    </div>
+
+    <!-- User echo bubbles (injected by JS) -->
+    <div id="echoContainer"></div>
+
+    <!-- Loading -->
+    <div id="loadingSection" class="hidden fade-in">
+      <div class="msg-bot">
+        <div class="avatar">SG</div>
+        <div style="flex:1">
+          <div class="loading-card">
+            <div class="spinner"></div>
+            <h3>Duke gjeneruar 3 variante...</h3>
+            <p>AI po krijon prompte, gjeneron imazhe dhe renderOn postimet.</p>
+            <div class="progress-text" id="progressText">Duke filluar...</div>
+            <div class="progress-steps">
+              <span class="step-badge active" id="step1">Brief</span>
+              <span class="step-badge" id="step2">Prompte</span>
+              <span class="step-badge" id="step3">Imazhe</span>
+              <span class="step-badge" id="step4">Finalizim</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error -->
+    <div id="errorSection" class="hidden fade-in">
+      <div class="msg-bot">
+        <div class="avatar">SG</div>
+        <div style="flex:1">
+          <div class="error-card">
+            <h3>Ndodhi një gabim</h3>
+            <p id="errorText">Diçka shkoi keq. Provo përsëri.</p>
+            <button class="btn btn-ghost btn-sm" onclick="window.location.reload()">Provo Përsëri</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script>
+// State
+let selectedMode   = null;
+let userInputText  = '';
+let selectedBg     = null;
+let ctaEnabled     = null;
+let ctaText        = '';
+let currentJobId   = null;
+let pollInterval   = null;
+
+// ── Step 1: Mode ──────────────────────────────────────────────────────────────
+function selectMode(mode) {
+  selectedMode = mode;
+  document.querySelectorAll('#modeSection .choice-card').forEach(c => c.classList.remove('selected'));
+  document.getElementById('mode-' + mode).classList.add('selected');
+
+  if (mode === 'ai') {
+    // No text needed — go straight to BG step
+    appendEcho('✨ Lejo AI-n të zgjedhë');
+    showBgSection();
+  } else {
+    const prompts = {
+      topic: 'Cila temë? (p.sh. "konsistenca në marketing", "besimi online")',
+      text:  'Shkruaj tekstin e postimit (shqip, max 15 fjalë):'
+    };
+    const placeholders = {
+      topic: 'Shkruaj temën...',
+      text:  'Shkruaj tekstin e postimit...'
+    };
+    document.getElementById('inputPromptBubble').textContent = prompts[mode];
+    document.getElementById('userInput').placeholder = placeholders[mode];
+    show('inputSection');
+    setTimeout(() => document.getElementById('userInput').focus(), 150);
+  }
+  scrollToBottom();
+}
+
+// ── Step 2: Text confirm ──────────────────────────────────────────────────────
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 120) + 'px';
+}
+function handleTextEnter(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); confirmTextInput(); }
+}
+function confirmTextInput() {
+  const val = document.getElementById('userInput').value.trim();
+  if (!val) { document.getElementById('userInput').focus(); return; }
+  userInputText = val;
+  hide('inputSection');
+  appendEcho(val);
+  showBgSection();
+}
+
+// ── Step 3: Background ────────────────────────────────────────────────────────
+function showBgSection() {
+  show('bgSection');
+  scrollToBottom();
+}
+function selectBg(bg) {
+  selectedBg = bg;
+  document.querySelectorAll('#bgSection .choice-card').forEach(c => c.classList.remove('selected'));
+  document.getElementById('bg-' + bg).classList.add('selected');
+  const labels = { white: 'Sfond i Bardhë', orange: 'Sfond Orange' };
+  appendEcho(labels[bg]);
+  show('ctaSection');
+  scrollToBottom();
+}
+
+// ── Step 4: CTA ───────────────────────────────────────────────────────────────
+function selectCta(enabled) {
+  ctaEnabled = enabled;
+  document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('selected'));
+  document.getElementById(enabled ? 'cta-yes' : 'cta-no').classList.add('selected');
+
+  if (enabled) {
+    show('ctaInputSection');
+    setTimeout(() => document.getElementById('ctaTextInput').focus(), 150);
+  } else {
+    ctaText = '';
+    appendEcho('Jo, pa CTA');
+    showSummary();
+  }
+  scrollToBottom();
+}
+function handleCtaEnter(e) {
+  if (e.key === 'Enter') { e.preventDefault(); confirmCtaText(); }
+}
+function confirmCtaText() {
+  const val = document.getElementById('ctaTextInput').value.trim();
+  if (!val) { document.getElementById('ctaTextInput').focus(); return; }
+  ctaText = val;
+  hide('ctaInputSection');
+  appendEcho('CTA: "' + val + '"');
+  showSummary();
+  scrollToBottom();
+}
+
+// ── Step 5: Summary ───────────────────────────────────────────────────────────
+function showSummary() {
+  const modeLabels = { ai: '✨ AI zgjedh', topic: '💡 Temë: ' + userInputText, text: '✍️ Tekst: ' + userInputText };
+  const bgLabels   = { white: 'Sfond i Bardhë', orange: 'Sfond Orange' };
+
+  let rows = [
+    { lbl: 'Mënyra',  val: modeLabels[selectedMode] || selectedMode },
+    { lbl: 'Sfondi',  val: bgLabels[selectedBg] || selectedBg },
+    { lbl: 'CTA',     val: ctaEnabled ? '"' + ctaText + '"' : 'Pa CTA' },
+  ];
+
+  document.getElementById('summaryCard').innerHTML = rows.map(r =>
+    `<div class="sum-row"><span class="sum-lbl">${r.lbl}</span><span class="sum-val">${escHtml(r.val)}</span></div>`
+  ).join('');
+
+  show('summarySection');
+  scrollToBottom();
+}
+
+// ── Generate ──────────────────────────────────────────────────────────────────
+function submitGenerate() {
+  hide('summarySection');
+  show('loadingSection');
+  scrollToBottom();
+
+  fetch('/api/generate', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      mode:     selectedMode,
+      input:    userInputText,
+      bg_color: selectedBg,
+      cta_text: ctaText,
+    })
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data.error) throw new Error(data.error);
+    currentJobId = data.job_id;
+    startPolling();
+  })
+  .catch(err => showError(err.message));
+}
+
+function startPolling() {
+  pollInterval = setInterval(() => {
+    fetch('/api/status/' + currentJobId)
+      .then(r => r.json())
+      .then(data => {
+        document.getElementById('progressText').textContent = data.progress || 'Duke punuar...';
+        const prog = (data.progress || '').toLowerCase();
+        if (prog.includes('brief') || prog.includes('queued') || prog.includes('start')) setStep(1);
+        else if (prog.includes('prompt') || prog.includes('ref')) setStep(2);
+        else if (prog.includes('option') || prog.includes('generating')) setStep(3);
+        else if (prog.includes('done') || prog.includes('final')) setStep(4);
+
+        if (data.status === 'done') {
+          clearInterval(pollInterval);
+          window.location.href = '/select/' + currentJobId;
+        } else if (data.status === 'error') {
+          clearInterval(pollInterval);
+          showError(data.error || 'Gabim i panjohur.');
+        }
+      })
+      .catch(() => {});
+  }, 3000);
+}
+
+function setStep(n) {
+  for (let i = 1; i <= 4; i++) {
+    const el = document.getElementById('step' + i);
+    el.classList.remove('active', 'done');
+    if (i < n) el.classList.add('done');
+    else if (i === n) el.classList.add('active');
+  }
+}
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+function show(id) { document.getElementById(id).classList.remove('hidden'); }
+function hide(id) { document.getElementById(id).classList.add('hidden'); }
+
+function appendEcho(text) {
+  const div = document.createElement('div');
+  div.className = 'msg-user fade-in';
+  div.innerHTML = `<div class="bubble">${escHtml(text)}</div>`;
+  document.getElementById('echoContainer').appendChild(div);
+}
+
+function showError(msg) {
+  hide('loadingSection');
+  document.getElementById('errorText').textContent = msg;
+  show('errorSection');
+  scrollToBottom();
+}
+
+function scrollToBottom() {
+  setTimeout(() => {
+    const m = document.querySelector('.main');
+    m.scrollTop = m.scrollHeight;
+  }, 120);
+}
+
+function escHtml(t) {
+  return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+</script>
+{% endblock %}

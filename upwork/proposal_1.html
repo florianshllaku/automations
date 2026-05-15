@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Craigslist Outreach Automation — Project Scope</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #ffffff;
+      color: #1a1a1a;
+      line-height: 1.7;
+      padding: 56px 24px;
+    }
+
+    .container { max-width: 860px; margin: 0 auto; }
+
+    .badge { display: none; }
+
+    h1 { font-size: 30px; font-weight: 700; color: #111; margin-bottom: 6px; }
+    .subtitle { color: #666; font-size: 15px; margin-bottom: 48px; }
+
+    section { margin-bottom: 52px; }
+
+    h2 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #111;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 18px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    p { color: #444; margin-bottom: 12px; font-size: 14px; }
+
+    code {
+      font-family: "SF Mono", "Fira Code", monospace;
+      background: #f3f3f3;
+      border-radius: 3px;
+      padding: 1px 5px;
+      font-size: 12px;
+      color: #333;
+    }
+
+    /* ── STATUS ROW ── */
+    .status-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .status-card {
+      flex: 1; min-width: 120px;
+      background: #f9f9f9;
+      border: 1px solid #e5e5e5;
+      border-radius: 6px;
+      padding: 12px 16px;
+    }
+    .status-card .slabel { font-size: 10px; text-transform: uppercase; letter-spacing: 0.07em; color: #999; margin-bottom: 4px; }
+    .status-card .svalue { font-size: 14px; font-weight: 600; color: #111; }
+    .svalue.pending { color: #111; }
+
+    /* ── WORKFLOW DIAGRAM ── */
+    .workflow { display: flex; flex-direction: column; }
+
+    .wf-row { display: flex; }
+
+    .wf-node {
+      border-radius: 6px;
+      padding: 14px 18px;
+      flex: 1;
+      background: #f9f9f9;
+      border: 1px solid #e5e5e5;
+    }
+
+    .wf-node .node-label {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #999;
+      margin-bottom: 3px;
+    }
+
+    .wf-node .node-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #111;
+      margin-bottom: 4px;
+    }
+
+    .wf-node .node-desc {
+      font-size: 12px;
+      color: #666;
+      line-height: 1.55;
+    }
+
+    .node-scraper, .node-ai, .node-sheets,
+    .node-n8n, .node-twilio, .node-followup {
+      background: #f9f9f9;
+      border: 1px solid #e5e5e5;
+    }
+
+    .node-scraper .node-label, .node-ai .node-label,
+    .node-sheets .node-label, .node-n8n .node-label,
+    .node-twilio .node-label, .node-followup .node-label { color: #999; }
+
+    .wf-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px 0;
+      color: #ccc;
+      font-size: 16px;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .wf-arrow .arrow-label {
+      font-size: 10px;
+      color: #bbb;
+    }
+
+    .wf-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+    /* ── FLOW STEPS ── */
+    .flow { display: flex; flex-direction: column; }
+    .flow-step { display: flex; align-items: flex-start; gap: 16px; }
+    .flow-line { display: flex; flex-direction: column; align-items: center; }
+
+    .flow-dot {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: #111;
+      color: #fff;
+      font-size: 12px; font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .flow-dot.purple, .flow-dot.green,
+    .flow-dot.yellow, .flow-dot.red { background: #111; }
+
+    .flow-connector { width: 1px; height: 28px; background: #e5e5e5; margin: 2px 0; }
+
+    .flow-content { padding-top: 2px; padding-bottom: 24px; }
+    .flow-content strong { display: block; color: #111; font-size: 14px; margin-bottom: 3px; }
+    .flow-content span { color: #666; font-size: 13px; }
+
+    /* ── TABLES ── */
+    .data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+
+    .data-table th {
+      text-align: left;
+      padding: 9px 12px;
+      background: #f5f5f5;
+      color: #888;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .data-table td {
+      padding: 9px 12px;
+      border-bottom: 1px solid #f0f0f0;
+      color: #333;
+      vertical-align: top;
+    }
+
+    .data-table tr:last-child td { border-bottom: none; }
+
+    /* ── INFO BOX ── */
+    .info-box {
+      border-radius: 6px;
+      padding: 16px 20px;
+      margin-bottom: 14px;
+      background: #f9f9f9;
+      border: 1px solid #e5e5e5;
+    }
+    .info-box .iblabel {
+      font-size: 10px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.07em;
+      color: #999;
+      margin-bottom: 5px;
+    }
+    .info-box p { margin: 0; font-size: 13px; color: #444; }
+    .info-box.blue, .info-box.yellow, .info-box.green {
+      background: #f9f9f9;
+      border: 1px solid #e5e5e5;
+    }
+    .info-box.blue .iblabel,
+    .info-box.yellow .iblabel,
+    .info-box.green .iblabel { color: #999; }
+    .info-box.blue p,
+    .info-box.yellow p,
+    .info-box.green p { color: #444; }
+
+    /* ── COST CARD ── */
+    .cost-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f9f9f9;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      padding: 24px 28px;
+      gap: 24px;
+    }
+    .cost-left { flex: 1; }
+    .cost-service { font-size: 17px; font-weight: 600; color: #111; margin-bottom: 4px; }
+    .cost-note { font-size: 12px; color: #999; margin-bottom: 8px; }
+    .cost-detail { font-size: 13px; color: #666; line-height: 1.6; }
+    .cost-right { text-align: center; flex-shrink: 0; }
+    .cost-price { font-size: 44px; font-weight: 800; color: #111; line-height: 1; }
+    .cost-period { font-size: 13px; color: #999; margin-top: 4px; }
+
+    /* ── ARCH GRID ── */
+    .arch-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    .arch-card {
+      background: #f9f9f9;
+      border: 1px solid #e5e5e5;
+      border-radius: 6px;
+      padding: 18px 20px;
+    }
+    .arch-icon { font-size: 20px; margin-bottom: 8px; }
+    .arch-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: #999; margin-bottom: 3px; }
+    .arch-title { font-size: 14px; font-weight: 600; color: #111; margin-bottom: 5px; }
+    .arch-desc { font-size: 12px; color: #666; line-height: 1.6; }
+
+    footer {
+      margin-top: 56px;
+      padding-top: 20px;
+      border-top: 1px solid #e5e5e5;
+      color: #bbb;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <h1>Craigslist Outreach Automation</h1>
+  <p class="subtitle">
+    Scrape targeted Craigslist listings → verify with Claude AI → store in Google Sheets → trigger outreach via n8n + Twilio → real-time follow-up via Redis queue after 1 hour of no response.
+  </p>
+
+  <!-- PROPOSAL PITCH -->
+  <section>
+    <h2>Proposal Summary</h2>
+    <div class="info-box blue">
+      <div class="iblabel">What I will build</div>
+      <p>End-to-end lead automation — scrape Craigslist, verify with Claude AI, log to Google Sheets for your approval, send SMS + email outreach, and follow up automatically after 1 hour of no response. Self-healing scraper means website changes never break it.</p>
+    </div>
+
+    <ol style="padding-left:20px; margin-top:12px; color:#444; font-size:14px; line-height:2;">
+      <li>Scrape Craigslist listings matching your criteria</li>
+      <li>Send full batch to Claude AI — returns PASS or SKIP per listing</li>
+      <li>PASS listings written to Google Sheets as new rows</li>
+      <li>You set Status to "Send Message" to approve outreach</li>
+      <li>n8n sends personalized SMS + email via Twilio</li>
+      <li>Redis + Bull queues a follow-up job — fires at exactly 1 hour if no reply</li>
+      <li>Twilio reply webhook + Gmail poller update the sheet in real-time</li>
+      <li>If the website changes, the scraper detects the broken selector, asks Claude to find the new one, and updates itself automatically</li>
+    </ol>
+  </section>
+
+  <!-- SELF-HEALING -->
+  <section>
+    <h2>Self-Healing Scraper (Built-in)</h2>
+    <div class="info-box blue">
+      <div class="iblabel">How it works — requests + BeautifulSoup</div>
+      <p>Craigslist is server-rendered — no browser needed. CSS selectors live in <code>selectors.json</code> alongside a plain-English intent. If a selector breaks, the scraper sends the raw HTML to Claude, gets a corrected selector back, updates the JSON, and retries. Zero manual intervention.</p>
+    </div>
+    <div class="info-box yellow">
+      <div class="iblabel">This is the direct answer to: "How do you handle website changes?"</div>
+      <p>The scraper heals itself. No downtime, no manual fixes, no monitoring required.</p>
+    </div>
+    <div class="info-box green">
+      <div class="iblabel">selectors.json — Full file at: automations/upwork/selectors.json</div>
+      <p>
+        <pre style="font-family:'SF Mono','Fira Code',monospace; font-size:12px; color:#333; line-height:1.8; margin-top:8px; white-space:pre-wrap;">{
+  "listing_cards": {
+    "selector": "li.cl-static-search-result",
+    "intent": "Each &lt;li&gt; element representing a single Craigslist listing card in the search results page. Contains the title, URL, price, and location."
+  },
+  "listing_title": {
+    "selector": "li.cl-static-search-result a.posting-title span.label",
+    "intent": "The title text of a listing card — the main headline the poster wrote."
+  },
+  "listing_url": {
+    "selector": "li.cl-static-search-result a.posting-title",
+    "attr": "href",
+    "intent": "The href link on the listing card that leads to the full individual listing page."
+  },
+  "article_body": {
+    "selector": "#postingbody",
+    "intent": "The full text body of an individual listing page — the description the poster wrote."
+  },
+  "article_contact_phone": {
+    "selector": "div.reply-button-row a[href^='tel:']",
+    "attr": "href",
+    "intent": "A tel: link containing the poster's phone number, if they chose to display it."
+  }
+}</pre>
+      </p>
+    </div>
+  </section>
+
+  <!-- AI ANALYSIS -->
+  <section>
+    <h2>AI Analysis — How It Works</h2>
+
+    <div class="info-box blue">
+      <div class="iblabel">The approach — one Claude call, full batch</div>
+      <p>The scraper collects all listings and builds a CSV in memory. The entire CSV is sent to Claude in a single API call along with the criteria from <code>config.json</code>. Claude adds a <code>verdict</code> column to each row — <strong>PASS</strong> or <strong>SKIP</strong>. One call, all rows decided at once. The output is the same CSV back with the verdict column added.</p>
+    </div>
+
+    <div class="info-box green">
+      <div class="iblabel">Step 1 — Scraper builds CSV in memory</div>
+      <p><pre style="font-family:'SF Mono','Fira Code',monospace; font-size:12px; color:#333; line-height:1.7; margin-top:8px; white-space:pre-wrap;">title,description,location,price,phone,email,url,date
+Moving help needed,Looking for someone to help move a 2BR...,Brooklyn,$200,555-1234,,https://...,2026-05-14
+Piano move NYC,Need a piano moved to new apt...,Manhattan,,,jane@x.com,https://...,2026-05-14
+Furniture assembly help,IKEA furniture needs assembly...,Queens,$80,917-555-9988,,https://...,2026-05-14</pre></p>
+    </div>
+
+    <div class="info-box green">
+      <div class="iblabel">Step 2 — One Claude call with the full CSV + criteria</div>
+      <p><pre style="font-family:'SF Mono','Fira Code',monospace; font-size:12px; color:#333; line-height:1.7; margin-top:8px; white-space:pre-wrap;">SYSTEM:
+You are a lead qualification assistant.
+Criteria: [loaded from config.json — e.g. "Moving jobs in NYC. Budget must be mentioned. Posted within last 48 hours."]
+You will receive a CSV of scraped listings.
+Add a column called "verdict" to every row. Write PASS or SKIP for each row based on the criteria.
+Return only the CSV with the verdict column added. No explanation, no extra text.
+
+USER:
+[full CSV pasted here]</pre></p>
+    </div>
+
+    <div class="info-box green">
+      <div class="iblabel">Step 3 — Claude returns the same CSV + verdict column</div>
+      <p><pre style="font-family:'SF Mono','Fira Code',monospace; font-size:12px; color:#333; line-height:1.7; margin-top:8px; white-space:pre-wrap;">title,description,location,price,phone,email,url,date,verdict
+Moving help needed,Looking for someone...,Brooklyn,$200,555-1234,,https://...,2026-05-14,PASS
+Piano move NYC,Need a piano moved...,Manhattan,,,jane@x.com,https://...,2026-05-14,SKIP
+Furniture assembly help,IKEA furniture...,Queens,$80,917-555-9988,,https://...,2026-05-14,PASS</pre></p>
+    </div>
+
+    <div class="info-box blue">
+      <div class="iblabel">Step 4 — Filter PASS rows → append to Google Sheets</div>
+      <p>SKIP rows are dropped. Only PASS rows are sent to the Google Sheets API as new rows appended to the bottom of the existing sheet. No overwrite — existing data is never touched.</p>
+    </div>
+
+    <div class="info-box blue">
+      <div class="iblabel">Note on batch size</div>
+      <p>Claude's context window handles hundreds of rows comfortably. For very large scrapes (&gt;100 rows), the CSV is split into chunks of 50 and sent in separate calls — results are merged before writing to the sheet.</p>
+    </div>
+
+  </section>
+
+  <!-- GOOGLE SHEETS COLUMNS -->
+  <section>
+    <h2>Google Sheets Column Layout</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>Column</th><th>Content</th><th>Type</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>A</code></td><td>Name</td><td>Text</td></tr>
+        <tr><td><code>B</code></td><td>Phone</td><td>Text</td></tr>
+        <tr><td><code>C</code></td><td>Email</td><td>Text</td></tr>
+        <tr><td><code>D</code></td><td>Listing Title</td><td>Text</td></tr>
+        <tr><td><code>E</code></td><td>URL</td><td>Link</td></tr>
+        <tr><td><code>F</code></td><td>Post Date</td><td>Date</td></tr>
+        <tr><td><code>G</code></td><td>Location</td><td>Text</td></tr>
+        <tr><td><code>H</code></td><td>AI Verdict</td><td>PASS / SKIP</td></tr>
+        <tr><td><code>I</code></td><td>Status</td><td>Dropdown: Pending / Send Message / Contacted / Follow-up Sent / Responded</td></tr>
+        <tr><td><code>J</code></td><td>Contacted At</td><td>Timestamp (written by n8n)</td></tr>
+        <tr><td><code>K</code></td><td>Response Received</td><td>Yes / No (updated manually or via webhook)</td></tr>
+        <tr><td><code>L</code></td><td>Notes</td><td>Free text</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- N8N FLOW -->
+  <section>
+    <h2>n8n Workflow A — Initial Outreach</h2>
+    <div class="flow">
+
+      <div class="flow-step">
+        <div class="flow-line">
+          <div class="flow-dot yellow">1</div>
+          <div class="flow-connector"></div>
+        </div>
+        <div class="flow-content">
+          <strong>Webhook Trigger</strong>
+          <span>Google Apps Script fires POST with row payload: name, phone, email, title, URL, row index. Triggered when Status dropdown is set to "Send Message".</span>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-line">
+          <div class="flow-dot yellow">2</div>
+          <div class="flow-connector"></div>
+        </div>
+        <div class="flow-content">
+          <strong>Build Personalized Message</strong>
+          <span>n8n composes message using listing title and name. Template is configurable. Example: "Hi [Name], I saw your listing for [Title]..."</span>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-line">
+          <div class="flow-dot yellow">3</div>
+          <div class="flow-connector"></div>
+        </div>
+        <div class="flow-content">
+          <strong>Route: SMS or Email or Both</strong>
+          <span>If phone exists → Twilio SMS. If email exists → Gmail via SMTP / SendGrid. If both → send both channels.</span>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-line">
+          <div class="flow-dot yellow">4</div>
+        </div>
+        <div class="flow-content">
+          <strong>Write Timestamp Back to Sheet</strong>
+          <span>n8n writes "Contacted At" timestamp to column J and updates Status to "Contacted". Workflow ends here — no waiting, no pausing.</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- REPLY DETECTION -->
+  <section>
+    <h2>Reply Detection</h2>
+
+    <div class="info-box blue">
+      <div class="iblabel">SMS Reply — Twilio Webhook</div>
+      <p>Contact replies to SMS → Twilio fires a POST to n8n Workflow B in real-time → updates <code>Response Received = Yes</code> in the sheet. No polling.</p>
+    </div>
+
+    <div class="info-box blue">
+      <div class="iblabel">Email Reply — Gmail Apps Script Poller</div>
+      <p>Gmail doesn't push events. Apps Script runs every 15 min, checks inbox for replies, matches to sheet rows by email, writes <code>Response Received = Yes</code>. Free, no external service needed.</p>
+    </div>
+  </section>
+
+  <!-- 1-HOUR FOLLOW-UP LOGIC -->
+  <section>
+    <h2>1-Hour Follow-up — How It Works</h2>
+
+    <div class="info-box yellow">
+      <div class="iblabel">Redis + Bull Queue — real-time, per contact</div>
+      <p>Workflow A enqueues a delayed job in Redis (delay: 1hr) per contact. Bull fires Workflow C at exactly 1hr — accurate to the second. No polling, no Wait node, no limits.</p>
+    </div>
+
+    <div class="flow">
+
+      <div class="flow-step">
+        <div class="flow-line">
+          <div class="flow-dot green">1</div>
+          <div class="flow-connector"></div>
+        </div>
+        <div class="flow-content">
+          <strong>Workflow A ends — enqueue delayed job</strong>
+          <span>n8n POSTs <code>&#123; rowId, contact, delay: 3600 &#125;</code> to Bull. Job stored in Redis. Workflow A closes immediately — nothing held open.</span>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-line">
+          <div class="flow-dot green">2</div>
+          <div class="flow-connector"></div>
+        </div>
+        <div class="flow-content">
+          <strong>Redis holds the job for exactly 1 hour</strong>
+          <span>Each contact = its own independent job. 10 contacts = 10 timers running in parallel, each firing at their own exact time.</span>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-line">
+          <div class="flow-dot green">3</div>
+          <div class="flow-connector"></div>
+        </div>
+        <div class="flow-content">
+          <strong>1 hour passes — Bull fires the job</strong>
+          <span>Checks <code>Response Received</code> for that row. Empty → calls n8n Workflow C. Already replied → job discarded.</span>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-line">
+          <div class="flow-dot green">4</div>
+          <div class="flow-connector"></div>
+        </div>
+        <div class="flow-content">
+          <strong>n8n Workflow C sends follow-up</strong>
+          <span>Sends follow-up via SMS or email. Updates sheet Status → <code>Follow-up Sent</code>. 1 follow-up per contact, no more.</span>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-line">
+          <div class="flow-dot green">5</div>
+        </div>
+        <div class="flow-content">
+          <strong>Job removed from queue</strong>
+          <span>Bull removes the completed job from Redis. No leftover state. Queue stays clean.</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="info-box green" style="margin-top:20px;">
+      <div class="iblabel">Why Redis + Bull</div>
+      <p>Fires at exactly 1hr per contact. Scales to any volume. Built-in retry on failure. Jobs persist through server reboots — no lost follow-ups.</p>
+    </div>
+  </section>
+
+  <!-- N8N WORKFLOWS SUMMARY -->
+  <section>
+    <h2>n8n Workflows Summary</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>Workflow</th><th>Trigger</th><th>What it does</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>A — Outreach</code></td>
+          <td>Apps Script onEdit → Status = "Send Message"</td>
+          <td>Sends initial SMS + email, writes Contacted At timestamp</td>
+        </tr>
+        <tr>
+          <td><code>B — SMS Reply</code></td>
+          <td>Twilio reply webhook (real-time)</td>
+          <td>Receives SMS reply, updates Response Received = Yes</td>
+        </tr>
+        <tr>
+          <td><code>C — Follow-up</code></td>
+          <td>Bull job fires at exactly 1hr per contact (via Redis queue)</td>
+          <td>Reads sheet, finds all rows where 1hr passed + no reply, loops through each, sends follow-up, updates Status = Follow-up Sent</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- STATUS -->
+  <section>
+    <h2>Status</h2>
+    <div class="status-row">
+      <div class="status-card">
+        <div class="slabel">Stage</div>
+        <div class="svalue pending">Scoping</div>
+      </div>
+      <div class="status-card">
+        <div class="slabel">Created</div>
+        <div class="svalue">2026-05-14</div>
+      </div>
+      <div class="status-card">
+        <div class="slabel">Source</div>
+        <div class="svalue" style="font-size:13px;">craigslist.com</div>
+      </div>
+      <div class="status-card">
+        <div class="slabel">Outreach</div>
+        <div class="svalue" style="font-size:13px;">SMS + Email</div>
+      </div>
+      <div class="status-card">
+        <div class="slabel">Follow-up</div>
+        <div class="svalue" style="font-size:13px;">1hr auto</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIGH-LEVEL WORKFLOW DIAGRAM -->
+  <section>
+    <h2>Full System Workflow</h2>
+    <div class="workflow">
+
+      <div class="wf-row">
+        <div class="wf-node node-scraper">
+          <div class="node-label">Step 1 — requests + BeautifulSoup</div>
+          <div class="node-title">Craigslist Scraper</div>
+          <div class="node-desc">Scrapes listings matching defined criteria. Self-healing: if a CSS selector breaks, sends HTML to Claude and auto-updates it. Extracts: name, contact, title, description, date, URL.</div>
+        </div>
+      </div>
+
+      <div class="wf-arrow"><span>↓</span><span class="arrow-label">raw listing data</span></div>
+
+      <div class="wf-row">
+        <div class="wf-node node-ai">
+          <div class="node-label">Step 2 — Claude AI</div>
+          <div class="node-title">Verification & Filtering</div>
+          <div class="node-desc">Each listing is sent to Claude with your criteria. Returns <strong>PASS</strong> or <strong>SKIP</strong>. Only verified listings move forward.</div>
+        </div>
+      </div>
+
+      <div class="wf-arrow"><span>↓</span><span class="arrow-label">verified listings only</span></div>
+
+      <div class="wf-row">
+        <div class="wf-node node-sheets">
+          <div class="node-label">Step 3 — Google Sheets</div>
+          <div class="node-title">Central Data Store</div>
+          <div class="node-desc">Each verified listing added as a row. Set Status dropdown to <strong>"Send Message"</strong> to trigger outreach.</div>
+        </div>
+      </div>
+
+      <div class="wf-arrow"><span>↓</span><span class="arrow-label">Apps Script onEdit → webhook</span></div>
+
+      <div class="wf-row">
+        <div class="wf-node node-n8n">
+          <div class="node-label">Step 4 — n8n Workflow A</div>
+          <div class="node-title">Outreach</div>
+          <div class="node-desc">Builds personalized message → sends SMS + email → writes Contacted At timestamp. Enqueues 1hr follow-up job in Redis.</div>
+        </div>
+      </div>
+
+      <div class="wf-arrow"><span>↓</span><span class="arrow-label">personalized message</span></div>
+
+      <div class="wf-two-col">
+        <div class="wf-node node-twilio">
+          <div class="node-label">Step 5a — Twilio</div>
+          <div class="node-title">SMS</div>
+          <div class="node-desc">Personalized SMS to contact's phone.</div>
+        </div>
+        <div class="wf-node node-twilio">
+          <div class="node-label">Step 5b — SendGrid</div>
+          <div class="node-title">Email</div>
+          <div class="node-desc">Email if phone unavailable, or both.</div>
+        </div>
+      </div>
+
+      <div class="wf-arrow"><span>↓</span><span class="arrow-label">Redis holds job — fires at exactly 1hr</span></div>
+
+      <div class="wf-row">
+        <div class="wf-node node-followup">
+          <div class="node-label">Step 6 — Bull + n8n Workflow C</div>
+          <div class="node-title">1-Hour Follow-up</div>
+          <div class="node-desc">Bull fires at exactly 1hr. Checks if reply received — if not, sends follow-up via same channel. Updates Status → Follow-up Sent.</div>
+        </div>
+      </div>
+
+      <div class="wf-arrow"><span>↕</span><span class="arrow-label">Twilio reply webhook → n8n Workflow B → Response Received = Yes</span></div>
+
+      <div class="wf-row">
+        <div class="wf-node node-ai">
+          <div class="node-label">Step 7 — Reply Detection</div>
+          <div class="node-title">SMS + Email Tracking</div>
+          <div class="node-desc">SMS: Twilio webhook → n8n real-time. Email: Apps Script polls inbox every 15min → matches reply → updates sheet.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ARCHITECTURE NOTE -->
+  <section>
+    <h2>System Architecture</h2>
+    <div class="arch-grid">
+      <div class="arch-card">
+        <div class="arch-icon">💻</div>
+        <div class="arch-label">Local</div>
+        <div class="arch-title">Python Scraper</div>
+        <div class="arch-desc">scraper.py · verifier.py · selector_healer.py — runs on demand or via cron, writes to Google Sheets via API.</div>
+      </div>
+      <div class="arch-card">
+        <div class="arch-icon">📊</div>
+        <div class="arch-label">Google Cloud</div>
+        <div class="arch-title">Sheets + Apps Script</div>
+        <div class="arch-desc">Google Sheets stores all lead data. Apps Script onEdit fires n8n Workflow A when Status = "Send Message". Gmail poller checks for email replies every 15 min.</div>
+      </div>
+      <div class="arch-card">
+        <div class="arch-icon">⚙️</div>
+        <div class="arch-label">VPS (~$25/mo)</div>
+        <div class="arch-title">n8n + Redis + Bull</div>
+        <div class="arch-desc">n8n runs 3 workflows. Redis + Bull holds delayed follow-up jobs — fires each one at exactly 1hr per contact. No long-running processes.</div>
+      </div>
+      <div class="arch-card">
+        <div class="arch-icon">📱</div>
+        <div class="arch-label">Twilio</div>
+        <div class="arch-title">SMS + Reply Webhook</div>
+        <div class="arch-desc">Sends outreach SMS. When contact replies, Twilio fires a webhook to n8n Workflow B in real-time — updates Response Received in the sheet.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFRASTRUCTURE & COST -->
+  <section>
+    <h2>Infrastructure &amp; Cost</h2>
+    <div class="cost-card">
+      <div class="cost-left">
+        <div class="cost-service">VPS Server</div>
+        <div class="cost-note">DigitalOcean · Hetzner · Hostinger</div>
+        <div class="cost-detail">Runs n8n + Redis + Bull worker on a single 2GB RAM server. Full control — no workflow limits, no per-task pricing.</div>
+      </div>
+      <div class="cost-right">
+        <div class="cost-price">~$25</div>
+        <div class="cost-period">/month</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Created 2026-05-14 &nbsp;·&nbsp; automations/upwork/self_healing_scraper.html
+  </footer>
+
+</div>
+</body>
+</html>

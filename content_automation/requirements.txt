@@ -1,5 +1,8 @@
 anthropic
+flask
 playwright
 jinja2
 pillow
 python-dotenv
+openai
+google-genai

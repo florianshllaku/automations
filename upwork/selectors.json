@@ -1,0 +1,63 @@
+{
+  "_comment": "CSS selectors for Craigslist scraping. Each key has a 'selector' (used by BeautifulSoup) and an 'intent' (used by Claude to find a replacement if the selector breaks).",
+
+  "listing_cards": {
+    "selector": "li.cl-static-search-result",
+    "intent": "Each <li> element representing a single Craigslist listing card in the search results page. Contains the title, URL, price, and location of one listing."
+  },
+
+  "listing_title": {
+    "selector": "li.cl-static-search-result a.posting-title span.label",
+    "intent": "The title text of a listing card — the main headline the poster wrote. Usually inside a <span> nested inside the anchor link of the card."
+  },
+
+  "listing_url": {
+    "selector": "li.cl-static-search-result a.posting-title",
+    "attr": "href",
+    "intent": "The href attribute on the anchor link of a listing card that leads to the full individual listing page on Craigslist."
+  },
+
+  "listing_price": {
+    "selector": "li.cl-static-search-result span.priceinfo",
+    "intent": "The price shown on the listing card. May be empty or missing if the poster did not include a price."
+  },
+
+  "listing_location": {
+    "selector": "li.cl-static-search-result span.meta",
+    "intent": "The neighborhood or city/location tag shown below the listing title on the card."
+  },
+
+  "listing_date": {
+    "selector": "li.cl-static-search-result span.meta",
+    "attr": "title",
+    "intent": "The post date of the listing. Often stored as a title attribute on the meta span element on the card."
+  },
+
+  "next_page": {
+    "selector": "a.bd-button.cl-next-page",
+    "intent": "The pagination button or link to navigate to the next page of search results. Usually labeled 'next' or contains a right arrow."
+  },
+
+  "article_body": {
+    "selector": "#postingbody",
+    "intent": "The full text body of an individual Craigslist listing page — the description the poster wrote. Usually inside a <section> or <div> with id 'postingbody'."
+  },
+
+  "article_contact_phone": {
+    "selector": "div.reply-button-row a[href^='tel:']",
+    "attr": "href",
+    "intent": "A tel: link containing the poster's phone number on the individual listing page. Only present if the poster chose to display their phone number."
+  },
+
+  "article_reply_email": {
+    "selector": "div.reply-button-row a.reply-button",
+    "attr": "href",
+    "intent": "The reply link on an individual listing page. On Craigslist this is usually an anonymized email link (mailto: or a /reply/ URL). Used to obtain a contact email."
+  },
+
+  "article_post_date": {
+    "selector": "div#display-date time",
+    "attr": "datetime",
+    "intent": "The datetime attribute on the <time> element inside the post date area of an individual listing page. Contains an ISO 8601 date string."
+  }
+}

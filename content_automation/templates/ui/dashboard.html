@@ -1,0 +1,247 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — Sharp Group Studio{% endblock %}
+
+{% block head %}
+<style>
+  body { display: flex; min-height: 100vh; overflow: hidden; }
+
+  /* ── Sidebar ── */
+  .sidebar {
+    width: 240px; min-height: 100vh; flex-shrink: 0;
+    background: var(--dark); border-right: 1px solid var(--border);
+    display: flex; flex-direction: column;
+    padding: 28px 0;
+  }
+  .sidebar-logo {
+    padding: 0 24px 32px;
+    border-bottom: 1px solid var(--border);
+  }
+  .sidebar-logo .brand { font-size: 16px; font-weight: 800; letter-spacing: -0.3px; }
+  .sidebar-logo .brand span { color: var(--orange); }
+  .sidebar-logo .sub { font-size: 10px; color: var(--gray); letter-spacing: 2.5px; text-transform: uppercase; margin-top: 4px; }
+
+  .nav { flex: 1; padding: 24px 12px; display: flex; flex-direction: column; gap: 4px; }
+  .nav-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 14px; border-radius: 10px;
+    font-size: 13px; font-weight: 500; color: var(--gray);
+    transition: all 0.15s; cursor: pointer;
+  }
+  .nav-item:hover { background: var(--dark2); color: var(--white); }
+  .nav-item.active { background: var(--orange-dim); color: var(--orange); }
+  .nav-item svg { flex-shrink: 0; opacity: 0.7; }
+  .nav-item.active svg { opacity: 1; }
+
+  .sidebar-footer {
+    padding: 20px 16px; border-top: 1px solid var(--border);
+  }
+  .logout-btn {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px; border-radius: 10px;
+    font-size: 13px; font-weight: 500; color: var(--gray);
+    transition: all 0.15s; width: 100%; background: none; border: none;
+  }
+  .logout-btn:hover { color: #ff5555; }
+
+  /* ── Main ── */
+  .main {
+    flex: 1; overflow-y: auto;
+    padding: 40px 48px;
+    display: flex; flex-direction: column; gap: 36px;
+  }
+
+  /* Header */
+  .main-header {
+    display: flex; align-items: flex-start; justify-content: space-between;
+  }
+  .main-header h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; }
+  .main-header h1 span { color: var(--orange); }
+  .main-header p { font-size: 14px; color: var(--gray); margin-top: 6px; }
+
+  /* Stats row */
+  .stats-row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .stat-card {
+    background: var(--dark); border: 1px solid var(--border);
+    border-radius: 14px; padding: 20px 24px;
+    flex: 1; min-width: 140px;
+  }
+  .stat-card .val { font-size: 32px; font-weight: 800; color: var(--orange); }
+  .stat-card .lbl { font-size: 12px; color: var(--gray); margin-top: 4px; letter-spacing: 0.3px; }
+
+  /* Section header */
+  .section-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .section-header h2 { font-size: 16px; font-weight: 700; }
+  .section-header a { font-size: 13px; color: var(--orange); }
+
+  /* Posts grid */
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .post-card {
+    background: var(--dark); border: 1px solid var(--border);
+    border-radius: 14px; overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
+    cursor: default;
+  }
+  .post-card:hover { transform: translateY(-2px); border-color: rgba(255,104,11,0.3); }
+  .post-thumb {
+    width: 100%; aspect-ratio: 4/5;
+    background: var(--dark2);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .post-thumb img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .post-thumb-placeholder {
+    color: var(--gray); font-size: 12px; text-align: center; padding: 12px;
+  }
+  .post-info { padding: 12px 14px; }
+  .post-info .type-badge {
+    display: inline-block; font-size: 10px; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase;
+    background: var(--orange-dim); color: var(--orange);
+    padding: 3px 9px; border-radius: 20px; margin-bottom: 8px;
+  }
+  .post-info .headline {
+    font-size: 12px; font-weight: 500; line-height: 1.5;
+    color: var(--white); display: -webkit-box;
+    -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .post-info .date { font-size: 11px; color: var(--gray); margin-top: 8px; }
+
+  /* Empty state */
+  .empty-state {
+    text-align: center; padding: 60px 20px;
+    border: 1px dashed var(--border); border-radius: 16px;
+  }
+  .empty-state .icon { font-size: 40px; margin-bottom: 16px; opacity: 0.4; }
+  .empty-state h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+  .empty-state p { font-size: 13px; color: var(--gray); margin-bottom: 24px; }
+
+  /* Create CTA */
+  .create-cta {
+    background: linear-gradient(135deg, var(--dark) 0%, rgba(255,104,11,0.06) 100%);
+    border: 1px solid rgba(255,104,11,0.2);
+    border-radius: 16px; padding: 28px 32px;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    flex-wrap: wrap;
+  }
+  .create-cta .cta-text h3 { font-size: 18px; font-weight: 700; }
+  .create-cta .cta-text p { font-size: 13px; color: var(--gray); margin-top: 6px; }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="sidebar">
+  <div class="sidebar-logo">
+    <div class="brand">SHARP <span>GROUP</span></div>
+    <div class="sub">Content Studio</div>
+  </div>
+
+  <nav class="nav">
+    <a href="/dashboard" class="nav-item active">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      Dashboard
+    </a>
+    <a href="/create" class="nav-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      Krijo Post
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <a href="/logout" class="logout-btn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      Dilni
+    </a>
+  </div>
+</div>
+
+<main class="main">
+  <!-- Header -->
+  <div class="main-header">
+    <div>
+      <h1>Mirë se erdhe, <span>Sharp Group</span></h1>
+      <p>Menaxho contentet e tua nga këtu.</p>
+    </div>
+    <a href="/create" class="btn btn-primary">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      Post i Ri
+    </a>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="val">{{ posts|length }}</div>
+      <div class="lbl">Postime Totale</div>
+    </div>
+    <div class="stat-card">
+      <div class="val">{{ posts[:7]|length }}</div>
+      <div class="lbl">Këtë Javë</div>
+    </div>
+    <div class="stat-card">
+      <div class="val">{{ posts[0].date[:7] if posts else '—' }}</div>
+      <div class="lbl">Postimi i Fundit</div>
+    </div>
+  </div>
+
+  <!-- Create CTA -->
+  <div class="create-cta">
+    <div class="cta-text">
+      <h3>Gati për postimin e radhës?</h3>
+      <p>Gjenero 3 variante me AI dhe zgjidh atë që funksionon më mirë.</p>
+    </div>
+    <a href="/create" class="btn btn-primary">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      Krijo Post
+    </a>
+  </div>
+
+  <!-- History -->
+  <div>
+    <div class="section-header">
+      <h2>Historiku i Postimeve</h2>
+    </div>
+
+    {% if posts %}
+    <div class="posts-grid">
+      {% for post in posts %}
+      <div class="post-card">
+        <div class="post-thumb">
+          {% set img = image_url_for_post(post.image_path) %}
+          {% if img %}
+            <img src="{{ img }}" alt="post" loading="lazy">
+          {% else %}
+            <div class="post-thumb-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom:8px;opacity:0.3"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <div>Pa Foto</div>
+            </div>
+          {% endif %}
+        </div>
+        <div class="post-info">
+          <span class="type-badge">{{ post.post_type }}</span>
+          <div class="headline">{{ post.headline or post.visual_description or '—' }}</div>
+          <div class="date">{{ post.date or '—' }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% else %}
+    <div class="empty-state">
+      <div class="icon">📭</div>
+      <h3>Asnjë postim ende</h3>
+      <p>Krijo postimin tënd të parë me AI.</p>
+      <a href="/create" class="btn btn-primary">Fillo Tani</a>
+    </div>
+    {% endif %}
+  </div>
+</main>
+{% endblock %}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Sharp Group Studio{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange:      #FF680B;
+      --orange-glow: rgba(255,104,11,0.18);
+      --orange-dim:  rgba(255,104,11,0.08);
+      --black:       #080808;
+      --near-black:  #0D0D0D;
+      --dark:        #141414;
+      --dark2:       #1E1E1E;
+      --dark3:       #272727;
+      --white:       #F9F9F9;
+      --gray:        #777777;
+      --light-gray:  #333333;
+      --border:      rgba(255,255,255,0.07);
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--near-black);
+      color: var(--white);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; font-family: inherit; }
+    input, textarea, select { font-family: inherit; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--dark); }
+    ::-webkit-scrollbar-thumb { background: var(--dark3); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--orange); }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: none; border-radius: 50px;
+      padding: 12px 26px; font-size: 14px; font-weight: 600;
+      letter-spacing: 0.2px; transition: all 0.2s ease; cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--orange); color: #fff;
+    }
+    .btn-primary:hover { background: #e55900; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(255,104,11,0.4); }
+    .btn-ghost {
+      background: transparent; color: var(--white);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { border-color: var(--orange); color: var(--orange); }
+    .btn-sm { padding: 8px 18px; font-size: 13px; }
+
+    /* Orange dot accent */
+    .orange { color: var(--orange); }
+    .dot-accent { display: inline-block; width: 6px; height: 6px; background: var(--orange); border-radius: 50%; margin-right: 8px; }
+  </style>
+  {% block head %}{% endblock %}
+</head>
+<body>
+  {% block body %}{% endblock %}
+</body>
+</html>
