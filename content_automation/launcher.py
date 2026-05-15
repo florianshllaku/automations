@@ -134,7 +134,7 @@ def index():
 # ── App runners ───────────────────────────────────────────────────────────────
 
 def run_app(app, port, name):
-    print(f"  [{name}] → http://localhost:{port}")
+    print(f"  [{name}] -> http://localhost:{port}")
     srv = make_server("0.0.0.0", port, app)
     srv.serve_forever()
 
@@ -143,7 +143,7 @@ def run_app(app, port, name):
 
 if __name__ == "__main__":
     print("\n  Content Studio Launcher")
-    print("  ─────────────────────────────────")
+    print("  ---------------------------------")
 
     threading.Thread(
         target=run_app, args=(sharp_app, 5051, "Sharp Group"), daemon=True
@@ -153,7 +153,7 @@ if __name__ == "__main__":
         target=run_app, args=(turizem_app, 5050, "Ventura Travel"), daemon=True
     ).start()
 
-    print("  Launcher      → http://localhost:5000")
-    print("  ─────────────────────────────────\n")
+    print("  Launcher  ->  http://localhost:5000")
+    print("  ---------------------------------\n")
 
     launcher.run(host="0.0.0.0", port=5000, debug=False)
