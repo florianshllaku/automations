@@ -14,6 +14,16 @@ from pathlib import Path
 from flask import (Flask, jsonify, redirect, render_template,
                    request, send_from_directory, session, url_for)
 
+ALL_SERVICES = [
+    "Akomodimi",
+    "Mëngjesi",
+    "Dreka",
+    "Darka",
+    "Pije pa limit gjatë vakteve",
+    "Pishina",
+    "Transporti hotel-plazh-hotel",
+]
+
 BASE_DIR    = Path(__file__).parent
 OUTPUT_DIR  = BASE_DIR / "output" / "turizem"
 HISTORY_FILE = BASE_DIR / "history" / "turizem.json"
@@ -110,15 +120,25 @@ def generate():
     if not session.get("logged_in"):
         return jsonify({"error": "Not authenticated"}), 401
 
-    event_badge  = request.form.get("event_badge", "").strip()
-    hotel_label  = request.form.get("hotel_label", "HOTEL").strip() or "HOTEL"
-    hotel_name   = request.form.get("hotel_name", "").strip()
-    destination  = request.form.get("destination", "").strip()
-    days         = request.form.get("days", "1").strip()
-    nights       = request.form.get("nights", "1").strip()
-    package_type = request.form.get("package_type", "").strip()
-    price        = request.form.get("price", "").strip()
-    includes_raw = request.form.get("includes", "").strip()
+    event_badge    = request.form.get("event_badge", "").strip()
+    hotel_label    = request.form.get("hotel_label", "HOTEL").strip() or "HOTEL"
+    hotel_name     = request.form.get("hotel_name", "").strip()
+    destination    = request.form.get("destination", "").strip()
+    days           = request.form.get("days", "1").strip()
+    nights         = request.form.get("nights", "1").strip()
+    price          = request.form.get("price", "").strip()
+    selected       = request.form.getlist("services")
+
+    # Compute package_type for the image
+    if set(selected) >= set(ALL_SERVICES):
+        package_type = "PAKETA ALL INCLUSIVE"
+    elif selected:
+        package_type = " • ".join(selected)
+    else:
+        package_type = ""
+
+    # Compute includes for the caption
+    includes_raw = "\n".join(selected)
 
     bg_file = request.files.get("background")
     if not bg_file or bg_file.filename == "":
@@ -163,9 +183,9 @@ def generate():
         "destination":  destination,
         "days":         days,
         "nights":       nights,
+        "services":     selected,
         "package_type": package_type,
         "price":        price,
-        "includes":     includes_raw,
         "caption":      caption,
         "filename":     output_filename,
     }

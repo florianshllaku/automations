@@ -239,17 +239,6 @@
     overflow: hidden;
   }
 
-  .pkg-prefix {
-    font-family: 'Capriola', sans-serif;
-    font-weight: normal;
-    font-size: 26px;
-    color: rgba(255, 255, 255, 0.58);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
   .pkg-type {
     font-family: 'Capriola', sans-serif;
     font-weight: normal;
@@ -257,7 +246,12 @@
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 1px;
-    white-space: nowrap;
+    white-space: normal;
+    word-break: break-word;
+    text-align: center;
+    line-height: 1.25;
+    max-height: 90px;
+    overflow: hidden;
   }
 
   .price-block {
@@ -406,8 +400,7 @@
       </div>
       <div class="package-strip">
         <div class="package-label">
-          <span class="pkg-prefix">PAKETA</span>
-          <span class="pkg-type">{{ package_type }}</span>
+          <span class="pkg-type" id="pkgType">{{ package_type }}</span>
         </div>
         <div class="price-block">{{ price }}&#8364;</div>
       </div>
@@ -447,24 +440,31 @@
 
   <script>
     (function () {
+      // Auto-size hotel name
       var nameEl  = document.querySelector('.hotel-name');
       var labelEl = document.querySelector('.hotel-label');
       var rowEl   = document.querySelector('.hotel-row');
       var minPx = 40, maxPx = 68, best = 56;
-
       var lo = minPx, hi = maxPx;
       while (lo <= hi) {
         var mid = Math.floor((lo + hi) / 2);
         nameEl.style.fontSize = mid + 'px';
         var avail = rowEl.offsetWidth - labelEl.offsetWidth - 20 - 4;
-        if (nameEl.scrollWidth <= avail) {
-          best = mid;
-          lo   = mid + 1;
-        } else {
-          hi   = mid - 1;
-        }
+        if (nameEl.scrollWidth <= avail) { best = mid; lo = mid + 1; }
+        else { hi = mid - 1; }
       }
       nameEl.style.fontSize = best + 'px';
+
+      // Auto-size package type: shrink font until it fits within 2 lines (max-height 90px)
+      var pkgEl = document.getElementById('pkgType');
+      if (pkgEl) {
+        var pkgMax = 32, pkgMin = 18, pkgBest = pkgMax;
+        for (var s = pkgMax; s >= pkgMin; s--) {
+          pkgEl.style.fontSize = s + 'px';
+          if (pkgEl.scrollHeight <= 90) { pkgBest = s; break; }
+        }
+        pkgEl.style.fontSize = pkgBest + 'px';
+      }
     })();
   </script>
 </body>

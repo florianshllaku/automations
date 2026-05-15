@@ -229,6 +229,66 @@
   .btn-download:hover { background: var(--blue); color: #fff; }
   .btn-download.visible { display: block; }
 
+  /* ── Services checklist ── */
+  .services-list {
+    background: #111e35;
+    border: 1.5px solid var(--border);
+    border-radius: 9px;
+    overflow: hidden;
+  }
+
+  .svc-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 14px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.7);
+  }
+  .svc-item:last-child { border-bottom: none; }
+  .svc-item:hover { background: rgba(21,101,192,0.08); }
+  .svc-item input[type="checkbox"] { display: none; }
+
+  .svc-check {
+    width: 18px; height: 18px;
+    border: 2px solid #2a3f60;
+    border-radius: 5px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+    font-size: 11px;
+  }
+  .svc-item input:checked ~ .svc-check {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: #fff;
+  }
+  .svc-item input:checked ~ .svc-check::after { content: '✓'; }
+  .svc-item input:checked ~ .svc-name { color: #fff; }
+
+  .all-inclusive-badge {
+    display: none;
+    margin-top: 10px;
+    background: linear-gradient(135deg, #1565C0, #1976D2);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px 16px;
+    border-radius: 8px;
+  }
+  .all-inclusive-badge.show { display: block; }
+
   /* ── Caption box ── */
   .caption-box {
     display: none;
@@ -459,10 +519,47 @@
         </div>
       </div>
 
-      <!-- Includes -->
+      <!-- Services checklist -->
       <div class="field-full">
-        <label>Çfarë përfshihet (një rresht = një artikull)</label>
-        <textarea name="includes" rows="4" placeholder="Mëngjes&#10;Dreke&#10;Darkë&#10;Pishinë"></textarea>
+        <label>Shërbimet e Përfshira</label>
+        <div class="services-list" id="servicesList">
+          <label class="svc-item">
+            <input type="checkbox" name="services" value="Akomodimi">
+            <span class="svc-check"></span>
+            <span class="svc-name">Akomodimi</span>
+          </label>
+          <label class="svc-item">
+            <input type="checkbox" name="services" value="Mëngjesi">
+            <span class="svc-check"></span>
+            <span class="svc-name">Mëngjesi</span>
+          </label>
+          <label class="svc-item">
+            <input type="checkbox" name="services" value="Dreka">
+            <span class="svc-check"></span>
+            <span class="svc-name">Dreka</span>
+          </label>
+          <label class="svc-item">
+            <input type="checkbox" name="services" value="Darka">
+            <span class="svc-check"></span>
+            <span class="svc-name">Darka</span>
+          </label>
+          <label class="svc-item">
+            <input type="checkbox" name="services" value="Pije pa limit gjatë vakteve">
+            <span class="svc-check"></span>
+            <span class="svc-name">Pije pa limit gjatë vakteve</span>
+          </label>
+          <label class="svc-item">
+            <input type="checkbox" name="services" value="Pishina">
+            <span class="svc-check"></span>
+            <span class="svc-name">Pishina</span>
+          </label>
+          <label class="svc-item">
+            <input type="checkbox" name="services" value="Transporti hotel-plazh-hotel">
+            <span class="svc-check"></span>
+            <span class="svc-name">Transporti hotel-plazh-hotel</span>
+          </label>
+        </div>
+        <div class="all-inclusive-badge" id="allInclusiveBadge">✦ PAKETA ALL INCLUSIVE</div>
       </div>
 
       <button class="btn-generate" type="submit" id="genBtn">
@@ -527,6 +624,16 @@
 <div class="toast" id="toast"></div>
 
 <script>
+  // All-inclusive badge
+  const svcCheckboxes = document.querySelectorAll('input[name="services"]');
+  const allBadge = document.getElementById('allInclusiveBadge');
+  function updateBadge() {
+    const total = svcCheckboxes.length;
+    const checked = document.querySelectorAll('input[name="services"]:checked').length;
+    allBadge.classList.toggle('show', checked === total);
+  }
+  svcCheckboxes.forEach(cb => cb.addEventListener('change', updateBadge));
+
   // Upload zone
   const bgInput   = document.getElementById('bgInput');
   const uploadZone = document.getElementById('uploadZone');
