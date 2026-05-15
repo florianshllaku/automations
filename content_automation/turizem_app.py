@@ -27,6 +27,39 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 
+# ── Caption generator ────────────────────────────────────────────────────────
+
+def generate_caption(event_badge, destination, hotel_name, nights, days, price, includes_raw):
+    includes_lines = [l.strip() for l in includes_raw.splitlines() if l.strip()]
+    includes_str = "\n".join(f"✅ {item}" for item in includes_lines) if includes_lines else ""
+
+    city_tag = destination.lower().replace(" ", "")
+
+    name_of_offer = f"{event_badge} ~ {destination}" if event_badge else destination
+
+    caption = (
+        f"✨ {name_of_offer} ✨\n\n"
+        f"HOTEL  {hotel_name}\n"
+        f"{nights} net / {days} ditë vetëm {price}€ për person\n\n"
+        f"✅Transport deri tek Hoteli🏨\n\n"
+        f"Në çmim përfshihet:\n"
+        f"{includes_str}\n\n"
+        f"❗Verejtje: Bileta extra 20€ kthyese.\n"
+        f"• Pagesa bëhet përmes llogarisë bankare apo onefour ose në zyret tona.\n\n"
+        f"📍Na vizitoni:\n"
+        f"• Prishtinë (te sheshi Nena Tereze, perball kafes Corner)\n\n"
+        f"📞 Kontakt:\n"
+        f"038 / 232 323\n"
+        f"044 / 242 252 (Viber/WhatsApp)\n"
+        f"049 / 242 252\n\n\n"
+        f"📧 venturatravel@gmail.com\n"
+        f"🌐 venturatravel.net\n\n"
+        f"Ventura Travel - Gjithmonë pranë jush! ❤️\n\n"
+        f"#venturatravel #{city_tag} #hotel #oferta #udhetime"
+    )
+    return caption
+
+
 # ── Helpers ──────────────────────────────────────────────────────────────────
 
 def load_history():
@@ -77,7 +110,7 @@ def generate():
     if not session.get("logged_in"):
         return jsonify({"error": "Not authenticated"}), 401
 
-    event_badge  = request.form.get("event_badge", "")
+    event_badge  = request.form.get("event_badge", "").strip()
     hotel_label  = request.form.get("hotel_label", "HOTEL").strip() or "HOTEL"
     hotel_name   = request.form.get("hotel_name", "").strip()
     destination  = request.form.get("destination", "").strip()
@@ -85,6 +118,7 @@ def generate():
     nights       = request.form.get("nights", "1").strip()
     package_type = request.form.get("package_type", "").strip()
     price        = request.form.get("price", "").strip()
+    includes_raw = request.form.get("includes", "").strip()
 
     bg_file = request.files.get("background")
     if not bg_file or bg_file.filename == "":
@@ -118,6 +152,8 @@ def generate():
     finally:
         bg_path.unlink(missing_ok=True)
 
+    caption = generate_caption(event_badge, destination, hotel_name, nights, days, price, includes_raw)
+
     entry = {
         "id":           post_id,
         "timestamp":    datetime.now().strftime("%d %b %Y  %H:%M"),
@@ -129,6 +165,8 @@ def generate():
         "nights":       nights,
         "package_type": package_type,
         "price":        price,
+        "includes":     includes_raw,
+        "caption":      caption,
         "filename":     output_filename,
     }
     history = load_history()
@@ -139,6 +177,7 @@ def generate():
         "success":   True,
         "image_url": url_for("serve_output", filename=output_filename),
         "filename":  output_filename,
+        "caption":   caption,
         "entry":     entry,
     })
 

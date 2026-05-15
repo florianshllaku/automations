@@ -111,7 +111,7 @@
     margin-bottom: 7px;
   }
 
-  input[type="text"], input[type="number"] {
+  input[type="text"], input[type="number"], textarea {
     width: 100%;
     background: #111e35;
     border: 1.5px solid var(--border);
@@ -121,9 +121,11 @@
     padding: 11px 14px;
     outline: none;
     transition: border-color 0.2s;
+    font-family: inherit;
   }
-  input:focus { border-color: var(--blue); }
-  input::placeholder { color: rgba(255,255,255,0.22); }
+  input:focus, textarea:focus { border-color: var(--blue); }
+  input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.22); }
+  textarea { resize: vertical; line-height: 1.6; }
 
   /* ── Generate button ── */
   .btn-generate {
@@ -226,6 +228,56 @@
   }
   .btn-download:hover { background: var(--blue); color: #fff; }
   .btn-download.visible { display: block; }
+
+  /* ── Caption box ── */
+  .caption-box {
+    display: none;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+  }
+  .caption-box.visible { display: block; }
+  .caption-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  .caption-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .btn-copy {
+    background: rgba(21,101,192,0.15);
+    border: 1px solid rgba(21,101,192,0.4);
+    color: var(--blue);
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-copy:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+  .btn-copy.copied { background: #0d4a1f; border-color: #1a7a35; color: #4ade80; }
+  .caption-text {
+    width: 100%;
+    background: #0d1829;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: rgba(255,255,255,0.85);
+    font-size: 13px;
+    line-height: 1.7;
+    padding: 14px;
+    resize: none;
+    outline: none;
+    font-family: inherit;
+    min-height: 260px;
+  }
 
   /* ── Error toast ── */
   .toast {
@@ -407,6 +459,12 @@
         </div>
       </div>
 
+      <!-- Includes -->
+      <div class="field-full">
+        <label>Çfarë përfshihet (një rresht = një artikull)</label>
+        <textarea name="includes" rows="4" placeholder="Mëngjes&#10;Dreke&#10;Darkë&#10;Pishinë"></textarea>
+      </div>
+
       <button class="btn-generate" type="submit" id="genBtn">
         <div class="spinner" id="btnSpinner"></div>
         <span id="btnText">Gjenero Postin</span>
@@ -428,6 +486,15 @@
       </div>
     </div>
     <a href="#" class="btn-download" id="downloadBtn" download>Shkarko Postin</a>
+
+    <!-- Caption -->
+    <div class="caption-box" id="captionBox">
+      <div class="caption-header">
+        <span class="caption-label">Kapshoni i Gjeneruar</span>
+        <button class="btn-copy" id="copyBtn" onclick="copyCaption()">Kopjo</button>
+      </div>
+      <textarea class="caption-text" id="captionText" readonly></textarea>
+    </div>
   </div>
 
 </div>
@@ -486,16 +553,18 @@
   });
 
   // Form submit
-  const form       = document.getElementById('genForm');
-  const genBtn     = document.getElementById('genBtn');
-  const btnSpinner = document.getElementById('btnSpinner');
-  const btnText    = document.getElementById('btnText');
-  const previewImg = document.getElementById('previewImg');
-  const placeholder = document.getElementById('placeholder');
+  const form           = document.getElementById('genForm');
+  const genBtn         = document.getElementById('genBtn');
+  const btnSpinner     = document.getElementById('btnSpinner');
+  const btnText        = document.getElementById('btnText');
+  const previewImg     = document.getElementById('previewImg');
+  const placeholder    = document.getElementById('placeholder');
   const loadingOverlay = document.getElementById('loadingOverlay');
-  const downloadBtn = document.getElementById('downloadBtn');
-  const historyGrid = document.getElementById('historyGrid');
-  const toast      = document.getElementById('toast');
+  const downloadBtn    = document.getElementById('downloadBtn');
+  const captionBox     = document.getElementById('captionBox');
+  const captionText    = document.getElementById('captionText');
+  const historyGrid    = document.getElementById('historyGrid');
+  const toast          = document.getElementById('toast');
 
   function showToast(msg) {
     toast.textContent = msg;
@@ -503,10 +572,18 @@
     setTimeout(() => toast.classList.remove('show'), 3500);
   }
 
+  function copyCaption() {
+    navigator.clipboard.writeText(captionText.value).then(() => {
+      const btn = document.getElementById('copyBtn');
+      btn.textContent = 'Kopjuar!';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Kopjo'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Loading state
     genBtn.disabled = true;
     btnSpinner.style.display = 'block';
     btnText.textContent = 'Duke gjeneruar...';
@@ -531,6 +608,12 @@
       downloadBtn.href = data.image_url;
       downloadBtn.download = data.filename;
       downloadBtn.classList.add('visible');
+
+      // Show caption
+      if (data.caption) {
+        captionText.value = data.caption;
+        captionBox.classList.add('visible');
+      }
 
       // Prepend to history
       const empty = document.getElementById('emptyHistory');
