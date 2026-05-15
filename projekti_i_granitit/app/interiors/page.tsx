@@ -26,13 +26,29 @@ const projects = [
     type: "Office",
     image: "/images/noun-agency-02.png",
   },
+  {
+    slug: "fa-apartment",
+    title: "f.a. apartment",
+    location: "Kosovë, Prishtinë",
+    year: "2025",
+    type: "Residential",
+    image: "/images/header_POSTEDIT.png",
+  },
+  {
+    slug: "br-private-villa",
+    title: "br. private villa",
+    location: "Bern, Switzerland",
+    year: "2025",
+    type: "Residential",
+    image: "/images/header_POSTEDIT2.png",
+  },
 ]
 
 export default function InteriorsPage() {
   return (
-    <main className="pt-20 pb-20 bg-background flex-1">
-      {/* Hero Image */}
-      <div className="relative w-full aspect-[21/9] mb-12 lg:mb-20 overflow-hidden">
+    <main className="pb-20 bg-background flex-1">
+      {/* Hero Image — Full Viewport */}
+      <div className="relative w-full h-screen mb-16 lg:mb-24">
         <Image
           src="/images/interiors-hero-banner.png"
           alt="studiovendi interiors"
@@ -41,14 +57,15 @@ export default function InteriorsPage() {
           className="object-cover"
           sizes="100vw"
         />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/40" />
+        <div className="absolute bottom-10 left-6 lg:left-12">
+          <p className="text-white/60 text-xs tracking-[0.3em] uppercase font-light mb-2">studiovendi</p>
+          <h1 className="text-white text-5xl lg:text-7xl font-bold lowercase">interiors</h1>
+        </div>
       </div>
 
       {/* Content */}
       <div className="px-6 lg:px-12 max-w-4xl">
-        <h1 className="text-3xl lg:text-5xl font-bold mb-10 lg:mb-14 lowercase">
-          interiors
-        </h1>
-
         <div className="space-y-8 font-light text-base lg:text-lg leading-relaxed">
           <p>
             <span className="font-bold lowercase">studiovendi</span> places
@@ -92,14 +109,16 @@ export default function InteriorsPage() {
               href={`/interiors/${project.slug}`}
               className="group block relative overflow-hidden"
             >
-              <div className="relative w-full aspect-[4/3] overflow-hidden">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
+              <div className="relative w-full aspect-[4/3] overflow-hidden bg-neutral-100">
+                {project.image && (
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                )}
 
                 {/* Dark overlay fades in on hover */}
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-500 ease-out" />

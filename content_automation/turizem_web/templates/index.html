@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ventura Travel — Post Generator</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue:        #1565C0;
+    --blue-hover:  #1976D2;
+    --dark:        #040d1e;
+    --card:        #0a1628;
+    --border:      #1a2a45;
+    --muted:       rgba(255,255,255,0.45);
+    --text:        #ffffff;
+  }
+
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    min-height: 100vh;
+  }
+
+  /* ── Header ── */
+  header {
+    background: #060f22;
+    border-bottom: 1px solid var(--border);
+    padding: 0 32px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .brand { font-size: 20px; font-weight: 700; letter-spacing: -0.4px; }
+  .brand span { color: var(--blue); }
+
+  .logout {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: all 0.2s;
+  }
+  .logout:hover { color: #fff; border-color: rgba(255,255,255,0.3); }
+
+  /* ── Main grid ── */
+  .main {
+    display: grid;
+    grid-template-columns: 440px 1fr;
+    gap: 24px;
+    padding: 28px 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ── Card ── */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+  }
+
+  .card-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 22px;
+  }
+
+  /* ── Upload zone ── */
+  .upload-zone {
+    border: 2px dashed var(--border);
+    border-radius: 12px;
+    padding: 28px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    margin-bottom: 22px;
+    position: relative;
+  }
+  .upload-zone:hover, .upload-zone.drag { border-color: var(--blue); background: rgba(21,101,192,0.06); }
+  .upload-zone input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+  .upload-icon { font-size: 28px; margin-bottom: 8px; }
+  .upload-label { font-size: 14px; color: var(--muted); }
+  .upload-label strong { color: var(--blue); }
+  .upload-name { font-size: 13px; color: var(--text); margin-top: 6px; display: none; }
+
+  /* ── Form fields ── */
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .field-full { margin-bottom: 14px; }
+
+  label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 7px;
+  }
+
+  input[type="text"], input[type="number"] {
+    width: 100%;
+    background: #111e35;
+    border: 1.5px solid var(--border);
+    border-radius: 9px;
+    color: #fff;
+    font-size: 15px;
+    padding: 11px 14px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  input:focus { border-color: var(--blue); }
+  input::placeholder { color: rgba(255,255,255,0.22); }
+
+  /* ── Generate button ── */
+  .btn-generate {
+    width: 100%;
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 15px;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    transition: background 0.2s, transform 0.1s;
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .btn-generate:hover { background: var(--blue-hover); }
+  .btn-generate:active { transform: scale(0.99); }
+  .btn-generate:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  .spinner {
+    width: 18px; height: 18px;
+    border: 2.5px solid rgba(255,255,255,0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    display: none;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── Preview panel ── */
+  .preview-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .preview-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    aspect-ratio: 4/5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .preview-placeholder {
+    text-align: center;
+    color: var(--muted);
+  }
+  .preview-placeholder .ph-icon { font-size: 40px; margin-bottom: 12px; opacity: 0.4; }
+  .preview-placeholder p { font-size: 14px; }
+
+  .preview-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    display: none;
+  }
+
+  .preview-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(4,13,30,0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+  }
+  .preview-overlay.active { display: flex; }
+  .big-spinner {
+    width: 48px; height: 48px;
+    border: 4px solid rgba(255,255,255,0.2);
+    border-top-color: var(--blue);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  .btn-download {
+    display: none;
+    background: #0f2040;
+    border: 1.5px solid var(--blue);
+    color: var(--blue);
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 13px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s;
+    letter-spacing: 0.3px;
+  }
+  .btn-download:hover { background: var(--blue); color: #fff; }
+  .btn-download.visible { display: block; }
+
+  /* ── Error toast ── */
+  .toast {
+    position: fixed;
+    bottom: 28px; left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: #3d0a0a;
+    border: 1px solid #7a1a1a;
+    color: #ff8a8a;
+    border-radius: 10px;
+    padding: 14px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: transform 0.3s;
+    z-index: 999;
+    white-space: nowrap;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* ── History ── */
+  .history-section {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    padding: 0 32px;
+  }
+
+  .history-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+
+  .history-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+  }
+
+  .history-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .history-card:hover { border-color: var(--blue); }
+
+  .history-thumb {
+    aspect-ratio: 4/5;
+    overflow: hidden;
+  }
+  .history-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .history-info {
+    padding: 10px 12px 12px;
+  }
+  .history-hotel {
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 2px;
+  }
+  .history-dest {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .history-date {
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 8px;
+  }
+  .history-dl {
+    display: block;
+    text-align: center;
+    background: rgba(21,101,192,0.15);
+    border: 1px solid rgba(21,101,192,0.4);
+    color: var(--blue);
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .history-dl:hover { background: var(--blue); color: #fff; }
+
+  .empty-history {
+    color: var(--muted);
+    font-size: 14px;
+    padding: 20px 0;
+  }
+
+  @media (max-width: 860px) {
+    .main { grid-template-columns: 1fr; }
+    .preview-box { aspect-ratio: auto; min-height: 300px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">Ventura <span>Travel</span> &nbsp;<span style="color:rgba(255,255,255,0.25);font-weight:400;font-size:14px;">Post Generator</span></div>
+  <a href="/logout" class="logout">Dil</a>
+</header>
+
+<div class="main">
+
+  <!-- ── Form ── -->
+  <div class="card">
+    <div class="card-title">Krijo Post të Ri</div>
+
+    <form id="genForm" enctype="multipart/form-data">
+
+      <!-- Upload -->
+      <div class="upload-zone" id="uploadZone">
+        <input type="file" name="background" id="bgInput" accept="image/*" required>
+        <div class="upload-icon">🖼️</div>
+        <div class="upload-label">Tërhiq imazhin këtu ose <strong>kliko</strong></div>
+        <div class="upload-name" id="uploadName"></div>
+      </div>
+
+      <!-- Offer name -->
+      <div class="field-full">
+        <label>Emri i Ofertes (Event Badge)</label>
+        <input type="text" name="event_badge" placeholder="p.sh. Festa e Bajramit në">
+      </div>
+
+      <!-- Hotel label + Hotel name -->
+      <div class="field-row">
+        <div>
+          <label>Lloji</label>
+          <input type="text" name="hotel_label" placeholder="HOTEL" value="HOTEL">
+        </div>
+        <div>
+          <label>Emri i Hotelit</label>
+          <input type="text" name="hotel_name" placeholder="p.sh. Morina Beach" required>
+        </div>
+      </div>
+
+      <!-- Destination -->
+      <div class="field-full">
+        <label>Vendndodhja</label>
+        <input type="text" name="destination" placeholder="p.sh. Vlorë" required>
+      </div>
+
+      <!-- Days + Nights -->
+      <div class="field-row">
+        <div>
+          <label>Ditë</label>
+          <input type="number" name="days" placeholder="2" min="1" required>
+        </div>
+        <div>
+          <label>Netë</label>
+          <input type="number" name="nights" placeholder="1" min="1" required>
+        </div>
+      </div>
+
+      <!-- Package + Price -->
+      <div class="field-row">
+        <div>
+          <label>Lloji i Paketës</label>
+          <input type="text" name="package_type" placeholder="All Inclusive" required>
+        </div>
+        <div>
+          <label>Çmimi (€)</label>
+          <input type="number" name="price" placeholder="90" min="0" required>
+        </div>
+      </div>
+
+      <button class="btn-generate" type="submit" id="genBtn">
+        <div class="spinner" id="btnSpinner"></div>
+        <span id="btnText">Gjenero Postin</span>
+      </button>
+
+    </form>
+  </div>
+
+  <!-- ── Preview ── -->
+  <div class="preview-panel">
+    <div class="preview-box" id="previewBox">
+      <div class="preview-placeholder" id="placeholder">
+        <div class="ph-icon">✦</div>
+        <p>Posti juaj do të shfaqet këtu</p>
+      </div>
+      <img id="previewImg" alt="Generated post">
+      <div class="preview-overlay" id="loadingOverlay">
+        <div class="big-spinner"></div>
+      </div>
+    </div>
+    <a href="#" class="btn-download" id="downloadBtn" download>Shkarko Postin</a>
+  </div>
+
+</div>
+
+<!-- ── History ── -->
+<div class="history-section">
+  <div class="history-title">Historiku</div>
+  <div class="history-grid" id="historyGrid">
+    {% if history %}
+      {% for entry in history %}
+      <div class="history-card" id="card-{{ entry.id }}">
+        <div class="history-thumb">
+          <img src="/output/{{ entry.filename }}" alt="{{ entry.hotel_name }}" loading="lazy">
+        </div>
+        <div class="history-info">
+          <div class="history-hotel">{{ entry.hotel_name }}</div>
+          <div class="history-dest">{{ entry.destination }}</div>
+          <div class="history-date">{{ entry.timestamp }}</div>
+          <a class="history-dl" href="/output/{{ entry.filename }}" download="{{ entry.filename }}">Shkarko</a>
+        </div>
+      </div>
+      {% endfor %}
+    {% else %}
+      <div class="empty-history" id="emptyHistory">Ende nuk ka postime të gjeneruara.</div>
+    {% endif %}
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+  // Upload zone
+  const bgInput   = document.getElementById('bgInput');
+  const uploadZone = document.getElementById('uploadZone');
+  const uploadName = document.getElementById('uploadName');
+
+  bgInput.addEventListener('change', () => {
+    if (bgInput.files[0]) {
+      uploadName.textContent = bgInput.files[0].name;
+      uploadName.style.display = 'block';
+    }
+  });
+
+  ['dragover','dragenter'].forEach(e => uploadZone.addEventListener(e, ev => {
+    ev.preventDefault(); uploadZone.classList.add('drag');
+  }));
+  ['dragleave','drop'].forEach(e => uploadZone.addEventListener(e, () => uploadZone.classList.remove('drag')));
+  uploadZone.addEventListener('drop', ev => {
+    ev.preventDefault();
+    if (ev.dataTransfer.files[0]) {
+      bgInput.files = ev.dataTransfer.files;
+      uploadName.textContent = ev.dataTransfer.files[0].name;
+      uploadName.style.display = 'block';
+    }
+  });
+
+  // Form submit
+  const form       = document.getElementById('genForm');
+  const genBtn     = document.getElementById('genBtn');
+  const btnSpinner = document.getElementById('btnSpinner');
+  const btnText    = document.getElementById('btnText');
+  const previewImg = document.getElementById('previewImg');
+  const placeholder = document.getElementById('placeholder');
+  const loadingOverlay = document.getElementById('loadingOverlay');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const historyGrid = document.getElementById('historyGrid');
+  const toast      = document.getElementById('toast');
+
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3500);
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Loading state
+    genBtn.disabled = true;
+    btnSpinner.style.display = 'block';
+    btnText.textContent = 'Duke gjeneruar...';
+    loadingOverlay.classList.add('active');
+
+    try {
+      const fd = new FormData(form);
+      const res = await fetch('/generate', { method: 'POST', body: fd });
+      const data = await res.json();
+
+      if (!res.ok || data.error) {
+        showToast(data.error || 'Gabim gjatë gjenerimit.');
+        return;
+      }
+
+      // Show image
+      previewImg.src = data.image_url + '?t=' + Date.now();
+      previewImg.style.display = 'block';
+      placeholder.style.display = 'none';
+
+      // Download button
+      downloadBtn.href = data.image_url;
+      downloadBtn.download = data.filename;
+      downloadBtn.classList.add('visible');
+
+      // Prepend to history
+      const empty = document.getElementById('emptyHistory');
+      if (empty) empty.remove();
+
+      const e2 = data.entry;
+      const card = document.createElement('div');
+      card.className = 'history-card';
+      card.id = 'card-' + e2.id;
+      card.innerHTML = `
+        <div class="history-thumb">
+          <img src="${data.image_url}?t=${Date.now()}" alt="${e2.hotel_name}" loading="lazy">
+        </div>
+        <div class="history-info">
+          <div class="history-hotel">${e2.hotel_name}</div>
+          <div class="history-dest">${e2.destination}</div>
+          <div class="history-date">${e2.timestamp}</div>
+          <a class="history-dl" href="${data.image_url}" download="${e2.filename}">Shkarko</a>
+        </div>`;
+      historyGrid.prepend(card);
+
+    } catch(err) {
+      showToast('Lidhja dështoi. Provo përsëri.');
+    } finally {
+      genBtn.disabled = false;
+      btnSpinner.style.display = 'none';
+      btnText.textContent = 'Gjenero Postin';
+      loadingOverlay.classList.remove('active');
+    }
+  });
+</script>
+</body>
+</html>

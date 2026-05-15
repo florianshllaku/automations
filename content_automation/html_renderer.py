@@ -9,11 +9,10 @@ Usage (standalone test):
 import tempfile
 from pathlib import Path
 
-import numpy as np
-from PIL import Image
 from playwright.sync_api import sync_playwright
 
 from config import ASSETS_DIR
+from utils import file_url, strip_white_bg
 
 HANDLE       = "sharp_group"
 ASSETS       = ASSETS_DIR / HANDLE
@@ -25,26 +24,6 @@ TEMPLATE_MAP = {
     "default": TEMPLATES_DIR / "sharp_group.html",
     "orange":  TEMPLATES_DIR / "sharp_group_orange.html",
 }
-
-
-def _file_url(path: Path) -> str:
-    return path.resolve().as_uri()
-
-
-def _strip_white_bg(src: Path, dst: Path, threshold: int = 240) -> Path:
-    """Remove near-white background from a PNG logo, crop internal padding, save to dst."""
-    img  = Image.open(src).convert("RGBA")
-    data = np.array(img, dtype=np.uint8)
-    r, g, b, a = data[:,:,0], data[:,:,1], data[:,:,2], data[:,:,3]
-    white_mask = (r >= threshold) & (g >= threshold) & (b >= threshold)
-    data[:,:,3] = np.where(white_mask, 0, a)
-    result = Image.fromarray(data)
-    # Crop to bounding box to remove internal transparent padding
-    bbox = result.getbbox()
-    if bbox:
-        result = result.crop(bbox)
-    result.save(dst)
-    return dst
 
 
 def render_post(bg_path: Path, post_text: str, output_path: Path, cta_text: str = None, template: str = "default") -> Path:
@@ -63,13 +42,13 @@ def render_post(bg_path: Path, post_text: str, output_path: Path, cta_text: str 
 
     # Strip white background from logo into a temp file
     tmp_logo = Path(tempfile.mktemp(suffix="_logo.png"))
-    _strip_white_bg(LOGO_PATH, tmp_logo)
+    strip_white_bg(LOGO_PATH, tmp_logo)
 
     # Inject file:// URLs for local assets
-    html = html.replace("{{ bg_image }}",    _file_url(bg_path))
-    html = html.replace("{{ logo }}",        _file_url(tmp_logo))
-    html = html.replace("{{ font_bold }}",   _file_url(FONTS_DIR / "Poppins-Bold.ttf"))
-    html = html.replace("{{ font_semibold }}", _file_url(FONTS_DIR / "Poppins-SemiBold.ttf"))
+    html = html.replace("{{ bg_image }}",    file_url(bg_path))
+    html = html.replace("{{ logo }}",        file_url(tmp_logo))
+    html = html.replace("{{ font_bold }}",   file_url(FONTS_DIR / "Poppins-Bold.ttf"))
+    html = html.replace("{{ font_semibold }}", file_url(FONTS_DIR / "Poppins-SemiBold.ttf"))
     clean_text = post_text.replace("<br>", "\n").replace("<br/>", "\n").replace("<br />", "\n")
     html = html.replace("{{ post_text }}",   clean_text)
     html = html.replace("{{ cta_text }}",    cta_text or "")

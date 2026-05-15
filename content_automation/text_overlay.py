@@ -4,13 +4,12 @@
 """
 
 import json
-import re
-import base64
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 from openai import OpenAI
 from google import genai as google_genai
 from config import OPENAI_API_KEY, OPENAI_MODEL, GEMINI_API_KEY, ASSETS_DIR, INSTAGRAM_WIDTH, INSTAGRAM_HEIGHT
+from utils import encode_image, extract_json_from_text
 
 client        = OpenAI(api_key=OPENAI_API_KEY)
 gemini_client = google_genai.Client(api_key=GEMINI_API_KEY)
@@ -27,11 +26,6 @@ WHITE  = (255, 255, 255)
 
 LOGO_WIDTH = 900   # px — width the logo is scaled to
 LOGO_Y     = 150   # px — distance from top of image
-
-
-def encode_image(path: Path) -> str:
-    with open(path, "rb") as f:
-        return base64.b64encode(f.read()).decode("utf-8")
 
 
 # ── GPT Vision: where to place text ───────────────────────────────────────────
@@ -154,10 +148,7 @@ def get_placement_options_gemini(image_path: Path, post_text: str, n: int = 3) -
             model=GEMINI_MODEL,
             contents=[prompt, img],
         )
-        raw = response.text.strip()
-        raw = re.sub(r"^```[a-z]*\n?", "", raw)
-        raw = re.sub(r"\n?```$", "", raw)
-        placement = json.loads(raw.strip())
+        placement = extract_json_from_text(response.text)
         options.append(placement)
         print(f"    Option {len(options)} [{style_name}]: {placement}")
 

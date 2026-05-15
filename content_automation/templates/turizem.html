@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  @font-face {
+    font-family: 'Poppins';
+    font-weight: 700;
+    src: url('{{ font_poppins }}') format('truetype');
+  }
+  @font-face {
+    font-family: 'BrittanySignature';
+    font-weight: normal;
+    src: url('{{ font_brittany }}') format('truetype');
+  }
+  @font-face {
+    font-family: 'Exo2';
+    font-weight: 600;
+    src: url('{{ font_exo2 }}') format('opentype');
+  }
+  @font-face {
+    font-family: 'Capriola';
+    font-weight: normal;
+    src: url('{{ font_capriola }}') format('truetype');
+  }
+  @font-face {
+    font-family: 'Biryani';
+    font-weight: normal;
+    src: url('{{ font_biryani }}') format('truetype');
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body, html {
+    width: 1080px;
+    height: 1350px;
+    overflow: hidden;
+    background: #040d1e;
+  }
+
+  .canvas {
+    position: relative;
+    width: 1080px;
+    height: 1350px;
+    font-family: 'Poppins', Arial, sans-serif;
+  }
+
+  /* ── Background photo ── */
+  .bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('{{ bg_image }}');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+  }
+
+  /* ── Top gradient overlay ── */
+  .overlay-top {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 420px;
+    background: linear-gradient(
+      to bottom,
+      rgba(4, 13, 40, 0.92) 0%,
+      rgba(4, 13, 40, 0.55) 60%,
+      transparent 100%
+    );
+    z-index: 2;
+  }
+
+  /* ── Bottom fade overlay ── */
+  .overlay-bottom {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 460px;
+    background: linear-gradient(
+      to top,
+      rgba(4, 13, 40, 0.96) 0%,
+      rgba(4, 13, 40, 0.75) 40%,
+      rgba(4, 13, 40, 0.30) 70%,
+      transparent 100%
+    );
+    z-index: 2;
+  }
+
+  /* ── Logo ── */
+  .logo-wrap {
+    position: absolute;
+    top: 44px;
+    left: 0; right: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+  }
+
+  .logo-wrap img {
+    height: 118px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  /* ── Header content block ── */
+  .header-block {
+    position: absolute;
+    top: 200px;
+    left: 0; right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+    padding: 0 80px;
+    gap: 18px;
+  }
+
+  /* Event badge pill */
+  .event-badge {
+    background: #1565C0;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 52px;
+    border-radius: 50px;
+    display: inline-block;
+    line-height: 1.1;
+  }
+
+  .event-badge.hidden {
+    display: none;
+  }
+
+  /* Wrapper: hotel row + destination */
+  .hotel-block {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+  }
+
+  .hotel-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .hotel-label {
+    background: #1565C0;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 10px 26px;
+    border-radius: 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    align-self: center;
+  }
+
+  .hotel-name {
+    font-family: 'BrittanySignature', sans-serif;
+    font-weight: normal;
+    font-size: 62px;   /* JS will auto-size this */
+    color: #fff;
+    letter-spacing: 1px;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  /* Destination — right-aligned to the hotel name edge */
+  .destination {
+    font-family: 'Biryani', sans-serif;
+    font-weight: normal;
+    font-size: 36px;
+    color: rgba(255, 255, 255, 0.68);
+    letter-spacing: 8px;
+    text-transform: uppercase;
+  }
+
+  /* ── Bottom zone: duration + package ── */
+  .bottom-zone {
+    position: absolute;
+    bottom: 168px;
+    left: 0; right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+    z-index: 10;
+    padding: 0 60px;
+  }
+
+  /* Duration pill */
+  .duration-pill {
+    background: #1565C0;
+    border: none;
+    border-radius: 50px;
+    padding: 6px 36px;
+    color: #fff;
+    font-family: 'Biryani', sans-serif;
+    font-weight: normal;
+    font-size: 33px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 34px;
+  }
+
+  .dur-sep {
+    width: 2px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.32);
+    border-radius: 1px;
+    flex-shrink: 0;
+  }
+
+  /* Package + price strip */
+  .package-strip {
+    width: 100%;
+    height: 110px;
+    display: flex;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .package-label {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 36px;
+    gap: 12px;
+    overflow: hidden;
+  }
+
+  .pkg-prefix {
+    font-family: 'Capriola', sans-serif;
+    font-weight: normal;
+    font-size: 26px;
+    color: rgba(255, 255, 255, 0.58);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .pkg-type {
+    font-family: 'Capriola', sans-serif;
+    font-weight: normal;
+    font-size: 32px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  .price-block {
+    background: #1565C0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 50px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 76px;
+    color: #fff;
+    letter-spacing: -1px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ── Contact info — transparent, sits on bottom fade ── */
+  .contact-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0; right: 0;
+    height: 168px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px 0 60px;
+    z-index: 10;
+  }
+
+  .phone-block {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .phone-circle {
+    width: 80px;
+    height: 80px;
+    background: #1565C0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+    color: #fff;
+  }
+
+  .phone-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+
+  .phone-prefixes {
+    font-family: 'Exo2', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.58);
+    letter-spacing: 0.3px;
+  }
+
+  .phone-number {
+    font-family: 'Exo2', sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    color: #fff;
+    letter-spacing: 0.5px;
+  }
+
+  .center-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .website-block {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 23px;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 0.3px;
+  }
+
+  .payment-pill {
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 10px;
+    padding: 5px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .transport-icons {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .t-icon {
+    width: 80px;
+    height: 80px;
+    background: #1565C0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+  <div class="canvas">
+
+    <div class="bg"></div>
+    <div class="overlay-top"></div>
+    <div class="overlay-bottom"></div>
+
+    <!-- Logo -->
+    <div class="logo-wrap">
+      <img src="{{ logo }}" alt="Ventura Travel">
+    </div>
+
+    <!-- Header: event badge + hotel block -->
+    <div class="header-block">
+      <div class="event-badge">{{ event_badge }}</div>
+      <div class="hotel-block">
+        <div class="hotel-row">
+          <div class="hotel-label">{{ hotel_label }}</div>
+          <div class="hotel-name">{{ hotel_name }}</div>
+        </div>
+        <div class="destination">{{ destination }}</div>
+      </div>
+    </div>
+
+    <!-- Bottom zone: duration + package -->
+    <div class="bottom-zone">
+      <div class="duration-pill">
+        <span style="display:flex;align-items:center;gap:10px;"><img src="{{ sun_icon }}" style="width:52px;height:52px;object-fit:contain;display:block;"> {{ days }} Dit&#235;</span>
+        <div class="dur-sep"></div>
+        <span style="display:flex;align-items:center;gap:10px;"><img src="{{ moon_icon }}" style="width:52px;height:52px;object-fit:contain;display:block;"> {{ nights }} Nat&#235;</span>
+      </div>
+      <div class="package-strip">
+        <div class="package-label">
+          <span class="pkg-prefix">PAKETA</span>
+          <span class="pkg-type">{{ package_type }}</span>
+        </div>
+        <div class="price-block">{{ price }}&#8364;</div>
+      </div>
+    </div>
+
+    <!-- Contact info — no background, floats on bottom fade -->
+    <div class="contact-bar">
+      <div class="phone-block">
+        <div class="phone-circle" style="background:none; padding:0;">
+          <img src="{{ phone_icon }}" style="width:80px; height:80px; object-fit:contain; display:block;">
+        </div>
+        <div class="phone-text">
+          <span class="phone-prefixes">038 / 044 / 049</span>
+          <span class="phone-number">232 323</span>
+        </div>
+      </div>
+      <div class="center-block">
+        <div class="website-block">www.venturatravel.net</div>
+        <div class="payment-pill">
+          <img src="{{ payment_icon }}" style="height:36px; width:auto; object-fit:contain; display:block;">
+        </div>
+      </div>
+      <div class="transport-icons">
+        <div class="t-icon" style="background:none; padding:0;">
+          <img src="{{ bus_icon }}" style="width:80px; height:80px; object-fit:contain; display:block;">
+        </div>
+        <div class="t-icon" style="background:none; padding:0;">
+          <img src="{{ beach_icon }}" style="width:80px; height:80px; object-fit:contain; display:block;">
+        </div>
+        <div class="t-icon" style="background:none; padding:0;">
+          <img src="{{ luggage_icon }}" style="width:80px; height:80px; object-fit:contain; display:block;">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    (function () {
+      var nameEl  = document.querySelector('.hotel-name');
+      var labelEl = document.querySelector('.hotel-label');
+      var rowEl   = document.querySelector('.hotel-row');
+      var minPx = 40, maxPx = 68, best = 56;
+
+      var lo = minPx, hi = maxPx;
+      while (lo <= hi) {
+        var mid = Math.floor((lo + hi) / 2);
+        nameEl.style.fontSize = mid + 'px';
+        var avail = rowEl.offsetWidth - labelEl.offsetWidth - 20 - 4;
+        if (nameEl.scrollWidth <= avail) {
+          best = mid;
+          lo   = mid + 1;
+        } else {
+          hi   = mid - 1;
+        }
+      }
+      nameEl.style.fontSize = best + 'px';
+    })();
+  </script>
+</body>
+</html>

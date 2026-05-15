@@ -26,14 +26,14 @@ export function InteriorNav({ prev, next }: InteriorNavProps) {
 
   return (
     <div
-      className={`fixed bottom-14 left-1/2 -translate-x-1/2 z-40 flex items-center gap-10 transition-opacity duration-300 ${
+      className={`fixed bottom-14 left-1/2 -translate-x-1/2 z-40 flex items-center gap-4 md:gap-10 w-[90vw] md:w-auto justify-between md:justify-normal transition-opacity duration-300 ${
         visible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
       }`}
     >
       {prev ? (
         <Link
           href={prev.href}
-          className="text-sm font-light lowercase bg-white/80 backdrop-blur-sm px-4 py-2 hover:opacity-60 transition-opacity"
+          className="text-sm font-light lowercase bg-white/80 backdrop-blur-sm px-4 py-3 hover:opacity-60 transition-opacity"
         >
           ← {prev.label}
         </Link>
@@ -43,7 +43,7 @@ export function InteriorNav({ prev, next }: InteriorNavProps) {
       {next ? (
         <Link
           href={next.href}
-          className="text-sm font-light lowercase bg-white/80 backdrop-blur-sm px-4 py-2 hover:opacity-60 transition-opacity"
+          className="text-sm font-light lowercase bg-white/80 backdrop-blur-sm px-4 py-3 hover:opacity-60 transition-opacity"
         >
           {next.label} →
         </Link>

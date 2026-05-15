@@ -1063,6 +1063,29 @@
         "likes": 0,
         "comments": 0
       }
+    },
+    {
+      "id": 50,
+      "date": "2026-05-11",
+      "post_type": "trend",
+      "headline": "Zhurma vizible <span class='hl'>krijon</span> besim. Heshtja joaktive e <span class='hl'>shuan</span> atë.",
+      "body_text": "",
+      "caption": "Pasiguritë nuk lindin nga mungesa e klientëve, por nga një komunikim i paqartë dhe jostabil. Kur mosaktiviteti zë hapësirën e duhura për të folur, çdo ulje në tempo e çon biznesin drejt harresës dhe mungesës së besimit. Mos u dorëzo ndaj heshtjes. Qëndro i dukshëm dhe bëhu autoritet në tregun tënd. #Biznes #Besim #KomunikimiKonsistent #StrategjiaESuksesit Behu me i mprehte me ne.",
+      "visual_description": "Full shot editorial photography of a professional man in a matte black turtleneck, positioned strictly in the bottom 45% of the frame. He is holding a sleek smartphone; the screen is clearly visible a",
+      "image_path": "C:\\Users\\flori\\OneDrive\\Desktop\\n'shpi\\automations-1\\content_automation\\output\\sharp_group\\post_027_final.jpg",
+      "image_variants": [
+        "C:\\Users\\flori\\OneDrive\\Desktop\\n'shpi\\automations-1\\content_automation\\output\\sharp_group\\post_027_final.jpg",
+        "C:\\Users\\flori\\OneDrive\\Desktop\\n'shpi\\automations-1\\content_automation\\output\\sharp_group\\post_027_gpt_ref.jpg"
+      ],
+      "colors_used": [
+        "#FF8643",
+        "#080808",
+        "#FFFFFF"
+      ],
+      "engagement": {
+        "likes": 0,
+        "comments": 0
+      }
     }
   ]
 }

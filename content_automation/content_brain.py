@@ -5,14 +5,13 @@ Content brain:
 """
 
 import json
-import re
-import base64
 import random
 from pathlib import Path
 from PIL import Image
 from openai import OpenAI
 from google import genai as google_genai
 from config import OPENAI_API_KEY, OPENAI_MODEL, GEMINI_API_KEY, PROFILES_DIR, HISTORY_DIR, ASSETS_DIR
+from utils import extract_json_from_text
 
 GEMINI_MODEL = "gemini-3-flash-preview"
 
@@ -38,11 +37,6 @@ def pick_reference_images(handle: str, n: int = 3) -> list[Path]:
     upload_dir = ASSETS_DIR / handle / "uploaded_posts"
     all_images = list(upload_dir.glob("*.jpg")) + list(upload_dir.glob("*.png"))
     return random.sample(all_images, min(n, len(all_images)))
-
-
-def encode_image(path: Path) -> str:
-    with open(path, "rb") as f:
-        return base64.b64encode(f.read()).decode("utf-8")
 
 
 # -- CALL 1: Theme + Albanian text + caption  (ChatGPT) ------------------------
@@ -198,15 +192,8 @@ Respond with ONLY valid JSON, nothing else:
             model=GEMINI_MODEL,
             contents=contents,
         )
-        raw = response.text.strip()
-        raw = re.sub(r"^```[a-z]*\n?", "", raw)
-        raw = re.sub(r"\n?```$", "", raw)
-        raw = raw.strip()
-        m = re.search(r'\{.*\}', raw, re.DOTALL)
-        if m:
-            raw = m.group(0)
         try:
-            data = json.loads(raw)
+            data = extract_json_from_text(response.text)
             print(f"  Visual concept: {data['visual_concept']}")
             return [data["prompt"]]
         except (json.JSONDecodeError, KeyError) as e:

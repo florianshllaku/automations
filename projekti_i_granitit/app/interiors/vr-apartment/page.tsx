@@ -14,23 +14,23 @@ const gallery = [
 
 export default function VRApartmentPage() {
   return (
-    <main className="pt-20 pb-20 bg-background flex-1">
-      {/* Hero image - natural aspect ratio, centered at 50% width */}
-      <div className="relative w-full mb-12 lg:mb-20 flex justify-center">
+    <main className="pb-20 bg-background flex-1">
+      {/* Hero — Full Viewport */}
+      <div className="relative w-full h-screen mb-16 lg:mb-24 overflow-hidden">
         <img
           src={gallery[0].src}
           alt={gallery[0].alt}
-          className="w-1/2 h-auto"
+          className="absolute inset-0 w-full h-full object-cover"
         />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/40" />
+        <div className="absolute bottom-10 left-6 lg:left-12">
+          <p className="text-white/60 text-xs tracking-[0.3em] uppercase font-light mb-2">studiovendi</p>
+          <h1 className="text-white text-5xl lg:text-7xl font-bold lowercase">v.r. apartment</h1>
+        </div>
       </div>
 
       {/* Content Container */}
       <div className="px-6 lg:px-12 max-w-6xl mx-auto">
-        {/* Title */}
-        <h1 className="text-5xl lg:text-6xl font-bold mb-8 lowercase">
-          v.r. apartment
-        </h1>
-
         {/* Metadata Grid */}
         <dl className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 pb-16 border-b border-border">
           <div>
@@ -57,7 +57,7 @@ export default function VRApartmentPage() {
       </div>
 
       {/* Project Description - same width as images */}
-      <div className="w-1/2 mx-auto mb-12 lg:mb-16 space-y-5 font-light text-sm lg:text-base leading-relaxed">
+      <div className="w-full px-6 md:px-0 md:w-1/2 mx-auto mb-12 lg:mb-16 space-y-5 font-light text-sm lg:text-base leading-relaxed">
         <p>This environment represents an elegant interweaving of neoclassical and contemporary styles, where a special attention is paid to symmetry and noble materials such as marble and wood.</p>
         <p>The living space is dominated by a marble fireplace with its own ash that stands as a reference point, surrounded by wall frames that give structure and a kind of architectural order to the room. The media wall is conceived as a collage of textures, where the wood panel with vertical veins breaks the coldness of the calacatta marble, while an integrated library on the side adds a functional element that fills the volume. A very artistic detail is the organically shaped mirror and the hanging lampshade that resembles tree branches with white flowers, bringing a sense of naturalness to an environment with mainly straight lines.</p>
         <p>Moving towards the kitchen area, the design takes on a more "shaker" and traditional character, but refreshed with neutral colors such as "greige" and browns. The dark center island serves as a strong visual contrast to the rest of the furnishings, connecting beautifully with the marble surface that is repeated here as well. The use of metal mesh on the cabinet doors and open shelves gives the kitchen a slightly European rustic feel, while modern stainless steel appliances keep it firmly within our time.</p>
@@ -67,7 +67,7 @@ export default function VRApartmentPage() {
       {/* Gallery - centered at 50% width, stacked images at natural aspect ratios */}
       <div className="flex flex-col gap-3 lg:gap-6 items-center">
         {gallery.slice(1).map((img) => (
-          <div key={img.src} className="relative w-1/2">
+          <div key={img.src} className="relative w-full md:w-1/2">
             <img
               src={img.src}
               alt={img.alt}

@@ -74,7 +74,7 @@
   .hero p {
     font-size: 18px;
     color: var(--muted);
-    max-width: 600px;
+    max-width: 640px;
     margin: 0 auto 36px;
   }
   .hero-stats {
@@ -163,12 +163,11 @@
   /* node color schemes */
   .n-trigger .pipe-icon { background: linear-gradient(135deg, #1e3a5f, #2563eb22); border: 1.5px solid #3b82f6; }
   .n-gpt .pipe-icon     { background: linear-gradient(135deg, #064e3b, #10b98122); border: 1.5px solid #10b981; }
+  .n-refs .pipe-icon    { background: linear-gradient(135deg, #14532d, #22c55e22); border: 1.5px solid #22c55e; }
   .n-gemini .pipe-icon  { background: linear-gradient(135deg, #3b0764, #a855f722); border: 1.5px solid #a855f7; }
   .n-fal .pipe-icon     { background: linear-gradient(135deg, #7c2d12, #ff680b22); border: 1.5px solid var(--orange); }
-  .n-overlay .pipe-icon { background: linear-gradient(135deg, #1e3a5f, #0ea5e922); border: 1.5px solid #0ea5e9; }
-  .n-refine .pipe-icon  { background: linear-gradient(135deg, #3b0764, #d946ef22); border: 1.5px solid #d946ef; }
+  .n-render .pipe-icon  { background: linear-gradient(135deg, #1e3a5f, #0ea5e922); border: 1.5px solid #0ea5e9; }
   .n-output .pipe-icon  { background: linear-gradient(135deg, #14532d, #22c55e22); border: 1.5px solid #22c55e; }
-  .n-post .pipe-icon    { background: linear-gradient(135deg, #7c2d12, #f97316); border: 1.5px solid var(--orange-light); }
 
   /* ─── PIPELINE LEGEND ─── */
   .pipe-legend {
@@ -220,18 +219,14 @@
   .step-card.c-purple::before { background: #a855f7; }
   .step-card.c-orange::before { background: var(--orange); }
   .step-card.c-sky::before    { background: #0ea5e9; }
-  .step-card.c-pink::before   { background: #ec4899; }
   .step-card.c-emerald::before{ background: #10b981; }
-  .step-card.c-red::before    { background: #ef4444; }
 
   .step-card:hover.c-blue   { border-color: #3b82f6; }
   .step-card:hover.c-green  { border-color: #22c55e; }
   .step-card:hover.c-purple { border-color: #a855f7; }
   .step-card:hover.c-orange { border-color: var(--orange); }
   .step-card:hover.c-sky    { border-color: #0ea5e9; }
-  .step-card:hover.c-pink   { border-color: #ec4899; }
   .step-card:hover.c-emerald{ border-color: #10b981; }
-  .step-card:hover.c-red    { border-color: #ef4444; }
 
   .step-header {
     display: flex;
@@ -255,9 +250,7 @@
   .step-card.c-purple .step-num { background: #7e22ce; }
   .step-card.c-orange .step-num { background: var(--orange); }
   .step-card.c-sky    .step-num { background: #0284c7; }
-  .step-card.c-pink   .step-num { background: #be185d; }
   .step-card.c-emerald .step-num{ background: #047857; }
-  .step-card.c-red    .step-num { background: #b91c1c; }
 
   .step-title { font-size: 17px; font-weight: 700; color: var(--white); }
   .step-engine {
@@ -314,7 +307,7 @@
   /* ─── AI MODELS ROW ─── */
   .models-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 16px;
   }
   .model-card {
@@ -464,6 +457,73 @@
   .text-white  { color: var(--white); }
   .fw-bold     { font-weight: 700; }
 
+  /* ─── GALLERY ─── */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 900px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .gallery-grid { grid-template-columns: 1fr; }
+  }
+  .gallery-item {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--card);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .gallery-item:hover {
+    transform: translateY(-4px);
+    border-color: var(--orange);
+    box-shadow: 0 18px 40px rgba(255,104,11,0.18);
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .gallery-item .badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(10,10,10,0.78);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,104,11,0.45);
+    color: var(--orange);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 100px;
+    z-index: 2;
+  }
+  .gallery-item .caption {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(10,10,10,0.78);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 12px;
+    color: #ddd;
+    z-index: 2;
+  }
+  .gallery-item .caption strong { color: var(--white); display: block; margin-bottom: 2px; font-size: 12px; }
+  .gallery-item .caption span    { color: var(--muted); font-size: 11px; }
+
   /* ─── RESPONSIVE ─── */
   @media (max-width: 768px) {
     .hero { padding: 40px 24px; }
@@ -481,22 +541,22 @@
 <div class="hero">
   <div class="hero-badge">AI-Powered Content Pipeline</div>
   <h1>From <span>Zero to Post</span><br>Fully Automated.</h1>
-  <p>A multi-model AI system that generates, designs, refines, and publishes brand content — with zero manual effort.</p>
+  <p>A multi-model AI system that briefs, designs, and renders publish-ready brand content from a single CLI command — no manual design step, no template fiddling.</p>
   <div class="hero-stats">
     <div class="stat">
-      <span class="stat-number">6</span>
-      <span class="stat-label">AI Stages</span>
+      <span class="stat-number">5</span>
+      <span class="stat-label">Pipeline Stages</span>
     </div>
     <div class="stat">
       <span class="stat-number">3</span>
       <span class="stat-label">AI Models</span>
     </div>
     <div class="stat">
-      <span class="stat-number">4</span>
-      <span class="stat-label">Image Variants</span>
+      <span class="stat-number">2</span>
+      <span class="stat-label">Render Templates</span>
     </div>
     <div class="stat">
-      <span class="stat-number">~3 min</span>
+      <span class="stat-number">~2 min</span>
       <span class="stat-label">Full Run Time</span>
     </div>
   </div>
@@ -518,7 +578,7 @@
       <div class="pipe-node n-trigger">
         <div class="pipe-icon">⚡</div>
         <div class="pipe-label">Trigger</div>
-        <div class="pipe-sub">Command / Timer</div>
+        <div class="pipe-sub">CLI command</div>
       </div>
       <div class="pipe-arrow">
         <svg viewBox="0 0 36 16" fill="none">
@@ -531,7 +591,20 @@
       <div class="pipe-node n-gpt">
         <div class="pipe-icon">🧠</div>
         <div class="pipe-label">GPT-4o</div>
-        <div class="pipe-sub">Content Brain</div>
+        <div class="pipe-sub">Content Brief</div>
+      </div>
+      <div class="pipe-arrow">
+        <svg viewBox="0 0 36 16" fill="none">
+          <path d="M0 8 L26 8" stroke="#444" stroke-width="2"/>
+          <path d="M22 3 L30 8 L22 13" stroke="#FF680B" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+
+      <!-- REFS -->
+      <div class="pipe-node n-refs">
+        <div class="pipe-icon">🖼️</div>
+        <div class="pipe-label">Pick Refs</div>
+        <div class="pipe-sub">3 random posts</div>
       </div>
       <div class="pipe-arrow">
         <svg viewBox="0 0 36 16" fill="none">
@@ -544,7 +617,7 @@
       <div class="pipe-node n-gemini">
         <div class="pipe-icon">👁️</div>
         <div class="pipe-label">Gemini Vision</div>
-        <div class="pipe-sub">Image Strategy</div>
+        <div class="pipe-sub">Image Prompt</div>
       </div>
       <div class="pipe-arrow">
         <svg viewBox="0 0 36 16" fill="none">
@@ -556,8 +629,8 @@
       <!-- FAL -->
       <div class="pipe-node n-fal">
         <div class="pipe-icon">🎨</div>
-        <div class="pipe-label">Fal.ai ×4</div>
-        <div class="pipe-sub">Image Gen</div>
+        <div class="pipe-label">Fal.ai</div>
+        <div class="pipe-sub">GPT-Image-2/edit</div>
       </div>
       <div class="pipe-arrow">
         <svg viewBox="0 0 36 16" fill="none">
@@ -566,24 +639,11 @@
         </svg>
       </div>
 
-      <!-- OVERLAY -->
-      <div class="pipe-node n-overlay">
-        <div class="pipe-icon">✍️</div>
-        <div class="pipe-label">Text Overlay</div>
-        <div class="pipe-sub">Pillow + Gemini</div>
-      </div>
-      <div class="pipe-arrow">
-        <svg viewBox="0 0 36 16" fill="none">
-          <path d="M0 8 L26 8" stroke="#444" stroke-width="2"/>
-          <path d="M22 3 L30 8 L22 13" stroke="#FF680B" stroke-width="2" fill="none"/>
-        </svg>
-      </div>
-
-      <!-- REFINE -->
-      <div class="pipe-node n-refine">
-        <div class="pipe-icon">🔄</div>
-        <div class="pipe-label">AI Refinement</div>
-        <div class="pipe-sub">Auto QA Loop</div>
+      <!-- RENDER -->
+      <div class="pipe-node n-render">
+        <div class="pipe-icon">🧩</div>
+        <div class="pipe-label">HTML Render</div>
+        <div class="pipe-sub">Playwright</div>
       </div>
       <div class="pipe-arrow">
         <svg viewBox="0 0 36 16" fill="none">
@@ -595,21 +655,8 @@
       <!-- OUTPUT -->
       <div class="pipe-node n-output">
         <div class="pipe-icon">📸</div>
-        <div class="pipe-label">Final Posts</div>
-        <div class="pipe-sub">4 Variants</div>
-      </div>
-      <div class="pipe-arrow">
-        <svg viewBox="0 0 36 16" fill="none">
-          <path d="M0 8 L26 8" stroke="#444" stroke-width="2"/>
-          <path d="M22 3 L30 8 L22 13" stroke="#FF680B" stroke-width="2" fill="none"/>
-        </svg>
-      </div>
-
-      <!-- PUBLISH -->
-      <div class="pipe-node n-post">
-        <div class="pipe-icon">🚀</div>
-        <div class="pipe-label">Publish</div>
-        <div class="pipe-sub">Instagram · TikTok</div>
+        <div class="pipe-label">Final Post</div>
+        <div class="pipe-sub">+ history log</div>
       </div>
 
     </div>
@@ -620,7 +667,7 @@
         Entry Point
       </div>
       <div class="legend-item">
-        <div class="legend-dot" style="background:#22c55e;"></div>
+        <div class="legend-dot" style="background:#10b981;"></div>
         GPT-4o (OpenAI)
       </div>
       <div class="legend-item">
@@ -633,7 +680,7 @@
       </div>
       <div class="legend-item">
         <div class="legend-dot" style="background:#0ea5e9;"></div>
-        Pillow (Python)
+        Playwright + HTML
       </div>
       <div class="legend-item">
         <div class="legend-dot" style="background:#22c55e;"></div>
@@ -660,70 +707,26 @@
       <div class="step-header">
         <div class="step-num">1</div>
         <div>
-          <div class="step-title">Content Generation</div>
-          <div class="step-engine">Engine: GPT-4o (OpenAI)</div>
+          <div class="step-title">Content Brief</div>
+          <div class="step-engine">GPT-4o</div>
         </div>
       </div>
       <div class="step-desc">
-        The system reads the brand guidelines and the last 10 post history entries to avoid repetition. GPT-4o is asked to act as a senior content strategist and return a structured JSON brief — complete with a theme, on-image headline in Albanian, and a full Instagram caption with hashtags.
-      </div>
-      <div class="io-row">
-        <div class="io-box">
-          <div class="io-title in">Inputs</div>
-          <ul class="io-list">
-            <li>BRAND.md guidelines</li>
-            <li>Post history (last 10)</li>
-            <li>Business profile JSON</li>
-          </ul>
-        </div>
-        <div class="io-box">
-          <div class="io-title out">Outputs</div>
-          <ul class="io-list">
-            <li>Post type (tip / case study…)</li>
-            <li>Theme (English, internal)</li>
-            <li>Headline (Albanian)</li>
-            <li>Caption + hashtags</li>
-          </ul>
-        </div>
-      </div>
-      <div class="tags">
-        <span class="tag">Anti-repetition logic</span>
-        <span class="tag">Albanian text</span>
-        <span class="tag">JSON output</span>
+        Reads the brand guide and recent post history, then writes the Albanian headline and caption.
       </div>
     </div>
 
     <!-- STEP 2 -->
-    <div class="step-card c-green">
+    <div class="step-card c-emerald">
       <div class="step-header">
         <div class="step-num">2</div>
         <div>
-          <div class="step-title">Reference Image Selection</div>
-          <div class="step-engine">Engine: Local File System</div>
+          <div class="step-title">Reference Images</div>
+          <div class="step-engine">Local Library</div>
         </div>
       </div>
       <div class="step-desc">
-        Three real past posts are randomly sampled from the brand's uploaded content library. These serve as visual "style anchors" — showing the AI what the brand actually looks like in practice, not just what the guidelines say. This dramatically improves visual consistency across all output.
-      </div>
-      <div class="io-row">
-        <div class="io-box">
-          <div class="io-title in">Inputs</div>
-          <ul class="io-list">
-            <li>uploaded_posts/ folder</li>
-            <li>All past brand images</li>
-          </ul>
-        </div>
-        <div class="io-box">
-          <div class="io-title out">Outputs</div>
-          <ul class="io-list">
-            <li>3 random reference images</li>
-            <li>Passed to Gemini Vision</li>
-          </ul>
-        </div>
-      </div>
-      <div class="tags">
-        <span class="tag">Visual style anchoring</span>
-        <span class="tag">Brand consistency</span>
+        Picks 3 random past posts to anchor the new visual to the brand's real look.
       </div>
     </div>
 
@@ -732,36 +735,12 @@
       <div class="step-header">
         <div class="step-num">3</div>
         <div>
-          <div class="step-title">Image Prompt Generation</div>
-          <div class="step-engine">Engine: Gemini Vision (Google)</div>
+          <div class="step-title">Image Prompt</div>
+          <div class="step-engine">Gemini Vision</div>
         </div>
       </div>
       <div class="step-desc">
-        Gemini Vision receives the 3 reference images, the content theme, the post headline, and the brand guidelines. It analyzes all of this to craft a precise, detailed generation prompt for Fal.ai — specifying scene concept, color palette, material textures, lighting style, object placement, and composition rules.
-      </div>
-      <div class="io-row">
-        <div class="io-box">
-          <div class="io-title in">Inputs</div>
-          <ul class="io-list">
-            <li>3 reference images</li>
-            <li>Content theme</li>
-            <li>BRAND.md</li>
-            <li>Post headline</li>
-          </ul>
-        </div>
-        <div class="io-box">
-          <div class="io-title out">Outputs</div>
-          <ul class="io-list">
-            <li>Visual concept (1 sentence)</li>
-            <li>Full Fal.ai prompt</li>
-            <li>Scene + lighting brief</li>
-          </ul>
-        </div>
-      </div>
-      <div class="tags">
-        <span class="tag">Multimodal AI</span>
-        <span class="tag">Brand-aligned prompting</span>
-        <span class="tag">No text in image</span>
+        Studies the references and writes a detailed image-generation prompt, alternating between people and 3D graphics.
       </div>
     </div>
 
@@ -770,38 +749,12 @@
       <div class="step-header">
         <div class="step-num">4</div>
         <div>
-          <div class="step-title">Background Image Generation</div>
-          <div class="step-engine">Engine: Fal.ai (4 parallel calls)</div>
+          <div class="step-title">Background Image</div>
+          <div class="step-engine">Fal.ai · GPT-Image-2</div>
         </div>
       </div>
       <div class="step-desc">
-        Four background images are generated simultaneously using two different AI models in two modes each: with and without visual references. This creates a diverse set of options — some creatively free, others tightly aligned to brand history. The best are surfaced for selection.
-      </div>
-      <div class="io-row">
-        <div class="io-box">
-          <div class="io-title in">Inputs</div>
-          <ul class="io-list">
-            <li>Fal.ai prompt</li>
-            <li>Reference images (optional)</li>
-            <li>4:5 aspect ratio spec</li>
-          </ul>
-        </div>
-        <div class="io-box">
-          <div class="io-title out">Outputs</div>
-          <ul class="io-list">
-            <li>nano_noref.jpg</li>
-            <li>nano_ref.jpg</li>
-            <li>gpt_noref.jpg</li>
-            <li>gpt_ref.jpg</li>
-          </ul>
-        </div>
-      </div>
-      <div class="tags">
-        <span class="tag">4 variants</span>
-        <span class="tag">1080×1350px</span>
-        <span class="tag">4K quality</span>
-        <span class="tag">nano-banana-pro</span>
-        <span class="tag">gpt-image-2</span>
+        Generates a single 1080×1350 background using the prompt and the 3 references — no text, no logos.
       </div>
     </div>
 
@@ -810,147 +763,26 @@
       <div class="step-header">
         <div class="step-num">5</div>
         <div>
-          <div class="step-title">Text + Logo Overlay</div>
-          <div class="step-engine">Engine: Gemini Vision + Pillow</div>
+          <div class="step-title">Final Render</div>
+          <div class="step-engine">Playwright + HTML</div>
         </div>
       </div>
       <div class="step-desc">
-        For each background, Gemini Vision analyzes the image and returns three different layout philosophies (bold, minimal, centered). The Python Pillow library then executes the chosen layout: placing the logo, sizing and wrapping the headline, drawing optional contrast overlays, adding the brand accent bar, and applying text shadows for maximum readability.
-      </div>
-      <div class="io-row">
-        <div class="io-box">
-          <div class="io-title in">Inputs</div>
-          <ul class="io-list">
-            <li>4 background images</li>
-            <li>Albanian headline</li>
-            <li>Gemini layout choices</li>
-          </ul>
-        </div>
-        <div class="io-box">
-          <div class="io-title out">Outputs</div>
-          <ul class="io-list">
-            <li>Logo placed (top center)</li>
-            <li>Headline rendered</li>
-            <li>Overlay + accent bar</li>
-            <li>4 complete post images</li>
-          </ul>
-        </div>
-      </div>
-      <div class="tags">
-        <span class="tag">3 layout options</span>
-        <span class="tag">Poppins font</span>
-        <span class="tag">Orange accent</span>
-        <span class="tag">Text shadows</span>
+        Drops the background, logo, headline and optional CTA into an HTML template and screenshots it at 1080×1350.
       </div>
     </div>
 
     <!-- STEP 6 -->
-    <div class="step-card c-pink">
+    <div class="step-card c-green">
       <div class="step-header">
         <div class="step-num">6</div>
         <div>
-          <div class="step-title">AI Quality Refinement Loop</div>
-          <div class="step-engine">Engine: Gemini Vision (iterative)</div>
+          <div class="step-title">History Log</div>
+          <div class="step-engine">Local JSON</div>
         </div>
       </div>
       <div class="step-desc">
-        The completed post is sent back to Gemini Vision for a quality review. Gemini scores the design out of 10 and gives specific improvement notes. If the score is below 9, the layout parameters are adjusted and the image is re-rendered. This loop runs until the AI itself approves the result — or a maximum of 8 rounds.
-      </div>
-      <div class="io-row">
-        <div class="io-box">
-          <div class="io-title in">Inputs</div>
-          <ul class="io-list">
-            <li>Rendered post image</li>
-            <li>Current layout settings</li>
-          </ul>
-        </div>
-        <div class="io-box">
-          <div class="io-title out">Outputs</div>
-          <ul class="io-list">
-            <li>Score /10</li>
-            <li>Design feedback</li>
-            <li>Updated layout params</li>
-            <li>Refined final image</li>
-          </ul>
-        </div>
-      </div>
-      <div class="tags">
-        <span class="tag">Auto QA</span>
-        <span class="tag">Score threshold: 9/10</span>
-        <span class="tag">Max 8 rounds</span>
-      </div>
-    </div>
-
-    <!-- STEP 7 -->
-    <div class="step-card c-emerald">
-      <div class="step-header">
-        <div class="step-num">7</div>
-        <div>
-          <div class="step-title">History Logging</div>
-          <div class="step-engine">Engine: Local JSON Database</div>
-        </div>
-      </div>
-      <div class="step-desc">
-        Every generated post is catalogued with full metadata — post type, headline, caption, visual description, all image paths, colors used, and engagement placeholders. This history feeds back into Step 1 to prevent content repetition and maintain strategic variety across weeks of posting.
-      </div>
-      <div class="io-row">
-        <div class="io-box">
-          <div class="io-title in">Inputs</div>
-          <ul class="io-list">
-            <li>All post metadata</li>
-            <li>4 final image paths</li>
-            <li>Caption + type</li>
-          </ul>
-        </div>
-        <div class="io-box">
-          <div class="io-title out">Outputs</div>
-          <ul class="io-list">
-            <li>history/sharp_group.json</li>
-            <li>Feeds next run's context</li>
-          </ul>
-        </div>
-      </div>
-      <div class="tags">
-        <span class="tag">Feedback loop</span>
-        <span class="tag">Engagement tracking</span>
-        <span class="tag">No repetition</span>
-      </div>
-    </div>
-
-    <!-- STEP 8 -->
-    <div class="step-card c-red">
-      <div class="step-header">
-        <div class="step-num">8</div>
-        <div>
-          <div class="step-title">Publish to Social Media</div>
-          <div class="step-engine">Engine: Platform APIs</div>
-        </div>
-      </div>
-      <div class="step-desc">
-        The selected image variant and its caption are posted directly to social platforms via their official APIs. The system handles authentication, media upload, caption injection with hashtags, and post scheduling — making the human's only job choosing which of the 4 variants to go live with.
-      </div>
-      <div class="io-row">
-        <div class="io-box">
-          <div class="io-title in">Inputs</div>
-          <ul class="io-list">
-            <li>Selected post image</li>
-            <li>Albanian caption</li>
-            <li>Hashtags</li>
-          </ul>
-        </div>
-        <div class="io-box">
-          <div class="io-title out">Outputs</div>
-          <ul class="io-list">
-            <li>Live Instagram post</li>
-            <li>Live TikTok post</li>
-            <li>Engagement metrics back</li>
-          </ul>
-        </div>
-      </div>
-      <div class="tags">
-        <span class="tag">Instagram API</span>
-        <span class="tag">TikTok API</span>
-        <span class="tag">Auto-caption</span>
+        Saves the run so the next post can avoid repeating themes, headlines or visual styles.
       </div>
     </div>
 
@@ -964,8 +796,8 @@
 <hr class="divider">
 <div class="section">
   <div class="section-label">Technology Stack</div>
-  <div class="section-title">The AI Models Powering This</div>
-  <div class="section-sub">Three world-class models — each doing what they do best.</div>
+  <div class="section-title">The Models &amp; Engines Powering This</div>
+  <div class="section-sub">Three AI models plus a deterministic render engine — each doing what they do best.</div>
 
   <div class="models-grid">
     <div class="model-card" style="border-color:#10b981;">
@@ -973,134 +805,61 @@
       <div class="model-name">GPT-4o</div>
       <div class="model-role">Content Strategy &amp; Copy</div>
       <div class="model-badge" style="background:rgba(16,185,129,0.1);color:#10b981;border:1px solid rgba(16,185,129,0.3);">OpenAI</div>
-      <div style="margin-top:12px; font-size:12px; color:var(--muted);">Writes all brand copy, captions, themes, and strategic content briefs. Understands Albanian language nuances and brand tone.</div>
+      <div style="margin-top:12px; font-size:12px; color:var(--muted);">Writes the brief: post type, theme, Albanian headline with highlight spans, and full caption. Tuned to brand voice via BRAND.md section 15.</div>
     </div>
     <div class="model-card" style="border-color:#a855f7;">
       <div class="model-icon" style="background:linear-gradient(135deg,#3b0764,#a855f722); border:1.5px solid #a855f7;">👁️</div>
-      <div class="model-name">Gemini Vision</div>
-      <div class="model-role">Visual Analysis &amp; QA</div>
+      <div class="model-name">Gemini 3 Flash Preview</div>
+      <div class="model-role">Visual Director</div>
       <div class="model-badge" style="background:rgba(168,85,247,0.1);color:#a855f7;border:1px solid rgba(168,85,247,0.3);">Google</div>
-      <div style="margin-top:12px; font-size:12px; color:var(--muted);">Analyzes images, crafts generation prompts, decides text placement, and scores final posts. Runs up to 8× per post.</div>
+      <div style="margin-top:12px; font-size:12px; color:var(--muted);">Reads the 3 reference images and BRAND.md, then writes a single, opinionated Fal.ai prompt with full scene, lighting, and palette specs.</div>
     </div>
     <div class="model-card" style="border-color:var(--orange);">
       <div class="model-icon" style="background:linear-gradient(135deg,#7c2d12,#ff680b22); border:1.5px solid var(--orange);">🎨</div>
-      <div class="model-name">Fal.ai Flux</div>
-      <div class="model-role">Background Image Generation</div>
-      <div class="model-badge" style="background:rgba(255,104,11,0.1);color:var(--orange);border:1px solid rgba(255,104,11,0.3);">Fal.ai</div>
-      <div style="margin-top:12px; font-size:12px; color:var(--muted);">Generates photorealistic 4K backgrounds in brand palette. Uses nano-banana-pro and gpt-image-2 models for variety.</div>
+      <div class="model-name">GPT-Image-2 (edit)</div>
+      <div class="model-role">Background Generation</div>
+      <div class="model-badge" style="background:rgba(255,104,11,0.1);color:var(--orange);border:1px solid rgba(255,104,11,0.3);">via Fal.ai</div>
+      <div style="margin-top:12px; font-size:12px; color:var(--muted);">Generates the 1080×1350 background using the prompt + 3 reference images as edit signals. Photorealistic, brand palette, no text.</div>
     </div>
     <div class="model-card" style="border-color:#0ea5e9;">
-      <div class="model-icon" style="background:linear-gradient(135deg,#0c4a6e,#0ea5e922); border:1.5px solid #0ea5e9;">🐍</div>
-      <div class="model-name">Pillow (Python)</div>
-      <div class="model-role">Pixel-Perfect Image Rendering</div>
-      <div class="model-badge" style="background:rgba(14,165,233,0.1);color:#0ea5e9;border:1px solid rgba(14,165,233,0.3);">Python</div>
-      <div style="margin-top:12px; font-size:12px; color:var(--muted);">Executes the AI's layout decisions with pixel precision: fonts, shadows, overlays, logo sizing, spacing, brand colors.</div>
+      <div class="model-icon" style="background:linear-gradient(135deg,#0c4a6e,#0ea5e922); border:1.5px solid #0ea5e9;">🎭</div>
+      <div class="model-name">Playwright + HTML</div>
+      <div class="model-role">Pixel-Perfect Render</div>
+      <div class="model-badge" style="background:rgba(14,165,233,0.1);color:#0ea5e9;border:1px solid rgba(14,165,233,0.3);">Chromium</div>
+      <div style="margin-top:12px; font-size:12px; color:var(--muted);">Screenshots a fully styled HTML template at 1080×1350. Handles fonts, logo, headline auto-fit, accent line and CTA button — deterministically.</div>
     </div>
   </div>
 
-  <!-- API Calls table -->
-  <div style="margin-top:40px; background:var(--card); border:1px solid var(--border); border-radius:16px; overflow:hidden;">
-    <div style="padding:20px 24px; border-bottom:1px solid var(--border);">
-      <div style="font-size:14px; font-weight:700; color:var(--white);">API Calls Per Post Generated</div>
-      <div style="font-size:12px; color:var(--muted); margin-top:2px;">What the system does every single run</div>
-    </div>
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>Stage</th>
-          <th>Model</th>
-          <th>Calls</th>
-          <th>Purpose</th>
-          <th>Output Type</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Content Brief</td>
-          <td class="td-model">GPT-4o</td>
-          <td><span class="td-tag" style="background:rgba(34,197,94,0.1);color:#22c55e;">×1</span></td>
-          <td>Generate post type, theme, Albanian headline, caption</td>
-          <td>JSON</td>
-        </tr>
-        <tr>
-          <td>Image Prompt</td>
-          <td class="td-model">Gemini Vision</td>
-          <td><span class="td-tag" style="background:rgba(168,85,247,0.1);color:#a855f7;">×1</span></td>
-          <td>Analyze references → craft background gen prompt</td>
-          <td>Text prompt</td>
-        </tr>
-        <tr>
-          <td>Background Gen</td>
-          <td class="td-model">Fal.ai</td>
-          <td><span class="td-tag" style="background:rgba(255,104,11,0.1);color:var(--orange);">×4</span></td>
-          <td>Generate 4 background image variants</td>
-          <td>JPEG images</td>
-        </tr>
-        <tr>
-          <td>Text Placement</td>
-          <td class="td-model">Gemini Vision</td>
-          <td><span class="td-tag" style="background:rgba(168,85,247,0.1);color:#a855f7;">×3 per variant</span></td>
-          <td>Analyze each background, decide layout options</td>
-          <td>Layout JSON</td>
-        </tr>
-        <tr>
-          <td>QA Refinement</td>
-          <td class="td-model">Gemini Vision</td>
-          <td><span class="td-tag" style="background:rgba(236,72,153,0.1);color:#ec4899;">×1–8</span></td>
-          <td>Score design, suggest improvements, iterate</td>
-          <td>Score + params</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
 </div>
 
 
 <!-- ═══════════════════════════════════════════════
-     FINAL OUTPUTS
+     REAL OUTPUT GALLERY
 ════════════════════════════════════════════════ -->
 <hr class="divider">
 <div class="section">
-  <div class="section-label">What Gets Created</div>
-  <div class="section-title">The Final Deliverables</div>
-  <div class="section-sub">Everything the system produces in a single automated run.</div>
+  <div class="section-label">Real Outputs</div>
+  <div class="section-title">Posts the System Has Actually Made</div>
+  <div class="section-sub">Six real, end-to-end runs — straight from the pipeline, no manual touch-ups.</div>
 
-  <div class="output-grid">
-    <div class="output-card">
-      <div class="output-icon">🖼️</div>
-      <div class="output-title">4 Post Variants</div>
-      <div class="output-desc">Four fully composed images — two model approaches, each with and without visual references. Pick the best one.</div>
-      <div class="output-spec">1080 × 1350px · JPEG · 95% quality</div>
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="output/sharp_group/test_person_3d_final.jpg" alt="Sharp Group post">
     </div>
-    <div class="output-card">
-      <div class="output-icon">📝</div>
-      <div class="output-title">Instagram Caption</div>
-      <div class="output-desc">Up to 120 words in Albanian, strategically written with hashtags and a fixed CTA phrase at the end.</div>
-      <div class="output-spec">Albanian · Hashtags · CTA</div>
+    <div class="gallery-item">
+      <img src="output/sharp_group/post_025_final.jpg" alt="Sharp Group post">
     </div>
-    <div class="output-card">
-      <div class="output-icon">🗂️</div>
-      <div class="output-title">Post History Record</div>
-      <div class="output-desc">JSON log of every post: type, headline, caption, image paths, colors, dates, and engagement slots ready to fill.</div>
-      <div class="output-spec">history/sharp_group.json</div>
+    <div class="gallery-item">
+      <img src="output/sharp_group/post_020_final.jpg" alt="Sharp Group post">
     </div>
-    <div class="output-card">
-      <div class="output-icon">📋</div>
-      <div class="output-title">Refinement Log</div>
-      <div class="output-desc">Full transcript of every AI design review round — what was scored, what feedback was given, what changed.</div>
-      <div class="output-spec">gemini_refinement_log.txt</div>
+    <div class="gallery-item">
+      <img src="output/sharp_group/post_019_final.jpg" alt="Sharp Group post">
     </div>
-    <div class="output-card">
-      <div class="output-icon">🌐</div>
-      <div class="output-title">Web Management UI</div>
-      <div class="output-desc">A local web app to browse all generated posts, view captions, manage history, and prepare content for upload.</div>
-      <div class="output-spec">localhost:5050</div>
+    <div class="gallery-item">
+      <img src="output/sharp_group/post_013_final.jpg" alt="Sharp Group post">
     </div>
-    <div class="output-card">
-      <div class="output-icon">📊</div>
-      <div class="output-title">Design Analysis</div>
-      <div class="output-desc">GPT-4o Vision analyzes all past posts to extract visual patterns — used to keep future content on-brand automatically.</div>
-      <div class="output-spec">vision_analysis.txt</div>
+    <div class="gallery-item">
+      <img src="output/sharp_group/post_011_final.jpg" alt="Sharp Group post">
     </div>
   </div>
 </div>
@@ -1113,28 +872,38 @@
 <div class="section">
   <div class="section-label">Brand Enforcement</div>
   <div class="section-title">How Brand Consistency is Enforced</div>
-  <div class="section-sub">BRAND.md is injected into every single AI call — not just once, at every stage.</div>
+  <div class="section-sub">BRAND.md is injected into every AI call — Step 1, Step 3 — and the render templates encode the visual rules in HTML/CSS.</div>
 
   <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:20px;">
     <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;">
       <div style="font-size:22px;margin-bottom:12px;">🎨</div>
       <div style="font-weight:700;color:var(--white);margin-bottom:8px;">Color System</div>
-      <div style="font-size:13px;color:var(--muted);line-height:1.7;">Three strict colors: <span style="color:#F9F9F9;">■</span> Off-white #F9F9F9 background, <span style="color:var(--orange);">■</span> Orange #FF680B accent, <span style="color:#888;">■</span> Black #000000 text. Any AI call that proposes anything outside these is overridden.</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.7;">Three strict colors: off-white #F9F9F9 background, orange #FF680B accent, black #000000 text. The orange template inverts to a saturated orange field with white text. Any AI suggestion outside this palette is overridden by the template.</div>
     </div>
     <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;">
       <div style="font-size:22px;margin-bottom:12px;">🔤</div>
       <div style="font-weight:700;color:var(--white);margin-bottom:8px;">Typography</div>
-      <div style="font-size:13px;color:var(--muted);line-height:1.7;">Poppins font, Bold and SemiBold weights only. Headlines up to 15 words max. All on-image text is Albanian. Logo placed top-center, scaled to 900px width.</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.7;">Poppins, Bold and SemiBold only. Headlines max 15 words. Highlight spans render in brand orange. JavaScript auto-fits the headline so long copy and short copy both look intentional.</div>
     </div>
     <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;">
       <div style="font-size:22px;margin-bottom:12px;">📐</div>
       <div style="font-weight:700;color:var(--white);margin-bottom:8px;">Composition Rules</div>
-      <div style="font-size:13px;color:var(--muted);line-height:1.7;">4:5 vertical format (1080×1350px). 3D objects fill lower 40% of frame. Top center is reserved for logo and headline. No objects compete with text.</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.7;">4:5 vertical (1080×1350). Logo top-center, headline below, optional accent line / CTA button on the left. Hero objects live in the lower 40% so nothing competes with the text block.</div>
     </div>
     <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;">
       <div style="font-size:22px;margin-bottom:12px;">💬</div>
       <div style="font-weight:700;color:var(--white);margin-bottom:8px;">Voice &amp; Tone</div>
-      <div style="font-size:13px;color:var(--muted);line-height:1.7;">Performance-first, strategic, direct. Never motivational fluff. All captions end with the fixed CTA: "Behu me i mprehte me ne." — every single time.</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.7;">Performance-first, sharp, no motivational fluff. Captions always end with the fixed phrase "Behu me i mprehte me ne." — enforced by the GPT prompt itself.</div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;">
+      <div style="font-size:22px;margin-bottom:12px;">🔁</div>
+      <div style="font-weight:700;color:var(--white);margin-bottom:8px;">Style Alternation</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.7;">The pipeline reads the previous post's visual description and forces the next post into the opposite mode — 3D abstract graphics ↔ real-person editorial — so the feed never looks repetitive.</div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;">
+      <div style="font-size:22px;margin-bottom:12px;">🚫</div>
+      <div style="font-weight:700;color:var(--white);margin-bottom:8px;">No-Repeat Memory</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.7;">GPT receives the last 3 post types and last 5 headlines as a block list. Any duplicate is rejected before generation, not after.</div>
     </div>
   </div>
 </div>
@@ -1148,50 +917,50 @@
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;">
     <div>
       <div class="section-label">Run Sequence</div>
-      <div class="section-title" style="margin-bottom:36px;">A Post is Born in ~3 Minutes</div>
+      <div class="section-title" style="margin-bottom:36px;">A Post is Born in ~2 Minutes</div>
 
       <div class="timeline">
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-label">T + 0s</div>
           <div class="tl-title">Command fires</div>
-          <div class="tl-desc">py generator.py sharp_group — loads brand profile, reads post history, spins up all API clients.</div>
+          <div class="tl-desc"><code>py generator.py sharp_group</code> — loads brand profile, reads post history, instantiates OpenAI / Gemini / Fal clients.</div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-label">T + 5s</div>
           <div class="tl-title">GPT writes the brief</div>
-          <div class="tl-desc">OpenAI returns theme, Albanian headline, caption. Anti-repetition logic blocks any recent post type or headline.</div>
+          <div class="tl-desc">OpenAI returns post type, theme, Albanian headline (with highlight spans) and caption. Anti-repetition blocks recent types and headlines.</div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-label">T + 12s</div>
-          <div class="tl-title">Gemini reads references</div>
-          <div class="tl-desc">3 past posts are analyzed. Gemini crafts the Fal.ai generation prompt aligned to brand visual history.</div>
+          <div class="tl-label">T + 10s</div>
+          <div class="tl-title">3 references picked</div>
+          <div class="tl-desc">A random sample of 3 past brand posts is drawn from <code>uploaded_posts/</code> for the next two stages.</div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-label">T + 20s – 90s</div>
-          <div class="tl-title">Fal.ai generates 4 backgrounds</div>
-          <div class="tl-desc">Four simultaneous image generation calls. Two models × two modes. Each is 4K, brand palette, no text or logos.</div>
+          <div class="tl-label">T + 20s</div>
+          <div class="tl-title">Gemini writes the prompt</div>
+          <div class="tl-desc">Gemini reads BRAND.md + the 3 references, applies the style-alternation rule, and returns one detailed Fal.ai prompt with composition + lighting specs.</div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-label">T + 100s</div>
-          <div class="tl-title">Text overlays applied</div>
-          <div class="tl-desc">For each background, Gemini proposes 3 layouts. Pillow renders logo + headline + accents onto all 4 variants.</div>
+          <div class="tl-label">T + 35s – 90s</div>
+          <div class="tl-title">Fal.ai generates the background</div>
+          <div class="tl-desc">References are uploaded and a single 4:5 image is rendered via <code>gpt-image-2/edit</code>. No text, no logos, brand palette only.</div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-label">T + 130s – 180s</div>
-          <div class="tl-title">AI rates and refines</div>
-          <div class="tl-desc">Gemini Vision reviews each design, scores it, and iterates until 9/10 or 8 rounds. No human feedback needed.</div>
+          <div class="tl-label">T + 95s</div>
+          <div class="tl-title">Playwright screenshots the HTML</div>
+          <div class="tl-desc">Headless Chromium loads the chosen template (default or orange), JS auto-fits the headline, and a 1080×1350 JPEG is saved.</div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-label">T + ~180s</div>
-          <div class="tl-title">Done. 4 posts ready.</div>
-          <div class="tl-desc">Images, caption, and metadata saved. Human reviews the 4 options and picks one to push live.</div>
+          <div class="tl-label">T + ~120s</div>
+          <div class="tl-title">Done. History updated.</div>
+          <div class="tl-desc">Final post and raw background are written to <code>output/&lt;brand&gt;/</code>. The run is appended to history. Caption is printed to the console for copy/paste.</div>
         </div>
       </div>
     </div>
@@ -1205,35 +974,35 @@
           <div style="font-size:24px;flex-shrink:0;">⚡</div>
           <div>
             <div style="font-weight:700;color:var(--white);margin-bottom:4px;">Zero Manual Design</div>
-            <div style="font-size:13px;color:var(--muted);">From blank slate to 4 publish-ready posts in 3 minutes. No Canva, no designer, no briefs.</div>
+            <div style="font-size:13px;color:var(--muted);">From blank slate to a publish-ready post in two minutes. No Canva, no designer, no template fiddling.</div>
           </div>
         </div>
         <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;gap:16px;align-items:flex-start;">
           <div style="font-size:24px;flex-shrink:0;">🔒</div>
           <div>
             <div style="font-weight:700;color:var(--white);margin-bottom:4px;">100% Brand Consistency</div>
-            <div style="font-size:13px;color:var(--muted);">BRAND.md is injected at every single AI call. Color, tone, typography — always on-brand.</div>
+            <div style="font-size:13px;color:var(--muted);">BRAND.md is injected into every AI call, and the HTML templates lock palette, fonts, and layout deterministically — the AI cannot drift off-brand.</div>
           </div>
         </div>
         <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;gap:16px;align-items:flex-start;">
           <div style="font-size:24px;flex-shrink:0;">♾️</div>
           <div>
-            <div style="font-weight:700;color:var(--white);margin-bottom:4px;">Infinite Variety, No Repetition</div>
-            <div style="font-size:13px;color:var(--muted);">History tracking prevents any topic, headline, or post type from repeating — ever.</div>
+            <div style="font-weight:700;color:var(--white);margin-bottom:4px;">No Repetition, No Sameness</div>
+            <div style="font-size:13px;color:var(--muted);">History blocks recent post types and headlines. Style alternation forces the feed to flip between people and 3D graphics on every post.</div>
           </div>
         </div>
         <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;gap:16px;align-items:flex-start;">
-          <div style="font-size:24px;flex-shrink:0;">🤖</div>
+          <div style="font-size:24px;flex-shrink:0;">🛠️</div>
           <div>
-            <div style="font-weight:700;color:var(--white);margin-bottom:4px;">Self-Improving Quality</div>
-            <div style="font-size:13px;color:var(--muted);">AI reviews its own work. Designs are iterated automatically until they hit a quality threshold.</div>
+            <div style="font-weight:700;color:var(--white);margin-bottom:4px;">Deterministic Final Render</div>
+            <div style="font-size:13px;color:var(--muted);">The last mile is HTML, not AI. Logo, fonts, accent line and CTA land identically every run — no flaky pixel-level surprises.</div>
           </div>
         </div>
         <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;gap:16px;align-items:flex-start;">
           <div style="font-size:24px;flex-shrink:0;">📈</div>
           <div>
             <div style="font-weight:700;color:var(--white);margin-bottom:4px;">Built to Scale</div>
-            <div style="font-size:13px;color:var(--muted);">Add a new brand profile and the entire pipeline runs for it. Multi-brand, multi-platform from day one.</div>
+            <div style="font-size:13px;color:var(--muted);">Drop a new brand profile and BRAND.md into <code>profiles/</code> and <code>assets/</code> and the same pipeline runs for it. Multi-brand from day one.</div>
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ export default function ContactPage() {
   return (
     <main className="pt-24 pb-8 bg-white text-black font-light flex-1 flex flex-col">
       {/* Hero Image - Studio Vendi Branded Banner */}
-      <div className="relative w-full aspect-[21/9] mb-16 lg:mb-24">
+      <div className="relative w-full aspect-[4/3] md:aspect-[21/9] mb-16 lg:mb-24">
         <Image
           src="/images/contact-hero-banner.png"
           alt="Studio Vendi"

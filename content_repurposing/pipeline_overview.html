@@ -3,1180 +3,1049 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Content AI Pipeline — Article → TikTok</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<title>Article → TikTok — Automated Content Repurposing</title>
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --bg: #070b14;
-  --surface: #0d1320;
-  --surface2: #111827;
-  --border: #1c2a3e;
-  --border2: #243347;
-  --text: #e2eaff;
-  --muted: #5a7298;
-  --blue: #3b82f6;
-  --purple: #8b5cf6;
-  --teal: #0fb8a3;
-  --amber: #f59e0b;
-  --red: #ef4444;
-  --green: #22c55e;
-  --pink: #ec4899;
-  --slate: #64748b;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  min-height: 100vh;
-}
-
-code {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.85em;
-  background: rgba(255,255,255,0.07);
-  padding: 2px 6px;
-  border-radius: 4px;
-}
-
-/* ── HERO ─────────────────────────────────────────────────── */
-.hero {
-  position: relative;
-  padding: 72px 40px 64px;
-  text-align: center;
-  overflow: hidden;
-  border-bottom: 1px solid var(--border);
-}
-
-.hero-glow {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 20% 60%, rgba(59,130,246,0.12) 0%, transparent 55%),
-    radial-gradient(ellipse 80% 60% at 80% 40%, rgba(139,92,246,0.12) 0%, transparent 55%);
-  pointer-events: none;
-}
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: 1px solid rgba(59,130,246,0.35);
-  background: rgba(59,130,246,0.08);
-  border-radius: 100px;
-  padding: 6px 18px;
-  font-size: 11px;
-  font-weight: 700;
-  color: #93c5fd;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: 28px;
-  position: relative;
-}
-
-.hero h1 {
-  font-size: clamp(28px, 4.5vw, 60px);
-  font-weight: 900;
-  line-height: 1.08;
-  letter-spacing: -1.5px;
-  background: linear-gradient(135deg, #ffffff 0%, #bfdbfe 40%, #c4b5fd 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 16px;
-  position: relative;
-}
-
-.hero h1 span {
-  background: linear-gradient(135deg, #f59e0b, #fb923c);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.hero-sub {
-  font-size: 17px;
-  color: var(--muted);
-  max-width: 560px;
-  margin: 0 auto 48px;
-  position: relative;
-}
-
-/* ── STATS ────────────────────────────────────────────────── */
-.stats-bar {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border-bottom: 1px solid var(--border);
-}
-
-.stat {
-  padding: 28px 24px;
-  text-align: center;
-  border-right: 1px solid var(--border);
-  background: var(--surface);
-  transition: background 0.2s;
-}
-
-.stat:last-child { border-right: none; }
-.stat:hover { background: var(--surface2); }
-
-.stat-num {
-  font-size: 34px;
-  font-weight: 900;
-  letter-spacing: -1px;
-  line-height: 1;
-  background: linear-gradient(135deg, var(--blue), var(--purple));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.stat-label {
-  font-size: 11px;
-  color: var(--muted);
-  margin-top: 6px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-}
-
-/* ── OVERVIEW STRIP ───────────────────────────────────────── */
-.overview-strip {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  border-bottom: 1px solid var(--border);
-  overflow: hidden;
-}
-
-.ov-item {
-  padding: 32px 24px;
-  border-right: 1px solid var(--border);
-  position: relative;
-  transition: background 0.2s;
-}
-
-.ov-item:last-child { border-right: none; }
-
-.ov-item:hover { background: var(--surface2); }
-
-.ov-phase-tag {
-  font-size: 10px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.ov-phase-tag::before {
-  content: '';
-  display: block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: currentColor;
-}
-
-.ov-title {
-  font-size: 17px;
-  font-weight: 800;
-  margin-bottom: 6px;
-}
-
-.ov-desc {
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.5;
-}
-
-.ov-steps-count {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  font-size: 11px;
-  color: var(--border2);
-  font-weight: 700;
-}
-
-.ov-arrow {
-  position: absolute;
-  right: -14px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 5;
-  width: 28px;
-  height: 28px;
-  background: var(--surface2);
-  border: 1px solid var(--border2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  color: var(--muted);
-}
-
-.ov-item:last-child .ov-arrow { display: none; }
-
-/* ── MAIN CONTENT ────────────────────────────────────────── */
-.main {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 72px 40px 80px;
-}
-
-.section-title {
-  text-align: center;
-  margin-bottom: 52px;
-}
-
-.section-title h2 {
-  font-size: 26px;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  margin-bottom: 8px;
-}
-
-.section-title p {
-  color: var(--muted);
-  font-size: 15px;
-}
-
-/* ── PIPELINE ────────────────────────────────────────────── */
-.pipeline {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-/* Phase block */
-.phase-block {
-  margin-bottom: 40px;
-}
-
-.phase-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 14px 22px;
-  border-radius: 12px;
-  border: 1px solid;
-  margin-bottom: 20px;
-}
-
-.phase-num {
-  font-size: 11px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  opacity: 0.6;
-  white-space: nowrap;
-}
-
-.phase-icon {
-  font-size: 22px;
-  flex-shrink: 0;
-}
-
-.phase-name {
-  font-size: 15px;
-  font-weight: 800;
-  letter-spacing: 0.2px;
-}
-
-.phase-desc {
-  font-size: 12px;
-  opacity: 0.65;
-  margin-top: 1px;
-}
-
-/* Steps wrapper */
-.steps {
-  padding-left: 32px;
-  border-left: 2px solid var(--border);
-  margin-left: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-/* Step */
-.step-row {
-  display: flex;
-  flex-direction: column;
-}
-
-.step-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 18px 22px;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  transition: all 0.18s ease;
-  cursor: default;
-  position: relative;
-  margin-left: -1px;
-}
-
-.step-card:hover {
-  background: var(--surface2);
-  transform: translateX(3px);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.35);
-}
-
-.step-dot {
-  position: absolute;
-  left: -41px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: 2px solid var(--bg);
-  flex-shrink: 0;
-}
-
-.step-num-badge {
-  font-size: 12px;
-  font-weight: 800;
-  font-family: 'JetBrains Mono', monospace;
-  min-width: 34px;
-  height: 34px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.step-emoji {
-  font-size: 22px;
-  flex-shrink: 0;
-  line-height: 1;
-}
-
-.step-body {
-  flex: 1;
-  min-width: 0;
-}
-
-.step-title {
-  font-size: 14px;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-
-.step-desc {
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.55;
-}
-
-.step-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 5px;
-  flex-shrink: 0;
-}
-
-/* Tags */
-.tag {
-  font-size: 10px;
-  font-weight: 700;
-  padding: 3px 9px;
-  border-radius: 100px;
-  white-space: nowrap;
-  letter-spacing: 0.3px;
-}
-
-.tag-telegram  { background: rgba(41,182,246,0.12); color: #38bdf8; border: 1px solid rgba(41,182,246,0.2); }
-.tag-playwright{ background: rgba(102,187,106,0.12); color: #86efac; border: 1px solid rgba(102,187,106,0.2); }
-.tag-openai    { background: rgba(16,185,129,0.12);  color: #34d399; border: 1px solid rgba(16,185,129,0.2); }
-.tag-falai     { background: rgba(239,68,68,0.12);   color: #f87171; border: 1px solid rgba(239,68,68,0.2); }
-.tag-gladia    { background: rgba(168,85,247,0.12);  color: #c084fc; border: 1px solid rgba(168,85,247,0.2); }
-.tag-ffmpeg    { background: rgba(245,158,11,0.12);  color: #fcd34d; border: 1px solid rgba(245,158,11,0.2); }
-.tag-gdrive    { background: rgba(59,130,246,0.12);  color: #93c5fd; border: 1px solid rgba(59,130,246,0.2); }
-.tag-buffer    { background: rgba(236,72,153,0.12);  color: #f9a8d4; border: 1px solid rgba(236,72,153,0.2); }
-.tag-human     { background: rgba(245,158,11,0.18);  color: #fbbf24; border: 1px solid rgba(245,158,11,0.4); }
-.tag-output    { background: rgba(100,116,139,0.12); color: #94a3b8; border: 1px solid rgba(100,116,139,0.2); }
-
-/* Human checkpoint card override */
-.step-card.is-human {
-  border-color: rgba(245,158,11,0.35);
-  background: rgba(245,158,11,0.04);
-}
-
-.step-card.is-human:hover {
-  border-color: rgba(245,158,11,0.6);
-}
-
-.human-label {
-  font-size: 10px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #f59e0b;
-  background: rgba(245,158,11,0.12);
-  border: 1px solid rgba(245,158,11,0.25);
-  padding: 2px 8px;
-  border-radius: 4px;
-  margin-bottom: 3px;
-  display: inline-block;
-}
-
-/* Arrow connector between steps */
-.step-arrow {
-  height: 20px;
-  display: flex;
-  align-items: center;
-  padding-left: 22px;
-}
-
-.step-arrow-line {
-  width: 1px;
-  height: 20px;
-  margin-left: 15px;
-}
-
-/* Phase-to-phase gap */
-.phase-gap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 0 12px;
-  position: relative;
-  margin-left: 16px;
-}
-
-.phase-gap-line {
-  position: absolute;
-  left: -26px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-}
-
-.phase-gap-badge {
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--muted);
-  background: var(--bg);
-  padding: 4px 12px;
-  border: 1px solid var(--border);
-  border-radius: 100px;
-  z-index: 1;
-}
-
-/* ── COLORS PER PHASE ────────────────────────────────────── */
-/* Discovery – blue */
-.ph-discovery { color: #3b82f6; border-color: rgba(59,130,246,0.25); background: rgba(59,130,246,0.06); }
-.ph-discovery .step-dot { background: #3b82f6; }
-.ph-discovery .step-num-badge { background: rgba(59,130,246,0.15); color: #3b82f6; }
-.ph-discovery .step-card { border-left: 3px solid rgba(59,130,246,0.6); }
-.ph-discovery .step-arrow-line { background: linear-gradient(to bottom, rgba(59,130,246,0.5), rgba(59,130,246,0.1)); }
-.ph-discovery .steps { border-left-color: rgba(59,130,246,0.3); }
-
-/* AI – purple */
-.ph-ai { color: #8b5cf6; border-color: rgba(139,92,246,0.25); background: rgba(139,92,246,0.06); }
-.ph-ai .step-dot { background: #8b5cf6; }
-.ph-ai .step-num-badge { background: rgba(139,92,246,0.15); color: #8b5cf6; }
-.ph-ai .step-card { border-left: 3px solid rgba(139,92,246,0.6); }
-.ph-ai .step-arrow-line { background: linear-gradient(to bottom, rgba(139,92,246,0.5), rgba(139,92,246,0.1)); }
-.ph-ai .steps { border-left-color: rgba(139,92,246,0.3); }
-
-/* Production – teal */
-.ph-prod { color: #0fb8a3; border-color: rgba(15,184,163,0.25); background: rgba(15,184,163,0.06); }
-.ph-prod .step-dot { background: #0fb8a3; }
-.ph-prod .step-num-badge { background: rgba(15,184,163,0.15); color: #0fb8a3; }
-.ph-prod .step-card { border-left: 3px solid rgba(15,184,163,0.6); }
-.ph-prod .step-arrow-line { background: linear-gradient(to bottom, rgba(15,184,163,0.5), rgba(15,184,163,0.1)); }
-.ph-prod .steps { border-left-color: rgba(15,184,163,0.3); }
-
-/* Publishing – amber */
-.ph-pub { color: #f59e0b; border-color: rgba(245,158,11,0.25); background: rgba(245,158,11,0.06); }
-.ph-pub .step-dot { background: #f59e0b; }
-.ph-pub .step-num-badge { background: rgba(245,158,11,0.15); color: #f59e0b; }
-.ph-pub .step-card { border-left: 3px solid rgba(245,158,11,0.6); }
-.ph-pub .step-arrow-line { background: linear-gradient(to bottom, rgba(245,158,11,0.5), rgba(245,158,11,0.1)); }
-.ph-pub .steps { border-left-color: rgba(245,158,11,0.3); }
-
-/* ── FINAL RESULT CARD ───────────────────────────────────── */
-.result-card {
-  margin-top: 40px;
-  background: linear-gradient(135deg, rgba(245,158,11,0.08) 0%, rgba(251,146,60,0.08) 100%);
-  border: 1px solid rgba(245,158,11,0.3);
-  border-radius: 16px;
-  padding: 32px 36px;
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.result-icon {
-  font-size: 52px;
-  flex-shrink: 0;
-}
-
-.result-title {
-  font-size: 22px;
-  font-weight: 900;
-  background: linear-gradient(135deg, #f59e0b, #fb923c);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 6px;
-}
-
-.result-desc {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.5;
-}
-
-.result-spec {
-  margin-top: 14px;
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-/* ── SERVICES GRID ───────────────────────────────────────── */
-.divider {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 72px 0 0;
-}
-
-.services-grid {
-  margin-top: 52px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 14px;
-}
-
-.svc-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 22px 20px;
-  transition: all 0.2s;
-}
-
-.svc-card:hover {
-  border-color: var(--border2);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(0,0,0,0.4);
-}
-
-.svc-icon { font-size: 26px; margin-bottom: 12px; }
-
-.svc-name {
-  font-size: 14px;
-  font-weight: 700;
-  margin-bottom: 5px;
-}
-
-.svc-role {
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.5;
-}
-
-/* ── OUTPUT FILES ────────────────────────────────────────── */
-.output-section {
-  margin-top: 60px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 36px;
-}
-
-.output-header {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  margin-bottom: 6px;
-}
-
-.output-header h3 {
-  font-size: 18px;
-  font-weight: 800;
-}
-
-.output-path {
-  font-size: 12px;
-  color: var(--muted);
-  margin-bottom: 24px;
-}
-
-.output-files {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-  gap: 12px;
-}
-
-.out-file {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 14px 16px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.out-file.final {
-  border-color: rgba(245,158,11,0.35);
-  background: rgba(245,158,11,0.04);
-}
-
-.out-file-icon { font-size: 22px; flex-shrink: 0; }
-
-.out-file-name {
-  font-size: 12px;
-  font-weight: 700;
-  font-family: 'JetBrains Mono', monospace;
-  margin-bottom: 2px;
-}
-
-.out-file-desc {
-  font-size: 11px;
-  color: var(--muted);
-}
-
-/* ── FOOTER ──────────────────────────────────────────────── */
-footer {
-  border-top: 1px solid var(--border);
-  padding: 28px 40px;
-  text-align: center;
-  font-size: 13px;
-  color: var(--muted);
-}
-
-footer strong { color: var(--text); }
-
-/* ── RESPONSIVE ──────────────────────────────────────────── */
-@media (max-width: 700px) {
-  .stats-bar { grid-template-columns: repeat(2, 1fr); }
-  .overview-strip { grid-template-columns: 1fr 1fr; }
-  .main { padding: 48px 20px 60px; }
-  .hero { padding: 56px 24px 48px; }
-  .ov-arrow { display: none; }
-  .result-card { flex-direction: column; text-align: center; }
-}
+  :root {
+    --orange: #FF680B;
+    --orange-light: #FF8643;
+    --black: #0A0A0A;
+    --dark: #111111;
+    --card: #181818;
+    --border: #2a2a2a;
+    --text: #E8E8E8;
+    --muted: #888;
+    --white: #FFFFFF;
+    --green: #22c55e;
+    --blue: #3b82f6;
+    --purple: #a855f7;
+    --yellow: #eab308;
+    --teal: #14b8a6;
+    --pink: #ec4899;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: linear-gradient(135deg, #0A0A0A 0%, #1a0a00 50%, #0A0A0A 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 60px 40px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%; transform: translateX(-50%);
+    width: 800px; height: 400px;
+    background: radial-gradient(ellipse, rgba(255,104,11,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,104,11,0.15);
+    border: 1px solid rgba(255,104,11,0.4);
+    color: var(--orange);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 58px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .hero h1 span { color: var(--orange); }
+  .hero p {
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 680px;
+    margin: 0 auto 36px;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .stat { text-align: center; }
+  .stat-number { font-size: 32px; font-weight: 800; color: var(--orange); display: block; }
+  .stat-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+
+  /* ─── SECTION ─── */
+  .section { padding: 60px 40px; max-width: 1400px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: clamp(26px, 3vw, 38px);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .section-sub { font-size: 16px; color: var(--muted); margin-bottom: 50px; }
+
+  /* ─── SHOWCASE / WATCH IT ─── */
+  .showcase {
+    background: linear-gradient(135deg, #100805 0%, #0A0A0A 100%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .showcase-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  @media (max-width: 980px) {
+    .showcase-grid { grid-template-columns: 1fr; }
+  }
+  .showcase-copy h2 {
+    font-size: clamp(28px, 3.4vw, 42px);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.15;
+    letter-spacing: -1px;
+    margin-bottom: 18px;
+  }
+  .showcase-copy h2 span { color: var(--orange); }
+  .showcase-copy p {
+    font-size: 16px;
+    color: #bbb;
+    margin-bottom: 22px;
+    line-height: 1.7;
+  }
+  .showcase-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 22px;
+  }
+  .meta-pill {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 5px 12px;
+    border-radius: 100px;
+    background: rgba(255,104,11,0.1);
+    border: 1px solid rgba(255,104,11,0.3);
+    color: var(--orange);
+  }
+  .meta-pill.alt {
+    background: rgba(34,197,94,0.08);
+    border-color: rgba(34,197,94,0.3);
+    color: var(--green);
+  }
+  .tiktok-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--orange);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 13px 22px;
+    border-radius: 100px;
+    margin-top: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .tiktok-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(255,104,11,0.4);
+  }
+
+  /* video frames */
+  .video-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .video-frame {
+    position: relative;
+    background: #000;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 14px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,104,11,0.08);
+    max-width: 380px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .video-frame .vf-tag {
+    position: absolute;
+    top: -12px;
+    left: 22px;
+    background: var(--orange);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    z-index: 3;
+  }
+  .video-frame video {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    border-radius: 14px;
+    background: #000;
+    display: block;
+  }
+  .video-caption {
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 12px;
+  }
+  .tiktok-wrap {
+    background: #000;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 14px;
+    max-width: 380px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+  }
+  .tiktok-wrap .vf-tag {
+    position: absolute;
+    top: -12px;
+    left: 22px;
+    background: linear-gradient(135deg, #ff0050, #00f2ea);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    z-index: 3;
+  }
+  .tiktok-wrap blockquote.tiktok-embed {
+    margin: 0 auto !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  /* ─── PIPELINE FLOW ─── */
+  .pipeline-wrap {
+    background: var(--dark);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 50px 40px;
+    overflow-x: auto;
+  }
+  .pipeline-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: nowrap;
+    min-width: 1000px;
+  }
+  .pipe-node {
+    flex-shrink: 0;
+    width: 130px;
+    text-align: center;
+    position: relative;
+  }
+  .pipe-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    margin: 0 auto 10px;
+    position: relative;
+    z-index: 1;
+  }
+  .pipe-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.3;
+  }
+  .pipe-sub {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+  .pipe-arrow {
+    flex-shrink: 0;
+    width: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pipe-arrow svg { width: 30px; height: 16px; }
+
+  /* node color schemes */
+  .n-trigger .pipe-icon { background: linear-gradient(135deg, #1e3a5f, #2563eb22); border: 1.5px solid #3b82f6; }
+  .n-scrape .pipe-icon  { background: linear-gradient(135deg, #14532d, #22c55e22); border: 1.5px solid #22c55e; }
+  .n-human .pipe-icon   { background: linear-gradient(135deg, #78350f, #f59e0b22); border: 1.5px solid #f59e0b; }
+  .n-script .pipe-icon  { background: linear-gradient(135deg, #064e3b, #10b98122); border: 1.5px solid #10b981; }
+  .n-img .pipe-icon     { background: linear-gradient(135deg, #7c2d12, #ff680b22); border: 1.5px solid var(--orange); }
+  .n-voice .pipe-icon   { background: linear-gradient(135deg, #3b0764, #a855f722); border: 1.5px solid #a855f7; }
+  .n-video .pipe-icon   { background: linear-gradient(135deg, #1e3a5f, #0ea5e922); border: 1.5px solid #0ea5e9; }
+  .n-publish .pipe-icon { background: linear-gradient(135deg, #500724, #ec489922); border: 1.5px solid #ec4899; }
+
+  .pipe-legend {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+  /* ─── STEP CARDS ─── */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 22px;
+  }
+  .step-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 26px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .step-card:hover { transform: translateY(-2px); }
+  .step-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .step-card.c-blue::before    { background: #3b82f6; }
+  .step-card.c-green::before   { background: #22c55e; }
+  .step-card.c-amber::before   { background: #f59e0b; }
+  .step-card.c-emerald::before { background: #10b981; }
+  .step-card.c-orange::before  { background: var(--orange); }
+  .step-card.c-purple::before  { background: #a855f7; }
+  .step-card.c-sky::before     { background: #0ea5e9; }
+  .step-card.c-pink::before    { background: #ec4899; }
+
+  .step-card:hover.c-blue    { border-color: #3b82f6; }
+  .step-card:hover.c-green   { border-color: #22c55e; }
+  .step-card:hover.c-amber   { border-color: #f59e0b; }
+  .step-card:hover.c-emerald { border-color: #10b981; }
+  .step-card:hover.c-orange  { border-color: var(--orange); }
+  .step-card:hover.c-purple  { border-color: #a855f7; }
+  .step-card:hover.c-sky     { border-color: #0ea5e9; }
+  .step-card:hover.c-pink    { border-color: #ec4899; }
+
+  .step-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .step-num {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 900;
+    flex-shrink: 0;
+    color: var(--white);
+  }
+  .step-card.c-blue    .step-num { background: #1d4ed8; }
+  .step-card.c-green   .step-num { background: #15803d; }
+  .step-card.c-amber   .step-num { background: #b45309; }
+  .step-card.c-emerald .step-num { background: #047857; }
+  .step-card.c-orange  .step-num { background: var(--orange); }
+  .step-card.c-purple  .step-num { background: #7e22ce; }
+  .step-card.c-sky     .step-num { background: #0284c7; }
+  .step-card.c-pink    .step-num { background: #be185d; }
+
+  .step-title { font-size: 17px; font-weight: 700; color: var(--white); }
+  .step-engine {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 2px;
+    color: var(--muted);
+  }
+  .step-desc { font-size: 14px; color: #aaa; line-height: 1.7; }
+
+  /* ─── AI MODELS ROW ─── */
+  .models-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .model-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    text-align: center;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .model-card:hover { transform: translateY(-2px); }
+  .model-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+    margin: 0 auto 12px;
+  }
+  .model-name { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+  .model-role { font-size: 12px; color: var(--muted); }
+  .model-badge {
+    display: inline-block;
+    font-size: 10px; font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-top: 10px;
+  }
+
+  /* ─── GALLERY ─── */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 1100px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 760px)  { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 460px)  { .gallery-grid { grid-template-columns: 1fr; } }
+
+  .gallery-item {
+    position: relative;
+    aspect-ratio: 9 / 16;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--card);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .gallery-item:hover {
+    transform: translateY(-4px);
+    border-color: var(--orange);
+    box-shadow: 0 18px 40px rgba(255,104,11,0.18);
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .gallery-item .badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(10,10,10,0.78);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,104,11,0.45);
+    color: var(--orange);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 3px 9px;
+    border-radius: 100px;
+    z-index: 2;
+  }
+
+  /* ─── TIMELINE / VALUE ─── */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px; top: 8px; bottom: 8px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--orange), #ff680b44, transparent);
+  }
+  .tl-item { position: relative; margin-bottom: 28px; }
+  .tl-dot {
+    position: absolute;
+    left: -26px; top: 4px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--orange);
+    border: 2px solid var(--black);
+    box-shadow: 0 0 0 3px rgba(255,104,11,0.2);
+  }
+  .tl-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--orange); margin-bottom: 4px; }
+  .tl-title { font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+  .tl-desc  { font-size: 14px; color: #aaa; line-height: 1.6; }
+
+  .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+  .footer {
+    background: var(--dark);
+    border-top: 1px solid var(--border);
+    padding: 40px;
+    text-align: center;
+  }
+  .footer-logo { font-size: 22px; font-weight: 900; color: var(--white); letter-spacing: -0.5px; margin-bottom: 8px; }
+  .footer-logo span { color: var(--orange); }
+  .footer p { font-size: 13px; color: var(--muted); }
+
+  @media (max-width: 768px) {
+    .hero { padding: 40px 24px; }
+    .section { padding: 48px 24px; }
+    .hero-stats { gap: 28px; }
+    .pipeline-wrap { padding: 32px 24px; }
+  }
 </style>
 </head>
 <body>
 
-<!-- ══════════════════ HERO ══════════════════ -->
-<header class="hero">
-  <div class="hero-glow"></div>
-  <div class="hero-badge">⚡ &nbsp; Fully Automated AI Pipeline</div>
-  <h1>News Article &nbsp;→&nbsp; <span>TikTok Video</span></h1>
-  <p class="hero-sub">End-to-end content repurposing: a health article gets scraped, rewritten, illustrated, voiced, and published to TikTok — automatically.</p>
-</header>
-
-<!-- ══════════════════ STATS ══════════════════ -->
-<div class="stats-bar">
-  <div class="stat">
-    <div class="stat-num">13</div>
-    <div class="stat-label">Automated Steps</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">7</div>
-    <div class="stat-label">AI &amp; API Services</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">2</div>
-    <div class="stat-label">Human Checkpoints</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">1080p</div>
-    <div class="stat-label">Portrait TikTok Output</div>
+<!-- ═══════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-badge">AI Content Repurposing Pipeline</div>
+  <h1>From News Article<br>to <span>Live TikTok</span> — Automatically.</h1>
+  <p>One command turns a written health article into a fully produced, voiced, subtitled, branded vertical video — and schedules it to TikTok. No camera. No editor. No designer.</p>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-number">~5 min</span>
+      <span class="stat-label">Article → Posted</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">9:16</span>
+      <span class="stat-label">1080×1920 Output</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">7</span>
+      <span class="stat-label">AI &amp; API Engines</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">2</span>
+      <span class="stat-label">Human Approvals</span>
+    </div>
   </div>
 </div>
 
-<!-- ══════════════════ OVERVIEW STRIP ══════════════════ -->
-<div class="overview-strip">
-  <div class="ov-item">
-    <div class="ov-arrow">›</div>
-    <span class="ov-steps-count">3 steps</span>
-    <div class="ov-phase-tag" style="color:#3b82f6;">Phase 1</div>
-    <div class="ov-title">🔍 Discovery</div>
-    <div class="ov-desc">Scrape news articles, surface new content, get human sign-off before processing begins</div>
-  </div>
-  <div class="ov-item">
-    <div class="ov-arrow">›</div>
-    <span class="ov-steps-count">4 steps</span>
-    <div class="ov-phase-tag" style="color:#8b5cf6;">Phase 2</div>
-    <div class="ov-title">🤖 AI Generation</div>
-    <div class="ov-desc">AI writes the script, plans visual scenes, and generates 5–8 cinematic images</div>
-  </div>
-  <div class="ov-item">
-    <div class="ov-arrow">›</div>
-    <span class="ov-steps-count">3 steps</span>
-    <div class="ov-phase-tag" style="color:#0fb8a3;">Phase 3</div>
-    <div class="ov-title">🎬 Production</div>
-    <div class="ov-desc">Voice synthesis, subtitle creation, and full video assembly with animation and branding</div>
-  </div>
-  <div class="ov-item">
-    <span class="ov-steps-count">3 steps</span>
-    <div class="ov-phase-tag" style="color:#f59e0b;">Phase 4</div>
-    <div class="ov-title">📱 Publishing</div>
-    <div class="ov-desc">Upload to cloud, human approval, then auto-scheduled to TikTok via Buffer API</div>
+
+<!-- ═══════════════════════════════════════════════
+     SHOWCASE — REAL OUTPUT
+════════════════════════════════════════════════ -->
+<div class="showcase">
+  <div class="section">
+    <div class="showcase-grid">
+      <div class="showcase-copy">
+        <div class="section-label">See it in action</div>
+        <h2>This video was made <span>end-to-end by the system</span> — zero manual editing.</h2>
+        <p>An article about sciatica was scraped, rewritten into a 40-second Albanian script, illustrated with 8 AI-generated portrait images, voiced, subtitled, animated and uploaded to TikTok. The right column shows the live TikTok post and the raw rendered MP4 the pipeline produced.</p>
+        <div class="showcase-meta">
+          <span class="meta-pill">Albanian voiceover</span>
+          <span class="meta-pill">Burned subtitles</span>
+          <span class="meta-pill">Ken Burns animation</span>
+          <span class="meta-pill">Brand watermark</span>
+          <span class="meta-pill alt">Auto-published</span>
+        </div>
+        <div style="margin-top:28px;">
+          <a class="tiktok-cta" href="https://www.tiktok.com/@jeto.mire/video/7632348352079875335" target="_blank" rel="noopener">
+            ▶ Watch on TikTok
+          </a>
+        </div>
+      </div>
+
+      <div class="video-stack">
+        <div class="video-frame">
+          <div class="vf-tag">Local Render · MP4</div>
+          <video controls preload="metadata" playsinline poster="generated_content/ishiasi_irritohet_nga_q_ndrimi_ulur_5_us/images/ishiasi_irritohet_nga_q_ndrimi_ulur_5_us_01_a_po_t_ther_po_t_djeg_po.jpg">
+            <source src="generated_content/ishiasi_irritohet_nga_q_ndrimi_ulur_5_us/video.mp4" type="video/mp4">
+            Your browser doesn't support HTML5 video.
+          </video>
+          <div class="video-caption">Direct output of <code>video.mp4</code> — straight from ffmpeg, before upload</div>
+        </div>
+
+        <div class="tiktok-wrap">
+          <div class="vf-tag">Live on TikTok</div>
+          <blockquote class="tiktok-embed"
+            cite="https://www.tiktok.com/@jeto.mire/video/7632348352079875335"
+            data-video-id="7632348352079875335"
+            style="max-width: 605px; min-width: 325px;">
+            <section>
+              <a target="_blank" title="@jeto.mire" href="https://www.tiktok.com/@jeto.mire?refer=embed">@jeto.mire</a> ·
+              <a target="_blank" href="https://www.tiktok.com/@jeto.mire/video/7632348352079875335?refer=embed">View on TikTok</a>
+            </section>
+          </blockquote>
+          <script async src="https://www.tiktok.com/embed.js"></script>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- ══════════════════ MAIN PIPELINE ══════════════════ -->
-<div class="main">
 
-  <div class="section-title">
-    <h2>Full Pipeline — Step by Step</h2>
-    <p>Every action from the first trigger to the published TikTok</p>
+<!-- ═══════════════════════════════════════════════
+     PIPELINE OVERVIEW
+════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">System at a Glance</div>
+  <div class="section-title">Eight Stages, One Command</div>
+  <div class="section-sub">From a Telegram <code>/news</code> message to a scheduled TikTok post.</div>
+
+  <div class="pipeline-wrap">
+    <div class="pipeline-row">
+
+      <div class="pipe-node n-trigger">
+        <div class="pipe-icon">⚡</div>
+        <div class="pipe-label">Trigger</div>
+        <div class="pipe-sub">Telegram /news</div>
+      </div>
+      <div class="pipe-arrow"><svg viewBox="0 0 36 16" fill="none"><path d="M0 8 L26 8" stroke="#444" stroke-width="2"/><path d="M22 3 L30 8 L22 13" stroke="#FF680B" stroke-width="2" fill="none"/></svg></div>
+
+      <div class="pipe-node n-scrape">
+        <div class="pipe-icon">🕷️</div>
+        <div class="pipe-label">Scrape</div>
+        <div class="pipe-sub">Article discovery</div>
+      </div>
+      <div class="pipe-arrow"><svg viewBox="0 0 36 16" fill="none"><path d="M0 8 L26 8" stroke="#444" stroke-width="2"/><path d="M22 3 L30 8 L22 13" stroke="#FF680B" stroke-width="2" fill="none"/></svg></div>
+
+      <div class="pipe-node n-human">
+        <div class="pipe-icon">✋</div>
+        <div class="pipe-label">Approve</div>
+        <div class="pipe-sub">Human ✓</div>
+      </div>
+      <div class="pipe-arrow"><svg viewBox="0 0 36 16" fill="none"><path d="M0 8 L26 8" stroke="#444" stroke-width="2"/><path d="M22 3 L30 8 L22 13" stroke="#FF680B" stroke-width="2" fill="none"/></svg></div>
+
+      <div class="pipe-node n-script">
+        <div class="pipe-icon">✍️</div>
+        <div class="pipe-label">Script</div>
+        <div class="pipe-sub">GPT · Albanian</div>
+      </div>
+      <div class="pipe-arrow"><svg viewBox="0 0 36 16" fill="none"><path d="M0 8 L26 8" stroke="#444" stroke-width="2"/><path d="M22 3 L30 8 L22 13" stroke="#FF680B" stroke-width="2" fill="none"/></svg></div>
+
+      <div class="pipe-node n-img">
+        <div class="pipe-icon">🖼️</div>
+        <div class="pipe-label">Visuals</div>
+        <div class="pipe-sub">fal.ai · 4K</div>
+      </div>
+      <div class="pipe-arrow"><svg viewBox="0 0 36 16" fill="none"><path d="M0 8 L26 8" stroke="#444" stroke-width="2"/><path d="M22 3 L30 8 L22 13" stroke="#FF680B" stroke-width="2" fill="none"/></svg></div>
+
+      <div class="pipe-node n-voice">
+        <div class="pipe-icon">🎙️</div>
+        <div class="pipe-label">Voice</div>
+        <div class="pipe-sub">TTS · 1.2×</div>
+      </div>
+      <div class="pipe-arrow"><svg viewBox="0 0 36 16" fill="none"><path d="M0 8 L26 8" stroke="#444" stroke-width="2"/><path d="M22 3 L30 8 L22 13" stroke="#FF680B" stroke-width="2" fill="none"/></svg></div>
+
+      <div class="pipe-node n-video">
+        <div class="pipe-icon">🎞️</div>
+        <div class="pipe-label">Render</div>
+        <div class="pipe-sub">ffmpeg · 1080×1920</div>
+      </div>
+      <div class="pipe-arrow"><svg viewBox="0 0 36 16" fill="none"><path d="M0 8 L26 8" stroke="#444" stroke-width="2"/><path d="M22 3 L30 8 L22 13" stroke="#FF680B" stroke-width="2" fill="none"/></svg></div>
+
+      <div class="pipe-node n-publish">
+        <div class="pipe-icon">📱</div>
+        <div class="pipe-label">Publish</div>
+        <div class="pipe-sub">Buffer → TikTok</div>
+      </div>
+
+    </div>
+
+    <div class="pipe-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#3b82f6;"></div>Trigger</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#22c55e;"></div>Scraping</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#f59e0b;"></div>Human Checkpoint</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#10b981;"></div>OpenAI / GPT</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--orange);"></div>fal.ai Image Gen</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#a855f7;"></div>Gladia / TTS</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#0ea5e9;"></div>ffmpeg Render</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#ec4899;"></div>Buffer → TikTok</div>
+    </div>
   </div>
+</div>
 
-  <div class="pipeline">
 
-    <!-- ───── PHASE 1: DISCOVERY ───── -->
-    <div class="phase-block ph-discovery">
-      <div class="phase-header ph-discovery">
-        <span class="phase-num">Phase 1</span>
-        <span class="phase-icon">🔍</span>
+<!-- ═══════════════════════════════════════════════
+     STEP CARDS
+════════════════════════════════════════════════ -->
+<hr class="divider">
+<div class="section">
+  <div class="section-label">What Each Stage Does</div>
+  <div class="section-title">The Pipeline, Unwrapped</div>
+  <div class="section-sub">Each box on the diagram — in one sentence.</div>
+
+  <div class="steps-grid">
+
+    <div class="step-card c-blue">
+      <div class="step-header">
+        <div class="step-num">1</div>
         <div>
-          <div class="phase-name">Discovery</div>
-          <div class="phase-desc">Trigger the pipeline and choose which articles to produce</div>
+          <div class="step-title">Trigger</div>
+          <div class="step-engine">Telegram Bot</div>
         </div>
       </div>
-
-      <div class="steps ph-discovery">
-
-        <div class="step-row">
-          <div class="step-card">
-            <div class="step-dot"></div>
-            <div class="step-num-badge">01</div>
-            <span class="step-emoji">📲</span>
-            <div class="step-body">
-              <div class="step-title">Telegram Command — Trigger</div>
-              <div class="step-desc">User sends the <code>/news</code> command to the Telegram bot. This fires up the full pipeline and begins article discovery.</div>
-            </div>
-            <div class="step-right">
-              <span class="tag tag-telegram">Telegram Bot</span>
-            </div>
-          </div>
-          <div class="step-arrow"><div class="step-arrow-line"></div></div>
-        </div>
-
-        <div class="step-row">
-          <div class="step-card">
-            <div class="step-dot"></div>
-            <div class="step-num-badge">02</div>
-            <span class="step-emoji">🕷️</span>
-            <div class="step-body">
-              <div class="step-title">Web Scraping — Article Discovery</div>
-              <div class="step-desc">A Playwright headless browser visits <strong>Telegrafi.com</strong> (health &amp; nutrition section), extracts titles, URLs, and dates across up to 2 pages. Already-processed articles are filtered out using a local <code>seen_articles.json</code> checkpoint file.</div>
-            </div>
-            <div class="step-right">
-              <span class="tag tag-playwright">Playwright</span>
-              <span class="tag tag-output">Telegrafi.com</span>
-            </div>
-          </div>
-          <div class="step-arrow"><div class="step-arrow-line"></div></div>
-        </div>
-
-        <div class="step-row">
-          <div class="step-card is-human">
-            <div class="step-dot" style="background:#f59e0b;"></div>
-            <div class="step-num-badge" style="background:rgba(245,158,11,0.15);color:#f59e0b;">✋</div>
-            <span class="step-emoji">👤</span>
-            <div class="step-body">
-              <div class="human-label">Human Checkpoint #1</div>
-              <div class="step-title" style="color:#f59e0b;">Article Approval via Telegram</div>
-              <div class="step-desc">Each new article is sent to Telegram with inline buttons <strong>[✅ Create]</strong> and <strong>[❌ Skip]</strong>. The human reviews the headline and decides. Approved articles move to Phase 2. Skipped ones are archived and never processed.</div>
-            </div>
-            <div class="step-right">
-              <span class="tag tag-human">👤 Human</span>
-              <span class="tag tag-telegram">Telegram</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
+      <div class="step-desc">Sending <code>/news</code> in Telegram fires the entire pipeline. No dashboards, no logins.</div>
     </div>
 
-    <div class="phase-gap">
-      <div class="phase-gap-badge">↓ &nbsp; Approved article passed to AI</div>
-    </div>
-
-    <!-- ───── PHASE 2: AI GENERATION ───── -->
-    <div class="phase-block ph-ai">
-      <div class="phase-header ph-ai">
-        <span class="phase-num">Phase 2</span>
-        <span class="phase-icon">🤖</span>
+    <div class="step-card c-green">
+      <div class="step-header">
+        <div class="step-num">2</div>
         <div>
-          <div class="phase-name">AI Content Generation</div>
-          <div class="phase-desc">AI writes the script, plans scenes, and generates all visual imagery</div>
+          <div class="step-title">Scraper</div>
+          <div class="step-engine">Playwright</div>
         </div>
       </div>
-
-      <div class="steps ph-ai">
-
-        <div class="step-row">
-          <div class="step-card">
-            <div class="step-dot"></div>
-            <div class="step-num-badge">04</div>
-            <span class="step-emoji">📄</span>
-            <div class="step-body">
-              <div class="step-title">Fetch Full Article Body</div>
-              <div class="step-desc">Playwright loads the approved article page and extracts the complete body text. This is the raw source material that all AI steps work from.</div>
-            </div>
-            <div class="step-right">
-              <span class="tag tag-playwright">Playwright</span>
-            </div>
-          </div>
-          <div class="step-arrow"><div class="step-arrow-line"></div></div>
-        </div>
-
-        <div class="step-row">
-          <div class="step-card">
-            <div class="step-dot"></div>
-            <div class="step-num-badge">05</div>
-            <span class="step-emoji">✍️</span>
-            <div class="step-body">
-              <div class="step-title">AI Script Generation</div>
-              <div class="step-desc">ChatGPT rewrites the article into a punchy <strong>110–130 word Albanian voiceover script</strong>. Style: catchy, viral, conversational — designed to hold attention for ~40 seconds. Saved as <code>.txt</code>.</div>
-            </div>
-            <div class="step-right">
-              <span class="tag tag-openai">OpenAI GPT</span>
-              <span class="tag tag-output">Albanian · 40s</span>
-            </div>
-          </div>
-          <div class="step-arrow"><div class="step-arrow-line"></div></div>
-        </div>
-
-        <div class="step-row">
-          <div class="step-card">
-            <div class="step-dot"></div>
-            <div class="step-num-badge">06</div>
-            <span class="step-emoji">🎨</span>
-            <div class="step-body">
-              <div class="step-title">AI Visual Scene Planning</div>
-              <div class="step-desc">ChatGPT reads the script and outputs structured <strong>JSON</strong>: 5–8 scenes, each with a duration (4–7 sec), a detailed image generation prompt, and whether to feature the brand character. This JSON drives the next step.</div>
-            </div>
-            <div class="step-right">
-              <span class="tag tag-openai">OpenAI GPT</span>
-              <span class="tag tag-output">JSON · 5–8 scenes</span>
-            </div>
-          </div>
-          <div class="step-arrow"><div class="step-arrow-line"></div></div>
-        </div>
-
-        <div class="step-row">
-          <div class="step-card">
-            <div class="step-dot"></div>
-            <div class="step-num-badge">07</div>
-            <span class="step-emoji">🖼️</span>
-            <div class="step-body">
-              <div class="step-title">AI Image Generation — One Per Scene</div>
-              <div class="step-desc">fal.ai generates a <strong>4K portrait image</strong> for each scene using the detailed prompts. Scenes flagged for the brand character use a reference photo to keep visual identity consistent. Output: 5–8 JPEG images at 9:16 aspect ratio.</div>
-            </div>
-            <div class="step-right">
-              <span class="tag tag-falai">fal.ai</span>
-              <span class="tag tag-output">4K · 9:16</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
+      <div class="step-desc">Visits the news source, pulls fresh health articles, and skips anything already processed.</div>
     </div>
 
-    <div class="phase-gap">
-      <div class="phase-gap-badge">↓ &nbsp; Script + Images passed to production</div>
-    </div>
-
-    <!-- ───── PHASE 3: PRODUCTION ───── -->
-    <div class="phase-block ph-prod">
-      <div class="phase-header ph-prod">
-        <span class="phase-num">Phase 3</span>
-        <span class="phase-icon">🎬</span>
+    <div class="step-card c-amber">
+      <div class="step-header">
+        <div class="step-num">3</div>
         <div>
-          <div class="phase-name">Media Production</div>
-          <div class="phase-desc">Voice synthesis, subtitle creation, and full video assembly with animation effects</div>
+          <div class="step-title">Human Check #1</div>
+          <div class="step-engine">Telegram Approval</div>
         </div>
       </div>
-
-      <div class="steps ph-prod">
-
-        <div class="step-row">
-          <div class="step-card">
-            <div class="step-dot"></div>
-            <div class="step-num-badge">08</div>
-            <span class="step-emoji">🎙️</span>
-            <div class="step-body">
-              <div class="step-title">Text-to-Speech Audio</div>
-              <div class="step-desc">OpenAI TTS converts the script into natural Albanian speech using the <code>echo</code> voice at <strong>1.2× speed</strong> — tuned for short-form pacing. Output: <code>.mp3</code> audio file.</div>
-            </div>
-            <div class="step-right">
-              <span class="tag tag-openai">OpenAI TTS</span>
-              <span class="tag tag-output">MP3 · 1.2×</span>
-            </div>
-          </div>
-          <div class="step-arrow"><div class="step-arrow-line"></div></div>
-        </div>
-
-        <div class="step-row">
-          <div class="step-card">
-            <div class="step-dot"></div>
-            <div class="step-num-badge">09</div>
-            <span class="step-emoji">💬</span>
-            <div class="step-body">
-              <div class="step-title">Subtitle Generation &amp; AI Correction</div>
-              <div class="step-desc">The audio is uploaded to <strong>Gladia API</strong> which returns word-level timestamps. These are grouped into ~11-word chunks and formatted as two-line SRT entries. A final GPT pass corrects any transcription errors against the original script.</div>
-            </div>
-            <div class="step-right">
-              <span class="tag tag-gladia">Gladia</span>
-              <span class="tag tag-openai">GPT Correction</span>
-            </div>
-          </div>
-          <div class="step-arrow"><div class="step-arrow-line"></div></div>
-        </div>
-
-        <div class="step-row">
-          <div class="step-card">
-            <div class="step-dot"></div>
-            <div class="step-num-badge">10</div>
-            <span class="step-emoji">🎞️</span>
-            <div class="step-body">
-              <div class="step-title">Video Assembly — ffmpeg</div>
-              <div class="step-desc">ffmpeg animates each image with a random <strong>Ken Burns effect</strong> (zoom, pan, tilt). Clips are concatenated, synced with the audio track, subtitles are burned in (yellow, bold, Inter), and the brand logo is overlaid top-right. Output: <strong>1080×1920 H.264 MP4</strong>.</div>
-            </div>
-            <div class="step-right">
-              <span class="tag tag-ffmpeg">ffmpeg</span>
-              <span class="tag tag-output">1080×1920 MP4</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
+      <div class="step-desc">Each article shows up in Telegram with ✅ Create / ❌ Skip buttons. Only approved ones move forward.</div>
     </div>
 
-    <div class="phase-gap">
-      <div class="phase-gap-badge">↓ &nbsp; Finished video passed to publishing</div>
-    </div>
-
-    <!-- ───── PHASE 4: PUBLISHING ───── -->
-    <div class="phase-block ph-pub">
-      <div class="phase-header ph-pub">
-        <span class="phase-num">Phase 4</span>
-        <span class="phase-icon">📱</span>
+    <div class="step-card c-emerald">
+      <div class="step-header">
+        <div class="step-num">4</div>
         <div>
-          <div class="phase-name">Publishing</div>
-          <div class="phase-desc">Cloud upload, human review of finished video, then automated TikTok scheduling</div>
+          <div class="step-title">Script Writer</div>
+          <div class="step-engine">OpenAI GPT</div>
         </div>
       </div>
+      <div class="step-desc">Rewrites the article into a punchy 110–130 word Albanian voiceover — tuned for short-form attention.</div>
+    </div>
 
-      <div class="steps ph-pub">
-
-        <div class="step-row">
-          <div class="step-card">
-            <div class="step-dot"></div>
-            <div class="step-num-badge">11</div>
-            <span class="step-emoji">☁️</span>
-            <div class="step-body">
-              <div class="step-title">Upload to Google Drive</div>
-              <div class="step-desc">The finished MP4 is uploaded to a shared <strong>Google Drive</strong> folder via OAuth. A public direct-download link is generated — this URL is what gets passed to Buffer for TikTok posting.</div>
-            </div>
-            <div class="step-right">
-              <span class="tag tag-gdrive">Google Drive</span>
-            </div>
-          </div>
-          <div class="step-arrow"><div class="step-arrow-line"></div></div>
+    <div class="step-card c-emerald">
+      <div class="step-header">
+        <div class="step-num">5</div>
+        <div>
+          <div class="step-title">Scene Planner</div>
+          <div class="step-engine">OpenAI GPT</div>
         </div>
-
-        <div class="step-row">
-          <div class="step-card is-human">
-            <div class="step-dot" style="background:#f59e0b;"></div>
-            <div class="step-num-badge" style="background:rgba(245,158,11,0.15);color:#f59e0b;">✋</div>
-            <span class="step-emoji">👤</span>
-            <div class="step-body">
-              <div class="human-label">Human Checkpoint #2</div>
-              <div class="step-title" style="color:#f59e0b;">Video Approval via Telegram</div>
-              <div class="step-desc">A <em>"VIDEO READY!"</em> notification is sent with a Google Drive preview link and buttons <strong>[✅ Post to TikTok]</strong> and <strong>[❌ Skip]</strong>. The human watches the video and decides. Rejected videos are archived; approved ones go live.</div>
-            </div>
-            <div class="step-right">
-              <span class="tag tag-human">👤 Human</span>
-              <span class="tag tag-telegram">Telegram</span>
-            </div>
-          </div>
-          <div class="step-arrow"><div class="step-arrow-line"></div></div>
-        </div>
-
-        <div class="step-row">
-          <div class="step-card">
-            <div class="step-dot"></div>
-            <div class="step-num-badge">13</div>
-            <span class="step-emoji">🎵</span>
-            <div class="step-body">
-              <div class="step-title">Post to TikTok — Buffer API</div>
-              <div class="step-desc">Buffer's GraphQL API receives the Google Drive URL and the video title. It queues the post for the <strong>TikTok channel</strong> and schedules it automatically for optimal posting time. A confirmation with the scheduled time is sent back to Telegram.</div>
-            </div>
-            <div class="step-right">
-              <span class="tag tag-buffer">Buffer API</span>
-              <span class="tag tag-output">TikTok</span>
-            </div>
-          </div>
-        </div>
-
       </div>
+      <div class="step-desc">Breaks the script into 5–8 timed scenes and writes a detailed image prompt for each one.</div>
+    </div>
+
+    <div class="step-card c-orange">
+      <div class="step-header">
+        <div class="step-num">6</div>
+        <div>
+          <div class="step-title">Image Generation</div>
+          <div class="step-engine">fal.ai</div>
+        </div>
+      </div>
+      <div class="step-desc">Renders one cinematic 4K portrait image per scene. Brand-character scenes use a reference photo for identity.</div>
+    </div>
+
+    <div class="step-card c-purple">
+      <div class="step-header">
+        <div class="step-num">7</div>
+        <div>
+          <div class="step-title">Voice + Subtitles</div>
+          <div class="step-engine">OpenAI TTS · Gladia</div>
+        </div>
+      </div>
+      <div class="step-desc">Speaks the script in natural Albanian, then transcribes it back to word-level timestamps for clean subtitles.</div>
+    </div>
+
+    <div class="step-card c-sky">
+      <div class="step-header">
+        <div class="step-num">8</div>
+        <div>
+          <div class="step-title">Final Render</div>
+          <div class="step-engine">ffmpeg</div>
+        </div>
+      </div>
+      <div class="step-desc">Animates each image with Ken Burns motion, syncs audio, burns in subtitles, drops the logo. Outputs 1080×1920 MP4.</div>
+    </div>
+
+    <div class="step-card c-amber">
+      <div class="step-header">
+        <div class="step-num">9</div>
+        <div>
+          <div class="step-title">Human Check #2</div>
+          <div class="step-engine">Telegram Approval</div>
+        </div>
+      </div>
+      <div class="step-desc">A "VIDEO READY" notification with a preview link. One tap to publish — or one tap to skip.</div>
+    </div>
+
+    <div class="step-card c-pink">
+      <div class="step-header">
+        <div class="step-num">10</div>
+        <div>
+          <div class="step-title">Publish</div>
+          <div class="step-engine">Google Drive · Buffer</div>
+        </div>
+      </div>
+      <div class="step-desc">Uploads to Drive, hands the link to Buffer, schedules to TikTok at the optimal time. Done.</div>
     </div>
 
   </div>
+</div>
 
-  <!-- ══ FINAL RESULT CARD ══ -->
-  <div class="result-card">
-    <span class="result-icon">🎵</span>
+
+<!-- ═══════════════════════════════════════════════
+     SCENE GALLERY — REAL OUTPUT
+════════════════════════════════════════════════ -->
+<hr class="divider">
+<div class="section">
+  <div class="section-label">Real Generated Frames</div>
+  <div class="section-title">The 8 Scenes from That TikTok</div>
+  <div class="section-sub">Every image you saw in the video above — generated by AI, no stock footage, no editing.</div>
+
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <span class="badge">Scene 01</span>
+      <img src="generated_content/ishiasi_irritohet_nga_q_ndrimi_ulur_5_us/images/ishiasi_irritohet_nga_q_ndrimi_ulur_5_us_01_a_po_t_ther_po_t_djeg_po.jpg" alt="Scene 1">
+    </div>
+    <div class="gallery-item">
+      <span class="badge">Scene 02</span>
+      <img src="generated_content/ishiasi_irritohet_nga_q_ndrimi_ulur_5_us/images/ishiasi_irritohet_nga_q_ndrimi_ulur_5_us_02_k_to_shpesh_lidhen_me_ishiasin.jpg" alt="Scene 2">
+    </div>
+    <div class="gallery-item">
+      <span class="badge">Scene 03</span>
+      <img src="generated_content/ishiasi_irritohet_nga_q_ndrimi_ulur_5_us/images/ishiasi_irritohet_nga_q_ndrimi_ulur_5_us_03_dhimbja_ther_se_nis_nga_fundi.jpg" alt="Scene 3">
+    </div>
+    <div class="gallery-item">
+      <span class="badge">Scene 04</span>
+      <img src="generated_content/ishiasi_irritohet_nga_q_ndrimi_ulur_5_us/images/ishiasi_irritohet_nga_q_ndrimi_ulur_5_us_04_shpesh_shkaku_sht_irritimi_i.jpg" alt="Scene 4">
+    </div>
+    <div class="gallery-item">
+      <span class="badge">Scene 05</span>
+      <img src="generated_content/ishiasi_irritohet_nga_q_ndrimi_ulur_5_us/images/ishiasi_irritohet_nga_q_ndrimi_ulur_5_us_05_lajmi_i_mir_ndryshime_t_thj.jpg" alt="Scene 5">
+    </div>
+    <div class="gallery-item">
+      <span class="badge">Scene 06</span>
+      <img src="generated_content/ishiasi_irritohet_nga_q_ndrimi_ulur_5_us/images/ishiasi_irritohet_nga_q_ndrimi_ulur_5_us_06_provo_t_ngrihesh_do_30_minut.jpg" alt="Scene 6">
+    </div>
+    <div class="gallery-item">
+      <span class="badge">Scene 07</span>
+      <img src="generated_content/ishiasi_irritohet_nga_q_ndrimi_ulur_5_us/images/ishiasi_irritohet_nga_q_ndrimi_ulur_5_us_07_n_se_dhimbja_rritet_ndalo_dhe.jpg" alt="Scene 7">
+    </div>
+    <div class="gallery-item">
+      <span class="badge">Scene 08</span>
+      <img src="generated_content/ishiasi_irritohet_nga_q_ndrimi_ulur_5_us/images/ishiasi_irritohet_nga_q_ndrimi_ulur_5_us_08_a_po_t_ndodh_edhe_ty_kur_rri.jpg" alt="Scene 8">
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     AI MODELS USED
+════════════════════════════════════════════════ -->
+<hr class="divider">
+<div class="section">
+  <div class="section-label">Technology Stack</div>
+  <div class="section-title">The Engines Behind Every TikTok</div>
+  <div class="section-sub">Seven specialized services chained into a single pipeline — each doing what it does best.</div>
+
+  <div class="models-grid">
+    <div class="model-card" style="border-color:#10b981;">
+      <div class="model-icon" style="background:linear-gradient(135deg,#064e3b,#10b98122); border:1.5px solid #10b981;">🧠</div>
+      <div class="model-name">OpenAI GPT</div>
+      <div class="model-role">Script · Scene Plan · Subtitles</div>
+      <div class="model-badge" style="background:rgba(16,185,129,0.1);color:#10b981;border:1px solid rgba(16,185,129,0.3);">OpenAI</div>
+    </div>
+    <div class="model-card" style="border-color:#a855f7;">
+      <div class="model-icon" style="background:linear-gradient(135deg,#3b0764,#a855f722); border:1.5px solid #a855f7;">🎙️</div>
+      <div class="model-name">OpenAI TTS</div>
+      <div class="model-role">Albanian voiceover (echo, 1.2×)</div>
+      <div class="model-badge" style="background:rgba(168,85,247,0.1);color:#a855f7;border:1px solid rgba(168,85,247,0.3);">OpenAI</div>
+    </div>
+    <div class="model-card" style="border-color:var(--orange);">
+      <div class="model-icon" style="background:linear-gradient(135deg,#7c2d12,#ff680b22); border:1.5px solid var(--orange);">🖼️</div>
+      <div class="model-name">fal.ai</div>
+      <div class="model-role">4K portrait scene imagery</div>
+      <div class="model-badge" style="background:rgba(255,104,11,0.1);color:var(--orange);border:1px solid rgba(255,104,11,0.3);">fal.ai</div>
+    </div>
+    <div class="model-card" style="border-color:#c084fc;">
+      <div class="model-icon" style="background:linear-gradient(135deg,#3b0764,#c084fc22); border:1.5px solid #c084fc;">💬</div>
+      <div class="model-name">Gladia</div>
+      <div class="model-role">Word-level transcription</div>
+      <div class="model-badge" style="background:rgba(192,132,252,0.1);color:#c084fc;border:1px solid rgba(192,132,252,0.3);">Gladia</div>
+    </div>
+    <div class="model-card" style="border-color:#22c55e;">
+      <div class="model-icon" style="background:linear-gradient(135deg,#14532d,#22c55e22); border:1.5px solid #22c55e;">🕷️</div>
+      <div class="model-name">Playwright</div>
+      <div class="model-role">Article scraping</div>
+      <div class="model-badge" style="background:rgba(34,197,94,0.1);color:#22c55e;border:1px solid rgba(34,197,94,0.3);">Chromium</div>
+    </div>
+    <div class="model-card" style="border-color:#0ea5e9;">
+      <div class="model-icon" style="background:linear-gradient(135deg,#0c4a6e,#0ea5e922); border:1.5px solid #0ea5e9;">🎞️</div>
+      <div class="model-name">ffmpeg</div>
+      <div class="model-role">Animation · subs · encode</div>
+      <div class="model-badge" style="background:rgba(14,165,233,0.1);color:#0ea5e9;border:1px solid rgba(14,165,233,0.3);">Local</div>
+    </div>
+    <div class="model-card" style="border-color:#3b82f6;">
+      <div class="model-icon" style="background:linear-gradient(135deg,#1e3a5f,#3b82f622); border:1.5px solid #3b82f6;">📲</div>
+      <div class="model-name">Telegram Bot</div>
+      <div class="model-role">Trigger &amp; approval UI</div>
+      <div class="model-badge" style="background:rgba(59,130,246,0.1);color:#3b82f6;border:1px solid rgba(59,130,246,0.3);">Telegram</div>
+    </div>
+    <div class="model-card" style="border-color:#ec4899;">
+      <div class="model-icon" style="background:linear-gradient(135deg,#500724,#ec489922); border:1.5px solid #ec4899;">📡</div>
+      <div class="model-name">Buffer</div>
+      <div class="model-role">TikTok scheduling</div>
+      <div class="model-badge" style="background:rgba(236,72,153,0.1);color:#ec4899;border:1px solid rgba(236,72,153,0.3);">Buffer</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     TIMELINE / VALUE
+════════════════════════════════════════════════ -->
+<hr class="divider">
+<div class="section">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;">
+
     <div>
-      <div class="result-title">TikTok Video — Live</div>
-      <div class="result-desc">
-        A fully produced, subtitled, branded short-form video is scheduled and published to TikTok.
-        The original article has been transformed into engaging vertical content — without any manual editing, recording, or design work.
-      </div>
-      <div class="result-spec">
-        <span class="tag tag-output">1080 × 1920 px</span>
-        <span class="tag tag-output">H.264 · AAC</span>
-        <span class="tag tag-output">Albanian subtitles</span>
-        <span class="tag tag-output">Ken Burns animated</span>
-        <span class="tag tag-output">Brand watermark</span>
-        <span class="tag tag-output">Auto-scheduled</span>
+      <div class="section-label">Run Sequence</div>
+      <div class="section-title" style="margin-bottom:36px;">From <code>/news</code> to TikTok in ~5 Minutes</div>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-label">T + 0s</div>
+          <div class="tl-title">Command fires</div>
+          <div class="tl-desc">User sends <code>/news</code> in Telegram. The bot wakes the pipeline and starts scraping.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-label">T + 30s</div>
+          <div class="tl-title">Article shortlist arrives</div>
+          <div class="tl-desc">Fresh, never-seen articles arrive in Telegram with ✅ / ❌ buttons. Human picks one.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-label">T + 1 min</div>
+          <div class="tl-title">GPT writes the script</div>
+          <div class="tl-desc">Rewritten into a viral-style 40-second Albanian voiceover, plus an 8-scene visual plan as JSON.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-label">T + 2–3 min</div>
+          <div class="tl-title">fal.ai renders the visuals</div>
+          <div class="tl-desc">5–8 cinematic 4K portrait images, one per scene, with consistent brand-character placement where required.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-label">T + 3 min</div>
+          <div class="tl-title">Voice + subtitles built</div>
+          <div class="tl-desc">TTS speaks the script, Gladia gives word-level timestamps, GPT corrects transcription drift.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-label">T + 4 min</div>
+          <div class="tl-title">ffmpeg ships the MP4</div>
+          <div class="tl-desc">Ken Burns animation, audio sync, burned subtitles, branded logo — packed into 1080×1920 H.264.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-label">T + ~5 min</div>
+          <div class="tl-title">Live on TikTok</div>
+          <div class="tl-desc">Uploaded to Drive, scheduled by Buffer, posted to TikTok at optimal time. Confirmation pings Telegram.</div>
+        </div>
       </div>
     </div>
+
+    <div>
+      <div class="section-label">Why This Matters</div>
+      <div class="section-title" style="margin-bottom:36px;">What the Client Gets</div>
+
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;gap:16px;align-items:flex-start;">
+          <div style="font-size:24px;flex-shrink:0;">⚡</div>
+          <div>
+            <div style="font-weight:700;color:var(--white);margin-bottom:4px;">Daily Output, Zero Production Time</div>
+            <div style="font-size:13px;color:var(--muted);">A new branded TikTok every day without recording, editing, designing or scripting. Five minutes of attention replaces hours of agency work.</div>
+          </div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;gap:16px;align-items:flex-start;">
+          <div style="font-size:24px;flex-shrink:0;">📰</div>
+          <div>
+            <div style="font-weight:700;color:var(--white);margin-bottom:4px;">News-Driven, Always Relevant</div>
+            <div style="font-size:13px;color:var(--muted);">Pulls from a real health-news source — every video rides current public-interest topics, not a static content calendar.</div>
+          </div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;gap:16px;align-items:flex-start;">
+          <div style="font-size:24px;flex-shrink:0;">🛡️</div>
+          <div>
+            <div style="font-weight:700;color:var(--white);margin-bottom:4px;">Human-in-the-Loop Safety</div>
+            <div style="font-size:13px;color:var(--muted);">Two approval gates — article and finished video — sit between AI and the public feed. Nothing gets posted without one tap from the brand owner.</div>
+          </div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;gap:16px;align-items:flex-start;">
+          <div style="font-size:24px;flex-shrink:0;">🎨</div>
+          <div>
+            <div style="font-weight:700;color:var(--white);margin-bottom:4px;">Native Vertical Quality</div>
+            <div style="font-size:13px;color:var(--muted);">1080×1920 H.264, animated stills, brand watermark, burned subtitles. Built for TikTok's spec sheet, not a 16:9 clip awkwardly cropped.</div>
+          </div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;gap:16px;align-items:flex-start;">
+          <div style="font-size:24px;flex-shrink:0;">📱</div>
+          <div>
+            <div style="font-weight:700;color:var(--white);margin-bottom:4px;">Run It From Your Phone</div>
+            <div style="font-size:13px;color:var(--muted);">The whole system is operated from inside Telegram. No dashboard, no laptop, no special tooling — just two button taps a day.</div>
+          </div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;gap:16px;align-items:flex-start;">
+          <div style="font-size:24px;flex-shrink:0;">📈</div>
+          <div>
+            <div style="font-weight:700;color:var(--white);margin-bottom:4px;">Scales Without More Headcount</div>
+            <div style="font-size:13px;color:var(--muted);">Want a second channel, language or topic vertical? Drop in a new brand profile — the same pipeline runs for it.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
-
-  <!-- ══ SERVICES DIVIDER ══ -->
-  <hr class="divider">
-
-  <div class="section-title" style="margin-top:60px;">
-    <h2>Services &amp; Technologies</h2>
-    <p>The full stack powering this pipeline — 7 APIs working in sequence</p>
-  </div>
-
-  <div class="services-grid">
-    <div class="svc-card">
-      <div class="svc-icon">📲</div>
-      <div class="svc-name" style="color:#38bdf8;">Telegram Bot API</div>
-      <div class="svc-role">Human control interface — triggers, approval buttons, and status notifications throughout the pipeline</div>
-    </div>
-    <div class="svc-card">
-      <div class="svc-icon">🕷️</div>
-      <div class="svc-name" style="color:#86efac;">Playwright</div>
-      <div class="svc-role">Headless browser automation for scraping article listings and fetching full article body text</div>
-    </div>
-    <div class="svc-card">
-      <div class="svc-icon">🧠</div>
-      <div class="svc-name" style="color:#34d399;">OpenAI GPT</div>
-      <div class="svc-role">Three roles: script writing, JSON scene planning, and subtitle accuracy correction</div>
-    </div>
-    <div class="svc-card">
-      <div class="svc-icon">🎙️</div>
-      <div class="svc-name" style="color:#34d399;">OpenAI TTS</div>
-      <div class="svc-role">Converts the Albanian script to natural speech using the <em>echo</em> voice — output sped up to 1.2× for short-form pacing</div>
-    </div>
-    <div class="svc-card">
-      <div class="svc-icon">🖼️</div>
-      <div class="svc-name" style="color:#f87171;">fal.ai</div>
-      <div class="svc-role">High-quality 4K portrait image generation from detailed scene prompts, with optional brand character reference</div>
-    </div>
-    <div class="svc-card">
-      <div class="svc-icon">💬</div>
-      <div class="svc-name" style="color:#c084fc;">Gladia API</div>
-      <div class="svc-role">Word-level audio transcription providing precise timestamps for accurate subtitle placement</div>
-    </div>
-    <div class="svc-card">
-      <div class="svc-icon">🎞️</div>
-      <div class="svc-name" style="color:#fcd34d;">ffmpeg</div>
-      <div class="svc-role">Local video engine: animated Ken Burns clips, audio sync, subtitle burning, logo overlay, H.264 encoding</div>
-    </div>
-    <div class="svc-card">
-      <div class="svc-icon">☁️</div>
-      <div class="svc-name" style="color:#93c5fd;">Google Drive</div>
-      <div class="svc-role">Cloud video hosting — generates a public direct download URL used by Buffer to ingest the video for TikTok</div>
-    </div>
-    <div class="svc-card">
-      <div class="svc-icon">📡</div>
-      <div class="svc-name" style="color:#f9a8d4;">Buffer</div>
-      <div class="svc-role">TikTok publishing via GraphQL API — receives the Drive URL and title, queues and auto-schedules the post</div>
-    </div>
-  </div>
-
-  <!-- ══ OUTPUT FILES ══ -->
-  <div class="output-section">
-    <div class="output-header">
-      <h3>Files Generated Per Article</h3>
-    </div>
-    <div class="output-path">Saved to <code>generated_content/{article-slug}/</code> — all intermediate and final outputs are preserved</div>
-
-    <div class="output-files">
-      <div class="out-file">
-        <span class="out-file-icon">📝</span>
-        <div>
-          <div class="out-file-name">scripts/slug.txt</div>
-          <div class="out-file-desc">Albanian voiceover (110–130 words)</div>
-        </div>
-      </div>
-      <div class="out-file">
-        <span class="out-file-icon">🗂️</span>
-        <div>
-          <div class="out-file-name">images/slug.json</div>
-          <div class="out-file-desc">Scene plan with AI image prompts</div>
-        </div>
-      </div>
-      <div class="out-file">
-        <span class="out-file-icon">🖼️</span>
-        <div>
-          <div class="out-file-name">images/slug_01_*.jpg</div>
-          <div class="out-file-desc">5–8 AI-generated 4K scene images</div>
-        </div>
-      </div>
-      <div class="out-file">
-        <span class="out-file-icon">🔊</span>
-        <div>
-          <div class="out-file-name">audio/slug.mp3</div>
-          <div class="out-file-desc">TTS narration at 1.2× speed</div>
-        </div>
-      </div>
-      <div class="out-file">
-        <span class="out-file-icon">💬</span>
-        <div>
-          <div class="out-file-name">subtitles/slug.srt</div>
-          <div class="out-file-desc">Timestamped 2-line subtitle file</div>
-        </div>
-      </div>
-      <div class="out-file final">
-        <span class="out-file-icon">🎬</span>
-        <div>
-          <div class="out-file-name" style="color:#f59e0b;">video.mp4</div>
-          <div class="out-file-desc">1080×1920 · H.264 · TikTok-ready</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
 </div>
 
-<!-- ══════════════════ FOOTER ══════════════════ -->
-<footer>
-  <strong>Content Automation Pipeline</strong> &nbsp;·&nbsp; Article → TikTok, fully automated &nbsp;·&nbsp; Powered by AI at every step
-</footer>
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════ -->
+<div class="footer">
+  <div class="footer-logo">n'<span>shpi</span></div>
+  <p style="margin-bottom:6px;">AI Content Repurposing · News → TikTok</p>
+  <p style="font-size:12px; color:#444;">Confidential — for client presentation purposes only</p>
+</div>
 
 </body>
 </html>

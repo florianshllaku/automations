@@ -4,7 +4,7 @@ export default function AboutPage() {
   return (
     <main className="pt-24 bg-white text-black font-light flex-1">
       {/* Hero Image - Studio Vendi Logo Light Fixture */}
-      <div className="relative w-full aspect-[21/9] mb-16 lg:mb-24">
+      <div className="relative w-full aspect-[4/3] md:aspect-[21/9] mb-16 lg:mb-24">
         <Image
           src="/images/about-hero.jpg"
           alt="Studio Vendi illuminated logo fixture"
