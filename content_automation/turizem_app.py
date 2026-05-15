@@ -36,6 +36,7 @@ PASSWORD    = "ventura2026"
 
 app = Flask(__name__, template_folder="turizem_web/templates")
 app.secret_key = "vt_xK9#mL2$pQ7nR4"
+app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
@@ -173,6 +174,11 @@ def generate():
 
     caption = generate_caption(event_badge, destination, hotel_name, nights, days, price, includes_raw)
 
+    # Save caption as .txt alongside the image
+    caption_filename = f"post_{post_id}.txt"
+    caption_path = OUTPUT_DIR / caption_filename
+    caption_path.write_text(caption, encoding="utf-8")
+
     entry = {
         "id":           post_id,
         "timestamp":    datetime.now().strftime("%d %b %Y  %H:%M"),
@@ -185,19 +191,22 @@ def generate():
         "services":     selected,
         "package_type": package_type,
         "price":        price,
-        "caption":      caption,
-        "filename":     output_filename,
+        "caption":          caption,
+        "filename":         output_filename,
+        "caption_filename": caption_filename,
     }
     history = load_history()
     history.insert(0, entry)
     save_history(history)
 
     return jsonify({
-        "success":   True,
-        "image_url": url_for("serve_output", filename=output_filename),
-        "filename":  output_filename,
-        "caption":   caption,
-        "entry":     entry,
+        "success":          True,
+        "image_url":        url_for("serve_output", filename=output_filename),
+        "filename":         output_filename,
+        "caption_url":      url_for("serve_output", filename=caption_filename),
+        "caption_filename": caption_filename,
+        "caption":          caption,
+        "entry":            entry,
     })
 
 

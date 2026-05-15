@@ -228,6 +228,9 @@
   }
   .btn-download:hover { background: var(--blue); color: #fff; }
   .btn-download.visible { display: block; }
+  .btn-download-both { background: #0a2a14; border-color: #1a7a35; color: #4ade80; }
+  .btn-download-both:hover { background: #1a7a35; color: #fff; border-color: #1a7a35; }
+  .btn-download-both.visible { display: block; }
 
   /* ── Services checklist ── */
   .services-list {
@@ -580,7 +583,10 @@
         <div class="big-spinner"></div>
       </div>
     </div>
-    <a href="#" class="btn-download" id="downloadBtn" download>Shkarko Postin</a>
+    <div style="display:flex;gap:10px;">
+      <a href="#" class="btn-download" id="downloadBtn" download style="flex:1;">Shkarko Imazhin</a>
+      <a href="#" class="btn-download btn-download-both" id="downloadBothBtn" style="flex:1;display:none;">Shkarko të Dyja ↓</a>
+    </div>
 
     <!-- Caption -->
     <div class="caption-box" id="captionBox">
@@ -648,18 +654,19 @@
   });
 
   // Form submit
-  const form           = document.getElementById('genForm');
-  const genBtn         = document.getElementById('genBtn');
-  const btnSpinner     = document.getElementById('btnSpinner');
-  const btnText        = document.getElementById('btnText');
-  const previewImg     = document.getElementById('previewImg');
-  const placeholder    = document.getElementById('placeholder');
-  const loadingOverlay = document.getElementById('loadingOverlay');
-  const downloadBtn    = document.getElementById('downloadBtn');
-  const captionBox     = document.getElementById('captionBox');
-  const captionText    = document.getElementById('captionText');
-  const historyGrid    = document.getElementById('historyGrid');
-  const toast          = document.getElementById('toast');
+  const form              = document.getElementById('genForm');
+  const genBtn            = document.getElementById('genBtn');
+  const btnSpinner        = document.getElementById('btnSpinner');
+  const btnText           = document.getElementById('btnText');
+  const previewImg        = document.getElementById('previewImg');
+  const placeholder       = document.getElementById('placeholder');
+  const loadingOverlay    = document.getElementById('loadingOverlay');
+  const downloadBtn       = document.getElementById('downloadBtn');
+  const downloadBothBtn   = document.getElementById('downloadBothBtn');
+  const captionBox        = document.getElementById('captionBox');
+  const captionText       = document.getElementById('captionText');
+  const historyGrid       = document.getElementById('historyGrid');
+  const toast             = document.getElementById('toast');
 
   function showToast(msg) {
     toast.textContent = msg;
@@ -699,12 +706,30 @@
       previewImg.style.display = 'block';
       placeholder.style.display = 'none';
 
-      // Download button
+      // Download image button
       downloadBtn.href = data.image_url;
       downloadBtn.download = data.filename;
       downloadBtn.classList.add('visible');
 
-      // Show caption
+      // Download both button
+      downloadBothBtn.style.display = 'block';
+      downloadBothBtn.classList.add('visible');
+      downloadBothBtn.onclick = () => {
+        // Download image
+        const a1 = document.createElement('a');
+        a1.href = data.image_url;
+        a1.download = data.filename;
+        a1.click();
+        // Download caption txt
+        setTimeout(() => {
+          const a2 = document.createElement('a');
+          a2.href = data.caption_url;
+          a2.download = data.caption_filename;
+          a2.click();
+        }, 400);
+      };
+
+      // Show caption box
       if (data.caption) {
         captionText.value = data.caption;
         captionBox.classList.add('visible');
