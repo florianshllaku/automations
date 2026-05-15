@@ -133,8 +133,8 @@ def generate():
     price          = request.form.get("price", "").strip()
     selected       = request.form.getlist("services")
 
-    # Compute package_type for the image
-    package_type = " • ".join(selected) if selected else ""
+    # Compute package_type for the image (comma-separated)
+    package_type = ", ".join(selected) if selected else ""
 
     # Compute includes for the caption
     includes_raw = "\n".join(selected)
