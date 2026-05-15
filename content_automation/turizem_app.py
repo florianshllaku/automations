@@ -19,9 +19,13 @@ ALL_SERVICES = [
     "Mëngjesi",
     "Dreka",
     "Darka",
-    "Pije pa limit gjatë vakteve",
+    "Pije",
     "Pishina",
     "Transporti hotel-plazh-hotel",
+    "Fitness",
+    "Spa",
+    "Jacuzzi",
+    "Plazhë",
 ]
 
 BASE_DIR    = Path(__file__).parent
@@ -130,12 +134,7 @@ def generate():
     selected       = request.form.getlist("services")
 
     # Compute package_type for the image
-    if set(selected) >= set(ALL_SERVICES):
-        package_type = "PAKETA ALL INCLUSIVE"
-    elif selected:
-        package_type = " • ".join(selected)
-    else:
-        package_type = ""
+    package_type = " • ".join(selected) if selected else ""
 
     # Compute includes for the caption
     includes_raw = "\n".join(selected)

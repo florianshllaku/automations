@@ -274,21 +274,6 @@
   .svc-item input:checked ~ .svc-check::after { content: '✓'; }
   .svc-item input:checked ~ .svc-name { color: #fff; }
 
-  .all-inclusive-badge {
-    display: none;
-    margin-top: 10px;
-    background: linear-gradient(135deg, #1565C0, #1976D2);
-    color: #fff;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 10px 16px;
-    border-radius: 8px;
-  }
-  .all-inclusive-badge.show { display: block; }
-
   /* ── Caption box ── */
   .caption-box {
     display: none;
@@ -544,9 +529,9 @@
             <span class="svc-name">Darka</span>
           </label>
           <label class="svc-item">
-            <input type="checkbox" name="services" value="Pije pa limit gjatë vakteve">
+            <input type="checkbox" name="services" value="Pije">
             <span class="svc-check"></span>
-            <span class="svc-name">Pije pa limit gjatë vakteve</span>
+            <span class="svc-name">Pije</span>
           </label>
           <label class="svc-item">
             <input type="checkbox" name="services" value="Pishina">
@@ -558,8 +543,27 @@
             <span class="svc-check"></span>
             <span class="svc-name">Transporti hotel-plazh-hotel</span>
           </label>
+          <label class="svc-item">
+            <input type="checkbox" name="services" value="Fitness">
+            <span class="svc-check"></span>
+            <span class="svc-name">Fitness</span>
+          </label>
+          <label class="svc-item">
+            <input type="checkbox" name="services" value="Spa">
+            <span class="svc-check"></span>
+            <span class="svc-name">Spa</span>
+          </label>
+          <label class="svc-item">
+            <input type="checkbox" name="services" value="Jacuzzi">
+            <span class="svc-check"></span>
+            <span class="svc-name">Jacuzzi</span>
+          </label>
+          <label class="svc-item">
+            <input type="checkbox" name="services" value="Plazhë">
+            <span class="svc-check"></span>
+            <span class="svc-name">Plazhë</span>
+          </label>
         </div>
-        <div class="all-inclusive-badge" id="allInclusiveBadge">✦ PAKETA ALL INCLUSIVE</div>
       </div>
 
       <button class="btn-generate" type="submit" id="genBtn">
@@ -624,16 +628,6 @@
 <div class="toast" id="toast"></div>
 
 <script>
-  // All-inclusive badge
-  const svcCheckboxes = document.querySelectorAll('input[name="services"]');
-  const allBadge = document.getElementById('allInclusiveBadge');
-  function updateBadge() {
-    const total = svcCheckboxes.length;
-    const checked = document.querySelectorAll('input[name="services"]:checked').length;
-    allBadge.classList.toggle('show', checked === total);
-  }
-  svcCheckboxes.forEach(cb => cb.addEventListener('change', updateBadge));
-
   // Upload zone
   const bgInput   = document.getElementById('bgInput');
   const uploadZone = document.getElementById('uploadZone');
