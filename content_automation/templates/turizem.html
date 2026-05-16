@@ -132,18 +132,25 @@
     display: none;
   }
 
-  /* Wrapper: hotel row + destination */
+  /* Wrapper: hotel row */
   .hotel-block {
     display: inline-flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 6px;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
   }
 
   .hotel-row {
     display: flex;
     align-items: center;
     gap: 20px;
+  }
+
+  .name-dest-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
   }
 
   .hotel-label {
@@ -221,7 +228,7 @@
   /* Package + price strip */
   .package-strip {
     width: 100%;
-    height: 110px;
+    height: 150px;
     display: flex;
     border-radius: 16px;
     overflow: hidden;
@@ -250,7 +257,7 @@
     word-break: break-word;
     text-align: center;
     line-height: 1.25;
-    max-height: 90px;
+    max-height: 130px;
     overflow: hidden;
   }
 
@@ -383,11 +390,11 @@
     <div class="header-block">
       <div class="event-badge">{{ event_badge }}</div>
       <div class="hotel-block">
-        <div class="hotel-row">
-          <div class="hotel-label">{{ hotel_label }}</div>
+        <div class="hotel-label">{{ hotel_label }}</div>
+        <div class="name-dest-col">
           <div class="hotel-name">{{ hotel_name }}</div>
+          <div class="destination">{{ destination }}</div>
         </div>
-        <div class="destination">{{ destination }}</div>
       </div>
     </div>
 
@@ -442,15 +449,15 @@
     (function () {
       // Auto-size hotel name
       var nameEl  = document.querySelector('.hotel-name');
+      var blockEl = document.querySelector('.header-block');
       var labelEl = document.querySelector('.hotel-label');
-      var rowEl   = document.querySelector('.hotel-row');
       var minPx = 40, maxPx = 68, best = 56;
       var lo = minPx, hi = maxPx;
+      var availWidth = blockEl.offsetWidth - labelEl.offsetWidth - 20 - 4;
       while (lo <= hi) {
         var mid = Math.floor((lo + hi) / 2);
         nameEl.style.fontSize = mid + 'px';
-        var avail = rowEl.offsetWidth - labelEl.offsetWidth - 20 - 4;
-        if (nameEl.scrollWidth <= avail) { best = mid; lo = mid + 1; }
+        if (nameEl.scrollWidth <= availWidth) { best = mid; lo = mid + 1; }
         else { hi = mid - 1; }
       }
       nameEl.style.fontSize = best + 'px';
@@ -458,10 +465,10 @@
       // Auto-size package type: shrink font until it fits within 2 lines (max-height 90px)
       var pkgEl = document.getElementById('pkgType');
       if (pkgEl) {
-        var pkgMax = 32, pkgMin = 18, pkgBest = pkgMax;
+        var pkgMax = 32, pkgMin = 16, pkgBest = pkgMin;
         for (var s = pkgMax; s >= pkgMin; s--) {
           pkgEl.style.fontSize = s + 'px';
-          if (pkgEl.scrollHeight <= 90) { pkgBest = s; break; }
+          if (pkgEl.scrollHeight <= 130) { pkgBest = s; break; }
         }
         pkgEl.style.fontSize = pkgBest + 'px';
       }

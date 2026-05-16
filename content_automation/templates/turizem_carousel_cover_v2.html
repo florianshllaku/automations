@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  @font-face { font-family: 'Poppins'; font-weight: 700; src: url('{{ font_poppins }}') format('truetype'); }
+  @font-face { font-family: 'Bigtimes'; src: url('{{ font_bigtimes }}') format('opentype'); }
+  @font-face { font-family: 'Exo2'; font-weight: 600; src: url('{{ font_exo2 }}') format('opentype'); }
+  @font-face { font-family: 'Biryani'; src: url('{{ font_biryani }}') format('truetype'); }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body, html { width: 1080px; height: 1080px; overflow: hidden; background: #020c1e; }
+  .canvas { position: relative; width: 1080px; height: 1080px; }
+
+  .bg {
+    position: absolute; inset: 0;
+    background-image: url('{{ bg_image }}');
+    background-size: cover; background-position: center;
+    z-index: 1;
+  }
+
+  /* Bottom gradient */
+  .overlay-bottom {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 500px;
+    background: linear-gradient(to top,
+      rgba(2,12,30,0.97) 0%,
+      rgba(2,12,30,0.72) 48%,
+      transparent 100%);
+    z-index: 2;
+  }
+
+  /* ── Logo — white, left ── */
+  .logo-wrap { position: absolute; top: 28px; left: 36px; z-index: 10; }
+  .logo-wrap img { height: 70px; width: auto; object-fit: contain; }
+
+  /* ── Bookmark ── */
+  .bookmark {
+    position: absolute; top: 0; right: 72px;
+    width: 150px; height: 196px;
+    background: #1877F2; z-index: 20;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 88%, 0 100%);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 5px; padding-bottom: 26px;
+  }
+  .bookmark.hidden { display: none; }
+  .bookmark-line {
+    font-family: 'Exo2', sans-serif; font-weight: 600;
+    font-size: 20px; letter-spacing: 3px; text-transform: uppercase;
+    color: #fff; text-align: center; white-space: nowrap;
+  }
+  .bookmark-rule { width: 70px; height: 1px; background: rgba(255,255,255,0.38); }
+
+  /* ── City ── */
+  .city-block {
+    position: absolute; top: 140px; left: 44px; right: 44px;
+    display: flex; flex-direction: column; align-items: center;
+    z-index: 10;
+  }
+
+  .destination-script {
+    font-family: 'Bigtimes', sans-serif;
+    font-size: 170px; color: #fff; line-height: 1.0; white-space: nowrap;
+    /* layered shadow: spread glow + hard drop */
+    text-shadow:
+      0 0 120px rgba(24,119,242,0.30),
+      0 0 60px  rgba(0,0,0,0.60),
+      0 6px 28px rgba(0,0,0,0.80);
+  }
+
+  /* ── Hotel line — HOTEL · NAME, Exo2 SemiBold, outer stroke ── */
+  .hotel-line {
+    margin-top: 8px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 10px; white-space: nowrap;
+    font-family: 'Exo2', sans-serif; font-weight: 600;
+    font-size: 30px; /* starting value, JS will adjust */
+    color: #fff;
+    text-shadow:
+      1px 1px 0 #0D3FC4,
+      2px 2px 0 #0D3FC4,
+      3px 3px 0 #0A35A8,
+      4px 4px 0 #0A35A8;
+    text-transform: uppercase;
+  }
+  .hotel-dot { color: #1877F2; text-shadow: none; }
+
+  /* ── Price section ── */
+  .price-section {
+    position: absolute; bottom: 178px; left: 0; right: 0;
+    z-index: 10;
+    display: flex; flex-direction: column; align-items: center; gap: 0;
+  }
+
+  /* Three-dot organic separator */
+  .price-sep {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 10px;
+  }
+  .sep-dot {
+    border-radius: 50%; background: rgba(96,165,250,0.55);
+  }
+  .sep-dot.sm { width: 5px; height: 5px; }
+  .sep-dot.md { width: 7px; height: 7px; background: rgba(96,165,250,0.80); }
+
+  /* Price + euro — same size, white / light-blue */
+  .price-row {
+    display: flex; align-items: baseline; gap: 0; line-height: 1;
+  }
+  .price-number {
+    font-family: 'Poppins', sans-serif; font-weight: 700;
+    font-size: 118px; color: #fff; letter-spacing: -4px;
+    text-shadow: 0 0 80px rgba(24,119,242,0.45), 0 4px 24px rgba(0,0,0,0.60);
+  }
+  .price-euro {
+    font-family: 'Poppins', sans-serif; font-weight: 700;
+    font-size: 118px; color: #93C5FD; letter-spacing: -2px;
+    text-shadow: 0 0 80px rgba(24,119,242,0.45), 0 4px 24px rgba(0,0,0,0.60);
+  }
+
+  /* Script "për person" — human touch */
+  .price-script {
+    font-family: 'Bigtimes', sans-serif;
+    font-size: 36px; color: rgba(255,255,255,0.45);
+    margin-top: -4px; letter-spacing: 0.5px;
+  }
+
+  /* Two separate night/day badges — asymmetric feel */
+  .dur-badges {
+    margin-top: 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .dur-badge {
+    display: flex; align-items: center; gap: 8px;
+    font-family: 'Poppins', sans-serif; font-weight: 700;
+    font-size: 24px; color: #fff;
+    padding: 7px 20px;
+    border-radius: 10px;
+  }
+  .dur-badge.night {
+    background: rgba(10,20,50,0.65);
+  }
+  .dur-badge.day {
+    background: rgba(24,80,180,0.50);
+  }
+  .dur-mid {
+    font-family: 'Poppins', sans-serif; font-weight: 700;
+    font-size: 20px; color: rgba(255,255,255,0.22);
+  }
+
+  /* Date range */
+  .date-range {
+    margin-top: 10px;
+    font-family: 'Biryani', sans-serif;
+    font-size: 18px; color: rgba(255,255,255,0.46);
+    letter-spacing: 2.5px; text-transform: uppercase;
+  }
+  .date-month {
+    margin-top: 4px;
+    font-family: 'Biryani', sans-serif;
+    font-size: 15px; color: rgba(255,255,255,0.30);
+    letter-spacing: 3px; text-transform: uppercase;
+  }
+  .date-month.hidden { display: none; }
+
+  /* ── Contact footer ── */
+  .contact-bar {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 140px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 52px; z-index: 10;
+  }
+  .phone-block { display: flex; align-items: center; gap: 14px; }
+  .phone-text { display: flex; flex-direction: column; line-height: 1.2; }
+  .phone-prefixes { font-family: 'Exo2', sans-serif; font-weight: 600; font-size: 15px; color: rgba(255,255,255,0.52); }
+  .phone-number  { font-family: 'Exo2', sans-serif; font-weight: 600; font-size: 26px; color: #fff; }
+  .center-block { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .website-text { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 20px; color: #fff; }
+  .payment-pill { background: rgba(255,255,255,0.92); border-radius: 8px; padding: 4px 14px; display: flex; align-items: center; }
+  .transport-icons { display: flex; gap: 10px; align-items: center; }
+
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <div class="bg"></div>
+  <div class="overlay-bottom"></div>
+
+  <!-- Logo -->
+  <div class="logo-wrap">
+    <img src="{{ logo_src }}" alt="Ventura Travel">
+  </div>
+
+  <!-- Bookmark -->
+  <div class="bookmark">
+    <span class="bookmark-line">OFERTA</span>
+    <div class="bookmark-rule"></div>
+    <span class="bookmark-line">VERORE</span>
+  </div>
+
+  <!-- City + hotel -->
+  <div class="city-block">
+    <div class="destination-script" id="destScript">{{ destination }}</div>
+    <!-- one element, JS sizes it; children inherit font-size -->
+    <div class="hotel-line" id="hotelLine">
+      <span>HOTEL</span>
+      <span class="hotel-dot">·</span>
+      <span id="hotelNameEl">{{ hotel_name }}</span>
+    </div>
+  </div>
+
+  <!-- Price section -->
+  <div class="price-section">
+
+    <!-- organic dot separator -->
+    <div class="price-sep">
+      <div class="sep-dot sm"></div>
+      <div class="sep-dot md"></div>
+      <div class="sep-dot sm"></div>
+    </div>
+
+    <!-- price -->
+    <div class="price-row">
+      <span class="price-number">{{ price }}</span>
+      <span class="price-euro">€</span>
+    </div>
+
+    <!-- script label -->
+    <span class="price-script">për person</span>
+
+    <!-- two separate badges -->
+    <div class="dur-badges">
+      <div class="dur-badge night">
+        <img src="{{ moon_icon }}" style="width:26px;height:26px;object-fit:contain;">
+        {{ nights }} Nat&#235;
+      </div>
+      <span class="dur-mid">/</span>
+      <div class="dur-badge day">
+        <img src="{{ sun_icon }}" style="width:32px;height:32px;object-fit:contain;">
+        {{ days }} Dit&#235;
+      </div>
+    </div>
+
+    <!-- date range -->
+    <span class="date-range">{{ date_from }} &mdash; {{ date_to }}</span>
+    <span class="date-month {{ month_hidden }}">{{ month }}</span>
+
+  </div>
+
+  <!-- Contact footer -->
+  <div class="contact-bar">
+    <div class="phone-block">
+      <img src="{{ phone_icon }}" style="width:68px;height:68px;object-fit:contain;">
+      <div class="phone-text">
+        <span class="phone-prefixes">038 / 044 / 049</span>
+        <span class="phone-number">232 323</span>
+      </div>
+    </div>
+    <div class="center-block">
+      <span class="website-text">www.venturatravel.net</span>
+      <div class="payment-pill">
+        <img src="{{ payment_icon }}" style="height:30px;width:auto;object-fit:contain;">
+      </div>
+    </div>
+    <div class="transport-icons">
+      <img src="{{ bus_icon }}"     style="width:68px;height:68px;object-fit:contain;">
+      <img src="{{ beach_icon }}"   style="width:68px;height:68px;object-fit:contain;">
+      <img src="{{ luggage_icon }}" style="width:68px;height:68px;object-fit:contain;">
+    </div>
+  </div>
+
+
+</div>
+<script>
+(function () {
+  // Auto-size city name
+  var dest = document.getElementById('destScript');
+  var hi = 190, lo = 60, best = 150;
+  while (lo <= hi) {
+    var mid = Math.floor((lo + hi) / 2);
+    dest.style.fontSize = mid + 'px';
+    if (dest.scrollWidth <= 960) { best = mid; lo = mid + 1; }
+    else { hi = mid - 1; }
+  }
+  dest.style.fontSize = best + 'px';
+
+  // Auto-size hotel line (HOTEL + name together, same size)
+  var line = document.getElementById('hotelLine');
+  var hiH = 38, loH = 12, bestH = 28;
+  while (loH <= hiH) {
+    var midH = Math.floor((loH + hiH) / 2);
+    line.style.fontSize = midH + 'px';
+    if (line.scrollWidth <= 920) { bestH = midH; loH = midH + 1; }
+    else { hiH = midH - 1; }
+  }
+  line.style.fontSize = bestH + 'px';
+})();
+</script>
+</body>
+</html>

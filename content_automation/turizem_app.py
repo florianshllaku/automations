@@ -44,13 +44,14 @@ UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 # ── Caption generator ────────────────────────────────────────────────────────
 
-def generate_caption(event_badge, destination, hotel_name, nights, days, price, includes_raw):
+def generate_caption(event_badge, destination, hotel_name, nights, days, price, includes_raw, month=""):
     includes_lines = [l.strip() for l in includes_raw.splitlines() if l.strip()]
     includes_str = "\n".join(f"✅ {item}" for item in includes_lines) if includes_lines else ""
 
     city_tag = destination.lower().replace(" ", "")
 
-    name_of_offer = f"{event_badge} ~ {destination}" if event_badge else destination
+    month_str = f" ({month})" if month else ""
+    name_of_offer = f"{event_badge} ~ {destination}{month_str}" if event_badge else f"{destination}{month_str}"
 
     caption = (
         f"✨ {name_of_offer} ✨\n\n"
@@ -132,6 +133,7 @@ def generate():
     days           = request.form.get("days", "1").strip()
     nights         = request.form.get("nights", "1").strip()
     price          = request.form.get("price", "").strip()
+    month          = request.form.get("month", "").strip()
     selected       = request.form.getlist("services")
 
     # Compute package_type for the image (comma-separated)
@@ -172,7 +174,7 @@ def generate():
     finally:
         bg_path.unlink(missing_ok=True)
 
-    caption = generate_caption(event_badge, destination, hotel_name, nights, days, price, includes_raw)
+    caption = generate_caption(event_badge, destination, hotel_name, nights, days, price, includes_raw, month)
 
     # Save caption as .txt alongside the image
     caption_filename = f"post_{post_id}.txt"
@@ -206,6 +208,131 @@ def generate():
         "caption_url":      url_for("serve_output", filename=caption_filename),
         "caption_filename": caption_filename,
         "caption":          caption,
+        "entry":            entry,
+    })
+
+
+@app.route("/generate_carousel", methods=["POST"])
+def generate_carousel():
+    if not session.get("logged_in"):
+        return jsonify({"error": "Not authenticated"}), 401
+
+    event_badge = request.form.get("event_badge", "").strip()
+    hotel_label = request.form.get("hotel_label", "HOTEL").strip() or "HOTEL"
+    hotel_name  = request.form.get("hotel_name", "").strip()
+    destination = request.form.get("destination", "").strip()
+    days        = request.form.get("days", "1").strip()
+    nights      = request.form.get("nights", "1").strip()
+    price       = request.form.get("price", "").strip()
+    date_from   = request.form.get("date_from", "").strip()
+    date_to     = request.form.get("date_to", "").strip()
+    month       = request.form.get("c_month", "").strip()
+    season_tag  = request.form.get("season_tag", "VERA").strip() or "VERA"
+    year_tag    = request.form.get("year_tag", "2026").strip() or "2026"
+    selected    = request.form.getlist("c_services")
+
+    bg_files = request.files.getlist("backgrounds")
+    valid_bgs = [f for f in bg_files if f and f.filename != ""]
+    if not valid_bgs:
+        return jsonify({"error": "Të paktën një imazh është i detyrueshëm."}), 400
+
+    saved_bgs = []
+    for f in valid_bgs:
+        suffix = Path(f.filename).suffix.lower() or ".jpg"
+        bg_path = UPLOAD_DIR / f"cbg_{uuid.uuid4().hex[:8]}{suffix}"
+        f.save(str(bg_path))
+        saved_bgs.append(bg_path)
+
+    post_id = uuid.uuid4().hex[:10]
+    includes_raw = "\n".join(selected)
+    package_type = ", ".join(selected) if selected else ""
+    rendered_slides = []
+
+    try:
+        from turizem_carousel_renderer import render_carousel_cover, render_carousel_slide
+
+        cover_filename = f"carousel_{post_id}_01.jpg"
+        render_carousel_cover(
+            template_name="turizem_carousel_cover_v2.html",
+            bg_path=saved_bgs[0],
+            output_path=OUTPUT_DIR / cover_filename,
+            hotel_name=hotel_name,
+            destination=destination,
+            days=days,
+            nights=nights,
+            price=price,
+            date_from=date_from,
+            date_to=date_to,
+            event_badge=event_badge,
+            hotel_label=hotel_label,
+            season_tag=season_tag,
+            year_tag=year_tag,
+            month=month,
+            logo_variant="auto",
+        )
+        rendered_slides.append(cover_filename)
+
+        for i, bg_path in enumerate(saved_bgs[1:], start=2):
+            slide_filename = f"carousel_{post_id}_{i:02d}.jpg"
+            render_carousel_slide(
+                bg_path=bg_path,
+                output_path=OUTPUT_DIR / slide_filename,
+                slide_title=destination,
+                slide_subtitle=f"{season_tag} {year_tag}",
+                logo_variant="white",
+                border_variant=2,
+            )
+            rendered_slides.append(slide_filename)
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    finally:
+        for p in saved_bgs:
+            p.unlink(missing_ok=True)
+
+    caption = generate_caption(event_badge, destination, hotel_name, nights, days, price, includes_raw)
+    caption_filename = f"carousel_{post_id}.txt"
+    (OUTPUT_DIR / caption_filename).write_text(caption, encoding="utf-8")
+
+    import zipfile
+    zip_filename = f"carousel_{post_id}.zip"
+    zip_path = OUTPUT_DIR / zip_filename
+    with zipfile.ZipFile(str(zip_path), "w") as zf:
+        for fn in rendered_slides:
+            zf.write(str(OUTPUT_DIR / fn), fn)
+        zf.write(str(OUTPUT_DIR / caption_filename), caption_filename)
+
+    entry = {
+        "id":               post_id,
+        "type":             "carousel",
+        "timestamp":        datetime.now().strftime("%d %b %Y  %H:%M"),
+        "event_badge":      event_badge,
+        "hotel_label":      hotel_label,
+        "hotel_name":       hotel_name,
+        "destination":      destination,
+        "days":             days,
+        "nights":           nights,
+        "price":            price,
+        "services":         selected,
+        "package_type":     package_type,
+        "slides":           rendered_slides,
+        "filename":         rendered_slides[0],
+        "caption":          caption,
+        "caption_filename": caption_filename,
+        "zip_filename":     zip_filename,
+    }
+    history = load_history()
+    history.insert(0, entry)
+    save_history(history)
+
+    return jsonify({
+        "success":          True,
+        "slides":           [{"url": url_for("serve_output", filename=fn), "filename": fn} for fn in rendered_slides],
+        "caption":          caption,
+        "caption_url":      url_for("serve_output", filename=caption_filename),
+        "caption_filename": caption_filename,
+        "zip_url":          url_for("serve_output", filename=zip_filename),
+        "zip_filename":     zip_filename,
         "entry":            entry,
     })
 

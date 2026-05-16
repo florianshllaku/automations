@@ -434,6 +434,158 @@
     .main { grid-template-columns: 1fr; }
     .preview-box { aspect-ratio: auto; min-height: 300px; }
   }
+
+  /* ── Mode toggle ── */
+  .mode-toggle {
+    display: flex;
+    background: #111e35;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 4px;
+    margin-bottom: 22px;
+    gap: 4px;
+  }
+  .mode-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 9px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .mode-btn.active {
+    background: var(--blue);
+    color: #fff;
+  }
+
+  /* ── Multi-upload zone ── */
+  .multi-upload-zone {
+    border: 2px dashed var(--border);
+    border-radius: 12px;
+    padding: 24px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    margin-bottom: 22px;
+    position: relative;
+  }
+  .multi-upload-zone:hover, .multi-upload-zone.drag { border-color: var(--blue); background: rgba(21,101,192,0.06); }
+  .multi-upload-zone input { display: none; }
+  .btn-add-images {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: rgba(21,101,192,0.15); border: 1.5px solid rgba(21,101,192,0.45);
+    color: var(--blue); border-radius: 8px; font-size: 13px; font-weight: 700;
+    padding: 8px 18px; cursor: pointer; margin-top: 10px; transition: all 0.2s;
+  }
+  .btn-add-images:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+  .multi-upload-thumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+    justify-content: center;
+  }
+  .multi-upload-thumbs { flex-wrap: wrap; }
+
+  /* ── Thumb card ── */
+  .c-thumb-wrap {
+    display: flex; flex-direction: column; align-items: center; gap: 5px;
+  }
+  .c-thumb-img-wrap {
+    position: relative; width: 72px; height: 72px;
+  }
+  .multi-thumb {
+    width: 72px; height: 72px;
+    border-radius: 8px; object-fit: cover;
+    border: 2px solid var(--border); display: block;
+  }
+  .multi-thumb.cover-thumb { border-color: #1a7a35; }
+  .c-num-badge {
+    position: absolute; top: 4px; left: 4px;
+    background: var(--blue); color: #fff;
+    font-size: 10px; font-weight: 700;
+    padding: 1px 6px; border-radius: 4px; letter-spacing: 0.3px;
+  }
+  .c-num-badge.cover { background: #1a7a35; }
+  .c-remove-btn {
+    position: absolute; top: 4px; right: 4px;
+    background: rgba(0,0,0,0.70); border: none; color: #fff;
+    font-size: 12px; width: 18px; height: 18px;
+    border-radius: 50%; cursor: pointer; line-height: 18px; text-align: center;
+    display: none;
+  }
+  .c-thumb-wrap:hover .c-remove-btn { display: block; }
+  /* Arrow buttons row */
+  .c-arrow-row {
+    display: flex; gap: 3px;
+  }
+  .c-arrow-btn {
+    background: #111e35; border: 1px solid var(--border);
+    color: rgba(255,255,255,0.65); font-size: 13px;
+    width: 30px; height: 24px; border-radius: 5px;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s;
+  }
+  .c-arrow-btn:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+  .c-arrow-btn:disabled { opacity: 0.2; cursor: default; pointer-events: none; }
+
+  /* ── Carousel slide strip preview ── */
+  .slide-strip {
+    display: none;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 4px 2px 8px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+  .slide-strip.visible { display: flex; }
+  .slide-item {
+    flex-shrink: 0;
+    width: 160px; height: 160px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1.5px solid var(--border);
+    position: relative;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  .slide-item:hover { border-color: var(--blue); }
+  .slide-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .slide-badge {
+    position: absolute;
+    top: 6px; left: 6px;
+    background: var(--blue);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── ZIP download button ── */
+  .btn-zip {
+    display: none;
+    background: #0a2a14;
+    border: 1.5px solid #1a7a35;
+    color: #4ade80;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 13px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s;
+    letter-spacing: 0.3px;
+  }
+  .btn-zip:hover { background: #1a7a35; color: #fff; }
+  .btn-zip.visible { display: block; }
 </style>
 </head>
 <body>
@@ -449,9 +601,15 @@
   <div class="card">
     <div class="card-title">Krijo Post të Ri</div>
 
+    <!-- Mode toggle -->
+    <div class="mode-toggle">
+      <button class="mode-btn active" id="modePost" type="button" onclick="switchMode('post')">Post</button>
+      <button class="mode-btn" id="modeCarousel" type="button" onclick="switchMode('carousel')">Carousel</button>
+    </div>
+
+    <!-- ── POST FORM ── -->
     <form id="genForm" enctype="multipart/form-data">
 
-      <!-- Upload -->
       <div class="upload-zone" id="uploadZone">
         <input type="file" name="background" id="bgInput" accept="image/*" required>
         <div class="upload-icon">🖼️</div>
@@ -459,107 +617,41 @@
         <div class="upload-name" id="uploadName"></div>
       </div>
 
-      <!-- Offer name -->
       <div class="field-full">
         <label>Emri i Ofertes (Event Badge)</label>
         <input type="text" name="event_badge" placeholder="p.sh. Festa e Bajramit në">
       </div>
-
-      <!-- Hotel label + Hotel name -->
       <div class="field-row">
-        <div>
-          <label>Lloji</label>
-          <input type="text" name="hotel_label" placeholder="HOTEL" value="HOTEL">
-        </div>
-        <div>
-          <label>Emri i Hotelit</label>
-          <input type="text" name="hotel_name" placeholder="p.sh. Morina Beach" required>
-        </div>
+        <div><label>Lloji</label><input type="text" name="hotel_label" placeholder="HOTEL" value="HOTEL"></div>
+        <div><label>Emri i Hotelit</label><input type="text" name="hotel_name" placeholder="p.sh. Morina Beach" required></div>
       </div>
-
-      <!-- Destination -->
       <div class="field-full">
         <label>Vendndodhja</label>
         <input type="text" name="destination" placeholder="p.sh. Vlorë" required>
       </div>
-
-      <!-- Days + Nights -->
       <div class="field-row">
-        <div>
-          <label>Ditë</label>
-          <input type="number" name="days" placeholder="2" min="1" required>
-        </div>
-        <div>
-          <label>Netë</label>
-          <input type="number" name="nights" placeholder="1" min="1" required>
-        </div>
+        <div><label>Ditë</label><input type="number" name="days" placeholder="2" min="1" required></div>
+        <div><label>Netë</label><input type="number" name="nights" placeholder="1" min="1" required></div>
+      </div>
+      <div class="field-row">
+        <div><label>Çmimi (€)</label><input type="number" name="price" placeholder="90" min="0" required></div>
+        <div><label>Muaji</label><input type="text" name="month" placeholder="p.sh. Qershor"></div>
       </div>
 
-      <!-- Price -->
-      <div class="field-full">
-        <label>Çmimi (€)</label>
-        <input type="number" name="price" placeholder="90" min="0" required>
-      </div>
-
-      <!-- Services checklist -->
       <div class="field-full">
         <label>Shërbimet e Përfshira</label>
-        <div class="services-list" id="servicesList">
-          <label class="svc-item">
-            <input type="checkbox" name="services" value="Akomodimi">
-            <span class="svc-check"></span>
-            <span class="svc-name">Akomodimi</span>
-          </label>
-          <label class="svc-item">
-            <input type="checkbox" name="services" value="Mëngjesi">
-            <span class="svc-check"></span>
-            <span class="svc-name">Mëngjesi</span>
-          </label>
-          <label class="svc-item">
-            <input type="checkbox" name="services" value="Dreka">
-            <span class="svc-check"></span>
-            <span class="svc-name">Dreka</span>
-          </label>
-          <label class="svc-item">
-            <input type="checkbox" name="services" value="Darka">
-            <span class="svc-check"></span>
-            <span class="svc-name">Darka</span>
-          </label>
-          <label class="svc-item">
-            <input type="checkbox" name="services" value="Pije">
-            <span class="svc-check"></span>
-            <span class="svc-name">Pije</span>
-          </label>
-          <label class="svc-item">
-            <input type="checkbox" name="services" value="Pishina">
-            <span class="svc-check"></span>
-            <span class="svc-name">Pishina</span>
-          </label>
-          <label class="svc-item">
-            <input type="checkbox" name="services" value="Transporti hotel-plazh-hotel">
-            <span class="svc-check"></span>
-            <span class="svc-name">Transporti hotel-plazh-hotel</span>
-          </label>
-          <label class="svc-item">
-            <input type="checkbox" name="services" value="Fitness">
-            <span class="svc-check"></span>
-            <span class="svc-name">Fitness</span>
-          </label>
-          <label class="svc-item">
-            <input type="checkbox" name="services" value="Spa">
-            <span class="svc-check"></span>
-            <span class="svc-name">Spa</span>
-          </label>
-          <label class="svc-item">
-            <input type="checkbox" name="services" value="Jacuzzi">
-            <span class="svc-check"></span>
-            <span class="svc-name">Jacuzzi</span>
-          </label>
-          <label class="svc-item">
-            <input type="checkbox" name="services" value="Plazhë">
-            <span class="svc-check"></span>
-            <span class="svc-name">Plazhë</span>
-          </label>
+        <div class="services-list">
+          <label class="svc-item"><input type="checkbox" name="services" value="Akomodimi"><span class="svc-check"></span><span class="svc-name">Akomodimi</span></label>
+          <label class="svc-item"><input type="checkbox" name="services" value="Mëngjesi"><span class="svc-check"></span><span class="svc-name">Mëngjesi</span></label>
+          <label class="svc-item"><input type="checkbox" name="services" value="Dreka"><span class="svc-check"></span><span class="svc-name">Dreka</span></label>
+          <label class="svc-item"><input type="checkbox" name="services" value="Darka"><span class="svc-check"></span><span class="svc-name">Darka</span></label>
+          <label class="svc-item"><input type="checkbox" name="services" value="Pije"><span class="svc-check"></span><span class="svc-name">Pije</span></label>
+          <label class="svc-item"><input type="checkbox" name="services" value="Pishina"><span class="svc-check"></span><span class="svc-name">Pishina</span></label>
+          <label class="svc-item"><input type="checkbox" name="services" value="Transporti hotel-plazh-hotel"><span class="svc-check"></span><span class="svc-name">Transporti hotel-plazh-hotel</span></label>
+          <label class="svc-item"><input type="checkbox" name="services" value="Fitness"><span class="svc-check"></span><span class="svc-name">Fitness</span></label>
+          <label class="svc-item"><input type="checkbox" name="services" value="Spa"><span class="svc-check"></span><span class="svc-name">Spa</span></label>
+          <label class="svc-item"><input type="checkbox" name="services" value="Jacuzzi"><span class="svc-check"></span><span class="svc-name">Jacuzzi</span></label>
+          <label class="svc-item"><input type="checkbox" name="services" value="Plazhë"><span class="svc-check"></span><span class="svc-name">Plazhë</span></label>
         </div>
       </div>
 
@@ -567,28 +659,84 @@
         <div class="spinner" id="btnSpinner"></div>
         <span id="btnText">Gjenero Postin</span>
       </button>
-
     </form>
+
+    <!-- ── CAROUSEL FORM ── -->
+    <form id="carouselForm" enctype="multipart/form-data" style="display:none;">
+
+      <!-- Multi-image upload -->
+      <input type="file" name="backgrounds" id="cBgInput" accept="image/*" multiple>
+      <div class="multi-upload-zone" id="multiUploadZone">
+        <div class="upload-icon">🖼️</div>
+        <div class="upload-label">Tërhiq imazhet këtu ose shto me buton</div>
+        <button type="button" class="btn-add-images" onclick="cBgInput.click()">+ Shto Imazhe</button>
+        <div class="multi-upload-thumbs" id="multiThumbs"></div>
+      </div>
+
+      <div class="field-row">
+        <div><label>Lloji</label><input type="text" name="hotel_label" placeholder="HOTEL" value="HOTEL"></div>
+        <div><label>Emri i Hotelit</label><input type="text" name="hotel_name" placeholder="p.sh. Senza Resort" required></div>
+      </div>
+      <div class="field-full">
+        <label>Vendndodhja</label>
+        <input type="text" name="destination" placeholder="p.sh. Antalya" required>
+      </div>
+      <div class="field-row">
+        <div><label>Ditë</label><input type="number" name="days" placeholder="7" min="1" required></div>
+        <div><label>Netë</label><input type="number" name="nights" placeholder="6" min="1" required></div>
+      </div>
+      <div class="field-full">
+        <label>Çmimi (€)</label>
+        <input type="number" name="price" placeholder="449" min="0" required>
+      </div>
+      <div class="field-row">
+        <div><label>Data Nisjes</label><input type="text" name="date_from" placeholder="17"></div>
+        <div><label>Data Kthimit</label><input type="text" name="date_to" placeholder="23"></div>
+      </div>
+      <div class="field-full">
+        <label>Muaji</label>
+        <input type="text" name="c_month" placeholder="p.sh. Qershor 2026">
+      </div>
+
+      <button class="btn-generate" type="submit" id="cGenBtn">
+        <div class="spinner" id="cBtnSpinner"></div>
+        <span id="cBtnText">Gjenero Carousel</span>
+      </button>
+    </form>
+
   </div>
 
   <!-- ── Preview ── -->
   <div class="preview-panel">
-    <div class="preview-box" id="previewBox">
-      <div class="preview-placeholder" id="placeholder">
-        <div class="ph-icon">✦</div>
-        <p>Posti juaj do të shfaqet këtu</p>
+
+    <!-- Post mode preview (4:5) -->
+    <div id="postPreview">
+      <div class="preview-box" id="previewBox">
+        <div class="preview-placeholder" id="placeholder">
+          <div class="ph-icon">✦</div>
+          <p>Posti juaj do të shfaqet këtu</p>
+        </div>
+        <img id="previewImg" alt="Generated post">
+        <div class="preview-overlay" id="loadingOverlay">
+          <div class="big-spinner"></div>
+        </div>
       </div>
-      <img id="previewImg" alt="Generated post">
-      <div class="preview-overlay" id="loadingOverlay">
-        <div class="big-spinner"></div>
+      <div style="display:flex;gap:10px;">
+        <a href="#" class="btn-download" id="downloadBtn" download style="flex:1;">Shkarko Imazhin</a>
+        <a href="#" class="btn-download btn-download-both" id="downloadBothBtn" style="flex:1;display:none;">Shkarko të Dyja ↓</a>
       </div>
-    </div>
-    <div style="display:flex;gap:10px;">
-      <a href="#" class="btn-download" id="downloadBtn" download style="flex:1;">Shkarko Imazhin</a>
-      <a href="#" class="btn-download btn-download-both" id="downloadBothBtn" style="flex:1;display:none;">Shkarko të Dyja ↓</a>
     </div>
 
-    <!-- Caption -->
+    <!-- Carousel mode preview (slide strip) -->
+    <div id="carouselPreview" style="display:none;">
+      <div class="preview-box" id="cLoadingBox" style="aspect-ratio:1;display:none;align-items:center;justify-content:center;">
+        <div class="big-spinner"></div>
+      </div>
+      <div class="slide-strip" id="slideStrip"></div>
+      <a href="#" class="btn-zip" id="zipBtn" download>Shkarko të Gjitha (ZIP)</a>
+    </div>
+
+    <!-- Caption (shared) -->
     <div class="caption-box" id="captionBox">
       <div class="caption-header">
         <span class="caption-label">Kapshoni i Gjeneruar</span>
@@ -628,140 +776,226 @@
 <div class="toast" id="toast"></div>
 
 <script>
-  // Upload zone
-  const bgInput   = document.getElementById('bgInput');
+  // ── Mode switching ──────────────────────────────────────────────────────────
+  let currentMode = 'post';
+
+  function switchMode(mode) {
+    currentMode = mode;
+    document.getElementById('modePost').classList.toggle('active', mode === 'post');
+    document.getElementById('modeCarousel').classList.toggle('active', mode === 'carousel');
+    document.getElementById('genForm').style.display       = mode === 'post'     ? '' : 'none';
+    document.getElementById('carouselForm').style.display  = mode === 'carousel' ? '' : 'none';
+    document.getElementById('postPreview').style.display   = mode === 'post'     ? '' : 'none';
+    document.getElementById('carouselPreview').style.display = mode === 'carousel' ? '' : 'none';
+    document.getElementById('captionBox').classList.remove('visible');
+  }
+
+  // ── Upload zone (post) ──────────────────────────────────────────────────────
+  const bgInput    = document.getElementById('bgInput');
   const uploadZone = document.getElementById('uploadZone');
   const uploadName = document.getElementById('uploadName');
 
   bgInput.addEventListener('change', () => {
-    if (bgInput.files[0]) {
-      uploadName.textContent = bgInput.files[0].name;
-      uploadName.style.display = 'block';
-    }
+    if (bgInput.files[0]) { uploadName.textContent = bgInput.files[0].name; uploadName.style.display = 'block'; }
   });
-
-  ['dragover','dragenter'].forEach(e => uploadZone.addEventListener(e, ev => {
-    ev.preventDefault(); uploadZone.classList.add('drag');
-  }));
+  ['dragover','dragenter'].forEach(e => uploadZone.addEventListener(e, ev => { ev.preventDefault(); uploadZone.classList.add('drag'); }));
   ['dragleave','drop'].forEach(e => uploadZone.addEventListener(e, () => uploadZone.classList.remove('drag')));
   uploadZone.addEventListener('drop', ev => {
     ev.preventDefault();
-    if (ev.dataTransfer.files[0]) {
-      bgInput.files = ev.dataTransfer.files;
-      uploadName.textContent = ev.dataTransfer.files[0].name;
-      uploadName.style.display = 'block';
+    if (ev.dataTransfer.files[0]) { bgInput.files = ev.dataTransfer.files; uploadName.textContent = ev.dataTransfer.files[0].name; uploadName.style.display = 'block'; }
+  });
+
+  // ── Multi-upload zone (carousel) ────────────────────────────────────────────
+  const cBgInput       = document.getElementById('cBgInput');
+  const multiUploadZone = document.getElementById('multiUploadZone');
+  const multiThumbs    = document.getElementById('multiThumbs');
+
+  // ── Carousel files with arrow-button reordering ────────────────────────────
+  let carouselFiles = [];
+
+  function renderThumbsReorderable() {
+    multiThumbs.innerHTML = '';
+    carouselFiles.forEach((file, i) => {
+      const wrap = document.createElement('div');
+      wrap.className = 'c-thumb-wrap';
+
+      // Image + badge + remove
+      const imgWrap = document.createElement('div');
+      imgWrap.className = 'c-thumb-img-wrap';
+
+      const img = document.createElement('img');
+      img.className = 'multi-thumb' + (i === 0 ? ' cover-thumb' : '');
+      const reader = new FileReader();
+      reader.onload = e => { img.src = e.target.result; };
+      reader.readAsDataURL(file);
+
+      const badge = document.createElement('span');
+      badge.className = 'c-num-badge' + (i === 0 ? ' cover' : '');
+      badge.textContent = i === 0 ? 'Cover' : (i + 1);
+
+      const rmBtn = document.createElement('button');
+      rmBtn.className = 'c-remove-btn'; rmBtn.type = 'button'; rmBtn.textContent = '×';
+      rmBtn.onclick = () => { carouselFiles.splice(i, 1); renderThumbsReorderable(); };
+
+      imgWrap.append(img, badge, rmBtn);
+
+      // ← → arrow buttons
+      const arrows = document.createElement('div');
+      arrows.className = 'c-arrow-row';
+
+      const btnL = document.createElement('button');
+      btnL.type = 'button'; btnL.className = 'c-arrow-btn'; btnL.textContent = '←';
+      btnL.disabled = i === 0;
+      btnL.onclick = () => {
+        [carouselFiles[i - 1], carouselFiles[i]] = [carouselFiles[i], carouselFiles[i - 1]];
+        renderThumbsReorderable();
+      };
+
+      const btnR = document.createElement('button');
+      btnR.type = 'button'; btnR.className = 'c-arrow-btn'; btnR.textContent = '→';
+      btnR.disabled = i === carouselFiles.length - 1;
+      btnR.onclick = () => {
+        [carouselFiles[i], carouselFiles[i + 1]] = [carouselFiles[i + 1], carouselFiles[i]];
+        renderThumbsReorderable();
+      };
+
+      arrows.append(btnL, btnR);
+      wrap.append(imgWrap, arrows);
+      multiThumbs.appendChild(wrap);
+    });
+  }
+
+  cBgInput.addEventListener('change', () => {
+    if (cBgInput.files.length) {
+      carouselFiles = [...carouselFiles, ...Array.from(cBgInput.files)];
+      renderThumbsReorderable();
+      cBgInput.value = '';
+    }
+  });
+  ['dragover','dragenter'].forEach(e => multiUploadZone.addEventListener(e, ev => {
+    if (ev.dataTransfer.types.includes('Files')) { ev.preventDefault(); multiUploadZone.classList.add('drag'); }
+  }));
+  ['dragleave','drop'].forEach(e => multiUploadZone.addEventListener(e, () => multiUploadZone.classList.remove('drag')));
+  multiUploadZone.addEventListener('drop', ev => {
+    if (!ev.dataTransfer.types.includes('Files')) return;
+    ev.preventDefault();
+    if (ev.dataTransfer.files.length) {
+      carouselFiles = [...carouselFiles, ...Array.from(ev.dataTransfer.files)];
+      renderThumbsReorderable();
     }
   });
 
-  // Form submit
-  const form              = document.getElementById('genForm');
-  const genBtn            = document.getElementById('genBtn');
-  const btnSpinner        = document.getElementById('btnSpinner');
-  const btnText           = document.getElementById('btnText');
-  const previewImg        = document.getElementById('previewImg');
-  const placeholder       = document.getElementById('placeholder');
-  const loadingOverlay    = document.getElementById('loadingOverlay');
-  const downloadBtn       = document.getElementById('downloadBtn');
-  const downloadBothBtn   = document.getElementById('downloadBothBtn');
-  const captionBox        = document.getElementById('captionBox');
-  const captionText       = document.getElementById('captionText');
-  const historyGrid       = document.getElementById('historyGrid');
-  const toast             = document.getElementById('toast');
-
-  function showToast(msg) {
-    toast.textContent = msg;
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 3500);
-  }
-
+  // ── Shared helpers ──────────────────────────────────────────────────────────
+  const toast = document.getElementById('toast');
+  function showToast(msg) { toast.textContent = msg; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 3500); }
   function copyCaption() {
-    navigator.clipboard.writeText(captionText.value).then(() => {
+    navigator.clipboard.writeText(document.getElementById('captionText').value).then(() => {
       const btn = document.getElementById('copyBtn');
-      btn.textContent = 'Kopjuar!';
-      btn.classList.add('copied');
+      btn.textContent = 'Kopjuar!'; btn.classList.add('copied');
       setTimeout(() => { btn.textContent = 'Kopjo'; btn.classList.remove('copied'); }, 2000);
     });
   }
 
+  // ── POST form submit ────────────────────────────────────────────────────────
+  const form           = document.getElementById('genForm');
+  const genBtn         = document.getElementById('genBtn');
+  const btnSpinner     = document.getElementById('btnSpinner');
+  const btnText        = document.getElementById('btnText');
+  const previewImg     = document.getElementById('previewImg');
+  const placeholder    = document.getElementById('placeholder');
+  const loadingOverlay = document.getElementById('loadingOverlay');
+  const downloadBtn    = document.getElementById('downloadBtn');
+  const downloadBothBtn = document.getElementById('downloadBothBtn');
+  const captionBox     = document.getElementById('captionBox');
+  const captionText    = document.getElementById('captionText');
+  const historyGrid    = document.getElementById('historyGrid');
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-
-    genBtn.disabled = true;
-    btnSpinner.style.display = 'block';
-    btnText.textContent = 'Duke gjeneruar...';
+    genBtn.disabled = true; btnSpinner.style.display = 'block'; btnText.textContent = 'Duke gjeneruar...';
     loadingOverlay.classList.add('active');
-
     try {
       const fd = new FormData(form);
       const res = await fetch('/generate', { method: 'POST', body: fd });
       const data = await res.json();
+      if (!res.ok || data.error) { showToast(data.error || 'Gabim gjatë gjenerimit.'); return; }
 
-      if (!res.ok || data.error) {
-        showToast(data.error || 'Gabim gjatë gjenerimit.');
-        return;
-      }
-
-      // Show image
       previewImg.src = data.image_url + '?t=' + Date.now();
       previewImg.style.display = 'block';
       placeholder.style.display = 'none';
-
-      // Download image button
-      downloadBtn.href = data.image_url;
-      downloadBtn.download = data.filename;
-      downloadBtn.classList.add('visible');
-
-      // Download both button
-      downloadBothBtn.style.display = 'block';
-      downloadBothBtn.classList.add('visible');
+      downloadBtn.href = data.image_url; downloadBtn.download = data.filename; downloadBtn.classList.add('visible');
+      downloadBothBtn.style.display = 'block'; downloadBothBtn.classList.add('visible');
       downloadBothBtn.onclick = () => {
-        // Download image
-        const a1 = document.createElement('a');
-        a1.href = data.image_url;
-        a1.download = data.filename;
-        a1.click();
-        // Download caption txt
-        setTimeout(() => {
-          const a2 = document.createElement('a');
-          a2.href = data.caption_url;
-          a2.download = data.caption_filename;
-          a2.click();
-        }, 400);
+        const a1 = document.createElement('a'); a1.href = data.image_url; a1.download = data.filename; a1.click();
+        setTimeout(() => { const a2 = document.createElement('a'); a2.href = data.caption_url; a2.download = data.caption_filename; a2.click(); }, 400);
       };
+      if (data.caption) { captionText.value = data.caption; captionBox.classList.add('visible'); }
 
-      // Show caption box
-      if (data.caption) {
-        captionText.value = data.caption;
-        captionBox.classList.add('visible');
-      }
-
-      // Prepend to history
-      const empty = document.getElementById('emptyHistory');
-      if (empty) empty.remove();
-
+      const empty = document.getElementById('emptyHistory'); if (empty) empty.remove();
       const e2 = data.entry;
-      const card = document.createElement('div');
-      card.className = 'history-card';
-      card.id = 'card-' + e2.id;
-      card.innerHTML = `
-        <div class="history-thumb">
-          <img src="${data.image_url}?t=${Date.now()}" alt="${e2.hotel_name}" loading="lazy">
-        </div>
-        <div class="history-info">
-          <div class="history-hotel">${e2.hotel_name}</div>
-          <div class="history-dest">${e2.destination}</div>
-          <div class="history-date">${e2.timestamp}</div>
-          <a class="history-dl" href="${data.image_url}" download="${e2.filename}">Shkarko</a>
-        </div>`;
+      const card = document.createElement('div'); card.className = 'history-card'; card.id = 'card-' + e2.id;
+      card.innerHTML = `<div class="history-thumb"><img src="${data.image_url}?t=${Date.now()}" alt="${e2.hotel_name}" loading="lazy"></div>
+        <div class="history-info"><div class="history-hotel">${e2.hotel_name}</div><div class="history-dest">${e2.destination}</div>
+        <div class="history-date">${e2.timestamp}</div><a class="history-dl" href="${data.image_url}" download="${e2.filename}">Shkarko</a></div>`;
       historyGrid.prepend(card);
+    } catch(err) { showToast('Lidhja dështoi. Provo përsëri.'); }
+    finally { genBtn.disabled = false; btnSpinner.style.display = 'none'; btnText.textContent = 'Gjenero Postin'; loadingOverlay.classList.remove('active'); }
+  });
 
-    } catch(err) {
-      showToast('Lidhja dështoi. Provo përsëri.');
-    } finally {
-      genBtn.disabled = false;
-      btnSpinner.style.display = 'none';
-      btnText.textContent = 'Gjenero Postin';
-      loadingOverlay.classList.remove('active');
+  // ── CAROUSEL form submit ────────────────────────────────────────────────────
+  const carouselForm = document.getElementById('carouselForm');
+  const cGenBtn      = document.getElementById('cGenBtn');
+  const cBtnSpinner  = document.getElementById('cBtnSpinner');
+  const cBtnText     = document.getElementById('cBtnText');
+  const slideStrip   = document.getElementById('slideStrip');
+  const cLoadingBox  = document.getElementById('cLoadingBox');
+  const zipBtn       = document.getElementById('zipBtn');
+
+  carouselForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    cGenBtn.disabled = true; cBtnSpinner.style.display = 'block'; cBtnText.textContent = 'Duke gjeneruar...';
+    cLoadingBox.style.display = 'flex'; slideStrip.classList.remove('visible'); slideStrip.innerHTML = '';
+    zipBtn.classList.remove('visible'); captionBox.classList.remove('visible');
+
+    try {
+      if (!carouselFiles.length) { showToast('Ngarko të paktën një imazh.'); return; }
+      const fd = new FormData(carouselForm);
+      // Remove auto-added backgrounds (empty input) and re-add in user-defined order
+      const fd2 = new FormData();
+      for (const [k, v] of fd.entries()) { if (k !== 'backgrounds') fd2.append(k, v); }
+      carouselFiles.forEach(f => fd2.append('backgrounds', f));
+      const res = await fetch('/generate_carousel', { method: 'POST', body: fd2 });
+      const data = await res.json();
+      if (!res.ok || data.error) { showToast(data.error || 'Gabim gjatë gjenerimit.'); return; }
+
+      // Render slide strip
+      slideStrip.innerHTML = '';
+      data.slides.forEach((slide, i) => {
+        const item = document.createElement('div'); item.className = 'slide-item';
+        item.innerHTML = `<img src="${slide.url}?t=${Date.now()}" loading="lazy">
+          <span class="slide-badge">${i === 0 ? 'Cover' : `Slide ${i + 1}`}</span>`;
+        item.onclick = () => { const a = document.createElement('a'); a.href = slide.url; a.download = slide.filename; a.click(); };
+        slideStrip.appendChild(item);
+      });
+      slideStrip.classList.add('visible');
+
+      zipBtn.href = data.zip_url; zipBtn.download = data.zip_filename; zipBtn.classList.add('visible');
+      if (data.caption) { captionText.value = data.caption; captionBox.classList.add('visible'); }
+
+      const empty = document.getElementById('emptyHistory'); if (empty) empty.remove();
+      const entry = data.entry;
+      const card = document.createElement('div'); card.className = 'history-card'; card.id = 'card-' + entry.id;
+      const thumbUrl = data.slides[0].url;
+      card.innerHTML = `<div class="history-thumb"><img src="${thumbUrl}?t=${Date.now()}" alt="${entry.hotel_name}" loading="lazy"></div>
+        <div class="history-info"><div class="history-hotel">${entry.hotel_name}</div><div class="history-dest">${entry.destination}</div>
+        <div class="history-date">${entry.timestamp}</div>
+        <a class="history-dl" href="${data.zip_url}" download="${data.zip_filename}">ZIP</a></div>`;
+      historyGrid.prepend(card);
+    } catch(err) { showToast('Lidhja dështoi. Provo përsëri.'); }
+    finally {
+      cGenBtn.disabled = false; cBtnSpinner.style.display = 'none'; cBtnText.textContent = 'Gjenero Carousel';
+      cLoadingBox.style.display = 'none';
+      carouselFiles = []; renderThumbsReorderable();
     }
   });
 </script>
