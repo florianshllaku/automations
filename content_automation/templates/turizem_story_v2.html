@@ -213,17 +213,23 @@
 
 <script>
   (function () {
-    /* Destination fills left column, leaving room for price badge on right */
-    var el = document.getElementById('destText');
-    var maxW = 820;
-    var hi = 172, lo = 56, best = 130;
+    var destEl  = document.getElementById('destText');
+    var priceEl = document.querySelector('.price-float');
+    var rowEl   = document.querySelector('.dest-price-row');
+
+    /* Measure available width for destination: row width minus price badge minus gap */
+    var gap   = 24;
+    var maxW  = rowEl.offsetWidth - priceEl.offsetWidth - gap;
+    if (maxW < 200) maxW = 200; /* safety floor */
+
+    var hi = 172, lo = 40, best = 80;
     while (lo <= hi) {
       var mid = Math.floor((lo + hi) / 2);
-      el.style.fontSize = mid + 'px';
-      if (el.scrollWidth <= maxW) { best = mid; lo = mid + 1; }
+      destEl.style.fontSize = mid + 'px';
+      if (destEl.scrollWidth <= maxW) { best = mid; lo = mid + 1; }
       else { hi = mid - 1; }
     }
-    el.style.fontSize = best + 'px';
+    destEl.style.fontSize = best + 'px';
   })();
 </script>
 </body>

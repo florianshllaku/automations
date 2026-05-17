@@ -265,24 +265,34 @@
   .tmpl-opt {
     flex: 1;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 12px 20px;
-    border-radius: 10px;
-    border: 1.5px solid rgba(255,255,255,0.12);
+    gap: 8px;
+    padding: 10px;
+    border-radius: 12px;
+    border: 2px solid rgba(255,255,255,0.10);
     background: rgba(255,255,255,0.04);
     cursor: pointer;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 600;
-    color: rgba(255,255,255,0.55);
+    color: rgba(255,255,255,0.50);
     transition: all 0.18s;
   }
   .tmpl-opt input[type="radio"] { display: none; }
+  .tmpl-opt img {
+    width: 100%;
+    aspect-ratio: 9/16;
+    object-fit: cover;
+    border-radius: 8px;
+    opacity: 0.65;
+    transition: opacity 0.18s;
+  }
   .tmpl-opt:has(input:checked) {
     border-color: #2185e0;
-    background: rgba(33,133,224,0.15);
+    background: rgba(33,133,224,0.12);
     color: #fff;
   }
+  .tmpl-opt:has(input:checked) img { opacity: 1; }
 
   .svc-check {
     width: 18px; height: 18px;
@@ -710,17 +720,9 @@
       <div class="field-full">
         <label>Në Çmim Përfshihet</label>
         <div class="services-list">
-          <label class="svc-item"><input type="checkbox" name="s_services" value="Akomodimi"><span class="svc-check"></span><span class="svc-name">Akomodimi</span></label>
-          <label class="svc-item"><input type="checkbox" name="s_services" value="Mëngjesi"><span class="svc-check"></span><span class="svc-name">Mëngjesi</span></label>
-          <label class="svc-item"><input type="checkbox" name="s_services" value="Dreka"><span class="svc-check"></span><span class="svc-name">Dreka</span></label>
-          <label class="svc-item"><input type="checkbox" name="s_services" value="Darka"><span class="svc-check"></span><span class="svc-name">Darka</span></label>
-          <label class="svc-item"><input type="checkbox" name="s_services" value="Pije"><span class="svc-check"></span><span class="svc-name">Pije</span></label>
-          <label class="svc-item"><input type="checkbox" name="s_services" value="Pishina"><span class="svc-check"></span><span class="svc-name">Pishina</span></label>
-          <label class="svc-item"><input type="checkbox" name="s_services" value="Transporti hotel-plazh-hotel"><span class="svc-check"></span><span class="svc-name">Transporti hotel-plazh-hotel</span></label>
-          <label class="svc-item"><input type="checkbox" name="s_services" value="Fitness"><span class="svc-check"></span><span class="svc-name">Fitness</span></label>
-          <label class="svc-item"><input type="checkbox" name="s_services" value="Spa"><span class="svc-check"></span><span class="svc-name">Spa</span></label>
-          <label class="svc-item"><input type="checkbox" name="s_services" value="Jacuzzi"><span class="svc-check"></span><span class="svc-name">Jacuzzi</span></label>
-          <label class="svc-item"><input type="checkbox" name="s_services" value="Plazhë"><span class="svc-check"></span><span class="svc-name">Plazhë</span></label>
+          <label class="svc-item"><input type="checkbox" name="s_services" value="Bileta"><span class="svc-check"></span><span class="svc-name">Bileta</span></label>
+          <label class="svc-item"><input type="checkbox" name="s_services" value="Hoteli"><span class="svc-check"></span><span class="svc-name">Hoteli</span></label>
+          <label class="svc-item"><input type="checkbox" name="s_services" value="Taksat"><span class="svc-check"></span><span class="svc-name">Taksat</span></label>
         </div>
       </div>
 
@@ -729,10 +731,12 @@
         <div class="template-toggle">
           <label class="tmpl-opt">
             <input type="radio" name="s_template" value="turizem_story.html" checked>
+            <img src="/output/preview_v1.jpg" alt="Varianti 1">
             <span>Varianti 1</span>
           </label>
           <label class="tmpl-opt">
             <input type="radio" name="s_template" value="turizem_story_v2.html">
+            <img src="/output/preview_v2.jpg" alt="Varianti 2">
             <span>Varianti 2</span>
           </label>
         </div>
@@ -934,12 +938,7 @@
       sPreviewImg.style.display = 'block';
       sPlaceholder.style.display = 'none';
       sDownloadBtn.href = data.image_url; sDownloadBtn.download = data.filename; sDownloadBtn.classList.add('visible');
-      sDownloadBothBtn.style.display = 'block'; sDownloadBothBtn.classList.add('visible');
-      sDownloadBothBtn.onclick = () => {
-        const a1 = document.createElement('a'); a1.href = data.image_url; a1.download = data.filename; a1.click();
-        setTimeout(() => { const a2 = document.createElement('a'); a2.href = data.caption_url; a2.download = data.caption_filename; a2.click(); }, 400);
-      };
-      if (data.caption) { captionText.value = data.caption; captionBox.classList.add('visible'); }
+      sDownloadBothBtn.style.display = 'none';
 
       const empty = document.getElementById('emptyHistory'); if (empty) empty.remove();
       const e2 = data.entry;

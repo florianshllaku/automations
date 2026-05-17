@@ -386,45 +386,25 @@ def generate_story():
     finally:
         bg_path.unlink(missing_ok=True)
 
-    caption = generate_caption(
-        event_badge  = event_badge,
-        destination  = destination,
-        hotel_name   = destination,
-        nights       = "1",
-        days         = "1",
-        price        = price,
-        includes_raw = includes_raw,
-    )
-
-    caption_fn   = f"story_{post_id}.txt"
-    caption_path = OUTPUT_DIR / caption_fn
-    caption_path.write_text(caption, encoding="utf-8")
-
     entry = {
-        "id":               post_id,
-        "type":             "story",
-        "template":         template_name,
-        "timestamp":        datetime.now().strftime("%d %b %Y  %H:%M"),
-        "event_badge":      event_badge,
-        "destination":      destination,
-        "price":            price,
-        "services":         selected,
-        "filename":         out_fn,
-        "caption":          caption,
-        "caption_filename": caption_fn,
+        "id":          post_id,
+        "type":        "story",
+        "template":    template_name,
+        "timestamp":   datetime.now().strftime("%d %b %Y  %H:%M"),
+        "destination": destination,
+        "price":       price,
+        "services":    selected,
+        "filename":    out_fn,
     }
     history = load_history()
     history.insert(0, entry)
     save_history(history)
 
     return jsonify({
-        "success":          True,
-        "image_url":        url_for("serve_output", filename=out_fn),
-        "filename":         out_fn,
-        "caption_url":      url_for("serve_output", filename=caption_fn),
-        "caption_filename": caption_fn,
-        "caption":          caption,
-        "entry":            entry,
+        "success":   True,
+        "image_url": url_for("serve_output", filename=out_fn),
+        "filename":  out_fn,
+        "entry":     entry,
     })
 
 
