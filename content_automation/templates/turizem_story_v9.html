@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  @font-face { font-family: 'Poppins';  font-weight: 700;    src: url('{{ font_poppins }}')  format('truetype'); }
+  @font-face { font-family: 'Exo2';     font-weight: 600;    src: url('{{ font_exo2 }}')     format('opentype'); }
+  @font-face { font-family: 'Biryani';  font-weight: normal; src: url('{{ font_biryani }}')  format('truetype'); }
+  @font-face { font-family: 'Bigtimes'; font-weight: normal; src: url('{{ font_bigtimes }}') format('truetype'); }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body, html {
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+    background: #040d1e;
+  }
+
+  .canvas {
+    position: relative;
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+  }
+
+  /* ── Top 55% is photo ── */
+  .bg {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1056px; /* 55% of 1920 */
+    background-image: url('{{ bg_image }}');
+    background-size: cover;
+    background-position: center top;
+    z-index: 1;
+  }
+
+  /* Hard gradient divide at bottom of photo */
+  .bg::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 200px;
+    background: linear-gradient(to bottom, transparent 0%, #040d1e 100%);
+  }
+
+  /* ── Bottom solid dark panel (45%) ── */
+  .panel {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 864px; /* 45% of 1920 */
+    background: #040d1e;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 64px 52px 52px;
+  }
+
+  /* ── Icon with glow rings ── */
+  .icon-glow-wrap {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(33,133,224,0.2);
+    border: 2px solid rgba(33,133,224,0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 52px;
+    box-shadow:
+      0 0 0 12px rgba(33,133,224,0.07),
+      0 0 0 24px rgba(33,133,224,0.04),
+      0 0 0 40px rgba(33,133,224,0.02),
+      0 16px 48px rgba(21,101,192,0.45);
+    flex-shrink: 0;
+  }
+
+  .icon-glow-wrap img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+  }
+
+  /* ── [DEST pill] ─── [CONTACT pill] row ── */
+  .dest-contact-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 0;
+    margin-bottom: 48px;
+  }
+
+  .dest-pill {
+    background: linear-gradient(160deg, #2185e0 0%, #1565C0 55%, #0e52a8 100%);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 14px 40px;
+    border-radius: 60px;
+    white-space: nowrap;
+    border: 1.5px solid rgba(255,255,255,0.38);
+    box-shadow: 0 8px 28px rgba(21,101,192,0.5), inset 0 1px 0 rgba(255,255,255,0.22);
+    flex-shrink: 0;
+  }
+
+  .connector {
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.25);
+    min-width: 20px;
+  }
+
+  .contact-pill {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 32px;
+    gap: 3px;
+    flex-shrink: 0;
+  }
+
+  .c-label {
+    font-family: 'Exo2', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    white-space: nowrap;
+  }
+
+  .c-phone {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: #ffffff;
+    white-space: nowrap;
+  }
+
+  /* ── Price centered large ── */
+  .price-block {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .price-label {
+    font-family: 'Exo2', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .price-number {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 112px;
+    color: #ffffff;
+    line-height: 1;
+    text-shadow: 0 0 60px rgba(33,133,224,0.4), 0 4px 20px rgba(0,0,0,0.5);
+  }
+
+  .price-currency {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 56px;
+    color: rgba(33,133,224,0.9);
+    vertical-align: super;
+  }
+
+  /* ── Includes at bottom ── */
+  .includes-line {
+    font-family: 'Biryani', sans-serif;
+    font-size: 20px;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: auto;
+  }
+  .includes-line.hidden { display: none; }
+
+  /* ── Event badge on photo area ── */
+  .event-badge {
+    position: absolute;
+    top: 52px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #2185e0, #1565C0);
+    color: #fff;
+    font-family: 'Exo2', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 12px 36px;
+    border-radius: 40px;
+    border: 1.5px solid rgba(255,255,255,0.35);
+    z-index: 20;
+    white-space: nowrap;
+  }
+  .event-badge.hidden { display: none; }
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <!-- Photo (top 55%) -->
+  <div class="bg"></div>
+
+  <!-- Event badge -->
+  <div class="event-badge {{ event_badge_hidden }}">{{ event_badge }}</div>
+
+  <!-- Dark panel (bottom 45%) -->
+  <div class="panel">
+
+    <div class="icon-glow-wrap">
+      <img src="{{ venture_icon_white }}" alt="">
+    </div>
+
+    <div class="dest-contact-row">
+      <div class="dest-pill" id="destPill">{{ destination }}</div>
+      <div class="connector"></div>
+      <div class="contact-pill">
+        <span class="c-label">Reservo Tani</span>
+        <span class="c-phone">049/45&nbsp;725–726</span>
+      </div>
+    </div>
+
+    <div class="price-block">
+      <div class="price-label">Çmimi</div>
+      <div class="price-number"><span class="price-currency">€</span>{{ price }}</div>
+    </div>
+
+    <div class="includes-line {{ includes_hidden }}">Në çmim: {{ includes_text }}</div>
+
+  </div>
+
+</div>
+
+<script>
+  (function () {
+    var el = document.getElementById('destPill');
+    var maxW = 480;
+    var hi = 48, lo = 20, best = 36;
+    while (lo <= hi) {
+      var mid = Math.floor((lo + hi) / 2);
+      el.style.fontSize = mid + 'px';
+      if (el.scrollWidth <= maxW) { best = mid; lo = mid + 1; }
+      else { hi = mid - 1; }
+    }
+    el.style.fontSize = best + 'px';
+  })();
+</script>
+</body>
+</html>
