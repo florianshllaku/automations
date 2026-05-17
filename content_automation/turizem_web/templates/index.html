@@ -258,6 +258,32 @@
   .svc-item:hover { background: rgba(21,101,192,0.08); }
   .svc-item input[type="checkbox"] { display: none; }
 
+  .template-toggle {
+    display: flex;
+    gap: 12px;
+  }
+  .tmpl-opt {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: 1.5px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04);
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.55);
+    transition: all 0.18s;
+  }
+  .tmpl-opt input[type="radio"] { display: none; }
+  .tmpl-opt:has(input:checked) {
+    border-color: #2185e0;
+    background: rgba(33,133,224,0.15);
+    color: #fff;
+  }
+
   .svc-check {
     width: 18px; height: 18px;
     border: 2px solid #2a3f60;
@@ -605,6 +631,7 @@
     <div class="mode-toggle">
       <button class="mode-btn active" id="modePost" type="button" onclick="switchMode('post')">Post</button>
       <button class="mode-btn" id="modeCarousel" type="button" onclick="switchMode('carousel')">Carousel</button>
+      <button class="mode-btn" id="modeStory" type="button" onclick="switchMode('story')">Story</button>
     </div>
 
     <!-- ── POST FORM ── -->
@@ -658,6 +685,62 @@
       <button class="btn-generate" type="submit" id="genBtn">
         <div class="spinner" id="btnSpinner"></div>
         <span id="btnText">Gjenero Postin</span>
+      </button>
+    </form>
+
+    <!-- ── STORY FORM ── -->
+    <form id="storyForm" enctype="multipart/form-data" style="display:none;">
+
+      <div class="upload-zone" id="sUploadZone">
+        <input type="file" name="s_background" id="sBgInput" accept="image/*" required>
+        <div class="upload-icon">🖼️</div>
+        <div class="upload-label">Tërhiq imazhin këtu ose <strong>kliko</strong></div>
+        <div class="upload-name" id="sUploadName"></div>
+      </div>
+
+      <div class="field-full">
+        <label>Vendndodhja</label>
+        <input type="text" name="s_destination" placeholder="p.sh. Verona" required>
+      </div>
+      <div class="field-full">
+        <label>Çmimi (€)</label>
+        <input type="number" name="s_price" placeholder="159" min="0" required>
+      </div>
+
+      <div class="field-full">
+        <label>Në Çmim Përfshihet</label>
+        <div class="services-list">
+          <label class="svc-item"><input type="checkbox" name="s_services" value="Akomodimi"><span class="svc-check"></span><span class="svc-name">Akomodimi</span></label>
+          <label class="svc-item"><input type="checkbox" name="s_services" value="Mëngjesi"><span class="svc-check"></span><span class="svc-name">Mëngjesi</span></label>
+          <label class="svc-item"><input type="checkbox" name="s_services" value="Dreka"><span class="svc-check"></span><span class="svc-name">Dreka</span></label>
+          <label class="svc-item"><input type="checkbox" name="s_services" value="Darka"><span class="svc-check"></span><span class="svc-name">Darka</span></label>
+          <label class="svc-item"><input type="checkbox" name="s_services" value="Pije"><span class="svc-check"></span><span class="svc-name">Pije</span></label>
+          <label class="svc-item"><input type="checkbox" name="s_services" value="Pishina"><span class="svc-check"></span><span class="svc-name">Pishina</span></label>
+          <label class="svc-item"><input type="checkbox" name="s_services" value="Transporti hotel-plazh-hotel"><span class="svc-check"></span><span class="svc-name">Transporti hotel-plazh-hotel</span></label>
+          <label class="svc-item"><input type="checkbox" name="s_services" value="Fitness"><span class="svc-check"></span><span class="svc-name">Fitness</span></label>
+          <label class="svc-item"><input type="checkbox" name="s_services" value="Spa"><span class="svc-check"></span><span class="svc-name">Spa</span></label>
+          <label class="svc-item"><input type="checkbox" name="s_services" value="Jacuzzi"><span class="svc-check"></span><span class="svc-name">Jacuzzi</span></label>
+          <label class="svc-item"><input type="checkbox" name="s_services" value="Plazhë"><span class="svc-check"></span><span class="svc-name">Plazhë</span></label>
+        </div>
+      </div>
+
+      <div class="field-full">
+        <label>Varianti i Dizajnit</label>
+        <div class="template-toggle">
+          <label class="tmpl-opt">
+            <input type="radio" name="s_template" value="turizem_story.html" checked>
+            <span>Varianti 1</span>
+          </label>
+          <label class="tmpl-opt">
+            <input type="radio" name="s_template" value="turizem_story_v2.html">
+            <span>Varianti 2</span>
+          </label>
+        </div>
+      </div>
+
+      <button class="btn-generate" type="submit" id="sGenBtn">
+        <div class="spinner" id="sBtnSpinner"></div>
+        <span id="sBtnText">Gjenero Story</span>
       </button>
     </form>
 
@@ -736,6 +819,24 @@
       <a href="#" class="btn-zip" id="zipBtn" download>Shkarko të Gjitha (ZIP)</a>
     </div>
 
+    <!-- Story mode preview (9:16) -->
+    <div id="storyPreview" style="display:none;">
+      <div class="preview-box" id="sPreviewBox" style="aspect-ratio:9/16;">
+        <div class="preview-placeholder" id="sPlaceholder">
+          <div class="ph-icon">✦</div>
+          <p>Story juaj do të shfaqet këtu</p>
+        </div>
+        <img id="sPreviewImg" alt="Generated story">
+        <div class="preview-overlay" id="sLoadingOverlay">
+          <div class="big-spinner"></div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;">
+        <a href="#" class="btn-download" id="sDownloadBtn" download style="flex:1;">Shkarko Story</a>
+        <a href="#" class="btn-download btn-download-both" id="sDownloadBothBtn" style="flex:1;display:none;">Shkarko të Dyja ↓</a>
+      </div>
+    </div>
+
     <!-- Caption (shared) -->
     <div class="caption-box" id="captionBox">
       <div class="caption-header">
@@ -783,12 +884,73 @@
     currentMode = mode;
     document.getElementById('modePost').classList.toggle('active', mode === 'post');
     document.getElementById('modeCarousel').classList.toggle('active', mode === 'carousel');
-    document.getElementById('genForm').style.display       = mode === 'post'     ? '' : 'none';
-    document.getElementById('carouselForm').style.display  = mode === 'carousel' ? '' : 'none';
-    document.getElementById('postPreview').style.display   = mode === 'post'     ? '' : 'none';
+    document.getElementById('modeStory').classList.toggle('active', mode === 'story');
+    document.getElementById('genForm').style.display        = mode === 'post'     ? '' : 'none';
+    document.getElementById('carouselForm').style.display   = mode === 'carousel' ? '' : 'none';
+    document.getElementById('storyForm').style.display      = mode === 'story'    ? '' : 'none';
+    document.getElementById('postPreview').style.display    = mode === 'post'     ? '' : 'none';
     document.getElementById('carouselPreview').style.display = mode === 'carousel' ? '' : 'none';
+    document.getElementById('storyPreview').style.display   = mode === 'story'    ? '' : 'none';
     document.getElementById('captionBox').classList.remove('visible');
   }
+
+  // ── Upload zone (story) ─────────────────────────────────────────────────────
+  const sBgInput    = document.getElementById('sBgInput');
+  const sUploadZone = document.getElementById('sUploadZone');
+  const sUploadName = document.getElementById('sUploadName');
+
+  sBgInput.addEventListener('change', () => {
+    if (sBgInput.files[0]) { sUploadName.textContent = sBgInput.files[0].name; sUploadName.style.display = 'block'; }
+  });
+  ['dragover','dragenter'].forEach(e => sUploadZone.addEventListener(e, ev => { ev.preventDefault(); sUploadZone.classList.add('drag'); }));
+  ['dragleave','drop'].forEach(e => sUploadZone.addEventListener(e, () => sUploadZone.classList.remove('drag')));
+  sUploadZone.addEventListener('drop', ev => {
+    ev.preventDefault();
+    if (ev.dataTransfer.files[0]) { sBgInput.files = ev.dataTransfer.files; sUploadName.textContent = ev.dataTransfer.files[0].name; sUploadName.style.display = 'block'; }
+  });
+
+  // ── STORY form submit ────────────────────────────────────────────────────────
+  const storyForm        = document.getElementById('storyForm');
+  const sGenBtn          = document.getElementById('sGenBtn');
+  const sBtnSpinner      = document.getElementById('sBtnSpinner');
+  const sBtnText         = document.getElementById('sBtnText');
+  const sPreviewImg      = document.getElementById('sPreviewImg');
+  const sPlaceholder     = document.getElementById('sPlaceholder');
+  const sLoadingOverlay  = document.getElementById('sLoadingOverlay');
+  const sDownloadBtn     = document.getElementById('sDownloadBtn');
+  const sDownloadBothBtn = document.getElementById('sDownloadBothBtn');
+
+  storyForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    sGenBtn.disabled = true; sBtnSpinner.style.display = 'block'; sBtnText.textContent = 'Duke gjeneruar...';
+    sLoadingOverlay.classList.add('active');
+    try {
+      const fd = new FormData(storyForm);
+      const res = await fetch('/generate_story', { method: 'POST', body: fd });
+      const data = await res.json();
+      if (!res.ok || data.error) { showToast(data.error || 'Gabim gjatë gjenerimit.'); return; }
+
+      sPreviewImg.src = data.image_url + '?t=' + Date.now();
+      sPreviewImg.style.display = 'block';
+      sPlaceholder.style.display = 'none';
+      sDownloadBtn.href = data.image_url; sDownloadBtn.download = data.filename; sDownloadBtn.classList.add('visible');
+      sDownloadBothBtn.style.display = 'block'; sDownloadBothBtn.classList.add('visible');
+      sDownloadBothBtn.onclick = () => {
+        const a1 = document.createElement('a'); a1.href = data.image_url; a1.download = data.filename; a1.click();
+        setTimeout(() => { const a2 = document.createElement('a'); a2.href = data.caption_url; a2.download = data.caption_filename; a2.click(); }, 400);
+      };
+      if (data.caption) { captionText.value = data.caption; captionBox.classList.add('visible'); }
+
+      const empty = document.getElementById('emptyHistory'); if (empty) empty.remove();
+      const e2 = data.entry;
+      const card = document.createElement('div'); card.className = 'history-card'; card.id = 'card-' + e2.id;
+      card.innerHTML = `<div class="history-thumb" style="aspect-ratio:9/16;"><img src="${data.image_url}?t=${Date.now()}" alt="${e2.destination}" loading="lazy"></div>
+        <div class="history-info"><div class="history-hotel">${e2.destination}</div><div class="history-dest">Story · ${e2.price}€</div>
+        <div class="history-date">${e2.timestamp}</div><a class="history-dl" href="${data.image_url}" download="${e2.filename}">Shkarko</a></div>`;
+      historyGrid.prepend(card);
+    } catch(err) { showToast('Lidhja dështoi. Provo përsëri.'); }
+    finally { sGenBtn.disabled = false; sBtnSpinner.style.display = 'none'; sBtnText.textContent = 'Gjenero Story'; sLoadingOverlay.classList.remove('active'); }
+  });
 
   // ── Upload zone (post) ──────────────────────────────────────────────────────
   const bgInput    = document.getElementById('bgInput');

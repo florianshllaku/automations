@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  @font-face { font-family: 'Poppins';  font-weight: 700;    src: url('{{ font_poppins }}')  format('truetype'); }
+  @font-face { font-family: 'Exo2';     font-weight: 600;    src: url('{{ font_exo2 }}')     format('opentype'); }
+  @font-face { font-family: 'Biryani';  font-weight: normal; src: url('{{ font_biryani }}')  format('truetype'); }
+  @font-face { font-family: 'Bigtimes'; font-weight: normal; src: url('{{ font_bigtimes }}') format('truetype'); }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body, html {
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+    background: #040d1e;
+  }
+
+  .canvas {
+    position: relative;
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+  }
+
+  /* ── Full-bleed photo ── */
+  .bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('{{ bg_image }}');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+  }
+
+  /* Tight bottom gradient — photo breathes most of the frame */
+  .overlay-bottom {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 720px;
+    background: linear-gradient(to top,
+      rgba(4,13,30,0.96) 0%,
+      rgba(4,13,30,0.90) 32%,
+      rgba(4,13,30,0.65) 55%,
+      rgba(4,13,30,0.22) 78%,
+      transparent 100%
+    );
+    z-index: 2;
+  }
+
+  /* Top corner vignette */
+  .overlay-top {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 220px;
+    background: linear-gradient(to bottom, rgba(4,13,30,0.55) 0%, transparent 100%);
+    z-index: 2;
+  }
+
+  /* ── Event badge top-right ── */
+  .event-badge {
+    position: absolute;
+    top: 56px;
+    right: 56px;
+    background: linear-gradient(135deg, #2185e0, #1565C0);
+    color: #fff;
+    font-family: 'Exo2', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 28px;
+    border-radius: 40px;
+    border: 1.5px solid rgba(255,255,255,0.35);
+    z-index: 20;
+    white-space: nowrap;
+  }
+  .event-badge.hidden { display: none; }
+
+  /* ── Bottom content block ── */
+  .bottom-content {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    z-index: 10;
+    padding: 0 60px 52px;
+  }
+
+  /* ── Destination + price in same row, bottom-aligned ── */
+  .dest-price-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 22px;
+  }
+
+  /* ── Destination — massive Bigtimes serif ── */
+  .destination-text {
+    font-family: 'Bigtimes', serif;
+    font-size: 172px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: -3px;
+    line-height: 0.86;
+    text-shadow:
+      0 4px 24px rgba(0,0,0,0.90),
+      0 8px 56px rgba(0,0,0,0.55);
+    display: block;
+  }
+
+  /* ── Price pill — bottom-aligned with destination ── */
+  .price-float {
+    background: linear-gradient(160deg, #2185e0 0%, #1565C0 55%, #0e52a8 100%);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 68px;
+    padding: 14px 52px;
+    border-radius: 60px;
+    border: 2px solid rgba(255,255,255,0.42);
+    box-shadow:
+      0 12px 40px rgba(21,101,192,0.60),
+      inset 0 1px 0 rgba(255,255,255,0.24);
+    white-space: nowrap;
+    letter-spacing: -0.5px;
+    flex-shrink: 0;
+    margin-left: 24px;
+  }
+
+  /* ── Thin accent rule under destination ── */
+  .dest-rule {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right,
+      rgba(255,255,255,0.50) 0%,
+      rgba(255,255,255,0.20) 60%,
+      transparent 100%
+    );
+    margin-bottom: 28px;
+  }
+
+  /* ── Contact row ── */
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+
+  .c-label {
+    font-family: 'Biryani', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.88);
+  }
+
+  .c-sep {
+    width: 1.5px;
+    height: 24px;
+    background: rgba(255,255,255,0.30);
+    flex-shrink: 0;
+  }
+
+  .c-phone {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 34px;
+    color: #ffffff;
+    letter-spacing: -0.3px;
+  }
+
+  /* ── Includes ── */
+  .includes-line {
+    font-family: 'Biryani', sans-serif;
+    font-size: 20px;
+    color: rgba(255,255,255,0.88);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    display: block;
+  }
+  .includes-line.hidden { display: none; }
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <div class="bg"></div>
+  <div class="overlay-bottom"></div>
+  <div class="overlay-top"></div>
+
+  <!-- Bottom content -->
+  <div class="bottom-content">
+
+    <!-- Destination + price bottom-aligned -->
+    <div class="dest-price-row">
+      <span class="destination-text" id="destText">{{ destination }}</span>
+      <div class="price-float">{{ price }}€</div>
+    </div>
+
+    <div class="dest-rule"></div>
+
+    <div class="contact-row">
+      <span class="c-label">Reservo Tani</span>
+      <div class="c-sep"></div>
+      <span class="c-phone">044&nbsp;232&nbsp;323</span>
+    </div>
+
+    <span class="includes-line {{ includes_hidden }}">Në çmim përfshihet: {{ includes_text }}</span>
+  </div>
+
+</div>
+
+<script>
+  (function () {
+    /* Destination fills left column, leaving room for price badge on right */
+    var el = document.getElementById('destText');
+    var maxW = 820;
+    var hi = 172, lo = 56, best = 130;
+    while (lo <= hi) {
+      var mid = Math.floor((lo + hi) / 2);
+      el.style.fontSize = mid + 'px';
+      if (el.scrollWidth <= maxW) { best = mid; lo = mid + 1; }
+      else { hi = mid - 1; }
+    }
+    el.style.fontSize = best + 'px';
+  })();
+</script>
+</body>
+</html>

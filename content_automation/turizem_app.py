@@ -337,6 +337,97 @@ def generate_carousel():
     })
 
 
+# ── Generate Story ────────────────────────────────────────────────────────────
+
+@app.route("/generate_story", methods=["POST"])
+def generate_story():
+    if not session.get("logged_in"):
+        return jsonify({"error": "Not authenticated"}), 401
+
+    event_badge   = request.form.get("s_event_badge", "").strip()
+    destination   = request.form.get("s_destination", "").strip()
+    price         = request.form.get("s_price", "").strip()
+    selected      = request.form.getlist("s_services")
+    template_name = request.form.get("s_template", "turizem_story.html").strip()
+    # whitelist — only allow known story templates
+    allowed = {"turizem_story.html", "turizem_story_v2.html"}
+    if template_name not in allowed:
+        template_name = "turizem_story.html"
+
+    includes_text = " • ".join(s.upper() for s in selected) if selected else ""
+    includes_raw  = "\n".join(selected)
+
+    bg_file = request.files.get("s_background")
+    if not bg_file or bg_file.filename == "":
+        return jsonify({"error": "Imazhi i sfondit është i detyrueshëm."}), 400
+
+    suffix  = Path(bg_file.filename).suffix.lower() or ".jpg"
+    bg_path = UPLOAD_DIR / f"sbg_{uuid.uuid4().hex[:10]}{suffix}"
+    bg_file.save(str(bg_path))
+
+    post_id  = uuid.uuid4().hex[:10]
+    out_fn   = f"story_{post_id}.jpg"
+    out_path = OUTPUT_DIR / out_fn
+
+    try:
+        from turizem_story_renderer import render_story
+        render_story(
+            bg_path       = bg_path,
+            output_path   = out_path,
+            destination   = destination,
+            price         = price,
+            event_badge   = event_badge,
+            includes_text = includes_text,
+            template_name = template_name,
+        )
+    except Exception as e:
+        bg_path.unlink(missing_ok=True)
+        return jsonify({"error": str(e)}), 500
+    finally:
+        bg_path.unlink(missing_ok=True)
+
+    caption = generate_caption(
+        event_badge  = event_badge,
+        destination  = destination,
+        hotel_name   = destination,
+        nights       = "1",
+        days         = "1",
+        price        = price,
+        includes_raw = includes_raw,
+    )
+
+    caption_fn   = f"story_{post_id}.txt"
+    caption_path = OUTPUT_DIR / caption_fn
+    caption_path.write_text(caption, encoding="utf-8")
+
+    entry = {
+        "id":               post_id,
+        "type":             "story",
+        "template":         template_name,
+        "timestamp":        datetime.now().strftime("%d %b %Y  %H:%M"),
+        "event_badge":      event_badge,
+        "destination":      destination,
+        "price":            price,
+        "services":         selected,
+        "filename":         out_fn,
+        "caption":          caption,
+        "caption_filename": caption_fn,
+    }
+    history = load_history()
+    history.insert(0, entry)
+    save_history(history)
+
+    return jsonify({
+        "success":          True,
+        "image_url":        url_for("serve_output", filename=out_fn),
+        "filename":         out_fn,
+        "caption_url":      url_for("serve_output", filename=caption_fn),
+        "caption_filename": caption_fn,
+        "caption":          caption,
+        "entry":            entry,
+    })
+
+
 # ── Static output ─────────────────────────────────────────────────────────────
 
 @app.route("/output/<filename>")
