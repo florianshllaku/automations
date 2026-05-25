@@ -1,0 +1,256 @@
+{% extends "base.html" %}
+{% block title %}Analytics — {{ biz.name }}{% endblock %}
+
+{% block head %}
+<style>
+  .analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+  .a-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 20px 22px;
+  }
+  .a-card .a-val {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: -2px;
+    line-height: 1;
+  }
+  .a-card .a-lbl {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .a-card .a-trend {
+    font-size: 12px;
+    color: #4caf82;
+    margin-top: 8px;
+    font-weight: 500;
+  }
+
+  /* Activity chart placeholder */
+  .chart-section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .chart-title {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .chart-area {
+    height: 140px;
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+  }
+  .chart-bar-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    height: 100%;
+    justify-content: flex-end;
+  }
+  .chart-bar {
+    width: 100%;
+    background: var(--accent-dim);
+    border-radius: 4px 4px 0 0;
+    min-height: 2px;
+    border: 1px solid var(--accent);
+    border-bottom: none;
+    transition: background 0.2s;
+  }
+  .chart-bar:hover { background: var(--accent); }
+  .chart-lbl {
+    font-size: 10px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  /* Type breakdown */
+  .type-breakdown {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 24px;
+  }
+  .type-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .type-row:last-child { border-bottom: none; }
+  .type-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .type-name { flex: 1; font-size: 13px; font-weight: 500; }
+  .type-count {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .type-bar-bg {
+    width: 120px;
+    height: 4px;
+    background: var(--card2);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .type-bar-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+{% set total = posts|length %}
+
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-left">
+      <h1><span>Analytics</span></h1>
+      <p>Statistika bazë të content-it tënd.</p>
+    </div>
+  </div>
+
+  <!-- Top stats -->
+  <div class="analytics-grid">
+    <div class="a-card">
+      <div class="a-val">{{ total }}</div>
+      <div class="a-lbl">Total Posts</div>
+    </div>
+
+    {% if biz.id == 'sharp_group' %}
+    {% set tip_count  = posts|selectattr('post_type','equalto','tip')|list|length %}
+    {% set edu_count  = posts|selectattr('post_type','equalto','educational')|list|length %}
+    {% set promo_count= posts|selectattr('post_type','equalto','promotional')|list|length %}
+    {% set trend_count= posts|selectattr('post_type','equalto','trend')|list|length %}
+    <div class="a-card">
+      <div class="a-val">{{ promo_count }}</div>
+      <div class="a-lbl">Promotional</div>
+    </div>
+    <div class="a-card">
+      <div class="a-val">{{ tip_count }}</div>
+      <div class="a-lbl">Tips</div>
+    </div>
+    <div class="a-card">
+      <div class="a-val">{{ edu_count }}</div>
+      <div class="a-lbl">Educational</div>
+    </div>
+
+    {% else %}
+    {% set carousel_count = posts|selectattr('type','equalto','carousel')|list|length %}
+    {% set story_count    = posts|selectattr('type','equalto','story')|list|length %}
+    {% set post_count     = posts|selectattr('type','equalto','post')|list|length %}
+    <div class="a-card">
+      <div class="a-val">{{ post_count }}</div>
+      <div class="a-lbl">Single Posts</div>
+    </div>
+    <div class="a-card">
+      <div class="a-val">{{ carousel_count }}</div>
+      <div class="a-lbl">Carousels</div>
+    </div>
+    <div class="a-card">
+      <div class="a-val">{{ story_count }}</div>
+      <div class="a-lbl">Stories</div>
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- Activity Chart -->
+  {% if posts %}
+  <div class="chart-section">
+    <div class="chart-title">
+      <span>Aktiviteti (postimet e fundit)</span>
+      <span class="badge badge-neutral">{{ [posts|length, 30]|min }} ditë</span>
+    </div>
+    <div class="chart-area" id="chart-area">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+
+  <!-- Type Breakdown -->
+  <div class="type-breakdown">
+    <div class="chart-title">Ndarja sipas Llojit</div>
+    {% if biz.id == 'sharp_group' %}
+    {% for typ, cnt in [('promotional', promo_count), ('tip', tip_count), ('educational', edu_count), ('trend', trend_count)] %}
+    {% if cnt > 0 %}
+    <div class="type-row">
+      <div class="type-dot"></div>
+      <div class="type-name">{{ typ|capitalize }}</div>
+      <div class="type-bar-bg">
+        <div class="type-bar-fill" style="width:{{ ((cnt / total) * 100)|int }}%"></div>
+      </div>
+      <div class="type-count">{{ cnt }}</div>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+    {% else %}
+    {% for typ, cnt in [('post', post_count), ('carousel', carousel_count), ('story', story_count)] %}
+    {% if cnt > 0 %}
+    <div class="type-row">
+      <div class="type-dot"></div>
+      <div class="type-name">{{ typ|capitalize }}</div>
+      <div class="type-bar-bg">
+        <div class="type-bar-fill" style="width:{{ ((cnt / total) * 100)|int }}%"></div>
+      </div>
+      <div class="type-count">{{ cnt }}</div>
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+  </div>
+  {% else %}
+  <div class="empty-state">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+    <h3>Asnjë të dhënë ende</h3>
+    <p>Krijo postime dhe statistikat do të shfaqen këtu.</p>
+  </div>
+  {% endif %}
+</div>
+
+<script>
+/* Simple bar chart from last 12 posts */
+const posts = {{ posts | tojson }};
+const chartEl = document.getElementById('chart-area');
+if (chartEl && posts.length) {
+  const last = posts.slice(0, 12).reverse();
+  const max = last.length;
+  last.forEach((p, i) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'chart-bar-wrap';
+    const h = Math.max(10, Math.round((1 / max) * 100 + Math.random() * 30));
+    wrap.innerHTML = `
+      <div class="chart-bar" style="height:${Math.max(8, 10 + i * 4)}%" title="Post ${i+1}"></div>
+      <div class="chart-lbl">${i + 1}</div>
+    `;
+    chartEl.appendChild(wrap);
+  });
+}
+</script>
+{% endblock %}

@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — {{ biz.name }}{% endblock %}
+
+{% block head %}
+<style>
+  .cta-banner {
+    background: linear-gradient(135deg, var(--card) 0%, rgba(255,255,255,0.02) 100%);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: var(--r);
+    padding: 24px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-banner::before {
+    content: '';
+    position: absolute;
+    right: -40px; top: -40px;
+    width: 160px; height: 160px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-banner h3 { font-size: 15px; font-weight: 700; }
+  .cta-banner p  { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+  .recent-section { margin-top: 32px; }
+
+  /* Ventura list style */
+  .vt-list { display: flex; flex-direction: column; gap: 10px; }
+  .vt-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .vt-thumb {
+    width: 54px; height: 68px;
+    border-radius: 6px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: var(--card2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .vt-thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .vt-info { flex: 1; min-width: 0; }
+  .vt-info .dest {
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .vt-info .meta { font-size: 11px; color: var(--muted); margin-top: 3px; }
+  .vt-info .price { font-size: 12px; font-weight: 600; color: var(--accent); margin-top: 4px; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page">
+  <!-- Header -->
+  <div class="page-header">
+    <div class="page-header-left">
+      <h1>Mirë se erdhe, <span>{{ biz.name }}</span></h1>
+      <p>Menaxho contentet e tua nga këtu.</p>
+    </div>
+    <a href="/create" class="btn btn-primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      Post i Ri
+    </a>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-row">
+    {% if biz.id == 'sharp_group' %}
+    <div class="stat-card">
+      <div class="s-val">{{ posts|length }}</div>
+      <div class="s-lbl">Totale</div>
+    </div>
+    <div class="stat-card">
+      <div class="s-val">{{ posts[:7]|length }}</div>
+      <div class="s-lbl">Këtë Javë</div>
+    </div>
+    <div class="stat-card">
+      <div class="s-val">{{ posts[0].date[:7] if posts else '—' }}</div>
+      <div class="s-lbl">Postimi i Fundit</div>
+    </div>
+    {% else %}
+    {% set total = posts|length %}
+    {% set carousels = posts|selectattr('type','equalto','carousel')|list|length %}
+    {% set stories = posts|selectattr('type','equalto','story')|list|length %}
+    <div class="stat-card">
+      <div class="s-val">{{ total }}</div>
+      <div class="s-lbl">Total Posts</div>
+    </div>
+    <div class="stat-card">
+      <div class="s-val">{{ carousels }}</div>
+      <div class="s-lbl">Carousels</div>
+    </div>
+    <div class="stat-card">
+      <div class="s-val">{{ stories }}</div>
+      <div class="s-lbl">Stories</div>
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- CTA Banner -->
+  <div class="cta-banner">
+    <div>
+      <h3>Gati për postimin e radhës?</h3>
+      {% if biz.id == 'sharp_group' %}
+      <p>Gjenero 3 variante me AI dhe zgjidh atë që funksionon.</p>
+      {% else %}
+      <p>Krijo post, carousel ose story për ofertën tënde.</p>
+      {% endif %}
+    </div>
+    <a href="/create" class="btn btn-primary">Krijo Post</a>
+  </div>
+
+  <!-- Recent Posts -->
+  <div class="recent-section">
+    <div class="section-hdr">
+      <h2>Postimet e Fundit</h2>
+      <a href="/history">Shiko të gjitha →</a>
+    </div>
+
+    {% if posts %}
+      {% if biz.id == 'sharp_group' %}
+      <div class="posts-grid">
+        {% for post in posts[:12] %}
+        <div class="post-card">
+          <div class="post-thumb">
+            {% set img = image_url_for_sg(post.image_path) %}
+            {% if img %}
+              <img src="{{ img }}" alt="post" loading="lazy">
+            {% else %}
+              <div class="post-thumb-ph">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              </div>
+            {% endif %}
+          </div>
+          <div class="post-info">
+            <span class="badge">{{ post.post_type or 'post' }}</span>
+            <div class="headline">{{ post.headline or post.visual_description or '—' }}</div>
+            <div class="date">{{ post.date or '—' }}</div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      {% else %}
+      <div class="vt-list">
+        {% for post in posts[:8] %}
+        <div class="vt-item">
+          <div class="vt-thumb">
+            {% if post.filename %}
+              <img src="/vt/output/{{ post.filename }}" alt="post" loading="lazy" onerror="this.style.display='none'">
+            {% endif %}
+          </div>
+          <div class="vt-info">
+            <div class="dest">{{ post.destination or '—' }} {% if post.hotel_name %}· {{ post.hotel_name }}{% endif %}</div>
+            <div class="meta">
+              <span class="badge badge-neutral">{{ post.type or 'post' }}</span>
+              &nbsp;{{ post.timestamp or '—' }}
+            </div>
+            {% if post.price %}
+            <div class="price">€{{ post.price }} / person</div>
+            {% endif %}
+          </div>
+          {% if post.filename %}
+          <a href="/vt/output/{{ post.filename }}" download class="btn btn-secondary btn-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </a>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+    {% else %}
+    <div class="empty-state">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      <h3>Asnjë postim ende</h3>
+      <p>Krijo postimin tënd të parë.</p>
+      <a href="/create" class="btn btn-primary btn-sm">Fillo Tani</a>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

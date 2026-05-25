@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+{% block title %}Profile — {{ biz.name }}{% endblock %}
+
+{% block head %}
+<style>
+  .profile-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+  @media (max-width: 800px) { .profile-layout { grid-template-columns: 1fr; } }
+
+  .profile-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .profile-avatar {
+    width: 72px; height: 72px;
+    background: var(--accent-dim);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+  }
+  .profile-name { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .profile-type { font-size: 12px; color: var(--muted); }
+
+  .profile-badges {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+
+  .info-block {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .info-block-title {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--muted);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .info-block-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  .info-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .info-row:last-child { border-bottom: none; }
+  .info-row .ir-key { color: var(--muted); font-weight: 500; }
+  .info-row .ir-val { font-weight: 600; }
+
+  .logout-full {
+    width: 100%;
+    padding: 11px;
+    background: rgba(255,80,80,0.08);
+    border: 1px solid rgba(255,80,80,0.2);
+    border-radius: 9px;
+    color: #ff6b6b;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .logout-full:hover { background: rgba(255,80,80,0.15); }
+
+  .accent-dot {
+    display: inline-block;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: {{ biz.color }};
+    vertical-align: middle;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-left">
+      <h1><span>Profile</span> & Settings</h1>
+      <p>Informacione dhe konfigurime të llogarisë.</p>
+    </div>
+  </div>
+
+  <div class="profile-layout">
+    <!-- Left: Profile card -->
+    <div>
+      <div class="profile-card">
+        <div class="profile-avatar">
+          {{ biz.name[0] }}
+        </div>
+        <div class="profile-name">{{ biz.name }}</div>
+        <div class="profile-type">{{ biz.sub }}</div>
+        <div class="profile-badges">
+          <span class="badge">Active</span>
+          <span class="badge badge-neutral">
+            <span class="accent-dot"></span>
+            {% if biz.id == 'sharp_group' %}AI Studio{% else %}Travel Generator{% endif %}
+          </span>
+        </div>
+      </div>
+
+      <a href="/logout" class="logout-full">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Dil nga llogaria
+      </a>
+    </div>
+
+    <!-- Right: Info blocks -->
+    <div>
+      <div class="info-block">
+        <div class="info-block-title">Informacione të Llogarisë</div>
+        <div class="info-row">
+          <span class="ir-key">Biznesi</span>
+          <span class="ir-val">{{ biz.name }}</span>
+        </div>
+        <div class="info-row">
+          <span class="ir-key">Platforma</span>
+          <span class="ir-val">Content Studio</span>
+        </div>
+        <div class="info-row">
+          <span class="ir-key">Tipi</span>
+          <span class="ir-val">{{ biz.sub }}</span>
+        </div>
+        <div class="info-row">
+          <span class="ir-key">Statusi</span>
+          <span class="ir-val" style="color:#4caf82">● Aktiv</span>
+        </div>
+        <div class="info-row">
+          <span class="ir-key">Tema</span>
+          <span class="ir-val">
+            <span class="accent-dot" style="width:12px;height:12px;border-radius:4px;display:inline-block;margin-right:6px;vertical-align:middle;background:{{ biz.color }}"></span>
+            {{ biz.color }}
+          </span>
+        </div>
+      </div>
+
+      {% if biz.id == 'sharp_group' %}
+      <div class="info-block">
+        <div class="info-block-title">Capabilities — Sharp Group</div>
+        <div class="info-row">
+          <span class="ir-key">AI Generation</span>
+          <span class="ir-val" style="color:#4caf82">✓ Enabled</span>
+        </div>
+        <div class="info-row">
+          <span class="ir-key">Models</span>
+          <span class="ir-val">GPT-4o · Gemini · Fal.ai</span>
+        </div>
+        <div class="info-row">
+          <span class="ir-key">Post Format</span>
+          <span class="ir-val">Instagram 4:5 (1080×1350)</span>
+        </div>
+        <div class="info-row">
+          <span class="ir-key">Variants per Job</span>
+          <span class="ir-val">3 (parallel)</span>
+        </div>
+      </div>
+      {% else %}
+      <div class="info-block">
+        <div class="info-block-title">Capabilities — Ventura Travel</div>
+        <div class="info-row">
+          <span class="ir-key">Post Generator</span>
+          <span class="ir-val" style="color:#4caf82">✓ Aktiv</span>
+        </div>
+        <div class="info-row">
+          <span class="ir-key">Carousel</span>
+          <span class="ir-val" style="color:#4caf82">✓ Aktiv</span>
+        </div>
+        <div class="info-row">
+          <span class="ir-key">Story</span>
+          <span class="ir-val" style="color:#4caf82">✓ Aktiv</span>
+        </div>
+        <div class="info-row">
+          <span class="ir-key">Templates</span>
+          <span class="ir-val">Varianti 1 · Varianti 2</span>
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="info-block">
+        <div class="info-block-title">Rreth Content Studio</div>
+        <div class="info-row">
+          <span class="ir-key">Version</span>
+          <span class="ir-val">2.0.0</span>
+        </div>
+        <div class="info-row">
+          <span class="ir-key">Platforma</span>
+          <span class="ir-val">Flask · Python</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

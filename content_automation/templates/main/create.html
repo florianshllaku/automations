@@ -1,0 +1,1376 @@
+{% extends "base.html" %}
+{% block title %}Create Post — {{ biz.name }}{% endblock %}
+
+{% block head %}
+<style>
+  /* ── Tab bar ── */
+  .tab-bar {
+    display: flex;
+    gap: 2px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    padding: 4px;
+    width: fit-content;
+    margin-bottom: 24px;
+  }
+  .tab-btn {
+    padding: 7px 22px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted2);
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .tab-btn:hover { color: var(--text); background: var(--bg); }
+  .tab-btn.active { background: var(--accent); color: #fff; }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* Lock outer containers so only the form-panel-inner scrolls */
+  body, html { overflow: hidden; }
+  .main { overflow: hidden; height: 100vh; }
+  .page { overflow: hidden; padding: 28px 32px; height: 100vh; }
+
+  /* ── Two-column workspace ── */
+  .create-workspace {
+    display: grid;
+    grid-template-columns: 460px 1fr;
+    gap: 20px;
+    height: calc(100vh - 190px);
+    align-items: stretch;
+    min-height: 0;
+  }
+
+  /* ── Form panel (left) ── */
+  .form-panel {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+  }
+  /* form must be a flex column so form-panel-inner grows and generate-row stays visible */
+  .form-panel form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+  }
+  .form-panel-inner {
+    padding: 24px;
+    overflow-y: auto;
+    flex: 1;
+    min-height: 0;
+    max-width: 100%;
+  }
+
+  .form-section { margin-bottom: 22px; }
+  .form-section:last-child { margin-bottom: 0; }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* Upload zone — first, prominent */
+  .upload-zone {
+    position: relative;
+    border: 1.5px dashed var(--border2);
+    border-radius: 12px;
+    padding: 28px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    background: var(--bg);
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .upload-zone:hover { border-color: var(--accent); background: var(--accent-dim); }
+  .upload-zone.has-file { border-color: var(--accent); border-style: solid; background: var(--accent-dim); }
+  .upload-zone input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+  }
+  .uz-icon {
+    width: 40px; height: 40px;
+    background: var(--card);
+    border: 1px solid var(--border2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+  }
+  .uz-icon svg { opacity: 0.5; }
+  .uz-label { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .uz-sub { font-size: 11px; color: var(--muted); }
+  .uz-filename {
+    display: none;
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    background: #fff;
+    border-radius: 6px;
+    padding: 4px 10px;
+    display: none;
+  }
+
+  /* Multi-image upload preview */
+  .upload-multi-zone { position: relative; }
+  .upload-multi-count {
+    display: none;
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  /* Form fields */
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .form-grid.three { grid-template-columns: 1fr 1fr 1fr; }
+  .form-grid.one { grid-template-columns: 1fr; }
+
+  .form-field { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+  .form-field.span2 { grid-column: 1 / -1; }
+
+  .form-field label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted2);
+    letter-spacing: 0.3px;
+  }
+  .form-field input,
+  .form-field select {
+    width: 100%;
+    min-width: 0;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 9px 12px;
+    font-size: 13px;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .form-field input:focus,
+  .form-field select:focus {
+    border-color: var(--accent);
+    background: #fff;
+    box-shadow: 0 0 0 3px var(--accent-dim);
+  }
+  .form-field input::placeholder { color: var(--muted); }
+  .form-field select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239a9ab0' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 11px center;
+    padding-right: 32px;
+  }
+
+  /* Services */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(136px, 1fr));
+    gap: 6px;
+  }
+  .svc-check {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 9px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.12s;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted2);
+    user-select: none;
+  }
+  .svc-check:hover { border-color: var(--accent); color: var(--text); }
+  .svc-check input { display: none; }
+  .cb-box {
+    width: 15px; height: 15px;
+    border: 1.5px solid var(--border2);
+    border-radius: 4px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.12s;
+  }
+  .svc-check input:checked ~ .cb-box {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .svc-check input:checked ~ .cb-box::after {
+    content: '';
+    width: 7px; height: 4px;
+    border-left: 1.5px solid #fff;
+    border-bottom: 1.5px solid #fff;
+    transform: rotate(-45deg) translateY(-1px);
+  }
+  .svc-check input:checked ~ .svc-label { color: var(--text); }
+
+  /* Generate button row */
+  .generate-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 16px 24px;
+    border-top: 1px solid var(--border);
+    background: var(--bg);
+  }
+  .generate-row .status-text {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* ── Output panel (right) ── */
+  .output-panel {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .output-placeholder {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 32px;
+    text-align: center;
+    color: var(--muted);
+  }
+  .output-placeholder .ph-ring {
+    width: 72px; height: 72px;
+    border: 2px dashed var(--border2);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+  }
+  .output-placeholder h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .output-placeholder p { font-size: 12px; line-height: 1.6; }
+
+  /* Output result — image left, caption+actions right */
+  .output-result { display: none; flex-direction: row; height: 100%; }
+  .output-result.visible { display: flex; }
+
+  /* Left: image column */
+  .res-image-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    border-right: 1px solid var(--border);
+  }
+  .output-image-wrap {
+    flex: 1;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    min-height: 0;
+  }
+  .output-image-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 8px;
+    object-fit: contain;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  }
+
+  /* Carousel slides strip — inside image col at bottom */
+  .slides-strip {
+    display: flex;
+    gap: 6px;
+    padding: 10px 16px;
+    border-top: 1px solid var(--border);
+    overflow-x: auto;
+    flex-shrink: 0;
+  }
+  .slide-thumb {
+    width: 52px;
+    height: 52px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: border-color 0.15s;
+    flex-shrink: 0;
+  }
+  .slide-thumb.active { border-color: var(--accent); }
+
+  /* Right: caption + actions sidebar */
+  .res-side {
+    width: 248px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 18px;
+    gap: 6px;
+    overflow-y: auto;
+    min-height: 0;
+  }
+  .res-side-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .res-side-label::after { content:''; flex:1; height:1px; background:var(--border); }
+  .res-side-label:first-child { margin-top: 0; }
+
+  .output-caption {
+    font-size: 12px;
+    line-height: 1.75;
+    color: var(--muted2);
+    white-space: pre-wrap;
+    background: var(--bg);
+    border-radius: 8px;
+    padding: 12px 14px;
+    flex: 1;
+    overflow-y: auto;
+    min-height: 80px;
+  }
+  .output-actions { display: flex; flex-direction: column; gap: 8px; }
+
+  /* Post to social button (inactive) */
+  .btn-social {
+    background: var(--bg);
+    color: var(--muted2);
+    border: 1.5px dashed var(--border2);
+    opacity: 0.75;
+    cursor: not-allowed;
+  }
+
+  /* ── Loading overlay (right panel) ── */
+  .output-loading {
+    display: none;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    text-align: center;
+  }
+  .spinner {
+    width: 40px; height: 40px;
+    border: 3px solid var(--border2);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
+    margin: 0 auto 20px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .output-loading h3 { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+  .output-loading p { font-size: 12px; color: var(--muted); }
+  .progress-pills {
+    display: flex;
+    gap: 6px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .p-pill {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    background: var(--bg);
+    color: var(--muted);
+    border: 1px solid var(--border);
+  }
+  .p-pill.active { background: var(--accent-dim); color: var(--accent); border-color: var(--accent); }
+
+  /* Error */
+  .output-error {
+    display: none;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    text-align: center;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .output-error p { font-size: 13px; color: #e04343; }
+
+  /* ── Sharp Group step flow ── */
+  .sg-steps { padding: 24px; overflow-y: auto; flex: 1; min-height: 0; }
+  .step { display: none; }
+  .step.visible { display: block; animation: fadeUp 0.2s ease; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .step-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  /* Mode choices */
+  .choices { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+  .choice {
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    border-radius: 11px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: all 0.14s;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .choice:hover { border-color: var(--border2); background: #fff; }
+  .choice.selected { border-color: var(--accent); background: var(--accent-dim); }
+  .choice .c-icon {
+    font-size: 18px;
+    width: 36px; height: 36px;
+    background: #fff;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+  }
+  .choice.selected .c-icon { border-color: var(--accent-glow); }
+  .choice .c-text .c-label { font-size: 13px; font-weight: 600; color: var(--text); }
+  .choice .c-text .c-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  /* Textarea */
+  .sg-textarea {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 13px;
+    color: var(--text);
+    resize: none;
+    outline: none;
+    min-height: 90px;
+    line-height: 1.6;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    margin-bottom: 16px;
+  }
+  .sg-textarea:focus {
+    border-color: var(--accent);
+    background: #fff;
+    box-shadow: 0 0 0 3px var(--accent-dim);
+  }
+  .sg-textarea::placeholder { color: var(--muted); }
+
+  /* BG choices */
+  .bg-choices { display: flex; gap: 8px; margin-bottom: 20px; }
+  .bg-choice {
+    flex: 1;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.14s;
+    background: var(--bg);
+  }
+  .bg-choice:hover { border-color: var(--border2); background: #fff; }
+  .bg-choice.selected { border-color: var(--accent); background: var(--accent-dim); }
+  .bg-swatch { width: 22px; height: 22px; border-radius: 5px; flex-shrink: 0; border: 1px solid rgba(0,0,0,0.08); }
+  .bg-choice .c-label { font-size: 13px; font-weight: 600; color: var(--text); }
+
+  /* Toggle btns */
+  .toggle-row { display: flex; gap: 6px; margin-bottom: 16px; }
+  .toggle-btn {
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1.5px solid var(--border);
+    background: var(--bg);
+    color: var(--muted2);
+    cursor: pointer;
+    transition: all 0.13s;
+  }
+  .toggle-btn:hover { border-color: var(--border2); color: var(--text); }
+  .toggle-btn.selected { border-color: var(--accent); background: var(--accent-dim); color: var(--accent); }
+
+  /* Single-line input */
+  .sg-input {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    border-radius: 9px;
+    padding: 10px 13px;
+    font-size: 13px;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.15s;
+    margin-bottom: 16px;
+  }
+  .sg-input:focus { border-color: var(--accent); background: #fff; box-shadow: 0 0 0 3px var(--accent-dim); }
+  .sg-input::placeholder { color: var(--muted); }
+
+  /* Summary */
+  .summary-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .summary-row {
+    display: flex;
+    gap: 10px;
+    font-size: 12px;
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .summary-row:last-child { border-bottom: none; }
+  .summary-row .sr-key { color: var(--muted); width: 100px; flex-shrink: 0; font-weight: 500; }
+  .summary-row .sr-val { color: var(--text); font-weight: 600; }
+
+  .step-actions { display: flex; gap: 8px; align-items: center; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-left">
+      <h1>Create <span>Post</span></h1>
+      <p>Fill in the details on the left, see the result on the right.</p>
+    </div>
+  </div>
+
+  <!-- Tab bar -->
+  <div class="tab-bar">
+    <button class="tab-btn {% if tab == 'normal' %}active{% endif %}" onclick="switchTab('normal', this)">Normal</button>
+    <button class="tab-btn {% if tab == 'carousel' %}active{% endif %}" onclick="switchTab('carousel', this)">Carousel</button>
+    <button class="tab-btn {% if tab == 'story' %}active{% endif %}" onclick="switchTab('story', this)">Story</button>
+  </div>
+
+
+  {# ════════════════════════════════ SHARP GROUP ════════════════════════════════ #}
+  {% if biz.id == 'sharp_group' %}
+
+  <div id="tab-normal" class="tab-panel {% if tab == 'normal' %}active{% endif %}">
+    <div class="create-workspace">
+
+      <!-- LEFT: Step flow -->
+      <div class="form-panel">
+        <div class="sg-steps">
+
+          <div id="step-0" class="step visible">
+            <div class="step-label">01 — Zgjidh mënyrën</div>
+            <div class="choices">
+              <div class="choice" onclick="selectMode('ai', this)">
+                <div class="c-icon">⚡</div>
+                <div class="c-text">
+                  <div class="c-label">AI Auto</div>
+                  <div class="c-sub">Lë AI të vendosë temën plotësisht</div>
+                </div>
+              </div>
+              <div class="choice" onclick="selectMode('topic', this)">
+                <div class="c-icon">💡</div>
+                <div class="c-text">
+                  <div class="c-label">Me Temë</div>
+                  <div class="c-sub">Ti jep temën, AI bën pjesën tjetër</div>
+                </div>
+              </div>
+              <div class="choice" onclick="selectMode('text', this)">
+                <div class="c-icon">✍️</div>
+                <div class="c-text">
+                  <div class="c-label">Tekst Direkt</div>
+                  <div class="c-sub">Shkruaj vetë tekstin e postit</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="step-1" class="step">
+            <div class="step-label" id="step1-label">02 — Shkruaj temën</div>
+            <textarea class="sg-textarea" id="user-text" rows="3"
+              placeholder="Shkruaj këtu..."
+              oninput="this.style.height='auto';this.style.height=this.scrollHeight+'px'"></textarea>
+            <div class="step-actions">
+              <button class="btn btn-primary" onclick="goStep2()">Vazhdo</button>
+              <button class="btn btn-secondary btn-sm" onclick="backTo(0)">Mbrapa</button>
+            </div>
+          </div>
+
+          <div id="step-2" class="step">
+            <div class="step-label">03 — Sfond i postit</div>
+            <div class="bg-choices">
+              <div class="bg-choice selected" id="bg-white" onclick="selectBg('white', this)">
+                <div class="bg-swatch" style="background:#f9f9f9"></div>
+                <div class="c-label">E Bardhë</div>
+              </div>
+              <div class="bg-choice" id="bg-orange" onclick="selectBg('orange', this)">
+                <div class="bg-swatch" style="background:#FF680B"></div>
+                <div class="c-label">Portokalli</div>
+              </div>
+            </div>
+            <div class="step-actions">
+              <button class="btn btn-primary" onclick="goStep3()">Vazhdo</button>
+              <button class="btn btn-secondary btn-sm" id="back-from-2" onclick="backTo(0)">Mbrapa</button>
+            </div>
+          </div>
+
+          <div id="step-3" class="step">
+            <div class="step-label">04 — CTA</div>
+            <div class="toggle-row">
+              <button class="toggle-btn" id="cta-yes" onclick="selectCta(true)">Po, shto buton</button>
+              <button class="toggle-btn selected" id="cta-no" onclick="selectCta(false)">Jo</button>
+            </div>
+            <div id="cta-input-wrap" style="display:none">
+              <input type="text" class="sg-input" id="cta-text" placeholder="p.sh. Kontakto Tani" maxlength="32">
+            </div>
+            <div class="step-actions">
+              <button class="btn btn-primary" onclick="showSummary()">Vazhdo</button>
+              <button class="btn btn-secondary btn-sm" onclick="backTo(2)">Mbrapa</button>
+            </div>
+          </div>
+
+          <div id="step-4" class="step">
+            <div class="step-label">05 — Konfirmo & Gjenero</div>
+            <div class="summary-card">
+              <div class="summary-row"><span class="sr-key">Mënyra</span><span class="sr-val" id="sum-mode">—</span></div>
+              <div class="summary-row"><span class="sr-key">Input</span><span class="sr-val" id="sum-input">—</span></div>
+              <div class="summary-row"><span class="sr-key">Sfond</span><span class="sr-val" id="sum-bg">—</span></div>
+              <div class="summary-row"><span class="sr-key">CTA</span><span class="sr-val" id="sum-cta">—</span></div>
+            </div>
+            <div class="step-actions">
+              <button class="btn btn-primary" onclick="startGenerate()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                Gjenero 3 Variante
+              </button>
+              <button class="btn btn-secondary btn-sm" onclick="backTo(3)">Mbrapa</button>
+            </div>
+          </div>
+
+        </div><!-- /sg-steps -->
+      </div><!-- /form-panel -->
+
+      <!-- RIGHT: Status panel -->
+      <div class="output-panel" id="sg-output-panel">
+        <div class="output-placeholder" id="sg-placeholder">
+          <div class="ph-ring">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <h3>Gati për gjenerim</h3>
+          <p>Zgjidh mënyrën dhe konfigurimet<br>pastaj kliko Gjenero.</p>
+        </div>
+        <div class="output-loading" id="sg-loading">
+          <div class="spinner"></div>
+          <h3>Duke gjeneruar...</h3>
+          <p id="progress-text">Duke ndërtuar brief-in...</p>
+          <div class="progress-pills">
+            <span class="p-pill active" id="ps-brief">Brief</span>
+            <span class="p-pill" id="ps-prompts">Prompts</span>
+            <span class="p-pill" id="ps-images">Imazhet</span>
+            <span class="p-pill" id="ps-done">Finalizim</span>
+          </div>
+        </div>
+        <div class="output-error" id="sg-error">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#e04343" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <p id="error-msg">Ka ndodhur një gabim.</p>
+          <button class="btn btn-secondary btn-sm" onclick="resetSg()">Provo Përsëri</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="tab-carousel" class="tab-panel {% if tab == 'carousel' %}active{% endif %}">
+    <div class="coming-soon"><div class="cs-icon">🎠</div><h3>Carousel — Së Shpejti</h3><p>Gjenerimi i carousel me AI po zhvillohet.</p></div>
+  </div>
+  <div id="tab-story" class="tab-panel {% if tab == 'story' %}active{% endif %}">
+    <div class="coming-soon"><div class="cs-icon">📱</div><h3>Story — Së Shpejti</h3><p>Gjenerimi i story-ve me AI po zhvillohet.</p></div>
+  </div>
+
+  {% endif %}
+
+
+  {# ════════════════════════════════ VENTURA ════════════════════════════════ #}
+  {% if biz.id == 'ventura' %}
+
+  <!-- NORMAL POST -->
+  <div id="tab-normal" class="tab-panel {% if tab == 'normal' %}active{% endif %}">
+    <div class="create-workspace">
+
+      <!-- LEFT: Form -->
+      <div class="form-panel">
+        <form id="form-normal" onsubmit="vtSubmit(event,'normal')">
+          <div class="form-panel-inner">
+
+            <!-- 1. Image upload FIRST -->
+            <div class="form-section">
+              <div class="section-label">Imazhi i Sfondit</div>
+              <div class="upload-zone" id="uz-normal" onclick="document.getElementById('file-normal').click()">
+                <input type="file" id="file-normal" name="background" accept="image/*" required
+                  onchange="onFileSelect(this,'uz-normal','fn-normal','cnt-normal')">
+                <div class="uz-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                </div>
+                <div class="uz-label">Ngarko imazhin e sfondit</div>
+                <div class="uz-sub">JPG ose PNG · max 10MB</div>
+                <div class="uz-filename" id="fn-normal"></div>
+              </div>
+            </div>
+
+            <!-- 2. Hotel & Destination -->
+            <div class="form-section">
+              <div class="section-label">Hotel & Destinacion</div>
+              <div class="form-grid">
+                <div class="form-field">
+                  <label>Event Badge</label>
+                  <input type="text" name="event_badge" placeholder="SUPER OFERTA">
+                </div>
+                <div class="form-field">
+                  <label>Hotel Label</label>
+                  <input type="text" name="hotel_label" value="HOTEL">
+                </div>
+                <div class="form-field">
+                  <label>Emri i Hotelit *</label>
+                  <input type="text" name="hotel_name" required placeholder="Hotel Adriatik">
+                </div>
+                <div class="form-field">
+                  <label>Destinacion *</label>
+                  <input type="text" name="destination" required placeholder="Durrës">
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Package details -->
+            <div class="form-section">
+              <div class="section-label">Paketa</div>
+              <div class="form-grid">
+                <div class="form-field">
+                  <label>Netë</label>
+                  <input type="number" name="nights" value="7" min="1">
+                </div>
+                <div class="form-field">
+                  <label>Ditë</label>
+                  <input type="number" name="days" value="8" min="1">
+                </div>
+                <div class="form-field">
+                  <label>Muaji</label>
+                  <input type="text" name="month" placeholder="Korrik">
+                </div>
+                <div class="form-field">
+                  <label>Çmimi (€) *</label>
+                  <input type="text" name="price" required placeholder="299">
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. Services -->
+            <div class="form-section">
+              <div class="section-label">Shërbimet</div>
+              <div class="services-grid">
+                {% for s in services %}
+                <label class="svc-check">
+                  <input type="checkbox" name="services" value="{{ s }}">
+                  <span class="cb-box"></span>
+                  <span class="svc-label">{{ s }}</span>
+                </label>
+                {% endfor %}
+              </div>
+            </div>
+
+          </div><!-- /form-panel-inner -->
+          <div class="generate-row">
+            <button type="submit" class="btn btn-primary" id="btn-normal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              Gjenero Post
+            </button>
+            <span class="status-text" id="status-normal"></span>
+          </div>
+        </form>
+      </div>
+
+      <!-- RIGHT: Output -->
+      <div class="output-panel" id="panel-normal">
+        <div class="output-placeholder" id="ph-normal">
+          <div class="ph-ring">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+          <h3>Rezultati shfaqet këtu</h3>
+          <p>Ngarko imazhin, plotëso detajet<br>dhe kliko Gjenero Post.</p>
+        </div>
+        <div class="output-loading" id="load-normal">
+          <div class="spinner"></div>
+          <h3>Duke gjeneruar postin...</h3>
+          <p>Kjo zakonisht zgjat 5–10 sekonda.</p>
+        </div>
+        <div class="output-result" id="res-normal">
+          <div class="res-image-col">
+            <div class="output-image-wrap">
+              <img id="res-normal-img" src="" alt="Post">
+            </div>
+          </div>
+          <div class="res-side">
+            <div class="res-side-label">Caption</div>
+            <div class="output-caption" id="res-normal-caption"></div>
+            <div class="res-side-label">Shkarko</div>
+            <div class="output-actions" id="res-normal-actions"></div>
+            <div class="res-side-label">Publiko</div>
+            <button class="btn btn-social btn-sm" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              Post to Social
+            </button>
+          </div>
+        </div>
+        <div class="output-error" id="err-normal">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e04343" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <p id="err-normal-msg">Ka ndodhur një gabim.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- CAROUSEL -->
+  <div id="tab-carousel" class="tab-panel {% if tab == 'carousel' %}active{% endif %}">
+    <div class="create-workspace">
+
+      <div class="form-panel">
+        <form id="form-carousel" onsubmit="vtSubmit(event,'carousel')">
+          <div class="form-panel-inner">
+
+            <div class="form-section">
+              <div class="section-label">Imazhet e Sfondit</div>
+              <div class="upload-zone" id="uz-carousel" onclick="document.getElementById('file-carousel').click()">
+                <input type="file" id="file-carousel" name="backgrounds" accept="image/*" multiple required
+                  onchange="onMultiFileSelect(this,'uz-carousel','cnt-carousel')">
+                <div class="uz-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                </div>
+                <div class="uz-label">Ngarko imazhet (shumë)</div>
+                <div class="uz-sub">E para bëhet cover · JPG ose PNG</div>
+                <div class="upload-multi-count" id="cnt-carousel"></div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <div class="section-label">Hotel & Destinacion</div>
+              <div class="form-grid">
+                <div class="form-field">
+                  <label>Event Badge</label>
+                  <input type="text" name="event_badge" placeholder="SUPER OFERTA">
+                </div>
+                <div class="form-field">
+                  <label>Hotel Label</label>
+                  <input type="text" name="hotel_label" value="HOTEL">
+                </div>
+                <div class="form-field">
+                  <label>Emri i Hotelit *</label>
+                  <input type="text" name="hotel_name" required placeholder="Hotel Adriatik">
+                </div>
+                <div class="form-field">
+                  <label>Destinacion *</label>
+                  <input type="text" name="destination" required placeholder="Durrës">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <div class="section-label">Paketa & Datat</div>
+              <div class="form-grid three">
+                <div class="form-field">
+                  <label>Netë</label>
+                  <input type="number" name="nights" value="7" min="1">
+                </div>
+                <div class="form-field">
+                  <label>Ditë</label>
+                  <input type="number" name="days" value="8" min="1">
+                </div>
+                <div class="form-field">
+                  <label>Çmimi (€) *</label>
+                  <input type="text" name="price" required placeholder="299">
+                </div>
+              </div>
+              <div class="form-grid">
+                <div class="form-field">
+                  <label>Data e Nisjes</label>
+                  <input type="text" name="date_from" placeholder="01.07">
+                </div>
+                <div class="form-field">
+                  <label>Data e Kthimit</label>
+                  <input type="text" name="date_to" placeholder="08.07">
+                </div>
+                <div class="form-field">
+                  <label>Muaji</label>
+                  <input type="text" name="c_month" placeholder="Korrik">
+                </div>
+                <div class="form-field">
+                  <label>Sezoni</label>
+                  <input type="text" name="season_tag" value="VERA">
+                </div>
+                <div class="form-field">
+                  <label>Viti</label>
+                  <input type="text" name="year_tag" value="2026">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <div class="section-label">Shërbimet</div>
+              <div class="services-grid">
+                {% for s in services %}
+                <label class="svc-check">
+                  <input type="checkbox" name="c_services" value="{{ s }}">
+                  <span class="cb-box"></span>
+                  <span class="svc-label">{{ s }}</span>
+                </label>
+                {% endfor %}
+              </div>
+            </div>
+
+          </div>
+          <div class="generate-row">
+            <button type="submit" class="btn btn-primary" id="btn-carousel">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              Gjenero Carousel
+            </button>
+            <span class="status-text" id="status-carousel"></span>
+          </div>
+        </form>
+      </div>
+
+      <div class="output-panel" id="panel-carousel">
+        <div class="output-placeholder" id="ph-carousel">
+          <div class="ph-ring">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+          <h3>Carousel shfaqet këtu</h3>
+          <p>Ngarko imazhet dhe plotëso detajet.</p>
+        </div>
+        <div class="output-loading" id="load-carousel">
+          <div class="spinner"></div>
+          <h3>Duke gjeneruar carousel...</h3>
+          <p>Kjo mund të zgjasë 10–20 sekonda.</p>
+        </div>
+        <div class="output-result" id="res-carousel">
+          <div class="res-image-col">
+            <div class="output-image-wrap">
+              <img id="res-carousel-img" src="" alt="Carousel cover">
+            </div>
+            <div class="slides-strip" id="slides-strip" style="display:none"></div>
+          </div>
+          <div class="res-side">
+            <div class="res-side-label">Caption</div>
+            <div class="output-caption" id="res-carousel-caption"></div>
+            <div class="res-side-label">Shkarko</div>
+            <div class="output-actions" id="res-carousel-actions"></div>
+            <div class="res-side-label">Publiko</div>
+            <button class="btn btn-social btn-sm" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              Post to Social
+            </button>
+          </div>
+        </div>
+        <div class="output-error" id="err-carousel">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e04343" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <p id="err-carousel-msg">Ka ndodhur një gabim.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- STORY -->
+  <div id="tab-story" class="tab-panel {% if tab == 'story' %}active{% endif %}">
+    <div class="create-workspace">
+
+      <div class="form-panel">
+        <form id="form-story" onsubmit="vtSubmit(event,'story')">
+          <div class="form-panel-inner">
+
+            <div class="form-section">
+              <div class="section-label">Imazhi i Sfondit</div>
+              <div class="upload-zone" id="uz-story" onclick="document.getElementById('file-story').click()">
+                <input type="file" id="file-story" name="s_background" accept="image/*" required
+                  onchange="onFileSelect(this,'uz-story','fn-story','cnt-story')">
+                <div class="uz-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                </div>
+                <div class="uz-label">Ngarko imazhin (9:16)</div>
+                <div class="uz-sub">JPG ose PNG · Rekomandohet 9:16</div>
+                <div class="uz-filename" id="fn-story"></div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <div class="section-label">Detajet</div>
+              <div class="form-grid">
+                <div class="form-field">
+                  <label>Event Badge</label>
+                  <input type="text" name="s_event_badge" placeholder="SUPER OFERTA">
+                </div>
+                <div class="form-field">
+                  <label>Destinacion *</label>
+                  <input type="text" name="s_destination" required placeholder="Durrës">
+                </div>
+                <div class="form-field">
+                  <label>Çmimi (€) *</label>
+                  <input type="text" name="s_price" required placeholder="299">
+                </div>
+                <div class="form-field">
+                  <label>Template</label>
+                  <select name="s_template">
+                    <option value="turizem_story.html">Varianti 1</option>
+                    <option value="turizem_story_v2.html">Varianti 2</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <div class="section-label">Shërbimet</div>
+              <div class="services-grid">
+                {% for s in services %}
+                <label class="svc-check">
+                  <input type="checkbox" name="s_services" value="{{ s }}">
+                  <span class="cb-box"></span>
+                  <span class="svc-label">{{ s }}</span>
+                </label>
+                {% endfor %}
+              </div>
+            </div>
+
+          </div>
+          <div class="generate-row">
+            <button type="submit" class="btn btn-primary" id="btn-story">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              Gjenero Story
+            </button>
+            <span class="status-text" id="status-story"></span>
+          </div>
+        </form>
+      </div>
+
+      <div class="output-panel" id="panel-story">
+        <div class="output-placeholder" id="ph-story">
+          <div class="ph-ring">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+          <h3>Story shfaqet këtu</h3>
+          <p>Ngarko imazhin dhe plotëso detajet.</p>
+        </div>
+        <div class="output-loading" id="load-story">
+          <div class="spinner"></div>
+          <h3>Duke gjeneruar story...</h3>
+          <p>Kjo zakonisht zgjat 5–10 sekonda.</p>
+        </div>
+        <div class="output-result" id="res-story">
+          <div class="res-image-col">
+            <div class="output-image-wrap">
+              <img id="res-story-img" src="" alt="Story">
+            </div>
+          </div>
+          <div class="res-side">
+            <div class="res-side-label">Shkarko</div>
+            <div class="output-actions" id="res-story-actions"></div>
+            <div class="res-side-label">Publiko</div>
+            <button class="btn btn-social btn-sm" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              Post to Social
+            </button>
+          </div>
+        </div>
+        <div class="output-error" id="err-story">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e04343" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <p id="err-story-msg">Ka ndodhur një gabim.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  {% endif %}
+</div><!-- /page -->
+
+<script>
+/* ── Tab switching ── */
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  btn.classList.add('active');
+}
+
+/* ── File upload helpers ── */
+function onFileSelect(input, zoneId, fnId, cntId) {
+  const zone = document.getElementById(zoneId);
+  const fn   = document.getElementById(fnId);
+  if (input.files[0]) {
+    zone.classList.add('has-file');
+    fn.textContent = input.files[0].name;
+    fn.style.display = 'inline-block';
+  }
+}
+function onMultiFileSelect(input, zoneId, cntId) {
+  const zone = document.getElementById(zoneId);
+  const cnt  = document.getElementById(cntId);
+  if (input.files.length) {
+    zone.classList.add('has-file');
+    cnt.textContent = input.files.length + ' imazhe të zgjedhura';
+    cnt.style.display = 'block';
+  }
+}
+
+/* ── Panel state helpers ── */
+function showPanel(type, state) {
+  // state: 'placeholder' | 'loading' | 'result' | 'error'
+  const ids = {
+    placeholder: 'ph-'   + type,
+    loading:     'load-' + type,
+    result:      'res-'  + type,
+    error:       'err-'  + type,
+  };
+  Object.entries(ids).forEach(([name, id]) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const active = (name === state);
+    el.style.display = active ? 'flex' : 'none';
+    if (active) el.classList.add('visible');
+    else el.classList.remove('visible');
+  });
+}
+
+{% if biz.id == 'sharp_group' %}
+/* ── Sharp Group ── */
+let selectedMode = null, selectedBg = 'white', ctaEnabled = false;
+let currentJobId = null, pollInterval = null;
+
+function showStep(id) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('visible'));
+  document.getElementById(id).classList.add('visible');
+}
+function selectMode(mode, el) {
+  selectedMode = mode;
+  document.querySelectorAll('.choice').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  if (mode === 'ai') { goStep2(); return; }
+  const label = document.getElementById('step1-label');
+  label.textContent = mode === 'topic' ? '02 — Shkruaj temën' : '02 — Shkruaj tekstin';
+  document.getElementById('user-text').placeholder =
+    mode === 'topic' ? 'p.sh. Pse bizneset dështojnë pa marketing...' : 'Teksti që do shfaqet në imazh...';
+  showStep('step-1');
+}
+function goStep2() {
+  if (selectedMode !== 'ai' && !document.getElementById('user-text').value.trim()) {
+    document.getElementById('user-text').focus(); return;
+  }
+  showStep('step-2');
+}
+function backTo(n) { showStep('step-' + n); }
+function selectBg(color, el) {
+  selectedBg = color;
+  document.querySelectorAll('.bg-choice').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+}
+function goStep3() { showStep('step-3'); }
+function selectCta(yes) {
+  ctaEnabled = yes;
+  document.getElementById('cta-yes').classList.toggle('selected', yes);
+  document.getElementById('cta-no').classList.toggle('selected', !yes);
+  document.getElementById('cta-input-wrap').style.display = yes ? 'block' : 'none';
+}
+function showSummary() {
+  const ml = { ai: 'AI Auto', topic: 'Me Temë', text: 'Tekst Direkt' };
+  document.getElementById('sum-mode').textContent = ml[selectedMode] || '—';
+  const inp = document.getElementById('user-text').value.trim();
+  document.getElementById('sum-input').textContent = selectedMode === 'ai' ? '(automatik)' : (inp || '—');
+  document.getElementById('sum-bg').textContent = selectedBg === 'orange' ? 'Portokalli' : 'E Bardhë';
+  document.getElementById('sum-cta').textContent = ctaEnabled
+    ? (document.getElementById('cta-text').value.trim() || 'Po') : 'Jo';
+  showStep('step-4');
+}
+function startGenerate() {
+  document.getElementById('sg-placeholder').style.display = 'none';
+  document.getElementById('sg-loading').classList.add('visible');
+  document.getElementById('sg-error').classList.remove('visible');
+  const payload = {
+    mode: selectedMode,
+    input: document.getElementById('user-text').value.trim(),
+    bg_color: selectedBg,
+    cta_text: ctaEnabled ? document.getElementById('cta-text').value.trim() : '',
+  };
+  fetch('/api/sg/generate', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) })
+    .then(r => r.json())
+    .then(data => {
+      if (data.error) { showSgError(data.error); return; }
+      currentJobId = data.job_id;
+      pollStatus();
+    }).catch(e => showSgError(e.message));
+}
+function pollStatus() {
+  pollInterval = setInterval(() => {
+    fetch('/api/sg/status/' + currentJobId).then(r => r.json()).then(data => {
+      document.getElementById('progress-text').textContent = data.progress || '...';
+      const p = (data.progress || '').toLowerCase();
+      if (p.includes('prompt') || p.includes('brief')) document.getElementById('ps-prompts').classList.add('active');
+      if (p.includes('option') || p.includes('generat')) document.getElementById('ps-images').classList.add('active');
+      if (data.status === 'done') {
+        clearInterval(pollInterval);
+        document.getElementById('ps-done').classList.add('active');
+        setTimeout(() => { window.location.href = '/select/' + currentJobId; }, 400);
+      } else if (data.status === 'error') {
+        clearInterval(pollInterval);
+        showSgError(data.error || 'Gjenerimi dështoi.');
+      }
+    }).catch(e => { clearInterval(pollInterval); showSgError(e.message); });
+  }, 3000);
+}
+function showSgError(msg) {
+  document.getElementById('sg-loading').classList.remove('visible');
+  document.getElementById('error-msg').textContent = msg;
+  document.getElementById('sg-error').classList.add('visible');
+}
+function resetSg() {
+  document.getElementById('sg-error').classList.remove('visible');
+  document.getElementById('sg-placeholder').style.display = 'flex';
+  showStep('step-0');
+}
+{% endif %}
+
+{% if biz.id == 'ventura' %}
+/* ── Ventura ── */
+function vtSubmit(e, type) {
+  e.preventDefault();
+  const btn = document.getElementById('btn-' + type);
+  const status = document.getElementById('status-' + type);
+  btn.disabled = true;
+  const origLabel = btn.innerHTML;
+  btn.innerHTML = 'Duke gjeneruar...';
+  status.textContent = '';
+  showPanel(type, 'loading');
+
+  const fd = new FormData(e.target);
+  const urls = { normal:'/api/vt/generate', carousel:'/api/vt/generate_carousel', story:'/api/vt/generate_story' };
+
+  fetch(urls[type], { method:'POST', body:fd })
+    .then(r => r.json())
+    .then(data => {
+      btn.disabled = false;
+      btn.innerHTML = origLabel;
+      if (!data.success) {
+        showPanel(type, 'error');
+        const errEl = document.getElementById('err-' + type + '-msg');
+        if (errEl) errEl.textContent = data.error || 'Gabim i panjohur.';
+        return;
+      }
+      status.textContent = '✓ U gjenerua!';
+      status.style.color = 'var(--accent)';
+      showVtResult(type, data);
+    })
+    .catch(err => {
+      btn.disabled = false;
+      btn.innerHTML = origLabel;
+      showPanel(type, 'error');
+    });
+}
+
+function showVtResult(type, data) {
+  showPanel(type, 'result');
+  if (type === 'normal') {
+    document.getElementById('res-normal-img').src = data.image_url;
+    document.getElementById('res-normal-caption').textContent = data.caption || '';
+    document.getElementById('res-normal-actions').innerHTML =
+      `<a href="${data.image_url}" download="${data.filename}" class="btn btn-primary btn-sm" style="justify-content:center">↓ Shkarko Imazhin</a>
+       <a href="${data.caption_url}" download="${data.caption_filename}" class="btn btn-secondary btn-sm" style="justify-content:center">↓ Shkarko Caption</a>`;
+  } else if (type === 'carousel') {
+    const first = data.slides && data.slides[0];
+    if (first) document.getElementById('res-carousel-img').src = first.url;
+    if (data.slides && data.slides.length > 1) {
+      const strip = document.getElementById('slides-strip');
+      strip.style.display = 'flex';
+      strip.innerHTML = data.slides.map((s,i) =>
+        `<img src="${s.url}" class="slide-thumb${i===0?' active':''}" onclick="switchSlide(this,'${s.url}')">`
+      ).join('');
+    }
+    document.getElementById('res-carousel-caption').textContent = data.caption || '';
+    document.getElementById('res-carousel-actions').innerHTML =
+      `<a href="${data.zip_url}" download="${data.zip_filename}" class="btn btn-primary btn-sm" style="justify-content:center">↓ Shkarko ZIP</a>
+       <a href="${data.caption_url}" download="${data.caption_filename}" class="btn btn-secondary btn-sm" style="justify-content:center">↓ Shkarko Caption</a>`;
+  } else if (type === 'story') {
+    document.getElementById('res-story-img').src = data.image_url;
+    document.getElementById('res-story-actions').innerHTML =
+      `<a href="${data.image_url}" download="${data.filename}" class="btn btn-primary btn-sm" style="justify-content:center">↓ Shkarko Story</a>`;
+  }
+}
+
+function switchSlide(thumb, url) {
+  document.querySelectorAll('.slide-thumb').forEach(t => t.classList.remove('active'));
+  thumb.classList.add('active');
+  document.getElementById('res-carousel-img').src = url;
+}
+{% endif %}
+</script>
+{% endblock %}

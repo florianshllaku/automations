@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dead Code Audit — Content Automation Studio</title>
+  <style>
+    :root {
+      --accent: #123abc;
+      --accent-dim: rgba(18,58,188,0.07);
+      --bg: #f4f5f9;
+      --card: #ffffff;
+      --border: rgba(0,0,0,0.08);
+      --border2: rgba(0,0,0,0.14);
+      --text: #0d0d14;
+      --muted: #9a9ab0;
+      --muted2: #6a6a82;
+      --red: #e04343;
+      --red-dim: rgba(224,67,67,0.08);
+      --green: #1a9e6e;
+      --green-dim: rgba(26,158,110,0.08);
+      --yellow: #c97b00;
+      --yellow-dim: rgba(201,123,0,0.08);
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+    body { max-width: 1000px; margin: 0 auto; padding: 48px 32px 80px; }
+
+    h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 6px; }
+    h1 span { color: var(--accent); }
+    .subtitle { font-size: 14px; color: var(--muted); margin-bottom: 8px; }
+    .generated { font-size: 12px; color: var(--muted); margin-bottom: 40px; }
+
+    /* Summary chips */
+    .summary-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .chip {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 24px;
+      min-width: 130px;
+      gap: 4px;
+    }
+    .chip .num { font-size: 28px; font-weight: 800; letter-spacing: -1px; color: var(--accent); }
+    .chip .label { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; text-align: center; }
+
+    /* Section */
+    .section { margin-bottom: 40px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .section-header h2 { font-size: 16px; font-weight: 700; }
+    .tag {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 3px 9px;
+      border-radius: 20px;
+    }
+    .tag-red { background: var(--red-dim); color: var(--red); }
+    .tag-yellow { background: var(--yellow-dim); color: var(--yellow); }
+    .tag-green { background: var(--green-dim); color: var(--green); }
+
+    /* Table */
+    table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; font-size: 13px; }
+    thead { background: var(--bg); }
+    thead th { padding: 10px 16px; text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); border-bottom: 1px solid var(--border); }
+    tbody tr { border-bottom: 1px solid var(--border); }
+    tbody tr:last-child { border-bottom: none; }
+    tbody td { padding: 12px 16px; color: var(--muted2); line-height: 1.5; vertical-align: top; }
+    tbody td:first-child { font-family: 'Courier New', monospace; font-size: 12px; color: var(--text); font-weight: 600; white-space: nowrap; }
+    .pill {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .pill-red { background: var(--red-dim); color: var(--red); }
+    .pill-yellow { background: var(--yellow-dim); color: var(--yellow); }
+    .pill-gray { background: var(--bg); color: var(--muted2); border: 1px solid var(--border2); }
+
+    /* Active files */
+    .keep-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .keep-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+    }
+    .keep-item .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+    .keep-item code { font-size: 12px; font-weight: 600; color: var(--text); }
+    .keep-item span { color: var(--muted); font-size: 11px; }
+
+    hr { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+    .note { background: var(--yellow-dim); border: 1px solid rgba(201,123,0,0.2); border-radius: 10px; padding: 14px 18px; font-size: 13px; color: var(--yellow); margin-bottom: 24px; }
+  </style>
+</head>
+<body>
+
+  <h1>Dead Code Audit <span>Report</span></h1>
+  <p class="subtitle">Content Automation Studio — Full project cleanup scan</p>
+  <p class="generated">Generated: 2026-05-24 &nbsp;·&nbsp; Audited by Claude</p>
+
+  <!-- Summary chips -->
+  <div class="summary-row">
+    <div class="chip"><span class="num">3</span><span class="label">Dead Python Apps</span></div>
+    <div class="chip"><span class="num">3</span><span class="label">Dead Scripts</span></div>
+    <div class="chip"><span class="num">1</span><span class="label">Orphaned Module</span></div>
+    <div class="chip"><span class="num">13+</span><span class="label">Unused Templates</span></div>
+    <div class="chip"><span class="num">3</span><span class="label">Dead DB Functions</span></div>
+    <div class="chip"><span class="num">7</span><span class="label">Backup / Artifacts</span></div>
+  </div>
+
+  <div class="note">
+    ⚠️ Nothing has been deleted yet. This is a reference document. Delete only after confirming each item.
+  </div>
+
+
+  <!-- SECTION 1 -->
+  <div class="section">
+    <div class="section-header">
+      <h2>1. Dead Python Apps</h2>
+      <span class="tag tag-red">Delete</span>
+    </div>
+    <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">Standalone Flask apps replaced by the unified <code>main_app.py</code>. None are imported or launched by <code>launcher.py</code>.</p>
+    <table>
+      <thead>
+        <tr><th>File</th><th>Was Used For</th><th>Replaced By</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>web_app.py</td>
+          <td>Sharp Group content generation — standalone Flask app on port 5051, used old JSON file history, templates/ui/ folder</td>
+          <td>main_app.py (Sharp Group routes)</td>
+        </tr>
+        <tr>
+          <td>turizem_app.py</td>
+          <td>Ventura travel content generation — standalone Flask app on port 5050, old JSON history, turizem_web/templates/</td>
+          <td>main_app.py (Ventura routes)</td>
+        </tr>
+        <tr>
+          <td>post_uploader.py</td>
+          <td>Manual post upload utility — port 5050, wrote directly to history/sharp_group.json. Never integrated into main flow</td>
+          <td>main_app.py handles history via database</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- SECTION 2 -->
+  <div class="section">
+    <div class="section-header">
+      <h2>2. Dead Scripts</h2>
+      <span class="tag tag-red">Delete</span>
+    </div>
+    <table>
+      <thead>
+        <tr><th>File</th><th>What It Did</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>generator.py</td>
+          <td>CLI script with argparse for Sharp Group batch content generation — called Gemini for briefs + prompts, Fal.ai for images. Never imported by any app.</td>
+          <td><span class="pill pill-red">Replaced by web UI</span></td>
+        </tr>
+        <tr>
+          <td>render_story_variants.py</td>
+          <td>One-off test script to render all 10 story template variants side-by-side for visual testing. Not integrated into any route.</td>
+          <td><span class="pill pill-gray">One-off test</span></td>
+        </tr>
+        <tr>
+          <td>slim_db.py</td>
+          <td>One-time DB schema migration. Its own comments say "Run once — safe to delete afterwards." Migration already complete.</td>
+          <td><span class="pill pill-yellow">Migration done</span></td>
+        </tr>
+        <tr>
+          <td>migrate.py</td>
+          <td>One-time data migration from old tables (sg_posts, vt_posts) to new unified schema. Migration already complete.</td>
+          <td><span class="pill pill-yellow">Migration done</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- SECTION 3 -->
+  <div class="section">
+    <div class="section-header">
+      <h2>3. Orphaned Python Module</h2>
+      <span class="tag tag-red">Delete</span>
+    </div>
+    <table>
+      <thead>
+        <tr><th>File</th><th>Functions Defined</th><th>Why Dead</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>text_overlay.py</td>
+          <td>analyze_placement(), get_placement_options_gemini(), wrap_text(), draw_overlay(), overlay_text_and_logo()</td>
+          <td>Zero imports anywhere in the project. No route or renderer references this file. Completely orphaned.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- SECTION 4 -->
+  <div class="section">
+    <div class="section-header">
+      <h2>4. Orphaned Template Directories</h2>
+      <span class="tag tag-red">Delete</span>
+    </div>
+    <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">These entire folders were used only by the dead legacy apps above. Active app uses <code>templates/main/</code> exclusively.</p>
+    <table>
+      <thead>
+        <tr><th>Directory</th><th>Contents</th><th>Used By</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>templates/ui/</td>
+          <td>base.html, caption.html, create.html, dashboard.html, login.html, select.html (6 files)</td>
+          <td>Dead web_app.py only</td>
+        </tr>
+        <tr>
+          <td>turizem_web/templates/</td>
+          <td>index.html, login.html</td>
+          <td>Dead turizem_app.py only</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- SECTION 5 -->
+  <div class="section">
+    <div class="section-header">
+      <h2>5. Unused Template Files</h2>
+      <span class="tag tag-red">Delete</span>
+    </div>
+    <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">Individual template files that are never rendered by any active route.</p>
+    <table>
+      <thead>
+        <tr><th>File</th><th>Reason Unused</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>templates/turizem_story_v1.html</td>
+          <td>main_app.py whitelists only turizem_story.html (v1 canonical) and turizem_story_v2.html. This separate v1 file is never served.</td>
+        </tr>
+        <tr>
+          <td>templates/turizem_story_v3.html</td>
+          <td rowspan="8" style="vertical-align:middle;">All v3–v10 variants were created for visual testing via the dead render_story_variants.py script. No active route can serve them — app enforces whitelist: only v1 (canonical) and v2.</td>
+        </tr>
+        <tr><td>templates/turizem_story_v4.html</td></tr>
+        <tr><td>templates/turizem_story_v5.html</td></tr>
+        <tr><td>templates/turizem_story_v6.html</td></tr>
+        <tr><td>templates/turizem_story_v7.html</td></tr>
+        <tr><td>templates/turizem_story_v8.html</td></tr>
+        <tr><td>templates/turizem_story_v9.html</td></tr>
+        <tr><td>templates/turizem_story_v10.html</td></tr>
+        <tr>
+          <td>templates/text_only_dark.html</td>
+          <td>Not present in TEMPLATE_MAP in html_renderer.py. Zero references anywhere. Never rendered.</td>
+        </tr>
+        <tr>
+          <td>templates/text_only_light.html</td>
+          <td>Same as above — not in TEMPLATE_MAP, never rendered.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- SECTION 6 -->
+  <div class="section">
+    <div class="section-header">
+      <h2>6. Unused Database Functions</h2>
+      <span class="tag tag-yellow">Remove (low risk)</span>
+    </div>
+    <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">Functions defined in <code>database.py</code> that are never called or imported by <code>main_app.py</code> or any active code.</p>
+    <table>
+      <thead>
+        <tr><th>Function</th><th>File</th><th>Why Dead</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>update_password(user_id, new_password)</td>
+          <td>database.py</td>
+          <td>No password change route exists anywhere. Defined but never called.</td>
+        </tr>
+        <tr>
+          <td>get_post(post_id)</td>
+          <td>database.py</td>
+          <td>Never imported by main_app.py. Only get_posts() (plural) is used for fetching posts.</td>
+        </tr>
+        <tr>
+          <td>get_captions(post_id)</td>
+          <td>database.py</td>
+          <td>Never imported externally. Captions are fetched internally via _get_captions() within database.py itself.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- SECTION 7 -->
+  <div class="section">
+    <div class="section-header">
+      <h2>7. Backup &amp; Artifact Files</h2>
+      <span class="tag tag-gray" style="background:var(--bg); color:var(--muted2); border:1px solid var(--border2); font-size:10px; font-weight:700; padding:3px 9px; border-radius:20px; text-transform:uppercase; letter-spacing:0.5px;">Optional</span>
+    </div>
+    <table>
+      <thead>
+        <tr><th>File</th><th>Type</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>history/sharp_group.json.bak</td>
+          <td><span class="pill pill-gray">Backup</span></td>
+          <td>Pre-migration backup of Sharp Group JSON history. Safe to delete once confirmed all data is in studio.db.</td>
+        </tr>
+        <tr>
+          <td>history/turizem.json.bak</td>
+          <td><span class="pill pill-gray">Backup</span></td>
+          <td>Pre-migration backup of Ventura/Turizem JSON history. Same as above.</td>
+        </tr>
+        <tr>
+          <td>screenshot_create.png</td>
+          <td><span class="pill pill-gray">Screenshot</span></td>
+          <td rowspan="4">Documentation screenshots. Not part of source code. Safe to delete or move to a separate docs folder.</td>
+        </tr>
+        <tr><td>screenshot_form.png</td><td><span class="pill pill-gray">Screenshot</span></td></tr>
+        <tr><td>screenshot_now.png</td><td><span class="pill pill-gray">Screenshot</span></td></tr>
+        <tr><td>screenshot_ventura.png</td><td><span class="pill pill-gray">Screenshot</span></td></tr>
+        <tr>
+          <td>server.log</td>
+          <td><span class="pill pill-gray">Log</span></td>
+          <td>Runtime log file. Can be deleted or gitignored.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr>
+
+  <!-- KEEP section -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Active Files — Keep Everything Below</h2>
+      <span class="tag tag-green">Active</span>
+    </div>
+    <div class="keep-grid">
+      <div class="keep-item"><div class="dot"></div><div><code>launcher.py</code><br><span>Entry point</span></div></div>
+      <div class="keep-item"><div class="dot"></div><div><code>main_app.py</code><br><span>Unified Flask app — all routes</span></div></div>
+      <div class="keep-item"><div class="dot"></div><div><code>database.py</code><br><span>SQLite layer (remove 3 dead functions only)</span></div></div>
+      <div class="keep-item"><div class="dot"></div><div><code>config.py</code><br><span>App configuration</span></div></div>
+      <div class="keep-item"><div class="dot"></div><div><code>content_brain.py</code><br><span>AI content generation logic</span></div></div>
+      <div class="keep-item"><div class="dot"></div><div><code>fal_image_gen.py</code><br><span>Fal.ai image generation</span></div></div>
+      <div class="keep-item"><div class="dot"></div><div><code>html_renderer.py</code><br><span>Sharp Group post renderer</span></div></div>
+      <div class="keep-item"><div class="dot"></div><div><code>turizem_renderer.py</code><br><span>Ventura normal post renderer</span></div></div>
+      <div class="keep-item"><div class="dot"></div><div><code>turizem_carousel_renderer.py</code><br><span>Ventura carousel renderer</span></div></div>
+      <div class="keep-item"><div class="dot"></div><div><code>turizem_story_renderer.py</code><br><span>Ventura story renderer</span></div></div>
+      <div class="keep-item"><div class="dot"></div><div><code>utils.py</code><br><span>Shared utilities</span></div></div>
+      <div class="keep-item"><div class="dot"></div><div><code>templates/main/</code><br><span>All active UI templates</span></div></div>
+      <div class="keep-item"><div class="dot"></div><div><code>templates/sharp_group.html</code><br><span>Sharp Group white bg template</span></div></div>
+      <div class="keep-item"><div class="dot"></div><div><code>templates/sharp_group_orange.html</code><br><span>Sharp Group orange bg template</span></div></div>
+      <div class="keep-item"><div class="dot"></div><div><code>templates/turizem.html</code><br><span>Ventura normal post template</span></div></div>
+      <div class="keep-item"><div class="dot"></div><div><code>templates/turizem_carousel_*.html</code><br><span>Carousel cover + slide templates</span></div></div>
+      <div class="keep-item"><div class="dot"></div><div><code>templates/turizem_story.html</code><br><span>Story Varianti 1 (canonical)</span></div></div>
+      <div class="keep-item"><div class="dot"></div><div><code>templates/turizem_story_v2.html</code><br><span>Story Varianti 2</span></div></div>
+      <div class="keep-item"><div class="dot"></div><div><code>assets/</code><br><span>Brand assets, fonts, logos</span></div></div>
+      <div class="keep-item"><div class="dot"></div><div><code>studio.db</code><br><span>Active SQLite database</span></div></div>
+    </div>
+  </div>
+
+</body>
+</html>

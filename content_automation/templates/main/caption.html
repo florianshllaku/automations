@@ -1,0 +1,308 @@
+{% extends "base.html" %}
+{% block title %}Caption — Sharp Group{% endblock %}
+
+{% block head %}
+<style>
+  .caption-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+  @media (max-width: 800px) {
+    .caption-layout { grid-template-columns: 1fr; }
+  }
+
+  /* Left: image preview */
+  .preview-col {
+    position: sticky;
+    top: 24px;
+  }
+  .preview-img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: var(--r);
+    overflow: hidden;
+    background: var(--card);
+    border: 1px solid var(--border);
+  }
+  .preview-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .preview-meta { margin-top: 14px; display: flex; flex-direction: column; gap: 6px; }
+
+  /* Right: caption options */
+  .caption-col {}
+
+  .caption-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+  .caption-opt {
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: var(--r);
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: all 0.15s;
+    position: relative;
+  }
+  .caption-opt:hover { border-color: var(--border2); }
+  .caption-opt.selected { border-color: var(--accent); background: var(--accent-dim); }
+  .caption-opt .opt-num {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .caption-opt .opt-text {
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--text);
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .caption-opt.selected .opt-text { color: var(--text); }
+  .check-icon {
+    position: absolute;
+    top: 14px; right: 14px;
+    width: 18px; height: 18px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+  .caption-opt.selected .check-icon { display: flex; }
+
+  /* Loading state for captions */
+  .captions-loading {
+    text-align: center;
+    padding: 32px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .captions-loading .mini-spinner {
+    width: 24px; height: 24px;
+    border: 2px solid var(--border2);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    margin: 0 auto 12px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Edit textarea */
+  .edit-section { margin-bottom: 20px; }
+  .edit-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .caption-edit {
+    width: 100%;
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: var(--r);
+    padding: 14px 16px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text);
+    resize: vertical;
+    min-height: 200px;
+    outline: none;
+    transition: border-color 0.2s;
+    white-space: pre-wrap;
+  }
+  .caption-edit:focus { border-color: var(--accent); }
+
+  .char-count {
+    font-size: 11px;
+    color: var(--muted);
+    text-align: right;
+    margin-top: 6px;
+  }
+  .char-count.warn { color: #f0a500; }
+  .char-count.over { color: #ff6b6b; }
+
+  /* Save actions */
+  .save-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .save-success {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #4caf82;
+    font-weight: 600;
+  }
+  .save-success.visible { display: flex; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-left">
+      <h1>Edito <span>Caption</span></h1>
+      <p>Zgjidh ose personalizo caption-in para se të ruash postin.</p>
+    </div>
+    <a href="/select/{{ job_id }}" class="btn btn-secondary btn-sm">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Mbrapa
+    </a>
+  </div>
+
+  <div class="caption-layout">
+    <!-- Left: preview -->
+    <div class="preview-col">
+      <div class="preview-img">
+        {% if img_url %}
+          <img src="{{ img_url }}" alt="Post preview">
+        {% endif %}
+      </div>
+      <div class="preview-meta">
+        <span class="badge">{{ option.post_type or 'post' }}</span>
+        {% if option.bg_color %}
+        <span class="badge badge-neutral">{{ 'Sfond Portokalli' if option.bg_color == 'orange' else 'Sfond Bardhë' }}</span>
+        {% endif %}
+        {% if option.label %}
+        <span class="badge badge-neutral">{{ option.label }}</span>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Right: caption editor -->
+    <div class="caption-col">
+
+      <!-- Caption options section -->
+      <div style="margin-bottom:20px">
+        <div class="edit-label">Zgjidh Caption (AI-gjeneruar)</div>
+
+        <div id="captions-loading" class="captions-loading">
+          <div class="mini-spinner"></div>
+          Duke gjeneruar 3 caption...
+        </div>
+
+        <div id="captions-wrap" class="caption-options" style="display:none"></div>
+      </div>
+
+      <!-- Edit section -->
+      <div class="edit-section">
+        <div class="edit-label">Edito Caption</div>
+        <textarea class="caption-edit" id="caption-edit"
+          oninput="updateCharCount()"
+          placeholder="Caption-i do të shfaqet këtu pasi të zgjidhni...">{{ option.caption or '' }}</textarea>
+        <div class="char-count" id="char-count">0 karaktere</div>
+      </div>
+
+      <!-- Save -->
+      <div class="save-row">
+        <button class="btn btn-primary" id="save-btn" onclick="savePost()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13"/><polyline points="7 3 7 8 15 8"/></svg>
+          Ruaj Postin
+        </button>
+        <div class="save-success" id="save-success">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          U ruajt! Duke të çuar tek Dashboard...
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const JOB_ID     = "{{ job_id }}";
+const OPTION_IDX = {{ option_idx }};
+let selectedCaption = null;
+
+/* Load captions on page load */
+window.addEventListener('DOMContentLoaded', () => {
+  updateCharCount();
+  fetchCaptions();
+});
+
+function fetchCaptions() {
+  fetch('/api/sg/captions', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ job_id: JOB_ID, option_idx: OPTION_IDX }),
+  })
+  .then(r => r.json())
+  .then(data => {
+    document.getElementById('captions-loading').style.display = 'none';
+    const wrap = document.getElementById('captions-wrap');
+    wrap.style.display = 'flex';
+    if (data.captions) {
+      data.captions.forEach((cap, i) => {
+        const div = document.createElement('div');
+        div.className = 'caption-opt';
+        div.innerHTML = `
+          <div class="opt-num">Caption ${i + 1}</div>
+          <div class="opt-text">${cap.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>
+          <div class="check-icon">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+        `;
+        div.addEventListener('click', () => selectCaption(cap, div));
+        wrap.appendChild(div);
+      });
+    }
+  })
+  .catch(() => {
+    document.getElementById('captions-loading').textContent = 'Nuk mund të gjeneroheshin captiont.';
+  });
+}
+
+function selectCaption(text, el) {
+  selectedCaption = text;
+  document.querySelectorAll('.caption-opt').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('caption-edit').value = text;
+  updateCharCount();
+}
+
+function updateCharCount() {
+  const len = document.getElementById('caption-edit').value.length;
+  const el = document.getElementById('char-count');
+  el.textContent = len + ' karaktere';
+  el.className = 'char-count' + (len > 2200 ? ' over' : len > 1800 ? ' warn' : '');
+}
+
+function savePost() {
+  const caption = document.getElementById('caption-edit').value.trim();
+  const btn = document.getElementById('save-btn');
+  btn.disabled = true;
+  btn.textContent = 'Duke ruajtur...';
+
+  fetch('/api/sg/save', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ job_id: JOB_ID, option_idx: OPTION_IDX, caption }),
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data.success) {
+      btn.style.display = 'none';
+      document.getElementById('save-success').classList.add('visible');
+      setTimeout(() => { window.location.href = '/dashboard'; }, 1800);
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Ruaj Postin';
+      alert('Gabim: ' + (data.error || 'Nuk u ruajt.'));
+    }
+  })
+  .catch(e => {
+    btn.disabled = false;
+    btn.textContent = 'Ruaj Postin';
+    alert('Lidhja dështoi: ' + e.message);
+  });
+}
+</script>
+{% endblock %}

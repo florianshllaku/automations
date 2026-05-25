@@ -1,223 +1,23 @@
 [
   {
-    "id": "1908890654",
-    "type": "story",
-    "template": "turizem_story_v2.html",
-    "timestamp": "17 May 2026  13:35",
-    "event_badge": "",
-    "destination": "Belek",
-    "price": "234",
-    "services": [
-      "Bileta",
-      "Hoteli",
-      "Taksat"
-    ],
-    "filename": "story_1908890654.jpg",
-    "caption": "✨ Belek ✨\n\nHOTEL  Belek\n1 net / 1 ditë vetëm 234€ për person\n\n✅Transport deri tek Hoteli🏨\n\nNë çmim përfshihet:\n✅ Bileta\n✅ Hoteli\n✅ Taksat\n\n❗Verejtje: Bileta extra 20€ kthyese.\n• Pagesa bëhet përmes llogarisë bankare apo onefour ose në zyret tona.\n\n📍Na vizitoni:\n• Prishtinë (te sheshi Nena Tereze, perball kafes Corner)\n\n📞 Kontakt:\n038 / 232 323\n044 / 242 252 (Viber/WhatsApp)\n049 / 242 252\n\n\n📧 venturatravel@gmail.com\n🌐 venturatravel.net\n\nVentura Travel - Gjithmonë pranë jush! ❤️\n\n#venturatravel #belek #hotel #oferta #udhetime",
-    "caption_filename": "story_1908890654.txt"
-  },
-  {
-    "id": "36d3cc1393",
-    "type": "story",
-    "template": "turizem_story_v2.html",
-    "timestamp": "17 May 2026  13:35",
-    "event_badge": "",
-    "destination": "ANTALYAAAA",
-    "price": "234",
-    "services": [
-      "Bileta",
-      "Hoteli",
-      "Taksat"
-    ],
-    "filename": "story_36d3cc1393.jpg",
-    "caption": "✨ ANTALYAAAA ✨\n\nHOTEL  ANTALYAAAA\n1 net / 1 ditë vetëm 234€ për person\n\n✅Transport deri tek Hoteli🏨\n\nNë çmim përfshihet:\n✅ Bileta\n✅ Hoteli\n✅ Taksat\n\n❗Verejtje: Bileta extra 20€ kthyese.\n• Pagesa bëhet përmes llogarisë bankare apo onefour ose në zyret tona.\n\n📍Na vizitoni:\n• Prishtinë (te sheshi Nena Tereze, perball kafes Corner)\n\n📞 Kontakt:\n038 / 232 323\n044 / 242 252 (Viber/WhatsApp)\n049 / 242 252\n\n\n📧 venturatravel@gmail.com\n🌐 venturatravel.net\n\nVentura Travel - Gjithmonë pranë jush! ❤️\n\n#venturatravel #antalyaaaa #hotel #oferta #udhetime",
-    "caption_filename": "story_36d3cc1393.txt"
-  },
-  {
-    "id": "1a24d17c5b",
-    "type": "story",
-    "template": "turizem_story_v2.html",
-    "timestamp": "17 May 2026  13:24",
-    "event_badge": "",
-    "destination": "Antalya",
-    "price": "139",
+    "id": "2ce916b302",
+    "type": "post",
+    "timestamp": "23 May 2026  18:22",
+    "event_badge": "test",
+    "hotel_label": "HOTEL",
+    "hotel_name": "test",
+    "destination": "tet",
+    "days": "8",
+    "nights": "7",
     "services": [
       "Akomodimi",
       "Mëngjesi",
       "Dreka"
     ],
-    "filename": "story_1a24d17c5b.jpg",
-    "caption": "✨ Antalya ✨\n\nHOTEL  Antalya\n1 net / 1 ditë vetëm 139€ për person\n\n✅Transport deri tek Hoteli🏨\n\nNë çmim përfshihet:\n✅ Akomodimi\n✅ Mëngjesi\n✅ Dreka\n\n❗Verejtje: Bileta extra 20€ kthyese.\n• Pagesa bëhet përmes llogarisë bankare apo onefour ose në zyret tona.\n\n📍Na vizitoni:\n• Prishtinë (te sheshi Nena Tereze, perball kafes Corner)\n\n📞 Kontakt:\n038 / 232 323\n044 / 242 252 (Viber/WhatsApp)\n049 / 242 252\n\n\n📧 venturatravel@gmail.com\n🌐 venturatravel.net\n\nVentura Travel - Gjithmonë pranë jush! ❤️\n\n#venturatravel #antalya #hotel #oferta #udhetime",
-    "caption_filename": "story_1a24d17c5b.txt"
-  },
-  {
-    "id": "7773c9c9d2",
-    "type": "story",
-    "template": "turizem_story.html",
-    "timestamp": "17 May 2026  13:24",
-    "event_badge": "",
-    "destination": "Antalya",
-    "price": "139",
-    "services": [
-      "Akomodimi",
-      "Mëngjesi",
-      "Dreka"
-    ],
-    "filename": "story_7773c9c9d2.jpg",
-    "caption": "✨ Antalya ✨\n\nHOTEL  Antalya\n1 net / 1 ditë vetëm 139€ për person\n\n✅Transport deri tek Hoteli🏨\n\nNë çmim përfshihet:\n✅ Akomodimi\n✅ Mëngjesi\n✅ Dreka\n\n❗Verejtje: Bileta extra 20€ kthyese.\n• Pagesa bëhet përmes llogarisë bankare apo onefour ose në zyret tona.\n\n📍Na vizitoni:\n• Prishtinë (te sheshi Nena Tereze, perball kafes Corner)\n\n📞 Kontakt:\n038 / 232 323\n044 / 242 252 (Viber/WhatsApp)\n049 / 242 252\n\n\n📧 venturatravel@gmail.com\n🌐 venturatravel.net\n\nVentura Travel - Gjithmonë pranë jush! ❤️\n\n#venturatravel #antalya #hotel #oferta #udhetime",
-    "caption_filename": "story_7773c9c9d2.txt"
-  },
-  {
-    "id": "24f34e0c2b",
-    "type": "carousel",
-    "timestamp": "16 May 2026  15:36",
-    "event_badge": "OFERTA VEROR",
-    "hotel_label": "HOTEL",
-    "hotel_name": "Grand Prishtina",
-    "destination": "Belek",
-    "days": "2",
-    "nights": "3",
-    "price": "50",
-    "services": [],
-    "package_type": "",
-    "slides": [
-      "carousel_24f34e0c2b_01.jpg",
-      "carousel_24f34e0c2b_02.jpg",
-      "carousel_24f34e0c2b_03.jpg"
-    ],
-    "filename": "carousel_24f34e0c2b_01.jpg",
-    "caption": "✨ OFERTA VEROR ~ Belek ✨\n\nHOTEL  Grand Prishtina\n3 net / 2 ditë vetëm 50€ për person\n\n✅Transport deri tek Hoteli🏨\n\nNë çmim përfshihet:\n\n\n❗Verejtje: Bileta extra 20€ kthyese.\n• Pagesa bëhet përmes llogarisë bankare apo onefour ose në zyret tona.\n\n📍Na vizitoni:\n• Prishtinë (te sheshi Nena Tereze, perball kafes Corner)\n\n📞 Kontakt:\n038 / 232 323\n044 / 242 252 (Viber/WhatsApp)\n049 / 242 252\n\n\n📧 venturatravel@gmail.com\n🌐 venturatravel.net\n\nVentura Travel - Gjithmonë pranë jush! ❤️\n\n#venturatravel #belek #hotel #oferta #udhetime",
-    "caption_filename": "carousel_24f34e0c2b.txt",
-    "zip_filename": "carousel_24f34e0c2b.zip"
-  },
-  {
-    "id": "7441ef5980",
-    "type": "carousel",
-    "timestamp": "16 May 2026  15:12",
-    "event_badge": "tst",
-    "hotel_label": "HOTEL",
-    "hotel_name": "tes",
-    "destination": "sdfa",
-    "days": "2",
-    "nights": "2",
-    "price": "33",
-    "services": [
-      "Akomodimi",
-      "Mëngjesi"
-    ],
-    "package_type": "Akomodimi, Mëngjesi",
-    "slides": [
-      "carousel_7441ef5980_01.jpg"
-    ],
-    "filename": "carousel_7441ef5980_01.jpg",
-    "caption": "✨ tst ~ sdfa ✨\n\nHOTEL  tes\n2 net / 2 ditë vetëm 33€ për person\n\n✅Transport deri tek Hoteli🏨\n\nNë çmim përfshihet:\n✅ Akomodimi\n✅ Mëngjesi\n\n❗Verejtje: Bileta extra 20€ kthyese.\n• Pagesa bëhet përmes llogarisë bankare apo onefour ose në zyret tona.\n\n📍Na vizitoni:\n• Prishtinë (te sheshi Nena Tereze, perball kafes Corner)\n\n📞 Kontakt:\n038 / 232 323\n044 / 242 252 (Viber/WhatsApp)\n049 / 242 252\n\n\n📧 venturatravel@gmail.com\n🌐 venturatravel.net\n\nVentura Travel - Gjithmonë pranë jush! ❤️\n\n#venturatravel #sdfa #hotel #oferta #udhetime",
-    "caption_filename": "carousel_7441ef5980.txt",
-    "zip_filename": "carousel_7441ef5980.zip"
-  },
-  {
-    "id": "a69bd3c8b6",
-    "timestamp": "16 May 2026  09:35",
-    "event_badge": "test",
-    "hotel_label": "HOTEL",
-    "hotel_name": "test",
-    "destination": "test",
-    "days": "2",
-    "nights": "1",
-    "services": [
-      "Akomodimi",
-      "Mëngjesi",
-      "Dreka",
-      "Darka",
-      "Pije",
-      "Pishina"
-    ],
-    "package_type": "Akomodimi, Mëngjesi, Dreka, Darka, Pije, Pishina",
-    "price": "99",
-    "caption": "✨ test ~ test ✨\n\nHOTEL  test\n1 net / 2 ditë vetëm 99€ për person\n\n✅Transport deri tek Hoteli🏨\n\nNë çmim përfshihet:\n✅ Akomodimi\n✅ Mëngjesi\n✅ Dreka\n✅ Darka\n✅ Pije\n✅ Pishina\n\n❗Verejtje: Bileta extra 20€ kthyese.\n• Pagesa bëhet përmes llogarisë bankare apo onefour ose në zyret tona.\n\n📍Na vizitoni:\n• Prishtinë (te sheshi Nena Tereze, perball kafes Corner)\n\n📞 Kontakt:\n038 / 232 323\n044 / 242 252 (Viber/WhatsApp)\n049 / 242 252\n\n\n📧 venturatravel@gmail.com\n🌐 venturatravel.net\n\nVentura Travel - Gjithmonë pranë jush! ❤️\n\n#venturatravel #test #hotel #oferta #udhetime",
-    "filename": "post_a69bd3c8b6.jpg",
-    "caption_filename": "post_a69bd3c8b6.txt"
-  },
-  {
-    "id": "359a05b016",
-    "timestamp": "16 May 2026  09:34",
-    "event_badge": "test",
-    "hotel_label": "HOTEL",
-    "hotel_name": "test",
-    "destination": "test",
-    "days": "2",
-    "nights": "1",
-    "services": [
-      "Akomodimi",
-      "Mëngjesi",
-      "Dreka",
-      "Darka",
-      "Pije",
-      "Pishina",
-      "Transporti hotel-plazh-hotel"
-    ],
-    "package_type": "Akomodimi, Mëngjesi, Dreka, Darka, Pije, Pishina, Transporti hotel-plazh-hotel",
-    "price": "99",
-    "caption": "✨ test ~ test ✨\n\nHOTEL  test\n1 net / 2 ditë vetëm 99€ për person\n\n✅Transport deri tek Hoteli🏨\n\nNë çmim përfshihet:\n✅ Akomodimi\n✅ Mëngjesi\n✅ Dreka\n✅ Darka\n✅ Pije\n✅ Pishina\n✅ Transporti hotel-plazh-hotel\n\n❗Verejtje: Bileta extra 20€ kthyese.\n• Pagesa bëhet përmes llogarisë bankare apo onefour ose në zyret tona.\n\n📍Na vizitoni:\n• Prishtinë (te sheshi Nena Tereze, perball kafes Corner)\n\n📞 Kontakt:\n038 / 232 323\n044 / 242 252 (Viber/WhatsApp)\n049 / 242 252\n\n\n📧 venturatravel@gmail.com\n🌐 venturatravel.net\n\nVentura Travel - Gjithmonë pranë jush! ❤️\n\n#venturatravel #test #hotel #oferta #udhetime",
-    "filename": "post_359a05b016.jpg",
-    "caption_filename": "post_359a05b016.txt"
-  },
-  {
-    "id": "e0408cf9d3",
-    "timestamp": "15 May 2026  14:20",
-    "event_badge": "test",
-    "hotel_label": "HOTEL",
-    "hotel_name": "test",
-    "destination": "tset",
-    "days": "2",
-    "nights": "1",
-    "services": [
-      "Akomodimi",
-      "Mëngjesi",
-      "Dreka",
-      "Darka"
-    ],
-    "package_type": "Akomodimi, Mëngjesi, Dreka, Darka",
-    "price": "234",
-    "caption": "✨ test ~ tset ✨\n\nHOTEL  test\n1 net / 2 ditë vetëm 234€ për person\n\n✅Transport deri tek Hoteli🏨\n\nNë çmim përfshihet:\n✅ Akomodimi\n✅ Mëngjesi\n✅ Dreka\n✅ Darka\n\n❗Verejtje: Bileta extra 20€ kthyese.\n• Pagesa bëhet përmes llogarisë bankare apo onefour ose në zyret tona.\n\n📍Na vizitoni:\n• Prishtinë (te sheshi Nena Tereze, perball kafes Corner)\n\n📞 Kontakt:\n038 / 232 323\n044 / 242 252 (Viber/WhatsApp)\n049 / 242 252\n\n\n📧 venturatravel@gmail.com\n🌐 venturatravel.net\n\nVentura Travel - Gjithmonë pranë jush! ❤️\n\n#venturatravel #tset #hotel #oferta #udhetime",
-    "filename": "post_e0408cf9d3.jpg"
-  },
-  {
-    "id": "2b3a756d95",
-    "timestamp": "15 May 2026  13:34",
-    "event_badge": "tes",
-    "hotel_label": "HOTEL",
-    "hotel_name": "test",
-    "destination": "test",
-    "days": "2",
-    "nights": "1",
-    "package_type": "test",
-    "price": "5",
-    "filename": "post_2b3a756d95.jpg"
-  },
-  {
-    "id": "d2585c5a0f",
-    "timestamp": "15 May 2026  11:33",
-    "event_badge": "oferta verore",
-    "hotel_label": "HOTEL",
-    "hotel_name": "morina beach",
-    "destination": "shengjin",
-    "days": "2",
-    "nights": "1",
-    "package_type": "all inclusive",
-    "price": "50",
-    "filename": "post_d2585c5a0f.jpg"
-  },
-  {
-    "id": "098cbde693",
-    "timestamp": "14 May 2026  22:56",
-    "event_badge": "OFERTA E VERËS",
-    "hotel_label": "HOTEL",
-    "hotel_name": "Royal G Max",
-    "destination": "DURRËS",
-    "days": "2",
-    "nights": "1",
-    "package_type": "All Inclusive",
-    "price": "55",
-    "filename": "post_098cbde693.jpg"
+    "package_type": "Akomodimi, Mëngjesi, Dreka",
+    "price": "2",
+    "caption": "✨ test ~ tet (Maj) ✨\n\nHOTEL  test\n7 net / 8 ditë vetëm 2€ për person\n\n✅Transport deri tek Hoteli🏨\n\nNë çmim përfshihet:\n✅ Akomodimi\n✅ Mëngjesi\n✅ Dreka\n\n❗Verejtje: Bileta extra 20€ kthyese.\n• Pagesa bëhet përmes llogarisë bankare apo onefour ose në zyret tona.\n\n📍Na vizitoni:\n• Prishtinë (te sheshi Nena Tereze, perball kafes Corner)\n\n📞 Kontakt:\n038 / 232 323\n044 / 242 252 (Viber/WhatsApp)\n049 / 242 252\n\n\n📧 venturatravel@gmail.com\n🌐 venturatravel.net\n\nVentura Travel - Gjithmonë pranë jush! ❤️\n\n#venturatravel #tet #hotel #oferta #udhetime",
+    "filename": "post_2ce916b302.jpg",
+    "caption_filename": "post_2ce916b302.txt"
   }
 ]
